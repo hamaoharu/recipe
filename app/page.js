@@ -10,15 +10,16 @@ import { ROADMAPS, ALL_TAGS } from "./lib/roadmaps";
 function FeedContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  //機能に特化したオブジェクトを返す
   const q = searchParams.get("q") ?? "";
   const tagFilter = searchParams.get("tag") ?? "";
+  //検索ワードを取得
 
   const [sort, setSort] = useState("new");
   const [liked, setLiked] = useState({});
   const [bookmarked, setBookmarked] = useState({});
   const [userRoadmaps, setUserRoadmaps] = useState([]);
 
-  // Load user-created roadmaps from localStorage
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
