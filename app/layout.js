@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
+import ThemeWrapper from "./components/ThemeWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,15 +17,33 @@ export const metadata = {
   description: "技術学習ロードマップを投稿・共有・閲覧できるプラットフォーム",
 };
 
+const themeScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("recipe_theme");
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  } catch (e) {
+    document.documentElement.classList.add("dark");
+  }
+})();
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="ja"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-screen flex-col bg-[#0d1117] text-zinc-300">
-        <Header />
-        {children}
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="flex min-h-screen flex-col bg-white text-zinc-800 antialiased dark:bg-black dark:text-zinc-300">
+        <ThemeWrapper>{children}</ThemeWrapper>
       </body>
     </html>
   );

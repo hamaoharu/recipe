@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeProvider";
 
 const MOCK_USER = {
   id: "shogo",
@@ -12,6 +13,7 @@ const MOCK_USER = {
 
 export default function Header() {
   const router = useRouter();
+  const { theme, toggleTheme } = useTheme();
   const [q, setQ] = useState("");
   const [user, setUser] = useState(null);
 
@@ -40,10 +42,10 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex h-12 shrink-0 items-center gap-4 border-b border-zinc-800 bg-[#0d1117] px-6">
+    <header className="sticky top-0 z-50 flex h-12 shrink-0 items-center gap-4 border-b border-zinc-200 bg-white px-6 dark:border-zinc-800 dark:bg-black">
       <Link
         href="/"
-        className="shrink-0 font-mono text-[15px] font-bold tracking-tight text-zinc-100 hover:text-white"
+        className="shrink-0 font-mono text-[15px] font-bold tracking-tight text-zinc-900 hover:text-black dark:text-zinc-100 dark:hover:text-white"
       >
         recipe
       </Link>
@@ -54,14 +56,23 @@ export default function Header() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="ロードマップを検索..."
-          className="w-full rounded-sm border border-zinc-800 bg-zinc-900 px-3 py-1 text-[13px] text-zinc-300 placeholder:text-zinc-600 focus:border-zinc-600 focus:outline-none"
+          className="w-full rounded-sm border border-zinc-300 bg-zinc-50 px-3 py-1 text-[13px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600"
         />
       </form>
 
       <nav className="ml-auto flex items-center gap-4">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "ライトモードに切り替え" : "ダークモードに切り替え"}
+          className="rounded-sm border border-zinc-300 px-2 py-1 font-mono text-[12px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-500 dark:hover:border-zinc-500 dark:hover:text-zinc-300"
+        >
+          {theme === "dark" ? "☀" : "☽"}
+        </button>
+
         <Link
           href="/roadmap/new"
-          className="rounded-sm bg-zinc-100 px-3 py-1 text-[13px] font-medium text-zinc-900 transition-colors hover:bg-white"
+          className="rounded-sm bg-zinc-900 px-3 py-1 text-[13px] font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
         >
           投稿する
         </Link>
@@ -72,15 +83,15 @@ export default function Header() {
               href="/mypage"
               className="flex items-center gap-2 transition-opacity hover:opacity-70"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-700 font-mono text-[11px] font-bold text-zinc-200">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200">
                 {user.initial}
               </span>
-              <span className="text-[13px] text-zinc-400">{user.name}</span>
+              <span className="text-[13px] text-zinc-600 dark:text-zinc-400">{user.name}</span>
             </Link>
             <button
               type="button"
               onClick={handleLogout}
-              className="text-[12px] text-zinc-700 transition-colors hover:text-zinc-400"
+              className="text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-700 dark:hover:text-zinc-400"
             >
               ログアウト
             </button>
@@ -89,7 +100,7 @@ export default function Header() {
           <button
             type="button"
             onClick={handleLogin}
-            className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-200"
+            className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
           >
             ログイン
           </button>

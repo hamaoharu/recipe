@@ -261,11 +261,11 @@ const DETAILS = {
 function Connector() {
   return (
     <div className="flex flex-col items-center py-1">
-      <div className="h-5 w-px bg-zinc-700" />
-      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="text-zinc-700">
+      <div className="h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="text-zinc-500 dark:text-zinc-700">
         <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <div className="h-3 w-px bg-zinc-700" />
+      <div className="h-3 w-px bg-zinc-300 dark:bg-zinc-700" />
     </div>
   );
 }
@@ -280,20 +280,23 @@ function NodeBox({ node, selected, onClick }) {
         "rounded-sm px-3 py-3 text-left transition-colors duration-100",
         node.required ? "border" : "border border-dashed",
         isSelected
-          ? "border-zinc-300 bg-zinc-800"
+          ? "border-zinc-500 dark:border-zinc-400 bg-zinc-100 dark:bg-zinc-900"
           : node.required
-          ? "border-zinc-600 bg-zinc-900 hover:border-zinc-400 hover:bg-zinc-800"
-          : "border-zinc-700 bg-[#0d1117] hover:border-zinc-500 hover:bg-zinc-900",
+          ? "border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 hover:border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+          : "border-zinc-300/80 dark:border-zinc-800/80 bg-white dark:bg-black hover:border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:bg-zinc-950",
       ].join(" ")}
     >
       <div className="flex items-end justify-between gap-2">
         <p className={[
           "text-[13px] font-semibold leading-tight",
-          isSelected ? "text-zinc-100" : "text-zinc-300",
+          isSelected ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500",
         ].join(" ")}>
           {node.label}
         </p>
-        <p className="shrink-0 font-mono text-[10px] text-zinc-500">{node.days}日</p>
+        <p className={[
+          "shrink-0 font-mono text-[10px]",
+          isSelected ? "text-zinc-600 dark:text-zinc-400" : "text-zinc-500 dark:text-zinc-600",
+        ].join(" ")}>{node.days}日</p>
       </div>
     </button>
   );
@@ -302,7 +305,7 @@ function NodeBox({ node, selected, onClick }) {
 function DetailSection({ label, children }) {
   return (
     <section className="mt-8">
-      <h3 className="border-b border-zinc-800 pb-1.5 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+      <h3 className="border-b border-zinc-200 dark:border-zinc-800 pb-1.5 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
         {label}
       </h3>
       <div className="mt-4">{children}</div>
@@ -365,12 +368,12 @@ export default function RoadmapDetailPage({ params }) {
 
   return (
     <div
-      className="flex overflow-hidden bg-[#0d1117] text-zinc-300 antialiased"
+      className="flex overflow-hidden text-zinc-700 dark:text-zinc-300"
       style={{ height: "calc(100vh - 48px)" }}
       onClick={() => setSelected(null)}
     >
       {/* ── Left 60%: roadmap ── */}
-      <aside className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-800">
+      <aside className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto w-full max-w-2xl px-10 py-10">
 
           {/* Back + meta */}
@@ -378,7 +381,7 @@ export default function RoadmapDetailPage({ params }) {
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="font-mono text-[12px] text-zinc-600 transition-colors hover:text-zinc-300"
+                className="font-mono text-[12px] text-zinc-500 dark:text-zinc-600 transition-colors hover:text-zinc-700 dark:text-zinc-300"
               >
                 ← 一覧に戻る
               </Link>
@@ -396,7 +399,7 @@ export default function RoadmapDetailPage({ params }) {
                     <button
                       type="button"
                       onClick={(e) => { e.stopPropagation(); setDeleteConfirm(false); }}
-                      className="text-[12px] text-zinc-700 transition-colors hover:text-zinc-400"
+                      className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
                     >
                       キャンセル
                     </button>
@@ -405,7 +408,7 @@ export default function RoadmapDetailPage({ params }) {
                   <button
                     type="button"
                     onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
-                    className="font-mono text-[12px] text-zinc-700 transition-colors hover:text-red-700"
+                    className="font-mono text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-red-700"
                   >
                     削除
                   </button>
@@ -418,7 +421,7 @@ export default function RoadmapDetailPage({ params }) {
                 onClick={(e) => { e.stopPropagation(); setBookmarked((v) => !v); }}
                 className={[
                   "text-[13px] transition-colors",
-                  bookmarked ? "text-zinc-200" : "text-zinc-600 hover:text-zinc-400",
+                  bookmarked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
                 ].join(" ")}
                 title="ブックマーク"
               >
@@ -429,7 +432,7 @@ export default function RoadmapDetailPage({ params }) {
                 onClick={(e) => { e.stopPropagation(); setLiked((v) => !v); }}
                 className={[
                   "flex items-center gap-1 text-[13px] transition-colors",
-                  liked ? "text-zinc-200" : "text-zinc-600 hover:text-zinc-400",
+                  liked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
                 ].join(" ")}
                 title="いいね"
               >
@@ -441,44 +444,48 @@ export default function RoadmapDetailPage({ params }) {
 
           {/* Title + author */}
           <div className="mb-2">
-            <h1 className="text-[18px] font-bold tracking-tight text-zinc-100">
+            <h1 className="text-[18px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               {meta.title}
             </h1>
-            <div className="mt-2 flex items-center gap-2 text-[12px] text-zinc-600">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-800 font-mono text-[10px] font-bold text-zinc-400">
+            <div className="mt-2 flex items-center gap-2 text-[12px] text-zinc-500 dark:text-zinc-600">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 font-mono text-[10px] font-bold text-zinc-600 dark:text-zinc-400">
                 {meta.author.initial}
               </span>
               <span>{meta.author.name}</span>
               {meta.createdAt && (
                 <>
-                  <span className="text-zinc-800">·</span>
+                  <span className="text-zinc-400 dark:text-zinc-800">·</span>
                   <span>{meta.createdAt}</span>
                 </>
               )}
             </div>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {meta.tags.map((tag) => (
-                <span key={tag} className="rounded-sm border border-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-600">
+              {(meta.tags ?? []).map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/?tag=${encodeURIComponent(tag)}`}
+                  className="rounded-sm border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500 dark:text-zinc-600 transition-colors hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
+                >
                   #{tag}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* Days + legend */}
-          <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-900 pt-4">
+          <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-200 dark:border-zinc-900 pt-4">
             <div className="flex items-center gap-5">
               <span className="flex items-center gap-1.5 text-[11px] text-zinc-500">
-                <span className="inline-block h-2.5 w-2.5 rounded-[2px] border border-zinc-500" />
+                <span className="inline-block h-2.5 w-2.5 rounded-[2px] border border-zinc-400 dark:border-zinc-500" />
                 必須
               </span>
               <span className="flex items-center gap-1.5 text-[11px] text-zinc-500">
-                <span className="inline-block h-2.5 w-2.5 rounded-[2px] border border-dashed border-zinc-600" />
+                <span className="inline-block h-2.5 w-2.5 rounded-[2px] border border-dashed border-zinc-400 dark:border-zinc-600" />
                 任意
               </span>
             </div>
-            <p className="font-mono text-[12px] text-zinc-600">
-              <span className="text-zinc-400">{activeTotalDays} 日</span>
+            <p className="font-mono text-[12px] text-zinc-500 dark:text-zinc-600">
+              <span className="text-zinc-600 dark:text-zinc-400">{activeTotalDays} 日</span>
             </p>
           </div>
 
@@ -486,7 +493,7 @@ export default function RoadmapDetailPage({ params }) {
           {activeGroups.map((group, gi) => (
             <div key={group.id} className="flex flex-col items-center">
               {group.label && (
-                <p className="mb-2 self-start font-mono text-[10px] uppercase tracking-widest text-zinc-600">
+                <p className="mb-2 self-start font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
                   {group.label}
                 </p>
               )}
@@ -518,7 +525,7 @@ export default function RoadmapDetailPage({ params }) {
         {!selected ? (
           /* Overview */
           <div className="px-10 py-10">
-            <h2 className="text-[20px] font-bold tracking-tight text-zinc-100">
+            <h2 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               {meta.title}
             </h2>
             <p className="mt-4 text-[14px] leading-[1.85] text-zinc-500">
@@ -526,20 +533,20 @@ export default function RoadmapDetailPage({ params }) {
             </p>
 
             {/* Timeline bar chart */}
-            <div className="mt-8 rounded-sm border border-zinc-800 p-5">
-              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-600">
+            <div className="mt-8 rounded-sm border border-zinc-200 dark:border-zinc-800 p-5">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
                 全体スケジュール（必須ルート）
               </p>
               <div className="flex items-baseline gap-2">
-                <span className="font-mono text-[32px] font-bold leading-none text-zinc-100">
+                <span className="font-mono text-[32px] font-bold leading-none text-zinc-900 dark:text-zinc-100">
                   {activeTotalDays}
                 </span>
                 <span className="text-[13px] text-zinc-500">日</span>
-                <span className="ml-1 text-[13px] text-zinc-600">
+                <span className="ml-1 text-[13px] text-zinc-500 dark:text-zinc-600">
                   ≈ {Math.round(activeTotalDays / 30)} ヶ月
                 </span>
               </div>
-              <p className="mt-2 text-[12px] text-zinc-600">
+              <p className="mt-2 text-[12px] text-zinc-500 dark:text-zinc-600">
                 1〜2時間/日で学習した場合の目安。
               </p>
               <div className="mt-5 space-y-2">
@@ -556,10 +563,10 @@ export default function RoadmapDetailPage({ params }) {
                       </div>
                       <div className="flex flex-1 items-center gap-2">
                         <div
-                          className="h-1.5 rounded-full bg-zinc-700"
+                          className="h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"
                           style={{ width: `${activeTotalDays ? Math.round((total / activeTotalDays) * 100) : 0}%`, minWidth: "4px" }}
                         />
-                        <span className="shrink-0 font-mono text-[10px] text-zinc-600">
+                        <span className="shrink-0 font-mono text-[10px] text-zinc-500 dark:text-zinc-600">
                           {total}日
                         </span>
                       </div>
@@ -571,29 +578,29 @@ export default function RoadmapDetailPage({ params }) {
           </div>
         ) : (
           /* Node detail */
-          <article className="px-10 py-10 text-[15px] leading-[1.8] text-zinc-300">
-            <div className="flex items-baseline justify-between gap-4 border-b-2 border-zinc-700 pb-2">
-              <h2 className="text-[20px] font-bold tracking-tight text-zinc-100">
+          <article className="px-10 py-10 text-[15px] leading-[1.8] text-zinc-700 dark:text-zinc-300">
+            <div className="flex items-baseline justify-between gap-4 border-b-2 border-zinc-300 dark:border-zinc-700 pb-2">
+              <h2 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                 {activeDetails[selected]?.title ?? selected}
               </h2>
               {activeDetails[selected]?.days && (
                 <span className="shrink-0 font-mono text-[13px] text-zinc-500">
-                  {activeDetails[selected].days}<span className="ml-0.5 text-zinc-700">日</span>
+                  {activeDetails[selected].days}<span className="ml-0.5 text-zinc-500 dark:text-zinc-700">日</span>
                 </span>
               )}
             </div>
 
             {activeDetails[selected] ? (
               <>
-                <p className="mt-5 text-[14px] leading-[1.85] text-zinc-400">
+                <p className="mt-5 text-[14px] leading-[1.85] text-zinc-600 dark:text-zinc-400">
                   {activeDetails[selected].description}
                 </p>
 
                 <DetailSection label="推奨リソース">
                   <ul className="space-y-4">
                     {activeDetails[selected].resources.map((r, i) => (
-                      <li key={i} className="border-b border-zinc-900 pb-4 last:border-b-0 last:pb-0">
-                        <p className="text-[14px] font-semibold text-zinc-200">
+                      <li key={i} className="border-b border-zinc-200 dark:border-zinc-900 pb-4 last:border-b-0 last:pb-0">
+                        <p className="text-[14px] font-semibold text-zinc-800 dark:text-zinc-200">
                           {r.url ? (
                             <a href={r.url} target="_blank" rel="noopener noreferrer"
                               className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
@@ -610,8 +617,8 @@ export default function RoadmapDetailPage({ params }) {
                 <DetailSection label="クリア基準">
                   <ul className="space-y-3">
                     {activeDetails[selected].criteria.map((c, i) => (
-                      <li key={i} className="flex gap-3 text-[14px] leading-[1.75] text-zinc-400">
-                        <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-600">
+                      <li key={i} className="flex gap-3 text-[14px] leading-[1.75] text-zinc-600 dark:text-zinc-400">
+                        <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-600">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span>{typeof c === "string" ? c : c.text}</span>
@@ -621,7 +628,7 @@ export default function RoadmapDetailPage({ params }) {
                 </DetailSection>
               </>
             ) : (
-              <p className="mt-6 text-[14px] text-zinc-600">このノードの詳細は準備中です。</p>
+              <p className="mt-6 text-[14px] text-zinc-500 dark:text-zinc-600">このノードの詳細は準備中です。</p>
             )}
           </article>
         )}

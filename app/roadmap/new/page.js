@@ -29,8 +29,8 @@ function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, c
         "group relative rounded-sm border cursor-pointer transition-colors duration-100",
         node.required ? "border-solid" : "border-dashed",
         isSelected
-          ? "border-zinc-300 bg-zinc-800"
-          : "border-zinc-600 bg-zinc-900 hover:border-zinc-400 hover:bg-zinc-800/60",
+          ? "border-zinc-500 dark:border-zinc-400 bg-zinc-100 dark:bg-zinc-900"
+          : "border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 hover:border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900",
       ].join(" ")}
     >
       <div className="px-3 pt-3 pb-2">
@@ -40,12 +40,15 @@ function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, c
           onChange={(e) => onUpdate(node.id, "label", e.target.value)}
           onClick={(e) => e.stopPropagation()}
           placeholder="ノード名"
-          className="w-full bg-transparent text-[13px] font-semibold text-zinc-200 placeholder:text-zinc-600 focus:outline-none"
+          className={[
+            "w-full bg-transparent text-[13px] font-semibold placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:outline-none",
+            isSelected ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500",
+          ].join(" ")}
         />
         {/* Days + required */}
         <div className="mt-2 flex items-center justify-between">
           <label
-            className="flex items-center gap-1 text-[10px] text-zinc-600"
+            className="flex items-center gap-1 text-[10px] text-zinc-500 dark:text-zinc-600"
             onClick={(e) => e.stopPropagation()}
           >
             <input
@@ -63,16 +66,16 @@ function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, c
               onChange={(e) => onUpdate(node.id, "days", e.target.value)}
               placeholder="0"
               min="0"
-              className="w-10 bg-transparent text-right font-mono text-[11px] text-zinc-500 placeholder:text-zinc-700 focus:outline-none"
+              className="w-10 bg-transparent text-right font-mono text-[11px] text-zinc-500 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:outline-none"
             />
-            <span className="font-mono text-[10px] text-zinc-700">日</span>
+            <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-700">日</span>
           </div>
         </div>
       </div>
       {/* Detail indicator */}
       {(node.nodeDescription || node.resources[0]?.label || node.criteria[0]?.text) && (
-        <div className="border-t border-zinc-800 px-3 py-1">
-          <span className="text-[10px] text-zinc-700">詳細あり</span>
+        <div className="border-t border-zinc-200 dark:border-zinc-800 px-3 py-1">
+          <span className="text-[10px] text-zinc-500 dark:text-zinc-700">詳細あり</span>
         </div>
       )}
       {/* Remove */}
@@ -80,7 +83,7 @@ function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, c
         <button
           type="button"
           onClick={(e) => { e.stopPropagation(); onRemove(node.id); }}
-          className="absolute right-1 top-1 hidden text-[11px] text-zinc-700 hover:text-red-600 group-hover:block"
+          className="absolute right-1 top-1 hidden text-[11px] text-zinc-500 dark:text-zinc-700 hover:text-red-600 group-hover:block"
         >
           ✕
         </button>
@@ -93,35 +96,35 @@ function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, c
 function Connector() {
   return (
     <div className="flex flex-col items-center py-1">
-      <div className="h-4 w-px bg-zinc-700" />
-      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="text-zinc-700">
+      <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="text-zinc-500 dark:text-zinc-700">
         <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <div className="h-2 w-px bg-zinc-700" />
+      <div className="h-2 w-px bg-zinc-300 dark:bg-zinc-700" />
     </div>
   );
 }
 
 // ── Right: Node detail form ───────────────────────────────────────────────────
 function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUpdateResource, onAddCriterion, onRemoveCriterion, onUpdateCriterion }) {
-  const inputBase = "w-full rounded-sm border border-zinc-800 bg-[#0d1117] px-3 py-2 text-[13px] text-zinc-200 placeholder:text-zinc-600 focus:border-zinc-600 focus:outline-none";
-  const inputSm   = "rounded-sm border border-zinc-800 bg-[#0d1117] px-2 py-1.5 text-[12px] text-zinc-200 placeholder:text-zinc-600 focus:border-zinc-600 focus:outline-none";
+  const inputBase = "w-full rounded-sm border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black px-3 py-2 text-[13px] text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:border-zinc-400 dark:focus:border-zinc-600 focus:outline-none";
+  const inputSm   = "rounded-sm border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black px-2 py-1.5 text-[12px] text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:border-zinc-400 dark:focus:border-zinc-600 focus:outline-none";
 
   return (
     <div className="space-y-7">
       {/* Node title (readonly display) */}
       <div>
-        <p className="mb-0.5 font-mono text-[10px] uppercase tracking-widest text-zinc-600">
+        <p className="mb-0.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
           編集中のノード
         </p>
-        <p className="text-[16px] font-bold text-zinc-100">
-          {node.label || <span className="text-zinc-600">（タイトル未入力）</span>}
+        <p className="text-[16px] font-bold text-zinc-900 dark:text-zinc-100">
+          {node.label || <span className="text-zinc-500 dark:text-zinc-600">（タイトル未入力）</span>}
         </p>
       </div>
 
       {/* Description */}
       <div>
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-600">説明・思想</p>
+        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">説明・思想</p>
         <textarea
           value={node.nodeDescription}
           onChange={(e) => onUpdate("nodeDescription", e.target.value)}
@@ -133,10 +136,10 @@ function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUp
 
       {/* Resources */}
       <div>
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-600">推奨リソース</p>
+        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">推奨リソース</p>
         <div className="space-y-3">
           {node.resources.map((r, ri) => (
-            <div key={r.id} className="rounded-sm border border-zinc-800 p-3 space-y-2">
+            <div key={r.id} className="rounded-sm border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
               <div className="flex gap-2">
                 <input
                   value={r.label}
@@ -146,7 +149,7 @@ function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUp
                 />
                 {node.resources.length > 1 && (
                   <button type="button" onClick={() => onRemoveResource(r.id)}
-                    className="text-[12px] text-zinc-700 hover:text-red-600">✕</button>
+                    className="text-[12px] text-zinc-500 dark:text-zinc-700 hover:text-red-600">✕</button>
                 )}
               </div>
               <input
@@ -165,18 +168,18 @@ function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUp
           ))}
         </div>
         <button type="button" onClick={onAddResource}
-          className="mt-2 text-[12px] text-zinc-600 hover:text-zinc-300">
+          className="mt-2 text-[12px] text-zinc-500 dark:text-zinc-600 hover:text-zinc-700 dark:text-zinc-300">
           ＋ リソースを追加
         </button>
       </div>
 
       {/* Criteria */}
       <div>
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-600">クリア基準</p>
+        <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">クリア基準</p>
         <div className="space-y-2">
           {node.criteria.map((c, ci) => (
             <div key={c.id} className="flex items-start gap-2">
-              <span className="mt-2.5 shrink-0 font-mono text-[10px] text-zinc-700">
+              <span className="mt-2.5 shrink-0 font-mono text-[10px] text-zinc-500 dark:text-zinc-700">
                 {String(ci + 1).padStart(2, "0")}
               </span>
               <input
@@ -187,13 +190,13 @@ function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUp
               />
               {node.criteria.length > 1 && (
                 <button type="button" onClick={() => onRemoveCriterion(c.id)}
-                  className="mt-1.5 text-[12px] text-zinc-700 hover:text-red-600">✕</button>
+                  className="mt-1.5 text-[12px] text-zinc-500 dark:text-zinc-700 hover:text-red-600">✕</button>
               )}
             </div>
           ))}
         </div>
         <button type="button" onClick={onAddCriterion}
-          className="mt-2 text-[12px] text-zinc-600 hover:text-zinc-300">
+          className="mt-2 text-[12px] text-zinc-500 dark:text-zinc-600 hover:text-zinc-700 dark:text-zinc-300">
           ＋ 基準を追加
         </button>
       </div>
@@ -314,11 +317,11 @@ export default function NewRoadmapPage() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex overflow-hidden bg-[#0d1117] text-zinc-300 antialiased"
+      className="flex overflow-hidden text-zinc-700 dark:text-zinc-300"
       style={{ height: "calc(100vh - 48px)" }}
     >
       {/* ── Left: Visual roadmap editor ── */}
-      <div className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-800"
+      <div className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-200 dark:border-zinc-800"
         onClick={() => setSelectedNodeId(null)}>
         <div className="mx-auto w-full max-w-2xl px-10 py-10">
 
@@ -328,7 +331,7 @@ export default function NewRoadmapPage() {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="ロードマップのタイトル"
             className={[
-              "w-full bg-transparent text-[22px] font-bold tracking-tight text-zinc-100 placeholder:text-zinc-700 focus:outline-none",
+              "w-full bg-transparent text-[22px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:outline-none",
               errors.title ? "border-b border-red-900" : "",
             ].join(" ")}
             onClick={(e) => e.stopPropagation()}
@@ -341,17 +344,17 @@ export default function NewRoadmapPage() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="このロードマップの概要・目的を書いてください（右パネルの説明文になります）"
             rows={2}
-            className="mt-3 w-full resize-none bg-transparent text-[14px] leading-relaxed text-zinc-500 placeholder:text-zinc-700 focus:outline-none"
+            className="mt-3 w-full resize-none bg-transparent text-[14px] leading-relaxed text-zinc-500 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           />
 
           {/* Tags */}
           <div className="mt-3 flex flex-wrap items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
             {tags.map((t) => (
-              <span key={t} className="flex items-center gap-1 rounded-sm border border-zinc-800 px-1.5 py-0.5 font-mono text-[11px] text-zinc-500">
+              <span key={t} className="flex items-center gap-1 rounded-sm border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 font-mono text-[11px] text-zinc-500">
                 #{t}
                 <button type="button" onClick={() => setTags((p) => p.filter((x) => x !== t))}
-                  className="text-zinc-700 hover:text-zinc-300">×</button>
+                  className="text-zinc-500 dark:text-zinc-700 hover:text-zinc-700 dark:text-zinc-300">×</button>
               </span>
             ))}
             <input
@@ -359,22 +362,22 @@ export default function NewRoadmapPage() {
               onChange={(e) => setTagInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addTag(); } }}
               placeholder="＋ タグを追加"
-              className="bg-transparent font-mono text-[11px] text-zinc-600 placeholder:text-zinc-700 focus:text-zinc-300 focus:outline-none w-24"
+              className="bg-transparent font-mono text-[11px] text-zinc-500 dark:text-zinc-600 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:text-zinc-700 dark:text-zinc-300 focus:outline-none w-24"
             />
           </div>
 
           {/* Days summary */}
-          <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-900 pt-3">
-            <div className="flex items-center gap-4 text-[11px] text-zinc-600">
+          <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-200 dark:border-zinc-900 pt-3">
+            <div className="flex items-center gap-4 text-[11px] text-zinc-500 dark:text-zinc-600">
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-[2px] border border-zinc-500" />必須
+                <span className="inline-block h-2 w-2 rounded-[2px] border border-zinc-400 dark:border-zinc-500" />必須
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-[2px] border border-dashed border-zinc-600" />任意
+                <span className="inline-block h-2 w-2 rounded-[2px] border border-dashed border-zinc-400 dark:border-zinc-600" />任意
               </span>
             </div>
-            <p className="font-mono text-[12px] text-zinc-600">
-              必須合計 <span className="text-zinc-400">{totalDays}日</span>
+            <p className="font-mono text-[12px] text-zinc-500 dark:text-zinc-600">
+              必須合計 <span className="text-zinc-600 dark:text-zinc-400">{totalDays}日</span>
             </p>
           </div>
 
@@ -389,11 +392,11 @@ export default function NewRoadmapPage() {
                   value={group.label}
                   onChange={(e) => updateGroupLabel(group.id, e.target.value)}
                   placeholder="セクション名（省略可）"
-                  className="flex-1 bg-transparent font-mono text-[10px] uppercase tracking-widest text-zinc-600 placeholder:text-zinc-800 focus:text-zinc-400 focus:outline-none"
+                  className="flex-1 bg-transparent font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600 placeholder:text-zinc-400 dark:placeholder:text-zinc-700 focus:text-zinc-600 dark:text-zinc-400 focus:outline-none"
                 />
                 {groups.length > 1 && (
                   <button type="button" onClick={() => removeGroup(group.id)}
-                    className="text-[10px] text-zinc-800 hover:text-red-700">✕ セクション削除</button>
+                    className="text-[10px] text-zinc-400 dark:text-zinc-800 hover:text-red-700">✕ セクション削除</button>
                 )}
               </div>
 
@@ -422,7 +425,7 @@ export default function NewRoadmapPage() {
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); addNode(group.id); }}
-                className="mt-2 w-full rounded-sm border border-dashed border-zinc-800 py-1.5 text-[12px] text-zinc-700 transition-colors hover:border-zinc-600 hover:text-zinc-400"
+                className="mt-2 w-full rounded-sm border border-dashed border-zinc-200 dark:border-zinc-800 py-1.5 text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
               >
                 ＋ ノードを追加
               </button>
@@ -437,7 +440,7 @@ export default function NewRoadmapPage() {
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); addGroup(); }}
-              className="w-full rounded-sm border border-dashed border-zinc-800 py-2 text-[12px] text-zinc-600 transition-colors hover:border-zinc-500 hover:text-zinc-400"
+              className="w-full rounded-sm border border-dashed border-zinc-200 dark:border-zinc-800 py-2 text-[12px] text-zinc-500 dark:text-zinc-600 transition-colors hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-400"
             >
               ＋ セクションを追加
             </button>
@@ -451,7 +454,7 @@ export default function NewRoadmapPage() {
       <div className="flex h-full w-[40%] shrink-0 flex-col overflow-y-auto">
         {selectedNode ? (
           <div className="px-10 py-10">
-            <p className="mb-6 font-mono text-[10px] uppercase tracking-widest text-zinc-600">
+            <p className="mb-6 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
               ノード詳細を入力
             </p>
             <NodeDetailPanel
@@ -468,42 +471,42 @@ export default function NewRoadmapPage() {
         ) : (
           <div className="flex flex-col justify-between h-full px-10 py-10">
             <div>
-              <h2 className="text-[17px] font-bold tracking-tight text-zinc-100">
+              <h2 className="text-[17px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                 ロードマップを構築する
               </h2>
               <p className="mt-3 text-[13px] leading-relaxed text-zinc-500">
                 左のエリアでロードマップの構造を作成してください。
               </p>
-              <ul className="mt-6 space-y-3 text-[13px] text-zinc-600">
+              <ul className="mt-6 space-y-3 text-[13px] text-zinc-500 dark:text-zinc-600">
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 font-mono text-zinc-700">01</span>
+                  <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-700">01</span>
                   <span>タイトル・概要・タグを入力する</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 font-mono text-zinc-700">02</span>
+                  <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-700">02</span>
                   <span>ノードの名前・日数・必須/任意を設定する</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 font-mono text-zinc-700">03</span>
+                  <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-700">03</span>
                   <span>ノードをクリック → 説明・リソース・クリア基準を入力する</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 font-mono text-zinc-700">04</span>
+                  <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-700">04</span>
                   <span>「＋ ノードを追加」「＋ セクションを追加」で構造を拡張する</span>
                 </li>
               </ul>
             </div>
 
             {/* Submit */}
-            <div className="border-t border-zinc-800 pt-6">
+            <div className="border-t border-zinc-200 dark:border-zinc-800 pt-6">
               <div className="flex items-center justify-between">
-                <Link href="/" className="text-[13px] text-zinc-600 hover:text-zinc-300">
+                <Link href="/" className="text-[13px] text-zinc-500 dark:text-zinc-600 hover:text-zinc-700 dark:text-zinc-300">
                   キャンセル
                 </Link>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="rounded-sm bg-zinc-100 px-6 py-2 text-[13px] font-medium text-zinc-900 transition-colors hover:bg-white disabled:opacity-40"
+                  className="rounded-sm bg-zinc-900 px-6 py-2 text-[13px] font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-40 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
                 >
                   {submitting ? "投稿中..." : "投稿する"}
                 </button>
@@ -514,15 +517,15 @@ export default function NewRoadmapPage() {
 
         {/* Submit button when node is selected */}
         {selectedNode && (
-          <div className="mt-auto border-t border-zinc-800 px-10 py-5">
+          <div className="mt-auto border-t border-zinc-200 dark:border-zinc-800 px-10 py-5">
             <div className="flex items-center justify-between">
-              <Link href="/" className="text-[13px] text-zinc-600 hover:text-zinc-300">
+              <Link href="/" className="text-[13px] text-zinc-500 dark:text-zinc-600 hover:text-zinc-700 dark:text-zinc-300">
                 キャンセル
               </Link>
               <button
                 type="submit"
                 disabled={submitting}
-                className="rounded-sm bg-zinc-100 px-6 py-2 text-[13px] font-medium text-zinc-900 transition-colors hover:bg-white disabled:opacity-40"
+                className="rounded-sm bg-zinc-900 px-6 py-2 text-[13px] font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-40 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
               >
                 {submitting ? "投稿中..." : "投稿する"}
               </button>
