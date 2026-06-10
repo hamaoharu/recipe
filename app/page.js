@@ -5,21 +5,23 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ROADMAPS, ALL_TAGS } from "./lib/roadmaps";
 
-// ── Feed content (reads search params) ───────────────────────────────────────
 
 function FeedContent() {
+  //機能に特化したオブジェクトを返す
   const router = useRouter();
   const searchParams = useSearchParams();
-  //機能に特化したオブジェクトを返す
+
+  //検索ワードを取得
   const q = searchParams.get("q") ?? "";
   const tagFilter = searchParams.get("tag") ?? "";
-  //検索ワードを取得
-
+  
   const [sort, setSort] = useState("new");
   const [liked, setLiked] = useState({});
   const [bookmarked, setBookmarked] = useState({});
   const [userRoadmaps, setUserRoadmaps] = useState([]);
 
+  //ローカルストレージからuser_roadmapsを取得
+  //ローカルストレージは文字列保存のためjsに戻す作業が必要
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
@@ -27,11 +29,16 @@ function FeedContent() {
     } catch {}
   }, []);
 
+  //自分のデータとサンプルデータを一つの配列に格納するためにスプレッド
+  //自分のロードマップが更新された時のみ実行される
   const allRoadmaps = useMemo(() => [...userRoadmaps, ...ROADMAPS], [userRoadmaps]);
+
+  //全てのロードマップのタグを取得し、配列を平らにする。重複するものを消す(new set)。そして配列に戻す。
   const allTags = useMemo(
     () => [...new Set(allRoadmaps.flatMap((r) => r.tags ?? []))],
     [allRoadmaps]
   );
+
 
   const toggleBookmark = (e, id) => {
     e.preventDefault();
