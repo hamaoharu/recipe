@@ -12,9 +12,11 @@ function FeedContent() {
   const searchParams = useSearchParams();
 
   //検索ワードを取得
+  //再レンダーされるたびに実行される
   const q = searchParams.get("q") ?? "";
   const tagFilter = searchParams.get("tag") ?? "";
-  
+
+  //state管理
   const [sort, setSort] = useState("new");
   const [liked, setLiked] = useState({});
   const [bookmarked, setBookmarked] = useState({});
@@ -39,23 +41,33 @@ function FeedContent() {
     [allRoadmaps]
   );
 
-
+  //ブックマークを切り替える
+  //set関数はprevを受けとり、prevの値を更新して返す
   const toggleBookmark = (e, id) => {
     e.preventDefault();
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  //フィルタリングされたロードマップを返す
   const filtered = useMemo(() => {
+    //allRoadmapsをコピー
     let list = [...allRoadmaps];
+
     if (q) {
       const lower = q.toLowerCase();
+
+      //filterは条件がtrueのrを配列に格納して返す
       list = list.filter(
         (r) =>
           r.title.toLowerCase().includes(lower) ||
           r.description.toLowerCase().includes(lower) ||
+
+          //tags配列の要素にqが含まれているかどうかを確認してbooleanを返す
+          //filterはbooleanを待っているのでsomeを使用
           (r.tags ?? []).some((t) => t.toLowerCase().includes(lower))
       );
     }
+    
     if (tagFilter) {
       list = list.filter((r) => (r.tags ?? []).includes(tagFilter));
     }
