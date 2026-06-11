@@ -68,18 +68,25 @@ function FeedContent() {
       );
     }
     
+    //tagによるフィルタリング
     if (tagFilter) {
       list = list.filter((r) => (r.tags ?? []).includes(tagFilter));
     }
+
     if (sort === "trend") {
       list.sort((a, b) => b.likes - a.likes);
     } else {
+
+      //Dateオブジェクトを作成して比較
       list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     }
     return list;
   }, [allRoadmaps, q, tagFilter, sort]);
 
   const handleTagClick = (tag) => {
+
+    //URLSearchParamsはURLのクエリを読み書きするインスタンス
+    //q,tagをキー値ペアで保存する
     const params = new URLSearchParams(searchParams.toString());
     if (params.get("tag") === tag) {
       params.delete("tag");
@@ -90,6 +97,7 @@ function FeedContent() {
     router.push(query ? `/?${query}` : "/");
   };
 
+  //いいねを切り替える
   const toggleLike = (e, id) => {
     e.preventDefault();
     setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
