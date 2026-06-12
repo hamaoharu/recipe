@@ -118,11 +118,15 @@ function FeedContent() {
                 key={tab.value}
                 type="button"
                 onClick={() => setSort(tab.value)}
+
+                //一部だけ{}で囲むことはできない
                 className={[
                   "px-4 py-1.5 text-[13px] transition-colors",
                   sort === tab.value
                     ? "border-b-2 border-zinc-800 font-medium text-zinc-900 dark:border-zinc-300 dark:text-zinc-100"
                     : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
+
+                    //joinは配列を文字列に変換する
                 ].join(" ")}
               >
                 {tab.label}
@@ -155,6 +159,8 @@ function FeedContent() {
                 <div className="mb-2 flex items-center gap-2">
                   <Link
                     href={`/user/${roadmap.author.id}`}
+
+                    //stopPropagationはイベントのバブリングを停止する
                     onClick={(e) => e.stopPropagation()}
                     className="flex items-center gap-2 transition-opacity hover:opacity-70"
                   >
@@ -229,6 +235,8 @@ function FeedContent() {
                     <span>👁</span>
                     <span>
                       {roadmap.views >= 1000
+
+                      //toFixedは小数点以下の桁数を指定する
                         ? `${(roadmap.views / 1000).toFixed(1)}k`
                         : roadmap.views}
                     </span>
@@ -277,7 +285,11 @@ function FeedContent() {
           <ul className="space-y-3">
             {[...allRoadmaps]
               .sort((a, b) => b.views - a.views)
+
+              //sliceは配列の一部を返す
               .slice(0, 4)
+
+              //iはインデックス
               .map((r, i) => (
                 <li key={r.id}>
                   <Link
@@ -285,6 +297,8 @@ function FeedContent() {
                     className="group flex items-start gap-2.5"
                   >
                     <span className="mt-px shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
+
+                      {/*padStartは文字列の左側を指定した桁数、指定した文字で埋める*/}
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-200">
@@ -304,6 +318,7 @@ function FeedContent() {
 
 export default function TopPage() {
   return (
+    //useSearchParamsを使うコンポーネントは Suspenseで囲む必要がある
     <Suspense>
       <FeedContent />
     </Suspense>
