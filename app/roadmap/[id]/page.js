@@ -83,6 +83,7 @@ const GROUPS = [
 
 const TOTAL_REQUIRED_DAYS = GROUPS.flatMap((g) => g.nodes)
   .filter((n) => n.required)
+  //配列を一つの結果にする
   .reduce((sum, n) => sum + n.days, 0);
 
 // ── Detail content ────────────────────────────────────────────────────────────
