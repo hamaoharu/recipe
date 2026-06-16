@@ -18,13 +18,18 @@ function FeedContent() {
   const tagFilter = searchParams.get("tag") ?? "";
 
   //setSortの引数に入るのは"new"か"trend"のどちらかにしている
+  //stateはジェネリクスを使って型を指定
   const [sort, setSort] = useState<SortMode>("new");
+
+  //キーがstringで値がbooleanのオブジェクトを定義する組込みの型Record
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
   const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
 
   useEffect(() => {
     try {
+      
+      //localStorageからとってきたデータがRoadmap[]型であることを保証(型アサーション)
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
       setUserRoadmaps(saved);
     } catch {}
@@ -37,6 +42,7 @@ function FeedContent() {
     [allRoadmaps]
   );
 
+  //イベントオブジェクトには型定義
   const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
