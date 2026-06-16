@@ -1,74 +1,60 @@
 "use client";
 
 import { Suspense, useState, useMemo, useEffect } from "react";
+import type { MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ROADMAPS, ALL_TAGS } from "./lib/roadmaps";
+import type { Roadmap } from "./lib/types";
 
+//文字列である"new"か"trend"のどちらかしか入らない型を定義
+type SortMode = "new" | "trend";
 
 function FeedContent() {
-  //機能に特化したオブジェクトを返す
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  //検索ワードを取得
-  //再レンダーされるたびに実行される
   const q = searchParams.get("q") ?? "";
   const tagFilter = searchParams.get("tag") ?? "";
 
-  //state管理
-  const [sort, setSort] = useState("new");
-  const [liked, setLiked] = useState({});
-  const [bookmarked, setBookmarked] = useState({});
-  const [userRoadmaps, setUserRoadmaps] = useState([]);
+  //setSortの引数に入るのは"new"か"trend"のどちらかにしている
+  const [sort, setSort] = useState<SortMode>("new");
+  const [liked, setLiked] = useState<Record<string, boolean>>({});
+  const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
+  const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
 
-  //ローカルストレージからuser_roadmapsを取得
-  //ローカルストレージは文字列保存のためjsに戻す作業が必要
   useEffect(() => {
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
       setUserRoadmaps(saved);
     } catch {}
   }, []);
 
-  //自分のデータとサンプルデータを一つの配列に格納するためにスプレッド
-  //自分のロードマップが更新された時のみ実行される
   const allRoadmaps = useMemo(() => [...userRoadmaps, ...ROADMAPS], [userRoadmaps]);
 
-  //全てのロードマップのタグを取得し、配列を平らにする。重複するものを消す(new set)。そして配列に戻す。
   const allTags = useMemo(
     () => [...new Set(allRoadmaps.flatMap((r) => r.tags ?? []))],
     [allRoadmaps]
   );
 
-  //ブックマークを切り替える
-  //set関数はprevを受けとり、prevの値を更新して返す
-  const toggleBookmark = (e, id) => {
+  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  //フィルタリングされたロードマップを返す
   const filtered = useMemo(() => {
-    //allRoadmapsをコピー
     let list = [...allRoadmaps];
 
     if (q) {
       const lower = q.toLowerCase();
-
-      //filterは条件がtrueのrを配列に格納して返す
       list = list.filter(
         (r) =>
           r.title.toLowerCase().includes(lower) ||
           r.description.toLowerCase().includes(lower) ||
-
-          //tags配列の要素にqが含まれているかどうかを確認してbooleanを返す
-          //filterはbooleanを待っているのでsomeを使用
           (r.tags ?? []).some((t) => t.toLowerCase().includes(lower))
       );
     }
-    
-    //tagによるフィルタリング
+
     if (tagFilter) {
       list = list.filter((r) => (r.tags ?? []).includes(tagFilter));
     }
@@ -76,17 +62,12 @@ function FeedContent() {
     if (sort === "trend") {
       list.sort((a, b) => b.likes - a.likes);
     } else {
-
-      //Dateオブジェクトを作成して比較
-      list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      list.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     }
     return list;
   }, [allRoadmaps, q, tagFilter, sort]);
 
-  const handleTagClick = (tag) => {
-
-    //URLSearchParamsはURLのクエリを読み書きするインスタンス
-    //q,tagをキー値ペアで保存する
+  const handleTagClick = (tag: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (params.get("tag") === tag) {
       params.delete("tag");
@@ -97,36 +78,31 @@ function FeedContent() {
     router.push(query ? `/?${query}` : "/");
   };
 
-  //いいねを切り替える
-  const toggleLike = (e, id) => {
+  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   return (
     <div className="mx-auto flex w-full max-w-5xl gap-10 px-6 py-8">
-      {/* ── Feed ── */}
       <main className="min-w-0 flex-1">
-        {/* Sort tabs + result info */}
         <div className="mb-5 flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
           <div className="flex gap-0">
-            {[
-              { value: "new", label: "新着" },
-              { value: "trend", label: "トレンド" },
-            ].map((tab) => (
+            {(
+              [
+                { value: "new", label: "新着" },
+                { value: "trend", label: "トレンド" },
+              ] as const
+            ).map((tab) => (
               <button
                 key={tab.value}
                 type="button"
                 onClick={() => setSort(tab.value)}
-
-                //一部だけ{}で囲むことはできない
                 className={[
                   "px-4 py-1.5 text-[13px] transition-colors",
                   sort === tab.value
                     ? "border-b-2 border-zinc-800 font-medium text-zinc-900 dark:border-zinc-300 dark:text-zinc-100"
                     : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
-
-                    //joinは配列を文字列に変換する
                 ].join(" ")}
               >
                 {tab.label}
@@ -146,7 +122,6 @@ function FeedContent() {
           </p>
         </div>
 
-        {/* Card list */}
         {filtered.length === 0 ? (
           <p className="py-16 text-center text-[14px] text-zinc-500 dark:text-zinc-600">
             ロードマップが見つかりませんでした。
@@ -155,12 +130,9 @@ function FeedContent() {
           <ul className="divide-y divide-zinc-200 dark:divide-zinc-900">
             {filtered.map((roadmap) => (
               <li key={roadmap.id} className="py-5">
-                {/* Author + date */}
                 <div className="mb-2 flex items-center gap-2">
                   <Link
                     href={`/user/${roadmap.author.id}`}
-
-                    //stopPropagationはイベントのバブリングを停止する
                     onClick={(e) => e.stopPropagation()}
                     className="flex items-center gap-2 transition-opacity hover:opacity-70"
                   >
@@ -177,7 +149,6 @@ function FeedContent() {
                   </span>
                 </div>
 
-                {/* Title + description */}
                 <Link href={`/roadmap/${roadmap.id}`} className="group block">
                   <h2 className="text-[16px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:text-black dark:text-zinc-100 dark:group-hover:text-white">
                     {roadmap.title}
@@ -187,13 +158,15 @@ function FeedContent() {
                   </p>
                 </Link>
 
-                {/* Tags */}
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   {roadmap.tags.map((tag) => (
                     <button
                       key={tag}
                       type="button"
-                      onClick={(e) => { e.preventDefault(); handleTagClick(tag); }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleTagClick(tag);
+                      }}
                       className={[
                         "rounded-sm border px-1.5 py-0.5 font-mono text-[11px] transition-colors",
                         tagFilter === tag
@@ -206,14 +179,15 @@ function FeedContent() {
                   ))}
                 </div>
 
-                {/* Meta: like / bookmark / views / days */}
                 <div className="mt-3 flex items-center gap-4 text-[12px] text-zinc-500 dark:text-zinc-600">
                   <button
                     type="button"
                     onClick={(e) => toggleLike(e, roadmap.id)}
                     className={[
                       "flex items-center gap-1 transition-colors",
-                      liked[roadmap.id] ? "text-zinc-800 dark:text-zinc-300" : "hover:text-zinc-700 dark:hover:text-zinc-400",
+                      liked[roadmap.id]
+                        ? "text-zinc-800 dark:text-zinc-300"
+                        : "hover:text-zinc-700 dark:hover:text-zinc-400",
                     ].join(" ")}
                   >
                     <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
@@ -225,7 +199,9 @@ function FeedContent() {
                     onClick={(e) => toggleBookmark(e, roadmap.id)}
                     className={[
                       "flex items-center gap-1 transition-colors",
-                      bookmarked[roadmap.id] ? "text-zinc-800 dark:text-zinc-300" : "hover:text-zinc-700 dark:hover:text-zinc-400",
+                      bookmarked[roadmap.id]
+                        ? "text-zinc-800 dark:text-zinc-300"
+                        : "hover:text-zinc-700 dark:hover:text-zinc-400",
                     ].join(" ")}
                   >
                     <span>{bookmarked[roadmap.id] ? "★" : "☆"}</span>
@@ -235,8 +211,6 @@ function FeedContent() {
                     <span>👁</span>
                     <span>
                       {roadmap.views >= 1000
-
-                      //toFixedは小数点以下の桁数を指定する
                         ? `${(roadmap.views / 1000).toFixed(1)}k`
                         : roadmap.views}
                     </span>
@@ -251,9 +225,7 @@ function FeedContent() {
         )}
       </main>
 
-      {/* ── Sidebar ── */}
       <aside className="hidden w-56 shrink-0 lg:block">
-        {/* Tag list */}
         <section>
           <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
             タグで絞り込む
@@ -277,7 +249,6 @@ function FeedContent() {
           </div>
         </section>
 
-        {/* Trending */}
         <section className="mt-8">
           <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
             急上昇
@@ -285,11 +256,7 @@ function FeedContent() {
           <ul className="space-y-3">
             {[...allRoadmaps]
               .sort((a, b) => b.views - a.views)
-
-              //sliceは配列の一部を返す
               .slice(0, 4)
-
-              //iはインデックス
               .map((r, i) => (
                 <li key={r.id}>
                   <Link
@@ -297,8 +264,6 @@ function FeedContent() {
                     className="group flex items-start gap-2.5"
                   >
                     <span className="mt-px shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
-
-                      {/*padStartは文字列の左側を指定した桁数、指定した文字で埋める*/}
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-200">
@@ -314,11 +279,8 @@ function FeedContent() {
   );
 }
 
-// ── Page ─────────────────────────────────────────────────────────────────────
-
 export default function TopPage() {
   return (
-    //useSearchParamsを使うコンポーネントは Suspenseで囲む必要がある
     <Suspense>
       <FeedContent />
     </Suspense>
