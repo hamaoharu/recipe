@@ -1,12 +1,57 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
+import { Roadmap } from "@/app/lib/types";
 
-// ── Roadmap graph data (Frontend) ─────────────────────────────────────────────
-const GROUPS = [
+//型定義
+type RoadmapNode = {
+  id: string;
+  label: string;
+  required: boolean;
+  days: number;
+}
+
+type RoadmapGroup = {
+  id: string;
+  label: string | null;
+  nodes: RoadmapNode[];
+}
+
+type NodeBoxProps = {
+  node: RoadmapNode;
+  selected: string | null;
+
+  //関数の型だけ指定する書き方
+  onClick: (nodeId: string) => void;
+}
+
+type DetailResource = {
+  label: string;
+  url: string | null;
+  note: string;
+};
+
+type DetailCriterion = string | { text: string };
+
+type DetailItem = {
+  title: string;
+  days: number;
+  description: string;
+  resources: DetailResource[];
+  criteria: DetailCriterion[];
+};
+
+type DetailMap = Record<string, DetailItem>;
+
+type userRoadmap = Roadmap & {
+  groups: RoadmapGroup[];
+  details: DetailMap;
+}
+
+const GROUPS: RoadmapGroup[] = [
   {
     id: "start", label: null,
     nodes: [
@@ -271,7 +316,7 @@ function Connector() {
   );
 }
 
-function NodeBox({ node, selected, onClick }) {
+function NodeBox({ node, selected, onClick }: NodeBoxProps) {
   const isSelected = selected === node.id;
   return (
     <button
@@ -303,7 +348,7 @@ function NodeBox({ node, selected, onClick }) {
   );
 }
 
-function DetailSection({ label, children }) {
+function DetailSection({ label, children }:{ label: string; children: ReactNode }) {
   return (
     <section className="mt-8">
       <h3 className="border-b border-zinc-200 dark:border-zinc-800 pb-1.5 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
@@ -316,23 +361,24 @@ function DetailSection({ label, children }) {
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
-export default function RoadmapDetailPage({ params }) {
+//Promise 後で値が来る型 Promise<T> はあとで Tが来る
+export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: string }> }) {
   const { id } = use(params);
 
-  // Try to get static meta; fall back to user-created roadmap from localStorage
   const staticMeta = getRoadmap(id);
-  const [userRoadmap, setUserRoadmap] = useState(null);
+  const [userRoadmap, setUserRoadmap] = useState<userRoadmap | null>(null);
 
   useEffect(() => {
-    if (staticMeta) return; // static roadmap – no need to check localStorage
+    if (staticMeta) return;
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
+
+      //findは一件だけ返す
       const found = saved.find((r) => r.id === id);
       if (found) setUserRoadmap(found);
     } catch {}
   }, [id, staticMeta]);
 
-  // Decide which groups/details/meta to use
   const isUser   = !staticMeta && userRoadmap;
   const activeGroups  = isUser ? userRoadmap.groups  : GROUPS;
   const activeDetails = isUser ? userRoadmap.details : DETAILS;
