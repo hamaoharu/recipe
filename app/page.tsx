@@ -49,6 +49,8 @@ function FeedContent() {
   };
 
   const filtered = useMemo(() => {
+  
+    //型が推論できる
     let list = [...allRoadmaps];
 
     if (q) {
@@ -98,6 +100,8 @@ function FeedContent() {
               [
                 { value: "new", label: "新着" },
                 { value: "trend", label: "トレンド" },
+
+                //as constはvalueの型がstringになることを防ぐ SortModeとは無関係
               ] as const
             ).map((tab) => (
               <button
