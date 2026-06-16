@@ -1,4 +1,6 @@
-export const ROADMAPS = [
+import type {Roadmap} from "./types";
+
+export const ROADMAPS: Roadmap[] = [
   {
     id: "frontend",
     title: "Frontend Developer",
@@ -77,6 +79,7 @@ export const ALL_TAGS = [
   ...new Set(ROADMAPS.flatMap((r) => r.tags)),
 ];
 
-export function getRoadmap(id) {
+//返り値はRoadmapかnull
+export function getRoadmap(id: string): Roadmap | null {
   return ROADMAPS.find((r) => r.id === id) ?? null;
 }
