@@ -4,6 +4,8 @@ export type Author = {
     initial: string;
 }
 
+//トップページで使っている型
+//詳細ページでの地図データは含まない
 export type Roadmap = {
     id: string;
     title: string;

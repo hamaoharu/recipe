@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
 import { Roadmap } from "@/app/lib/types";
 
-//型定義
+//地図のノードの型
 type RoadmapNode = {
   id: string;
   label: string;
@@ -14,12 +14,14 @@ type RoadmapNode = {
   days: number;
 }
 
+//地図のセクションの型
 type RoadmapGroup = {
   id: string;
   label: string | null;
   nodes: RoadmapNode[];
 }
 
+//コンポーネントのpropsの型を定義しているだけ
 type NodeBoxProps = {
   node: RoadmapNode;
   selected: string | null;
@@ -28,14 +30,17 @@ type NodeBoxProps = {
   onClick: (nodeId: string) => void;
 }
 
+//1つのノードのリソースの型
 type DetailResource = {
   label: string;
   url: string | null;
   note: string;
 };
 
+//1つのノードのクリア基準の型
 type DetailCriterion = string | { text: string };
 
+//1つのノードの詳細データの型
 type DetailItem = {
   title: string;
   days: number;
@@ -44,13 +49,16 @@ type DetailItem = {
   criteria: DetailCriterion[];
 };
 
+//キーがstring、値がDetailItemのオブジェクトの型
 type DetailMap = Record<string, DetailItem>;
 
+//ロードマップの基本情報、地図、詳細をまとめた型
 type userRoadmap = Roadmap & {
   groups: RoadmapGroup[];
   details: DetailMap;
 }
 
+//地図のセクションのサンプルデータ
 const GROUPS: RoadmapGroup[] = [
   {
     id: "start", label: null,
@@ -132,7 +140,7 @@ const TOTAL_REQUIRED_DAYS = GROUPS.flatMap((g) => g.nodes)
   .reduce((sum, n) => sum + n.days, 0);
 
 // ── Detail content ────────────────────────────────────────────────────────────
-const DETAILS = {
+const DETAILS: DetailMap = {
   internet: {
     title: "Internet の仕組み", days: 3,
     description: "HTTP とブラウザの動作を知らずに書いたコードは、なぜ遅いのか・なぜ壊れるのかが永遠にわからない。ここは「読み物として1週間で終わらせる」フェーズ。手を動かす必要はない。",
@@ -371,7 +379,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   useEffect(() => {
     if (staticMeta) return;
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as userRoadmap[];
 
       //findは一件だけ返す
       const found = saved.find((r) => r.id === id);
@@ -387,19 +395,22 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     : TOTAL_REQUIRED_DAYS;
 
   const meta = staticMeta ?? userRoadmap ?? {
+    id: "unknown",
     title: "Roadmap",
+    description: "",
     author: { id: "unknown", name: "anonymous", initial: "A" },
     tags: [],
     likes: 0,
+    views: 0,
     totalDays: 0,
     createdAt: "",
   };
 
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<string | null>(null);
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
-  const handleSelect = (nodeId) => setSelected((prev) => (prev === nodeId ? null : nodeId));
+  const handleSelect = (nodeId: string) => setSelected((prev) => (prev === nodeId ? null : nodeId));
 
   const isOwner = isUser; // user-created roadmaps belong to the logged-in user
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -407,7 +418,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const handleDelete = () => {
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]")as userRoadmap[];
       localStorage.setItem("user_roadmaps", JSON.stringify(saved.filter((r) => r.id !== id)));
     } catch {}
     router.push("/");
