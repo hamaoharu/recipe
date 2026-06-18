@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+//36進数でランダムな文字列を生成する関数
 const uid = () => Math.random().toString(36).slice(2, 9);
 
 const newNode = () => ({
@@ -19,7 +19,6 @@ const newNode = () => ({
 
 const newGroup = () => ({ id: uid(), label: "", nodes: [newNode()] });
 
-// ── Left: Node card (editable, looks like the viewer) ─────────────────────────
 function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, canRemove }) {
   const isSelected = selected === node.id;
   return (
