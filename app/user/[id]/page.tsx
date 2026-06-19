@@ -1,28 +1,32 @@
 "use client";
 
-import { use, useState } from "react";
+import { MouseEvent, use, useState } from "react";
 import Link from "next/link";
 import { ROADMAPS } from "../../lib/roadmaps";
 
-export default function UserPage({ params }) {
+//[id]がparams.idに代入される
+//params使う時のテンプレ
+export default function UserPage({ params }:{params: Promise<{id: string}>}) {
   const { id: userId } = use(params);
 
-  // Gather user info from roadmap data
   const userRoadmaps = ROADMAPS.filter((r) => r.author.id === userId);
+
+  //無ければ止めてundefinedになる
   const author = userRoadmaps[0]?.author ?? {
     id: userId,
     name: userId,
     initial: userId[0]?.toUpperCase() ?? "U",
   };
 
-  const [liked, setLiked] = useState({});
-  const [bookmarked, setBookmarked] = useState({});
 
-  const toggleLike = (e, id) => {
+  const [liked, setLiked] = useState<Record<string, boolean>>({});
+  const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
+
+  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
-  const toggleBookmark = (e, id) => {
+  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
