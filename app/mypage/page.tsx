@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ROADMAPS } from "../lib/roadmaps";
+import { Author, Roadmap } from "../lib/types";
 
 const TABS = [
   { id: "posts",     label: "投稿" },
@@ -16,14 +17,20 @@ const MOCK_BOOKMARKED_IDS = ["frontend", "devops"];
 
 export default function MyPage() {
   const router = useRouter();
-  const [user, setUser]       = useState(null);
-  const [tab, setTab]         = useState("posts");
+
+  type TabId = "posts" | "likes" | "bookmarks";
+
+  //ジェネリクスは初期値よりも広い型をJSに教える
+  const [user, setUser]       = useState<Author | null>(null);
+  const [tab, setTab]         = useState<TabId>("posts");
   const [editing, setEditing] = useState(false);
   const [nameInput, setNameInput] = useState("");
-  const [liked, setLiked]         = useState({});
-  const [bookmarked, setBookmarked] = useState({});
-  const [userRoadmaps, setUserRoadmaps] = useState([]);
-  const [deleteConfirm, setDeleteConfirm] = useState(null); // roadmap id awaiting confirm
+  const [liked, setLiked]         = useState<Record<string, boolean>>({});
+  const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
+
+  //| nullが必要なのは初期値がnullの時だけ
+  const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -37,7 +44,6 @@ export default function MyPage() {
     }
   }, [router]);
 
-  // Load user-created roadmaps from localStorage
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
@@ -47,22 +53,22 @@ export default function MyPage() {
 
   if (!user) return null;
 
-  // Roadmap lists per tab
-  // "投稿" = user-created (localStorage) only
   const myRoadmaps         = userRoadmaps;
   const likedRoadmaps      = ROADMAPS.filter((r) => MOCK_LIKED_IDS.includes(r.id));
   const bookmarkedRoadmaps = ROADMAPS.filter((r) => MOCK_BOOKMARKED_IDS.includes(r.id));
 
+  //オブジェクトの定義と取得を同時にしている
+  //tabRoadmapsはオブジェクトではなく配列 一時的なオブジェクトを利用しているだけ
   const tabRoadmaps = {
     posts:     myRoadmaps,
     likes:     likedRoadmaps,
     bookmarks: bookmarkedRoadmaps,
   }[tab];
 
+  //sumと今の値を引数で受け取る
   const totalLikes = myRoadmaps.reduce((s, r) => s + (r.likes ?? 0), 0);
 
-  // Delete a user-created roadmap
-  const deleteRoadmap = (id) => {
+  const deleteRoadmap = (id: string) => {
     const updated = userRoadmaps.filter((r) => r.id !== id);
     setUserRoadmaps(updated);
     localStorage.setItem("user_roadmaps", JSON.stringify(updated));
@@ -82,11 +88,12 @@ export default function MyPage() {
     router.push("/");
   };
 
-  const toggleLike = (e, id) => {
+  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
-  const toggleBookmark = (e, id) => {
+  
+  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
@@ -176,7 +183,9 @@ export default function MyPage() {
           <button
             key={t.id}
             type="button"
-            onClick={() => setTab(t.id)}
+
+            //tab.idがstringと広げて解釈されるのを防ぐ
+            onClick={() => setTab(t.id as TabId)}
             className={[
               "px-5 py-2 text-[13px] transition-colors",
               tab === t.id
