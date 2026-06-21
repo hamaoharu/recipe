@@ -4,6 +4,60 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+type EditResource = {
+  id: string;
+  label: string;
+  url: string;
+  note: string;
+};
+
+type EditCriterion = {
+  id: string;
+  text: string;
+};
+
+type EditNode = {
+  id: string;
+  label: string;
+  required: boolean;
+  days: string;
+  nodeDescription: string;
+  resources: EditResource[];
+  criteria: EditCriterion[];
+};
+
+type EditGroup = {
+  id: string;
+  label: string;
+  nodes: EditNode[];
+};
+
+type FormErrors = {
+  title?: string;
+  nodes?: string;
+};
+
+type NodeEditCardProps = {
+  node: EditNode;
+  groupId: string;
+  selected: string | null;
+  onSelect: (id: string) => void;
+  onUpdate: (nid: string, field: string, val: string | boolean) => void;
+  onRemove: (nid: string) => void;
+  canRemove: boolean;
+};
+
+type NodeDetailPanelProps = {
+  node: EditNode;
+  onUpdate: (field: string, val: string) => void;
+  onAddResource: () => void;
+  onRemoveResource: (rid: string) => void;
+  onUpdateResource: (rid: string, field: string, val: string) => void;
+  onAddCriterion: () => void;
+  onRemoveCriterion: (cid: string) => void;
+  onUpdateCriterion: (cid: string, val: string) => void;
+};
+
 //36進数でランダムな文字列を生成する関数
 const uid = () => Math.random().toString(36).slice(2, 9);
 
@@ -17,9 +71,11 @@ const newNode = () => ({
   criteria: [{ id: uid(), text: "" }],
 });
 
+
+
 const newGroup = () => ({ id: uid(), label: "", nodes: [newNode()] });
 
-function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, canRemove }) {
+function NodeEditCard({ node, groupId, selected, onSelect, onUpdate, onRemove, canRemove }: NodeEditCardProps) {
   const isSelected = selected === node.id;
   return (
     <div
@@ -105,7 +161,7 @@ function Connector() {
 }
 
 // ── Right: Node detail form ───────────────────────────────────────────────────
-function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUpdateResource, onAddCriterion, onRemoveCriterion, onUpdateCriterion }) {
+function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUpdateResource, onAddCriterion, onRemoveCriterion, onUpdateCriterion }: NodeDetailPanelProps) {
   const inputBase = "w-full rounded-sm border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black px-3 py-2 text-[13px] text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:border-zinc-400 dark:focus:border-zinc-600 focus:outline-none";
   const inputSm   = "rounded-sm border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black px-2 py-1.5 text-[12px] text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:border-zinc-400 dark:focus:border-zinc-600 focus:outline-none";
 
@@ -210,10 +266,10 @@ export default function NewRoadmapPage() {
   const [title, setTitle]           = useState("");
   const [description, setDescription] = useState("");
   const [tagInput, setTagInput]     = useState("");
-  const [tags, setTags]             = useState([]);
-  const [groups, setGroups]         = useState([newGroup()]);
-  const [selectedNodeId, setSelectedNodeId] = useState(null);
-  const [errors, setErrors]         = useState({});
+  const [tags, setTags]             = useState<string[]>([]);
+  const [groups, setGroups]         = useState<EditGroup[]>([newGroup()]);
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [errors, setErrors]         = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
 
   // Find selected node
@@ -229,52 +285,70 @@ export default function NewRoadmapPage() {
 
   // ── Groups ──
   const addGroup = () => setGroups((p) => [...p, newGroup()]);
-  const removeGroup = (gid) => {
+  const removeGroup = (gid: string) => {
     setGroups((p) => p.filter((g) => g.id !== gid));
     setSelectedNodeId(null);
   };
-  const updateGroupLabel = (gid, val) =>
+  const updateGroupLabel = (gid: string, val: string) =>
     setGroups((p) => p.map((g) => (g.id === gid ? { ...g, label: val } : g)));
 
   // ── Nodes ──
-  const addNode = (gid) =>
+  const addNode = (gid: string) =>
     setGroups((p) => p.map((g) => g.id === gid ? { ...g, nodes: [...g.nodes, newNode()] } : g));
 
-  const removeNode = useCallback((gid, nid) => {
+  const removeNode = useCallback((gid: string, nid: string) => {
     setGroups((p) => p.map((g) => g.id === gid ? { ...g, nodes: g.nodes.filter((n) => n.id !== nid) } : g));
     setSelectedNodeId((prev) => prev === nid ? null : prev);
   }, []);
 
-  const updateNode = useCallback((nid, field, val) =>
+  const updateNode = useCallback((nid: string, field: string, val: string | boolean | EditResource[] | EditCriterion[]) =>
     setGroups((p) => p.map((g) => ({
       ...g,
       nodes: g.nodes.map((n) => n.id === nid ? { ...n, [field]: val } : n),
     }))), []);
 
   // ── Resources (for selected node) ──
-  const addResource = () => updateNode(selectedNodeId, "resources", [
-    ...(selectedNode?.resources ?? []),
-    { id: uid(), label: "", url: "", note: "" },
-  ]);
-  const removeResource = (rid) => updateNode(selectedNodeId, "resources",
-    selectedNode.resources.filter((r) => r.id !== rid));
-  const updateResource = (rid, field, val) => updateNode(selectedNodeId, "resources",
-    selectedNode.resources.map((r) => r.id === rid ? { ...r, [field]: val } : r));
+  const addResource = () => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "resources", [
+      ...selectedNode.resources,
+      { id: uid(), label: "", url: "", note: "" },
+    ]);
+  };
+  const removeResource = (rid: string) => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "resources",
+      selectedNode.resources.filter((r) => r.id !== rid));
+  };
+  const updateResource = (rid: string, field: string, val: string) => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "resources",
+      selectedNode.resources.map((r) => r.id === rid ? { ...r, [field]: val } : r));
+  };
 
   // ── Criteria (for selected node) ──
-  const addCriterion = () => updateNode(selectedNodeId, "criteria", [
-    ...(selectedNode?.criteria ?? []),
-    { id: uid(), text: "" },
-  ]);
-  const removeCriterion = (cid) => updateNode(selectedNodeId, "criteria",
-    selectedNode.criteria.filter((c) => c.id !== cid));
-  const updateCriterion = (cid, val) => updateNode(selectedNodeId, "criteria",
-    selectedNode.criteria.map((c) => c.id === cid ? { ...c, text: val } : c));
+  const addCriterion = () => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "criteria", [
+      ...selectedNode.criteria,
+      { id: uid(), text: "" },
+    ]);
+  };
+  const removeCriterion = (cid: string) => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "criteria",
+      selectedNode.criteria.filter((c) => c.id !== cid));
+  };
+  const updateCriterion = (cid: string, val: string) => {
+    if (!selectedNodeId || !selectedNode) return;
+    updateNode(selectedNodeId, "criteria",
+      selectedNode.criteria.map((c) => c.id === cid ? { ...c, text: val } : c));
+  };
 
   // ── Submit ──
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const errs = {};
+    const errs: FormErrors = {};
     if (!title.trim()) errs.title = "タイトルは必須です";
     if (groups.some((g) => g.nodes.some((n) => !n.label.trim()))) errs.nodes = "すべてのノードにタイトルが必要です";
     if (Object.keys(errs).length) { setErrors(errs); return; }
@@ -458,7 +532,10 @@ export default function NewRoadmapPage() {
             </p>
             <NodeDetailPanel
               node={selectedNode}
-              onUpdate={(field, val) => updateNode(selectedNodeId, field, val)}
+              onUpdate={(field, val) => {
+                if (!selectedNodeId) return;
+                updateNode(selectedNodeId, field, val);
+              }}
               onAddResource={addResource}
               onRemoveResource={removeResource}
               onUpdateResource={updateResource}
