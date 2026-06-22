@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import type * as React from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -346,7 +347,7 @@ export default function NewRoadmapPage() {
   };
 
   // ── Submit ──
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errs: FormErrors = {};
     if (!title.trim()) errs.title = "タイトルは必須です";

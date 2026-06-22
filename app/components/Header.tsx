@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
+import type { Author } from "../lib/types";
 
-const MOCK_USER = {
+const MOCK_USER: Author = {
   id: "shogo",
   name: "shogoLog",
   initial: "S",
@@ -15,16 +16,16 @@ export default function Header() {
   const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const [q, setQ] = useState("");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<Author | null>(null);
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem("recipe_user");
-      if (saved) setUser(JSON.parse(saved));
+      if (saved) setUser(JSON.parse(saved) as Author);
     } catch {}
   }, []);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmed = q.trim();
     router.push(trimmed ? `/?q=${encodeURIComponent(trimmed)}` : "/");
