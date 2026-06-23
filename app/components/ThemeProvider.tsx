@@ -1,14 +1,24 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-const ThemeContext = createContext({ theme: "dark", toggleTheme: () => {} });
+type Theme = "dark" | "light";
+
+type ThemeContextValue = {
+  theme: Theme;
+  toggleTheme: () => void;
+};
+
+const ThemeContext = createContext<ThemeContextValue>({
+  theme: "dark",
+  toggleTheme: () => {},
+});
 
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
-function applyTheme(theme) {
+function applyTheme(theme: Theme) {
   const root = document.documentElement;
   if (theme === "dark") {
     root.classList.add("dark");
@@ -17,13 +27,13 @@ function applyTheme(theme) {
   }
 }
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem("recipe_theme");
-      const initial = saved === "light" ? "light" : "dark";
+      const initial: Theme = saved === "light" ? "light" : "dark";
       setTheme(initial);
       applyTheme(initial);
     } catch {
@@ -37,7 +47,7 @@ export function ThemeProvider({ children }) {
 
   const toggleTheme = () => {
     setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
+      const next: Theme = prev === "dark" ? "light" : "dark";
       try {
         localStorage.setItem("recipe_theme", next);
       } catch {}
