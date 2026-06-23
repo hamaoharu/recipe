@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeWrapper from "./components/ThemeWrapper";
 
+//フォント
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,6 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+//メタデータ
 export const metadata: Metadata = {
   title: "Recipe — ロードマップ共有プラットフォーム",
   description: "技術学習ロードマップを投稿・共有・閲覧できるプラットフォーム",
