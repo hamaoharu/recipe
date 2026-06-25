@@ -42,3 +42,6 @@ export const toggleBookmark = (id: string): string[] => {
     return next;
 }
 
+//配列からオブジェクトに変換
+export const idsToRecord = (ids: string[]): Record<string, boolean> =>
+  Object.fromEntries(ids.map((id) => [id, true]));
