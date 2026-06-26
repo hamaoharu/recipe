@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type * as React from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import type { Author } from "../../lib/types";
 
 type EditResource = {
   id: string;
@@ -264,6 +265,19 @@ function NodeDetailPanel({ node, onUpdate, onAddResource, onRemoveResource, onUp
 export default function NewRoadmapPage() {
   const router = useRouter();
 
+  //ログインチェック
+  useEffect(() => {
+    try{
+      const saved = localStorage.getItem("recipe_user");
+      if(!saved){
+        //ログインページに行ったのちにこのページに戻ってくる
+        router.replace("/login?next=/roadmap/new");
+      }
+    } catch {
+      router.replace("/login?next=/roadmap/new");
+    }
+  }, [router]);
+
   const [title, setTitle]           = useState("");
   const [description, setDescription] = useState("");
   const [tagInput, setTagInput]     = useState("");
@@ -355,6 +369,19 @@ export default function NewRoadmapPage() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitting(true);
 
+    let author: Author;
+    try {
+      const saved = localStorage.getItem("recipe_user");
+      if (!saved) {
+        router.replace("/login?next=/roadmap/new");
+        return;
+      }
+      author = JSON.parse(saved) as Author;
+    } catch {
+      router.replace("/login?next=/roadmap/new");
+      return;
+    }
+
     const totalDays = groups.flatMap((g) => g.nodes).filter((n) => n.required)
       .reduce((s, n) => s + (Number(n.days) || 0), 0);
 
@@ -373,7 +400,7 @@ export default function NewRoadmapPage() {
           criteria: n.criteria.map((c) => c.text).filter(Boolean),
         }]))
       ),
-      author: { id: "me", name: "あなた", initial: "A" },
+      author: { id: author.id, name: author.name, initial: author.initial },
       likes: 0, views: 0,
       createdAt: new Date().toISOString().slice(0, 10),
     };
