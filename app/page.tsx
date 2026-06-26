@@ -6,6 +6,13 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ROADMAPS, ALL_TAGS } from "./lib/roadmaps";
 import type { Roadmap } from "./lib/types";
+import {
+  getLikedIds,
+  getBookmarkedIds,
+  toggleLike as persistLike,
+  toggleBookmark as persistBookmark,
+  idsToRecord,
+} from "./lib/likes";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
@@ -28,10 +35,13 @@ function FeedContent() {
 
   useEffect(() => {
     try {
-      
       //localStorageからとってきたデータがRoadmap[]型であることを保証(型アサーション)
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
       setUserRoadmaps(saved);
+
+      //いいねとブックマークのデータをlocalStorageから取得してstateに保存
+      setLiked(idsToRecord(getLikedIds()));
+      setBookmarked(idsToRecord(getBookmarkedIds()));
     } catch {}
   }, []);
 
@@ -42,10 +52,15 @@ function FeedContent() {
     [allRoadmaps]
   );
 
+  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+    e.preventDefault();
+    setLiked(idsToRecord(persistLike(id)));
+  };
+  
   //イベントオブジェクトには型定義
   const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
+    setBookmarked(idsToRecord(persistBookmark(id)));
   };
 
   const filtered = useMemo(() => {
@@ -84,11 +99,6 @@ function FeedContent() {
     }
     const query = params.toString();
     router.push(query ? `/?${query}` : "/");
-  };
-
-  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
-    e.preventDefault();
-    setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   return (
