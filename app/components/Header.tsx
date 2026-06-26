@@ -1,19 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
 import type { Author } from "../lib/types";
 
-const MOCK_USER: Author = {
-  id: "shogo",
-  name: "shogoLog",
-  initial: "S",
-};
-
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const [q, setQ] = useState("");
   const [user, setUser] = useState<Author | null>(null);
@@ -22,18 +17,16 @@ export default function Header() {
     try {
       const saved = localStorage.getItem("recipe_user");
       if (saved) setUser(JSON.parse(saved) as Author);
-    } catch {}
-  }, []);
+      else setUser(null);
+    } catch {
+      setUser(null);
+    }
+  }, [pathname]);
 
   const handleSearch = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmed = q.trim();
     router.push(trimmed ? `/?q=${encodeURIComponent(trimmed)}` : "/");
-  };
-
-  const handleLogin = () => {
-    localStorage.setItem("recipe_user", JSON.stringify(MOCK_USER));
-    setUser(MOCK_USER);
   };
 
   const handleLogout = () => {
@@ -72,7 +65,7 @@ export default function Header() {
         </button>
 
         <Link
-          href="/roadmap/new"
+          href={user ? "/roadmap/new" : "/login?next=/roadmap/new"}
           className="rounded-sm bg-zinc-900 px-3 py-1 text-[13px] font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
         >
           投稿する
@@ -98,13 +91,12 @@ export default function Header() {
             </button>
           </div>
         ) : (
-          <button
-            type="button"
-            onClick={handleLogin}
+          <Link
+            href="/login"
             className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
           >
             ログイン
-          </button>
+          </Link>
         )}
       </nav>
     </header>
