@@ -5,15 +5,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ROADMAPS } from "../lib/roadmaps";
 import { Author, Roadmap } from "../lib/types";
+import {
+  getLikedIds,
+  getBookmarkedIds,
+  idsToRecord,
+  toggleLike as persistLike,
+  toggleBookmark as persistBookmark,
+} from "../lib/likes";
 
 const TABS = [
   { id: "posts",     label: "投稿" },
   { id: "likes",     label: "いいね" },
   { id: "bookmarks", label: "保存" },
 ];
-
-const MOCK_LIKED_IDS      = ["nextjs-fullstack", "python-data"];
-const MOCK_BOOKMARKED_IDS = ["frontend", "devops"];
 
 export default function MyPage() {
   const router = useRouter();
@@ -48,14 +52,17 @@ export default function MyPage() {
     try {
       const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
       setUserRoadmaps(saved);
+      setLiked(idsToRecord(getLikedIds()));
+      setBookmarked(idsToRecord(getBookmarkedIds()));
     } catch {}
   }, []);
 
   if (!user) return null;
 
   const myRoadmaps         = userRoadmaps;
-  const likedRoadmaps      = ROADMAPS.filter((r) => MOCK_LIKED_IDS.includes(r.id));
-  const bookmarkedRoadmaps = ROADMAPS.filter((r) => MOCK_BOOKMARKED_IDS.includes(r.id));
+  const allRoadmaps = [...userRoadmaps, ...ROADMAPS];
+  const likedRoadmaps = allRoadmaps.filter((r) => liked[r.id]);
+  const bookmarkedRoadmaps = allRoadmaps.filter((r) => bookmarked[r.id]);
 
   //オブジェクトの定義と取得を同時にしている
   //tabRoadmapsはオブジェクトではなく配列 一時的なオブジェクトを利用しているだけ
@@ -90,12 +97,12 @@ export default function MyPage() {
 
   const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
+    setLiked(idsToRecord(persistLike(id)));
   };
   
   const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
+    setBookmarked(idsToRecord(persistBookmark(id)));
   };
 
   return (
@@ -157,11 +164,11 @@ export default function MyPage() {
                 {" "}いいね獲得
               </span>
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{MOCK_LIKED_IDS.length}</span>
+                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{likedRoadmaps.length}</span>
                 {" "}いいね
               </span>
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{MOCK_BOOKMARKED_IDS.length}</span>
+                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{bookmarkedRoadmaps.length}</span>
                 {" "}保存
               </span>
             </div>
