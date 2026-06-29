@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
 import { Roadmap } from "@/app/lib/types";
+import {
+  getLikedIds,
+  getBookmarkedIds,
+  toggleLike as persistLike,
+  toggleBookmark as persistBookmark,
+} from "../../lib/likes";
 
 //地図のノードの型
 type RoadmapNode = {
@@ -410,6 +416,12 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
+  useEffect(() => {
+    setLiked(getLikedIds().includes(id));
+    setBookmarked(getBookmarkedIds().includes(id));
+  }, [id]);
+
+
   const handleSelect = (nodeId: string) => setSelected((prev) => (prev === nodeId ? null : nodeId));
 
   const isOwner = isUser; // user-created roadmaps belong to the logged-in user
@@ -476,7 +488,10 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
             <div className="flex items-center gap-3">
               <button
                 type="button"
-                onClick={(e) => { e.stopPropagation(); setBookmarked((v) => !v); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setBookmarked(persistBookmark(id).includes(id));
+                }} 
                 className={[
                   "text-[13px] transition-colors",
                   bookmarked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
@@ -487,7 +502,10 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
               </button>
               <button
                 type="button"
-                onClick={(e) => { e.stopPropagation(); setLiked((v) => !v); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLiked(persistLike(id).includes(id));
+                }}
                 className={[
                   "flex items-center gap-1 text-[13px] transition-colors",
                   liked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
