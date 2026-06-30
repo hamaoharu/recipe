@@ -1,8 +1,15 @@
 "use client";
 
-import { MouseEvent, use, useState } from "react";
+import { MouseEvent, use, useState, useEffect } from "react";
 import Link from "next/link";
 import { ROADMAPS } from "../../lib/roadmaps";
+import {
+  getLikedIds,
+  getBookmarkedIds,
+  toggleLike as persistLike,
+  toggleBookmark as persistBookmark,
+  idsToRecord,
+} from "../../lib/likes";
 
 //[id]がparams.idに代入される
 //params使う時のテンプレ
@@ -22,13 +29,18 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
 
+  useEffect(() => {
+    setLiked(idsToRecord(getLikedIds()));
+    setBookmarked(idsToRecord(getBookmarkedIds()));
+  }, []);
+
   const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setLiked((prev) => ({ ...prev, [id]: !prev[id] }));
+    setLiked(idsToRecord(persistLike(id)));
   };
   const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
+    setBookmarked(idsToRecord(persistBookmark(id)));
   };
 
   return (
