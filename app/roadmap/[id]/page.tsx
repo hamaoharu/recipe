@@ -4,7 +4,12 @@ import { use, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
-import { Roadmap } from "@/app/lib/types";
+import type {
+  RoadmapGroup,
+  RoadmapNode,
+  DetailMap,
+  UserRoadmap,
+} from "../../lib/types";
 import {
   getLikedIds,
   getBookmarkedIds,
@@ -12,56 +17,12 @@ import {
   toggleBookmark as persistBookmark,
 } from "../../lib/likes";
 
-//地図のノードの型
-type RoadmapNode = {
-  id: string;
-  label: string;
-  required: boolean;
-  days: number;
-}
-
-//地図のセクションの型
-type RoadmapGroup = {
-  id: string;
-  label: string | null;
-  nodes: RoadmapNode[];
-}
-
-//コンポーネントのpropsの型を定義しているだけ
 type NodeBoxProps = {
   node: RoadmapNode;
   selected: string | null;
 
   //関数の型だけ指定する書き方
   onClick: (nodeId: string) => void;
-}
-
-//1つのノードのリソースの型
-type DetailResource = {
-  label: string;
-  url: string | null;
-  note: string;
-};
-
-//1つのノードのクリア基準の型
-type DetailCriterion = string | { text: string };
-
-//1つのノードの詳細データの型
-type DetailItem = {
-  title: string;
-  days: number;
-  description: string;
-  resources: DetailResource[];
-  criteria: DetailCriterion[];
-};
-
-//キーがstring、値がDetailItemのオブジェクトの型
-type DetailMap = Record<string, DetailItem>;
-
-//ロードマップの基本情報、地図、詳細をまとめた型
-type userRoadmap = Roadmap & {
-  groups: RoadmapGroup[];
-  details: DetailMap;
 }
 
 //地図のセクションのサンプルデータ
@@ -380,12 +341,12 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   const { id } = use(params);
 
   const staticMeta = getRoadmap(id);
-  const [userRoadmap, setUserRoadmap] = useState<userRoadmap | null>(null);
+  const [userRoadmap, setUserRoadmap] = useState<UserRoadmap | null>(null);
 
   useEffect(() => {
     if (staticMeta) return;
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as userRoadmap[];
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as UserRoadmap[];
 
       //findは一件だけ返す
       const found = saved.find((r) => r.id === id);
@@ -430,7 +391,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const handleDelete = () => {
     try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]")as userRoadmap[];
+      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as UserRoadmap[];
       localStorage.setItem("user_roadmaps", JSON.stringify(saved.filter((r) => r.id !== id)));
     } catch {}
     router.push("/");
