@@ -4,7 +4,7 @@ import { Suspense, useState, useMemo, useEffect } from "react";
 import type { MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ROADMAPS, ALL_TAGS } from "./lib/roadmaps";
+import { ALL_TAGS } from "./lib/roadmaps";
 import type { Roadmap } from "./lib/types";
 import {
   getLikedIds,
@@ -32,6 +32,17 @@ function FeedContent() {
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
   const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
+  const [roadmaps, setRoadmaps] = useState<Roadmap[]>([]);
+
+  useEffect(() => {
+
+    //APIからデータを取得してstateに保存
+    //メソッドを書かないと自動的にGETになる
+    fetch("/api/roadmaps")
+      .then((res) => res.json())
+      .then((data: Roadmap[]) => setRoadmaps(data))
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     try {
@@ -45,7 +56,7 @@ function FeedContent() {
     } catch {}
   }, []);
 
-  const allRoadmaps = useMemo(() => [...userRoadmaps, ...ROADMAPS], [userRoadmaps]);
+  const allRoadmaps = useMemo(() => [...userRoadmaps, ...roadmaps], [userRoadmaps, roadmaps]);
 
   const allTags = useMemo(
     () => [...new Set(allRoadmaps.flatMap((r) => r.tags ?? []))],
