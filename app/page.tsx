@@ -35,13 +35,14 @@ function FeedContent() {
   const [roadmaps, setRoadmaps] = useState<Roadmap[]>([]);
 
   useEffect(() => {
-
-    //APIからデータを取得してstateに保存
-    //メソッドを書かないと自動的にGETになる
-    fetch("/api/roadmaps")
-      .then((res) => res.json())
-      .then((data: Roadmap[]) => setRoadmaps(data))
-      .catch(() => {});
+    async function loadRoadmaps() {
+      try {
+        const res = await fetch("/api/roadmaps");
+        const data: Roadmap[] = await res.json();
+        setRoadmaps(data);
+      } catch {}
+    }
+    loadRoadmaps();
   }, []);
 
   useEffect(() => {
