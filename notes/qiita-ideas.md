@@ -1,0 +1,23 @@
+# Qiita記事アイデア
+
+- Next.js Route Handler入門（`route.ts` の `GET` / `POST`、いつ実行されるか）
+- `fetch` と API の関係整理（`fetch -> API -> Route Handler` の流れ）
+- HTTPメソッドの基本（GET/POSTの違い、なぜ判別できるか）
+- `then` と `async/await` の使い分け（同じ処理を2通りで比較）
+- Route Handlerの引数を理解する（`request` と `{ params }` は何か）
+- `curl` でAPIを検証する方法（`-X POST`、404/405の見分け方）
+- 「likesは増えたのにファイルは変わらない」理由（メモリ上の変更と永続化）
+- UIのアフォーダンス設計（押せる/編集できる/状態が変わるを見た目で伝える）
+- `useState` のジェネリクス入門（`useState<Author | null>` が必要な理由）
+- `Record<string, boolean>` を使う理由（いいね状態管理の型設計）
+- 型アサーション `as` の使いどころ（`JSON.parse` と安全性）
+- `as const` の意味（文字列リテラル型を保つ）
+- `useEffect` と `useMemo` の使い分け（外部同期 vs 表示計算）
+- `useEffect(..., [])` と依存配列の理解（初回のみ/毎回実行）
+- `params: Promise<{ id: string }>` の背景（`[id]` ルートの型）
+- localStorage と state の役割分担（保存と再描画の違い）
+- `children` と `props.children` の違い（分割代入の理解）
+- Render Props の基礎（通常 props との違い）
+- Reactイベント型の付け方（`React.SubmitEvent` など）
+- 型の統合リファクタ（一覧用/詳細用型をどう整理するか）
+- Vite と Next.js の違い（ビルドツールとフレームワーク）
