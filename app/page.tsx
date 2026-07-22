@@ -64,9 +64,21 @@ function FeedContent() {
     [allRoadmaps]
   );
 
-  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
+    const alreadyLiked = !!liked[id];
     setLiked(idsToRecord(persistLike(id)));
+
+    if(alreadyLiked) return;
+    try {
+      const res = await fetch(`/api/roadmaps/${id}/like`, {
+        method: "POST",
+      });
+      const data: { likes: number } = await res.json();
+      setRoadmaps((prev) =>
+        prev.map((r) => (r.id === id ? { ...r, likes: data.likes } : r))
+      );
+    } catch {}
   };
   
   //イベントオブジェクトには型定義
