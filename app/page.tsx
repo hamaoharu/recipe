@@ -235,7 +235,7 @@ function FeedContent() {
                     ].join(" ")}
                   >
                     <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
-                    <span>{roadmap.likes + (liked[roadmap.id] ? 1 : 0)}</span>
+                    <span>{roadmap.likes}</span>
                   </button>
 
                   <button
