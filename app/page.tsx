@@ -13,6 +13,8 @@ import {
   toggleBookmark as persistBookmark,
   idsToRecord,
 } from "./lib/likes";
+import { createClient } from "./lib/supabase/client";
+import { toRoadmap } from "./lib/mappers";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
@@ -37,10 +39,14 @@ function FeedContent() {
   useEffect(() => {
     async function loadRoadmaps() {
       try {
-        const res = await fetch("/api/roadmaps");
-        const data: Roadmap[] = await res.json();
-        setRoadmaps(data);
-      } catch {}
+        const supabase = createClient();
+        //roadmapsテーブルから全てのデータを取得
+        const { data, error } = await supabase.from("roadmaps").select("*");
+        if (error) throw error;
+        setRoadmaps((data ?? []).map(toRoadmap));
+      } catch(e) {
+        console.log(e);
+      }
     }
     loadRoadmaps();
   }, []);
