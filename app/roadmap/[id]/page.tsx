@@ -4,6 +4,15 @@ import { use, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
+import {
+  buildRoadmapGroups,
+  toRoadmap,
+  totalRequiredDays,
+  type RoadmapGroupRow,
+  type RoadmapNodeRow,
+  type RoadmapRow,
+} from "../../lib/mappers";
+import { createClient } from "../../lib/supabase/client";
 import type {
   RoadmapGroup,
   RoadmapNode,
@@ -342,6 +351,9 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const staticMeta = getRoadmap(id);
   const [userRoadmap, setUserRoadmap] = useState<UserRoadmap | null>(null);
+  const [dbRoadmap, setDbRoadmap] = useState<ReturnType<typeof toRoadmap> | null>(null);
+  const [dbGroups, setDbGroups] = useState<RoadmapGroup[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (staticMeta) return;
@@ -354,14 +366,69 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     } catch {}
   }, [id, staticMeta]);
 
-  const isUser   = !staticMeta && userRoadmap;
-  const activeGroups  = isUser ? userRoadmap.groups  : GROUPS;
+  useEffect(() => {
+    async function loadFromDb() {
+      setLoading(true);
+      try {
+        const supabase = createClient();
+
+        const { data: roadmap, error: roadmapError } = await supabase
+          .from("roadmaps")
+          .select("*")
+          .eq("id", id)
+          .maybeSingle();
+        if (roadmapError) throw roadmapError;
+        if (roadmap) setDbRoadmap(toRoadmap(roadmap as RoadmapRow));
+
+        const { data: groups, error: groupsError } = await supabase
+          .from("roadmap_groups")
+          .select("*")
+          .eq("roadmap_id", id)
+          .order("sort_order");
+        if (groupsError) throw groupsError;
+
+        if (groups && groups.length > 0) {
+          const groupIds = groups.map((g) => g.id);
+          const { data: nodes, error: nodesError } = await supabase
+            .from("roadmap_nodes")
+            .select("*")
+            .in("group_id", groupIds)
+            .order("sort_order");
+          if (nodesError) throw nodesError;
+          setDbGroups(
+            buildRoadmapGroups(
+              groups as RoadmapGroupRow[],
+              (nodes ?? []) as RoadmapNodeRow[],
+            ),
+          );
+        } else {
+          setDbGroups([]);
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadFromDb();
+  }, [id]);
+
+  const isUser = !!userRoadmap;
+  const hasDbGroups = dbGroups.length > 0;
+  const activeGroups = isUser
+    ? userRoadmap.groups
+    : hasDbGroups
+      ? dbGroups
+      : GROUPS;
   const activeDetails = isUser ? userRoadmap.details : DETAILS;
   const activeTotalDays = isUser
     ? userRoadmap.totalDays
-    : TOTAL_REQUIRED_DAYS;
+    : hasDbGroups
+      ? totalRequiredDays(dbGroups)
+      : TOTAL_REQUIRED_DAYS;
 
-  const meta = staticMeta ?? userRoadmap ?? {
+  const meta = userRoadmap ?? dbRoadmap ?? staticMeta ?? {
     id: "unknown",
     title: "Roadmap",
     description: "",
@@ -396,6 +463,17 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     } catch {}
     router.push("/");
   };
+
+  if (loading && !userRoadmap) {
+    return (
+      <div
+        className="flex items-center justify-center text-zinc-500"
+        style={{ height: "calc(100vh - 48px)" }}
+      >
+        読み込み中...
+      </div>
+    );
+  }
 
   return (
     <div
