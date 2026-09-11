@@ -5,6 +5,7 @@ import type * as React from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { authorFromUser } from "../../lib/auth";
+import { createRoadmap } from "../../lib/roadmaps-db";
 import { createClient } from "../../lib/supabase/client";
 import type { Author } from "../../lib/types";
 
@@ -379,34 +380,34 @@ export default function NewRoadmapPage() {
     }
     const author: Author = authorFromUser(data.session.user);
 
-    const totalDays = groups.flatMap((g) => g.nodes).filter((n) => n.required)
-      .reduce((s, n) => s + (Number(n.days) || 0), 0);
-
-    const roadmap = {
-      id: `user-${Date.now()}`,
-      title: title.trim(), description: description.trim(), tags, totalDays,
-      groups: groups.map((g) => ({
-        id: g.id, label: g.label || null,
-        nodes: g.nodes.map((n) => ({ id: n.id, label: n.label, required: n.required, days: Number(n.days) || 0 })),
-      })),
-      details: Object.fromEntries(
-        groups.flatMap((g) => g.nodes.map((n) => [n.id, {
-          title: n.label, days: Number(n.days) || 0,
-          description: n.nodeDescription,
-          resources: n.resources.filter((r) => r.label.trim()),
-          criteria: n.criteria.map((c) => c.text).filter(Boolean),
-        }]))
-      ),
-      author: { id: author.id, name: author.name, initial: author.initial },
-      likes: 0, views: 0,
-      createdAt: new Date().toISOString().slice(0, 10),
-    };
-
     try {
-      const existing = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
-      localStorage.setItem("user_roadmaps", JSON.stringify([roadmap, ...existing]));
-    } catch {}
-    setTimeout(() => router.push("/"), 300);
+      const id = await createRoadmap({
+        title: title.trim(),
+        description: description.trim(),
+        tags,
+        author,
+        groups: groups.map((g) => ({
+          id: g.id,
+          label: g.label || null,
+          nodes: g.nodes.map((n) => ({
+            id: n.id,
+            label: n.label,
+            required: n.required,
+            days: Number(n.days) || 0,
+            description: n.nodeDescription,
+            resources: n.resources
+              .filter((r) => r.label.trim())
+              .map((r) => ({ label: r.label, url: r.url || null, note: r.note })),
+            criteria: n.criteria.map((c) => c.text).filter(Boolean),
+          })),
+        })),
+      });
+      router.push(`/roadmap/${id}`);
+    } catch (err) {
+      console.error(err);
+      setErrors({ title: "保存に失敗しました。時間をおいて再度お試しください。" });
+      setSubmitting(false);
+    }
   };
 
   const totalDays = groups.flatMap((g) => g.nodes).filter((n) => n.required)

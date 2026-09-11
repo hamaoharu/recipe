@@ -2,7 +2,8 @@
 
 import { MouseEvent, use, useState, useEffect } from "react";
 import Link from "next/link";
-import { ROADMAPS } from "../../lib/roadmaps";
+import { fetchRoadmapsByAuthor } from "../../lib/roadmaps-db";
+import type { Roadmap } from "../../lib/types";
 import {
   getLikedIds,
   getBookmarkedIds,
@@ -16,7 +17,18 @@ import {
 export default function UserPage({ params }:{params: Promise<{id: string}>}) {
   const { id: userId } = use(params);
 
-  const userRoadmaps = ROADMAPS.filter((r) => r.author.id === userId);
+  const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
+
+  useEffect(() => {
+    async function loadRoadmaps() {
+      try {
+        setUserRoadmaps(await fetchRoadmapsByAuthor(userId));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    loadRoadmaps();
+  }, [userId]);
 
   //無ければ止めてundefinedになる
   const author = userRoadmaps[0]?.author ?? {
@@ -30,17 +42,46 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
   const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    setLiked(idsToRecord(getLikedIds()));
-    setBookmarked(idsToRecord(getBookmarkedIds()));
+    async function loadSocial() {
+      const [likedIds, bookmarkedIds] = await Promise.all([
+        getLikedIds(),
+        getBookmarkedIds(),
+      ]);
+      setLiked(idsToRecord(likedIds));
+      setBookmarked(idsToRecord(bookmarkedIds));
+    }
+    loadSocial();
   }, []);
 
-  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setLiked(idsToRecord(persistLike(id)));
+    const wasLiked = !!liked[id];
+    setLiked((prev) => ({ ...prev, [id]: !wasLiked }));
+    setUserRoadmaps((prev) =>
+      prev.map((r) =>
+        r.id === id ? { ...r, likes: r.likes + (wasLiked ? -1 : 1) } : r
+      )
+    );
+
+    const nowLiked = await persistLike(id, wasLiked);
+    if (nowLiked === wasLiked) {
+      setLiked((prev) => ({ ...prev, [id]: wasLiked }));
+      setUserRoadmaps((prev) =>
+        prev.map((r) =>
+          r.id === id ? { ...r, likes: r.likes + (wasLiked ? 1 : -1) } : r
+        )
+      );
+    }
   };
-  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const toggleBookmark = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked(idsToRecord(persistBookmark(id)));
+    const wasBookmarked = !!bookmarked[id];
+    setBookmarked((prev) => ({ ...prev, [id]: !wasBookmarked }));
+
+    const nowBookmarked = await persistBookmark(id, wasBookmarked);
+    if (nowBookmarked === wasBookmarked) {
+      setBookmarked((prev) => ({ ...prev, [id]: wasBookmarked }));
+    }
   };
 
   return (
@@ -127,7 +168,7 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
                     ].join(" ")}
                   >
                     <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
-                    <span>{roadmap.likes + (liked[roadmap.id] ? 1 : 0)}</span>
+                    <span>{roadmap.likes}</span>
                   </button>
 
                   <button

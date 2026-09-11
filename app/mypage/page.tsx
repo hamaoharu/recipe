@@ -4,7 +4,11 @@ import { useState, useEffect, MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authorFromUser } from "../lib/auth";
-import { ROADMAPS } from "../lib/roadmaps";
+import {
+  deleteRoadmap,
+  fetchRoadmapsByAuthor,
+  fetchRoadmapsByIds,
+} from "../lib/roadmaps-db";
 import { createClient } from "../lib/supabase/client";
 import { Author, Roadmap } from "../lib/types";
 import {
@@ -53,21 +57,39 @@ export default function MyPage() {
     loadUser();
   }, [router]);
 
+  const [likedRoadmaps, setLikedRoadmaps] = useState<Roadmap[]>([]);
+  const [bookmarkedRoadmaps, setBookmarkedRoadmaps] = useState<Roadmap[]>([]);
+
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]");
-      setUserRoadmaps(saved);
-      setLiked(idsToRecord(getLikedIds()));
-      setBookmarked(idsToRecord(getBookmarkedIds()));
-    } catch {}
-  }, []);
+    if (!user) return;
+
+    async function loadRoadmaps() {
+      try {
+        const [mine, likedIds, bookmarkedIds] = await Promise.all([
+          fetchRoadmapsByAuthor(user!.id),
+          getLikedIds(),
+          getBookmarkedIds(),
+        ]);
+        setUserRoadmaps(mine);
+        setLiked(idsToRecord(likedIds));
+        setBookmarked(idsToRecord(bookmarkedIds));
+
+        const [likedList, bookmarkedList] = await Promise.all([
+          fetchRoadmapsByIds(likedIds),
+          fetchRoadmapsByIds(bookmarkedIds),
+        ]);
+        setLikedRoadmaps(likedList);
+        setBookmarkedRoadmaps(bookmarkedList);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    loadRoadmaps();
+  }, [user]);
 
   if (!user) return null;
 
-  const myRoadmaps         = userRoadmaps;
-  const allRoadmaps = [...userRoadmaps, ...ROADMAPS];
-  const likedRoadmaps = allRoadmaps.filter((r) => liked[r.id]);
-  const bookmarkedRoadmaps = allRoadmaps.filter((r) => bookmarked[r.id]);
+  const myRoadmaps = userRoadmaps;
 
   //オブジェクトの定義と取得を同時にしている
   //tabRoadmapsはオブジェクトではなく配列 一時的なオブジェクトを利用しているだけ
@@ -80,10 +102,13 @@ export default function MyPage() {
   //sumと今の値を引数で受け取る
   const totalLikes = myRoadmaps.reduce((s, r) => s + (r.likes ?? 0), 0);
 
-  const deleteRoadmap = (id: string) => {
-    const updated = userRoadmaps.filter((r) => r.id !== id);
-    setUserRoadmaps(updated);
-    localStorage.setItem("user_roadmaps", JSON.stringify(updated));
+  const removeRoadmap = async (id: string) => {
+    try {
+      await deleteRoadmap(id);
+      setUserRoadmaps((prev) => prev.filter((r) => r.id !== id));
+    } catch (e) {
+      console.error(e);
+    }
     setDeleteConfirm(null);
   };
 
@@ -96,7 +121,17 @@ export default function MyPage() {
       data: { name, initial },
     });
     if (error) return;
+
+    //投稿側にも著者名を持たせているので合わせて更新する
+    await supabase
+      .from("roadmaps")
+      .update({ author_name: name, author_initial: initial })
+      .eq("author_id", user.id);
+
     setUser({ ...user, name, initial });
+    setUserRoadmaps((prev) =>
+      prev.map((r) => ({ ...r, author: { ...r.author, name, initial } })),
+    );
     setEditing(false);
   };
 
@@ -107,14 +142,30 @@ export default function MyPage() {
     router.refresh();
   };
 
-  const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setLiked(idsToRecord(persistLike(id)));
+    const wasLiked = !!liked[id];
+    setLiked((prev) => ({ ...prev, [id]: !wasLiked }));
+
+    const nowLiked = await persistLike(id, wasLiked);
+    if (nowLiked === wasLiked) {
+      setLiked((prev) => ({ ...prev, [id]: wasLiked }));
+    } else if (wasLiked) {
+      setLikedRoadmaps((prev) => prev.filter((r) => r.id !== id));
+    }
   };
-  
-  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+
+  const toggleBookmark = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked(idsToRecord(persistBookmark(id)));
+    const wasBookmarked = !!bookmarked[id];
+    setBookmarked((prev) => ({ ...prev, [id]: !wasBookmarked }));
+
+    const nowBookmarked = await persistBookmark(id, wasBookmarked);
+    if (nowBookmarked === wasBookmarked) {
+      setBookmarked((prev) => ({ ...prev, [id]: wasBookmarked }));
+    } else if (wasBookmarked) {
+      setBookmarkedRoadmaps((prev) => prev.filter((r) => r.id !== id));
+    }
   };
 
   return (
@@ -327,7 +378,7 @@ export default function MyPage() {
                       <span className="text-[12px] text-zinc-500">本当に削除しますか？</span>
                       <button
                         type="button"
-                        onClick={() => deleteRoadmap(roadmap.id)}
+                        onClick={() => removeRoadmap(roadmap.id)}
                         className="text-[12px] text-red-600 transition-colors hover:text-red-400"
                       >
                         削除する

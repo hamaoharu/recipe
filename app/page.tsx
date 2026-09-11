@@ -4,7 +4,6 @@ import { Suspense, useState, useMemo, useEffect } from "react";
 import type { MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ALL_TAGS } from "./lib/roadmaps";
 import type { Roadmap } from "./lib/types";
 import {
   getLikedIds,
@@ -13,8 +12,7 @@ import {
   toggleBookmark as persistBookmark,
   idsToRecord,
 } from "./lib/likes";
-import { createClient } from "./lib/supabase/client";
-import { toRoadmap } from "./lib/mappers";
+import { fetchRoadmaps } from "./lib/roadmaps-db";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
@@ -33,37 +31,32 @@ function FeedContent() {
   //キーがstringで値がbooleanのオブジェクトを定義する組込みの型Record
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
-  const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
   const [roadmaps, setRoadmaps] = useState<Roadmap[]>([]);
 
   useEffect(() => {
     async function loadRoadmaps() {
       try {
-        const supabase = createClient();
-        //roadmapsテーブルから全てのデータを取得
-        const { data, error } = await supabase.from("roadmaps").select("*");
-        if (error) throw error;
-        setRoadmaps((data ?? []).map(toRoadmap));
-      } catch(e) {
-        console.log(e);
+        setRoadmaps(await fetchRoadmaps());
+      } catch (e) {
+        console.error(e);
       }
     }
     loadRoadmaps();
   }, []);
 
   useEffect(() => {
-    try {
-      //localStorageからとってきたデータがRoadmap[]型であることを保証(型アサーション)
-      const saved = JSON.parse(localStorage.getItem("user_roadmaps") ?? "[]") as Roadmap[];
-      setUserRoadmaps(saved);
-
-      //いいねとブックマークのデータをlocalStorageから取得してstateに保存
-      setLiked(idsToRecord(getLikedIds()));
-      setBookmarked(idsToRecord(getBookmarkedIds()));
-    } catch {}
+    async function loadSocial() {
+      const [likedIds, bookmarkedIds] = await Promise.all([
+        getLikedIds(),
+        getBookmarkedIds(),
+      ]);
+      setLiked(idsToRecord(likedIds));
+      setBookmarked(idsToRecord(bookmarkedIds));
+    }
+    loadSocial();
   }, []);
 
-  const allRoadmaps = useMemo(() => [...userRoadmaps, ...roadmaps], [userRoadmaps, roadmaps]);
+  const allRoadmaps = roadmaps;
 
   const allTags = useMemo(
     () => [...new Set(allRoadmaps.flatMap((r) => r.tags ?? []))],
@@ -72,25 +65,39 @@ function FeedContent() {
 
   const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    const alreadyLiked = !!liked[id];
-    setLiked(idsToRecord(persistLike(id)));
+    const wasLiked = !!liked[id];
 
-    if(alreadyLiked) return;
-    try {
-      const res = await fetch(`/api/roadmaps/${id}/like`, {
-        method: "POST",
-      });
-      const data: { likes: number } = await res.json();
+    //先に画面を更新して、失敗したら元に戻す
+    setLiked((prev) => ({ ...prev, [id]: !wasLiked }));
+    setRoadmaps((prev) =>
+      prev.map((r) =>
+        r.id === id ? { ...r, likes: r.likes + (wasLiked ? -1 : 1) } : r
+      )
+    );
+
+    const nowLiked = await persistLike(id, wasLiked);
+    if (nowLiked === wasLiked) {
+      setLiked((prev) => ({ ...prev, [id]: wasLiked }));
       setRoadmaps((prev) =>
-        prev.map((r) => (r.id === id ? { ...r, likes: data.likes } : r))
+        prev.map((r) =>
+          r.id === id ? { ...r, likes: r.likes + (wasLiked ? 1 : -1) } : r
+        )
       );
-    } catch {}
+      if (!wasLiked) router.push("/login?next=/");
+    }
   };
-  
+
   //イベントオブジェクトには型定義
-  const toggleBookmark = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const toggleBookmark = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
-    setBookmarked(idsToRecord(persistBookmark(id)));
+    const wasBookmarked = !!bookmarked[id];
+    setBookmarked((prev) => ({ ...prev, [id]: !wasBookmarked }));
+
+    const nowBookmarked = await persistBookmark(id, wasBookmarked);
+    if (nowBookmarked === wasBookmarked) {
+      setBookmarked((prev) => ({ ...prev, [id]: wasBookmarked }));
+      if (!wasBookmarked) router.push("/login?next=/");
+    }
   };
 
   const filtered = useMemo(() => {

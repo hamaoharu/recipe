@@ -19,6 +19,7 @@ function LoginContent() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -33,6 +34,7 @@ function LoginContent() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    setNotice(null);
     setLoading(true);
 
     try {
@@ -40,7 +42,7 @@ function LoginContent() {
 
       if (mode === "signup") {
         const initial = name.trim().slice(0, 1).toUpperCase() || "U";
-        const { error: signUpError } = await supabase.auth.signUp({
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
           email: email.trim(),
           password,
           options: {
@@ -51,6 +53,14 @@ function LoginContent() {
           },
         });
         if (signUpError) throw signUpError;
+
+        //メール確認が有効だとこの時点ではまだログインしていない
+        if (!signUpData.session) {
+          setNotice("確認メールを送信しました。メール内のリンクを開いてから、ログインしてください。");
+          setMode("login");
+          setLoading(false);
+          return;
+        }
       } else {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email: email.trim(),
@@ -112,6 +122,9 @@ function LoginContent() {
         {error && (
           <p className="text-[12px] text-red-600 dark:text-red-400">{error}</p>
         )}
+        {notice && (
+          <p className="text-[12px] text-zinc-600 dark:text-zinc-400">{notice}</p>
+        )}
 
         <button
           type="submit"
@@ -131,6 +144,7 @@ function LoginContent() {
         onClick={() => {
           setMode((m) => (m === "login" ? "signup" : "login"));
           setError(null);
+          setNotice(null);
         }}
         className="mt-4 text-center text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-600 dark:hover:text-zinc-300"
       >
