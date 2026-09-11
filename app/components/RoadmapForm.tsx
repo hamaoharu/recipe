@@ -674,7 +674,7 @@ export default function RoadmapForm({
       onSubmit={handleSubmit}
       onKeyDown={preventImplicitSubmit}
       className="flex overflow-hidden text-zinc-700 dark:text-zinc-300"
-      style={{ height: "calc(100vh - 48px)" }}
+      style={{ height: "calc(100vh - var(--header-height))" }}
     >
       {/* ── 左：ロードマップの構造 ── */}
       <div

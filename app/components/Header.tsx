@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { useTheme } from "./ThemeProvider";
+import { PlusIcon, SearchIcon } from "./icons";
 import { authorFromUser } from "../lib/auth";
 import { createClient } from "../lib/supabase/client";
 import type { Author } from "../lib/types";
@@ -11,7 +11,6 @@ import type { Author } from "../lib/types";
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
   const [q, setQ] = useState("");
   const [user, setUser] = useState<Author | null>(null);
 
@@ -46,64 +45,62 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex h-12 shrink-0 items-center gap-4 border-b border-zinc-200 bg-white px-6 dark:border-zinc-800 dark:bg-black">
+    <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-5 border-b border-zinc-200 bg-white/95 px-6 backdrop-blur dark:border-zinc-800 dark:bg-black/95">
       <Link
         href="/"
-        className="shrink-0 font-mono text-[15px] font-bold tracking-tight text-zinc-900 hover:text-black dark:text-zinc-100 dark:hover:text-white"
+        className="shrink-0 rounded-md px-1 py-1 font-mono text-[16px] font-bold tracking-tight text-zinc-900 transition-colors hover:text-black dark:text-zinc-100 dark:hover:text-white"
       >
         recipe
       </Link>
 
-      <form onSubmit={handleSearch} className="flex w-full max-w-xs">
+      <form onSubmit={handleSearch} className="relative flex w-full max-w-sm">
+        <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-600">
+          <SearchIcon />
+        </span>
         <input
           type="text"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="ロードマップを検索..."
-          className="w-full rounded-sm border border-zinc-300 bg-zinc-50 px-3 py-1 text-[13px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600"
+          aria-label="ロードマップを検索"
+          className="w-full rounded-lg border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-3 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-100/10"
         />
       </form>
 
-      <nav className="ml-auto flex items-center gap-4">
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label={theme === "dark" ? "ライトモードに切り替え" : "ダークモードに切り替え"}
-          className="rounded-sm border border-zinc-300 px-2 py-1 font-mono text-[12px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-500 dark:hover:border-zinc-500 dark:hover:text-zinc-300"
-        >
-          {theme === "dark" ? "☀" : "☽"}
-        </button>
-
+      <nav className="ml-auto flex items-center gap-2">
         <Link
           href={user ? "/roadmap/new" : "/login?next=/roadmap/new"}
-          className="rounded-sm bg-zinc-900 px-3 py-1 text-[13px] font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          className="flex items-center gap-1.5 rounded-lg bg-zinc-900 px-4 py-2 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
         >
+          <PlusIcon />
           投稿する
         </Link>
 
         {user ? (
-          <div className="flex items-center gap-3">
+          <>
             <Link
               href="/mypage"
-              className="flex items-center gap-2 transition-opacity hover:opacity-70"
+              className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-200 font-mono text-[12px] font-bold text-zinc-700 dark:bg-zinc-700 dark:text-zinc-100">
                 {user.initial}
               </span>
-              <span className="text-[13px] text-zinc-600 dark:text-zinc-400">{user.name}</span>
+              <span className="max-w-[8rem] truncate text-[14px] text-zinc-700 dark:text-zinc-300">
+                {user.name}
+              </span>
             </Link>
             <button
               type="button"
               onClick={handleLogout}
-              className="text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-700 dark:hover:text-zinc-400"
+              className="rounded-lg px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
             >
               ログアウト
             </button>
-          </div>
+          </>
         ) : (
           <Link
             href="/login"
-            className="text-[13px] text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+            className="rounded-lg px-3 py-2 text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
           >
             ログイン
           </Link>

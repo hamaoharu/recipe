@@ -10,6 +10,7 @@ import {
   incrementViews,
 } from "../../lib/roadmaps-db";
 import { createClient } from "../../lib/supabase/client";
+import { BookmarkButton, LikeButton } from "../../components/actions";
 import type {
   DetailMap,
   Roadmap,
@@ -52,26 +53,27 @@ function NodeBox({ node, selected, onClick }: NodeBoxProps) {
     <button
       type="button"
       onClick={(e) => { e.stopPropagation(); onClick(node.id); }}
+      aria-pressed={isSelected}
       className={[
-        "rounded-sm px-3 py-3 text-left transition-colors duration-100",
+        "rounded-lg px-3.5 py-3 text-left transition-colors duration-100",
         node.required ? "border" : "border border-dashed",
         isSelected
-          ? "border-zinc-500 dark:border-zinc-400 bg-zinc-100 dark:bg-zinc-900"
+          ? "border-zinc-500 bg-zinc-100 dark:border-zinc-400 dark:bg-zinc-900"
           : node.required
-          ? "border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 hover:border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900"
-          : "border-zinc-300/80 dark:border-zinc-800/80 bg-white dark:bg-black hover:border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:bg-zinc-950",
+            ? "border-zinc-200 bg-zinc-50 hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-600 dark:hover:bg-zinc-900"
+            : "border-zinc-300 bg-white hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-black dark:hover:border-zinc-600 dark:hover:bg-zinc-950",
       ].join(" ")}
     >
       <div className="flex items-end justify-between gap-2">
         <p className={[
-          "text-[13px] font-semibold leading-tight",
-          isSelected ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500",
+          "break-words text-[14px] font-semibold leading-snug",
+          isSelected ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-700 dark:text-zinc-300",
         ].join(" ")}>
           {node.label}
         </p>
         <p className={[
-          "shrink-0 font-mono text-[10px]",
-          isSelected ? "text-zinc-600 dark:text-zinc-400" : "text-zinc-500 dark:text-zinc-600",
+          "shrink-0 font-mono text-[11px] tabular-nums",
+          isSelected ? "text-zinc-600 dark:text-zinc-400" : "text-zinc-500 dark:text-zinc-500",
         ].join(" ")}>{node.days}日</p>
       </div>
     </button>
@@ -214,7 +216,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     return (
       <div
         className="flex items-center justify-center text-zinc-500"
-        style={{ height: "calc(100vh - 48px)" }}
+        style={{ height: "calc(100vh - var(--header-height))" }}
       >
         読み込み中...
       </div>
@@ -224,7 +226,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   return (
     <div
       className="flex overflow-hidden text-zinc-700 dark:text-zinc-300"
-      style={{ height: "calc(100vh - 48px)" }}
+      style={{ height: "calc(100vh - var(--header-height))" }}
       onClick={() => setSelected(null)}
     >
       {/* ── Left 60%: roadmap ── */}
@@ -233,28 +235,30 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
           {/* Back + meta */}
           <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
               <Link
                 href="/"
-                className="font-mono text-[12px] text-zinc-500 dark:text-zinc-600 transition-colors hover:text-zinc-700 dark:text-zinc-300"
+                className="rounded-md px-2 py-1.5 font-mono text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
               >
                 ← 一覧に戻る
               </Link>
               {isOwner && (
                 deleteConfirm ? (
-                  <span className="flex items-center gap-3">
-                    <span className="text-[12px] text-zinc-500">本当に削除しますか？</span>
+                  <span className="flex items-center gap-1">
+                    <span className="px-2 text-[13px] text-zinc-600 dark:text-zinc-400">
+                      本当に削除しますか？
+                    </span>
                     <button
                       type="button"
                       onClick={(e) => { e.stopPropagation(); handleDelete(); }}
-                      className="text-[12px] text-red-600 transition-colors hover:text-red-400"
+                      className="rounded-md bg-red-600 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-red-500"
                     >
                       削除する
                     </button>
                     <button
                       type="button"
                       onClick={(e) => { e.stopPropagation(); setDeleteConfirm(false); }}
-                      className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+                      className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
                     >
                       キャンセル
                     </button>
@@ -264,14 +268,14 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                     <Link
                       href={`/roadmap/${id}/edit`}
                       onClick={(e) => e.stopPropagation()}
-                      className="font-mono text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-500 dark:hover:text-zinc-300"
+                      className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
                     >
                       編集
                     </Link>
                     <button
                       type="button"
                       onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
-                      className="font-mono text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-red-700"
+                      className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-zinc-500 dark:hover:bg-red-950/40 dark:hover:text-red-400"
                     >
                       削除
                     </button>
@@ -279,67 +283,60 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                 )
               )}
             </div>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleToggleBookmark();
-                }} 
-                className={[
-                  "text-[13px] transition-colors",
-                  bookmarked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
-                ].join(" ")}
-                title="ブックマーク"
-              >
-                {bookmarked ? "★" : "☆"}
-              </button>
-              <button
-                type="button"
+            <div className="flex items-center gap-1">
+              <LikeButton
+                active={liked}
+                count={meta.likes}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleToggleLike();
                 }}
-                className={[
-                  "flex items-center gap-1 text-[13px] transition-colors",
-                  liked ? "text-zinc-800 dark:text-zinc-200" : "text-zinc-500 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400",
-                ].join(" ")}
-                title="いいね"
-              >
-                <span>{liked ? "♥" : "♡"}</span>
-                <span>{meta.likes}</span>
-              </button>
+              />
+              <BookmarkButton
+                active={bookmarked}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleToggleBookmark();
+                }}
+              />
             </div>
           </div>
 
           {/* Title + author */}
           <div className="mb-2">
-            <h1 className="text-[18px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h1 className="break-words text-[24px] font-bold leading-snug tracking-tight text-zinc-900 dark:text-zinc-100">
               {meta.title}
             </h1>
-            <div className="mt-2 flex items-center gap-2 text-[12px] text-zinc-500 dark:text-zinc-600">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 font-mono text-[10px] font-bold text-zinc-600 dark:text-zinc-400">
-                {meta.author.initial}
-              </span>
-              <span>{meta.author.name}</span>
+            <div className="mt-3 flex items-center gap-2 text-[13px] text-zinc-500 dark:text-zinc-500">
+              <Link
+                href={`/user/${meta.author.id}`}
+                className="flex items-center gap-2 rounded-md py-0.5 transition-opacity hover:opacity-70"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                  {meta.author.initial}
+                </span>
+                <span className="text-zinc-600 dark:text-zinc-400">{meta.author.name}</span>
+              </Link>
               {meta.createdAt && (
                 <>
-                  <span className="text-zinc-400 dark:text-zinc-800">·</span>
+                  <span className="text-zinc-300 dark:text-zinc-700">·</span>
                   <span>{meta.createdAt}</span>
                 </>
               )}
             </div>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {(meta.tags ?? []).map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/?tag=${encodeURIComponent(tag)}`}
-                  className="rounded-sm border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500 dark:text-zinc-600 transition-colors hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
-                >
-                  #{tag}
-                </Link>
-              ))}
-            </div>
+            {(meta.tags ?? []).length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {(meta.tags ?? []).map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/?tag=${encodeURIComponent(tag)}`}
+                    className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Days + legend */}
@@ -398,12 +395,12 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
             <h2 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               {meta.title}
             </h2>
-            <p className="mt-4 text-[14px] leading-[1.85] text-zinc-500">
-              {meta.description ?? "ノードをクリックすると詳細が表示されます。"}
+            <p className="mt-4 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600 dark:text-zinc-400">
+              {meta.description || "ノードをクリックすると詳細が表示されます。"}
             </p>
 
             {/* Timeline bar chart */}
-            <div className="mt-8 rounded-sm border border-zinc-200 dark:border-zinc-800 p-5">
+            <div className="mt-8 rounded-xl border border-zinc-200 dark:border-zinc-800 p-5">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
                 全体スケジュール（必須ルート）
               </p>
@@ -462,7 +459,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
             {activeDetails[selected] ? (
               <>
-                <p className="mt-5 text-[14px] leading-[1.85] text-zinc-600 dark:text-zinc-400">
+                <p className="mt-5 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600 dark:text-zinc-400">
                   {activeDetails[selected].description}
                 </p>
 
@@ -478,7 +475,9 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                             </a>
                           ) : r.label}
                         </p>
-                        <p className="mt-1 text-[13px] text-zinc-500">{r.note}</p>
+                        <p className="mt-1 whitespace-pre-wrap break-words text-[14px] text-zinc-500 dark:text-zinc-400">
+                          {r.note}
+                        </p>
                       </li>
                     ))}
                   </ul>
@@ -487,11 +486,13 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                 <DetailSection label="クリア基準">
                   <ul className="space-y-3">
                     {activeDetails[selected].criteria.map((c, i) => (
-                      <li key={i} className="flex gap-3 text-[14px] leading-[1.75] text-zinc-600 dark:text-zinc-400">
-                        <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-600">
+                      <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600 dark:text-zinc-400">
+                        <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400 dark:text-zinc-600">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span>{typeof c === "string" ? c : c.text}</span>
+                        <span className="whitespace-pre-wrap break-words">
+                          {typeof c === "string" ? c : c.text}
+                        </span>
                       </li>
                     ))}
                   </ul>

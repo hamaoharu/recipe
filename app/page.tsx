@@ -13,6 +13,7 @@ import {
   idsToRecord,
 } from "./lib/likes";
 import { fetchRoadmaps } from "./lib/roadmaps-db";
+import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "./components/actions";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
@@ -141,8 +142,8 @@ function FeedContent() {
   return (
     <div className="mx-auto flex w-full max-w-5xl gap-10 px-6 py-8">
       <main className="min-w-0 flex-1">
-        <div className="mb-5 flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
-          <div className="flex gap-0">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3 dark:border-zinc-800">
+          <div className="flex gap-1 rounded-lg bg-zinc-100 p-1 dark:bg-zinc-900">
             {(
               [
                 { value: "new", label: "新着" },
@@ -155,10 +156,11 @@ function FeedContent() {
                 key={tab.value}
                 type="button"
                 onClick={() => setSort(tab.value)}
+                aria-pressed={sort === tab.value}
                 className={[
-                  "px-4 py-1.5 text-[13px] transition-colors",
+                  "rounded-md px-4 py-2 text-[14px] transition-colors",
                   sort === tab.value
-                    ? "border-b-2 border-zinc-800 font-medium text-zinc-900 dark:border-zinc-300 dark:text-zinc-100"
+                    ? "bg-white font-medium text-zinc-900 shadow-sm dark:bg-zinc-800 dark:text-zinc-100"
                     : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
                 ].join(" ")}
               >
@@ -166,114 +168,100 @@ function FeedContent() {
               </button>
             ))}
           </div>
-          <p className="font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
+          <p className="font-mono text-[12px] text-zinc-500 dark:text-zinc-500">
             {filtered.length} 件
             {q && (
-              <span className="ml-2 text-zinc-500 dark:text-zinc-600">
+              <span className="ml-2 text-zinc-500 dark:text-zinc-500">
                 「{q}」の検索結果
               </span>
             )}
             {tagFilter && (
-              <span className="ml-2 text-zinc-500 dark:text-zinc-600">#{tagFilter}</span>
+              <span className="ml-2 text-zinc-500 dark:text-zinc-500">#{tagFilter}</span>
             )}
           </p>
         </div>
 
         {filtered.length === 0 ? (
-          <p className="py-16 text-center text-[14px] text-zinc-500 dark:text-zinc-600">
-            ロードマップが見つかりませんでした。
-          </p>
+          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
+            <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
+              ロードマップが見つかりませんでした。
+            </p>
+            <p className="mt-1.5 text-[13px] text-zinc-500 dark:text-zinc-500">
+              検索条件を変えるか、最初の1件を投稿してみてください。
+            </p>
+          </div>
         ) : (
-          <ul className="divide-y divide-zinc-200 dark:divide-zinc-900">
+          <ul className="space-y-3">
             {filtered.map((roadmap) => (
-              <li key={roadmap.id} className="py-5">
-                <div className="mb-2 flex items-center gap-2">
+              <li
+                key={roadmap.id}
+                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+              >
+                <div className="mb-2.5 flex items-center gap-2">
                   <Link
                     href={`/user/${roadmap.author.id}`}
                     onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 transition-opacity hover:opacity-70"
+                    className="flex items-center gap-2 rounded-md py-0.5 transition-opacity hover:opacity-70"
                   >
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 font-mono text-[10px] font-bold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                       {roadmap.author.initial}
                     </span>
-                    <span className="text-[12px] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300">
+                    <span className="text-[13px] text-zinc-600 dark:text-zinc-400">
                       {roadmap.author.name}
                     </span>
                   </Link>
-                  <span className="text-[12px] text-zinc-300 dark:text-zinc-800">·</span>
-                  <span className="text-[12px] text-zinc-500 dark:text-zinc-700">
+                  <span className="text-zinc-300 dark:text-zinc-700">·</span>
+                  <span className="text-[13px] text-zinc-500 dark:text-zinc-500">
                     {roadmap.createdAt}
                   </span>
                 </div>
 
                 <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[16px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:text-black dark:text-zinc-100 dark:group-hover:text-white">
+                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
                     {roadmap.title}
                   </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-zinc-500">
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                     {roadmap.description}
                   </p>
                 </Link>
 
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  {roadmap.tags.map((tag) => (
-                    <button
-                      key={tag}
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleTagClick(tag);
-                      }}
-                      className={[
-                        "rounded-sm border px-1.5 py-0.5 font-mono text-[11px] transition-colors",
-                        tagFilter === tag
-                          ? "border-zinc-600 text-zinc-800 dark:border-zinc-400 dark:text-zinc-300"
-                          : "border-zinc-300 text-zinc-500 hover:border-zinc-400 hover:text-zinc-700 dark:border-zinc-800 dark:text-zinc-600 dark:hover:border-zinc-600 dark:hover:text-zinc-400",
-                      ].join(" ")}
-                    >
-                      #{tag}
-                    </button>
-                  ))}
-                </div>
+                {roadmap.tags.length > 0 && (
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {roadmap.tags.map((tag) => (
+                      <button
+                        key={tag}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleTagClick(tag);
+                        }}
+                        aria-pressed={tagFilter === tag}
+                        className={[
+                          "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
+                          tagFilter === tag
+                            ? "border-zinc-800 bg-zinc-900 text-white dark:border-zinc-300 dark:bg-zinc-100 dark:text-zinc-900"
+                            : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200",
+                        ].join(" ")}
+                      >
+                        #{tag}
+                      </button>
+                    ))}
+                  </div>
+                )}
 
-                <div className="mt-3 flex items-center gap-4 text-[12px] text-zinc-500 dark:text-zinc-600">
-                  <button
-                    type="button"
+                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+                  <LikeButton
+                    active={!!liked[roadmap.id]}
+                    count={roadmap.likes}
                     onClick={(e) => toggleLike(e, roadmap.id)}
-                    className={[
-                      "flex items-center gap-1 transition-colors",
-                      liked[roadmap.id]
-                        ? "text-zinc-800 dark:text-zinc-300"
-                        : "hover:text-zinc-700 dark:hover:text-zinc-400",
-                    ].join(" ")}
-                  >
-                    <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
-                    <span>{roadmap.likes}</span>
-                  </button>
-
-                  <button
-                    type="button"
+                  />
+                  <BookmarkButton
+                    active={!!bookmarked[roadmap.id]}
                     onClick={(e) => toggleBookmark(e, roadmap.id)}
-                    className={[
-                      "flex items-center gap-1 transition-colors",
-                      bookmarked[roadmap.id]
-                        ? "text-zinc-800 dark:text-zinc-300"
-                        : "hover:text-zinc-700 dark:hover:text-zinc-400",
-                    ].join(" ")}
-                  >
-                    <span>{bookmarked[roadmap.id] ? "★" : "☆"}</span>
-                  </button>
-
-                  <span className="flex items-center gap-1">
-                    <span>👁</span>
-                    <span>
-                      {roadmap.views >= 1000
-                        ? `${(roadmap.views / 1000).toFixed(1)}k`
-                        : roadmap.views}
-                    </span>
-                  </span>
-                  <span className="ml-auto font-mono text-zinc-500 dark:text-zinc-700">
-                    必須 {roadmap.totalDays}日
+                  />
+                  <ViewCount views={roadmap.views} />
+                  <span className="ml-auto">
+                    <DaysBadge days={roadmap.totalDays} />
                   </span>
                 </div>
               </li>
@@ -282,22 +270,23 @@ function FeedContent() {
         )}
       </main>
 
-      <aside className="hidden w-56 shrink-0 lg:block">
-        <section>
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
+      <aside className="hidden w-60 shrink-0 lg:block">
+        <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
             タグで絞り込む
           </p>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             {allTags.map((tag) => (
               <button
                 key={tag}
                 type="button"
                 onClick={() => handleTagClick(tag)}
+                aria-pressed={tagFilter === tag}
                 className={[
-                  "rounded-sm border px-2 py-1 font-mono text-[11px] transition-colors",
+                  "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
                   tagFilter === tag
-                    ? "border-zinc-600 text-zinc-800 dark:border-zinc-400 dark:text-zinc-300"
-                    : "border-zinc-300 text-zinc-500 hover:border-zinc-400 hover:text-zinc-700 dark:border-zinc-800 dark:text-zinc-600 dark:hover:border-zinc-600 dark:hover:text-zinc-400",
+                    ? "border-zinc-800 bg-zinc-900 text-white dark:border-zinc-300 dark:bg-zinc-100 dark:text-zinc-900"
+                    : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200",
                 ].join(" ")}
               >
                 #{tag}
@@ -306,11 +295,11 @@ function FeedContent() {
           </div>
         </section>
 
-        <section className="mt-8">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
+        <section className="mt-4 rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
             急上昇
           </p>
-          <ul className="space-y-3">
+          <ul className="space-y-1">
             {[...allRoadmaps]
               .sort((a, b) => b.views - a.views)
               .slice(0, 4)
@@ -318,12 +307,12 @@ function FeedContent() {
                 <li key={r.id}>
                   <Link
                     href={`/roadmap/${r.id}`}
-                    className="group flex items-start gap-2.5"
+                    className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   >
-                    <span className="mt-px shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
+                    <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400 dark:text-zinc-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-200">
+                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-100">
                       {r.title}
                     </span>
                   </Link>

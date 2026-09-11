@@ -11,6 +11,7 @@ import {
 } from "../lib/roadmaps-db";
 import { createClient } from "../lib/supabase/client";
 import { Author, Roadmap } from "../lib/types";
+import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "../components/actions";
 import {
   getLikedIds,
   getBookmarkedIds,
@@ -190,14 +191,14 @@ export default function MyPage() {
                 <button
                   type="button"
                   onClick={saveName}
-                  className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                  className="rounded-md bg-zinc-900 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
                 >
                   保存
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditing(false)}
-                  className="text-[13px] text-zinc-500 dark:text-zinc-700 hover:text-zinc-600 dark:hover:text-zinc-400"
+                  className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
                 >
                   キャンセル
                 </button>
@@ -210,9 +211,9 @@ export default function MyPage() {
                 <button
                   type="button"
                   onClick={() => setEditing(true)}
-                  className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+                  className="rounded-md border border-zinc-200 px-3 py-1 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
                 >
-                  編集
+                  名前を変更
                 </button>
               </div>
             )}
@@ -241,14 +242,14 @@ export default function MyPage() {
         <button
           type="button"
           onClick={handleLogout}
-          className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+          className="rounded-md px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
         >
           ログアウト
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="mb-5 flex border-b border-zinc-200 dark:border-zinc-800">
+      <div className="mb-5 flex w-fit gap-1 rounded-lg bg-zinc-100 p-1 dark:bg-zinc-900">
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -256,15 +257,16 @@ export default function MyPage() {
 
             //tab.idがstringと広げて解釈されるのを防ぐ
             onClick={() => setTab(t.id as TabId)}
+            aria-pressed={tab === t.id}
             className={[
-              "px-5 py-2 text-[13px] transition-colors",
+              "rounded-md px-4 py-2 text-[14px] transition-colors",
               tab === t.id
-                ? "border-b-2 border-zinc-300 font-medium text-zinc-900 dark:text-zinc-100"
-                : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-300",
+                ? "bg-white font-medium text-zinc-900 shadow-sm dark:bg-zinc-800 dark:text-zinc-100"
+                : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
             ].join(" ")}
           >
             {t.label}
-            <span className="ml-1.5 font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
+            <span className="ml-1.5 font-mono text-[12px] text-zinc-400 dark:text-zinc-500">
               {t.id === "posts"     ? myRoadmaps.length
                : t.id === "likes"  ? likedRoadmaps.length
                : bookmarkedRoadmaps.length}
@@ -275,8 +277,8 @@ export default function MyPage() {
 
       {/* Roadmap list */}
       {tabRoadmaps.length === 0 ? (
-        <div className="py-16 text-center">
-          <p className="text-[14px] text-zinc-500 dark:text-zinc-600">
+        <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
+          <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
             {tab === "posts"     && "まだ投稿がありません。"}
             {tab === "likes"     && "まだいいねした投稿がありません。"}
             {tab === "bookmarks" && "まだ保存した投稿がありません。"}
@@ -284,16 +286,19 @@ export default function MyPage() {
           {tab === "posts" && (
             <Link
               href="/roadmap/new"
-              className="mt-4 inline-block rounded-sm bg-zinc-900 px-4 py-2 text-[13px] font-medium text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+              className="mt-4 inline-block rounded-lg bg-zinc-900 px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
             >
               投稿する
             </Link>
           )}
         </div>
       ) : (
-        <ul className="divide-y divide-zinc-200 dark:divide-zinc-900">
+        <ul className="space-y-3">
           {tabRoadmaps.map((roadmap) => (
-            <li key={roadmap.id} className="py-5">
+            <li
+              key={roadmap.id}
+              className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+            >
               {/* Author */}
               <div className="mb-2 flex items-center gap-2">
                 <Link
@@ -313,60 +318,43 @@ export default function MyPage() {
 
               {/* Title + description */}
               <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                <h2 className="text-[16px] font-bold leading-snug tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white">
+                <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
                   {roadmap.title}
                 </h2>
-                <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-zinc-500">
+                <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {roadmap.description}
                 </p>
               </Link>
 
               {/* Tags */}
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {roadmap.tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href={`/?tag=${tag}`}
-                    className="rounded-sm border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 font-mono text-[11px] text-zinc-500 dark:text-zinc-600 transition-colors hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
-                  >
-                    #{tag}
-                  </Link>
-                ))}
-              </div>
+              {roadmap.tags.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {roadmap.tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/?tag=${tag}`}
+                      className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+                    >
+                      #{tag}
+                    </Link>
+                  ))}
+                </div>
+              )}
 
               {/* Meta */}
-              <div className="mt-3 flex items-center gap-4 text-[12px] text-zinc-500 dark:text-zinc-600">
-                <button
-                  type="button"
+              <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+                <LikeButton
+                  active={!!liked[roadmap.id]}
+                  count={roadmap.likes}
                   onClick={(e) => toggleLike(e, roadmap.id)}
-                  className={[
-                    "flex items-center gap-1 transition-colors",
-                    liked[roadmap.id] ? "text-zinc-700 dark:text-zinc-300" : "hover:text-zinc-600 dark:hover:text-zinc-400",
-                  ].join(" ")}
-                >
-                  <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
-                  <span>{roadmap.likes}</span>
-                </button>
-                <button
-                  type="button"
+                />
+                <BookmarkButton
+                  active={!!bookmarked[roadmap.id]}
                   onClick={(e) => toggleBookmark(e, roadmap.id)}
-                  className={[
-                    "flex items-center gap-1 transition-colors",
-                    bookmarked[roadmap.id] ? "text-zinc-700 dark:text-zinc-300" : "hover:text-zinc-600 dark:hover:text-zinc-400",
-                  ].join(" ")}
-                >
-                  <span>{bookmarked[roadmap.id] ? "★" : "☆"}</span>
-                </button>
-                <span className="flex items-center gap-1">
-                  <span>👁</span>
-                  <span>
-                    {roadmap.views >= 1000
-                      ? `${(roadmap.views / 1000).toFixed(1)}k`
-                      : roadmap.views}
-                  </span>
-                </span>
-                <span className="ml-auto font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
-                  必須 {roadmap.totalDays}日
+                />
+                <ViewCount views={roadmap.views} />
+                <span className="ml-auto">
+                  <DaysBadge days={roadmap.totalDays} />
                 </span>
               </div>
 
@@ -375,18 +363,20 @@ export default function MyPage() {
                 <div className="mt-3 flex items-center gap-4">
                   {deleteConfirm === roadmap.id ? (
                     <>
-                      <span className="text-[12px] text-zinc-500">本当に削除しますか？</span>
+                      <span className="text-[13px] text-zinc-600 dark:text-zinc-400">
+                        本当に削除しますか？
+                      </span>
                       <button
                         type="button"
                         onClick={() => removeRoadmap(roadmap.id)}
-                        className="text-[12px] text-red-600 transition-colors hover:text-red-400"
+                        className="rounded-md bg-red-600 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-red-500"
                       >
                         削除する
                       </button>
                       <button
                         type="button"
                         onClick={() => setDeleteConfirm(null)}
-                        className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
                       >
                         キャンセル
                       </button>
@@ -395,14 +385,14 @@ export default function MyPage() {
                     <>
                       <Link
                         href={`/roadmap/${roadmap.id}/edit`}
-                        className="text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-500 dark:hover:text-zinc-300"
+                        className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
                       >
                         編集
                       </Link>
                       <button
                         type="button"
                         onClick={() => setDeleteConfirm(roadmap.id)}
-                        className="text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-red-700"
+                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-zinc-500 dark:hover:bg-red-950/40 dark:hover:text-red-400"
                       >
                         削除
                       </button>

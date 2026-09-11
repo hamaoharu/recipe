@@ -78,7 +78,7 @@ export default function EditRoadmapPage({
     return (
       <div
         className="flex items-center justify-center text-zinc-500"
-        style={{ height: "calc(100vh - 48px)" }}
+        style={{ height: "calc(100vh - var(--header-height))" }}
       >
         読み込み中...
       </div>
@@ -89,7 +89,7 @@ export default function EditRoadmapPage({
     return (
       <div
         className="flex flex-col items-center justify-center gap-3 text-zinc-500"
-        style={{ height: "calc(100vh - 48px)" }}
+        style={{ height: "calc(100vh - var(--header-height))" }}
       >
         <p className="text-[14px]">このロードマップは編集できません。</p>
         <button

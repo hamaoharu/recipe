@@ -80,82 +80,94 @@ function LoginContent() {
     }
   };
 
+  const fieldClass =
+    "w-full rounded-lg border border-zinc-300 bg-zinc-50 px-3.5 py-2.5 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-100/10";
+
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-col px-6 py-20">
-      <h1 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-        {mode === "login" ? "ログイン" : "アカウント作成"}
-      </h1>
-      <p className="mt-2 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-600">
-        投稿やマイページを利用するにはログインが必要です。
-      </p>
+    <div className="mx-auto flex w-full max-w-md flex-col px-6 py-16">
+      <div className="rounded-xl border border-zinc-200 p-8 dark:border-zinc-800">
+        <h1 className="text-[22px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          {mode === "login" ? "ログイン" : "アカウント作成"}
+        </h1>
+        <p className="mt-2 text-[14px] leading-relaxed text-zinc-500 dark:text-zinc-400">
+          投稿やマイページを利用するにはログインが必要です。
+        </p>
 
-      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
-        {mode === "signup" && (
+        <form onSubmit={handleSubmit} className="mt-7 flex flex-col gap-3">
+          {mode === "signup" && (
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="表示名"
+              aria-label="表示名"
+              className={fieldClass}
+            />
+          )}
           <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="表示名"
-            className="w-full rounded-sm border border-zinc-300 bg-zinc-50 px-3 py-2 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:placeholder:text-zinc-600"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="メールアドレス"
+            aria-label="メールアドレス"
+            required
+            autoComplete="email"
+            className={fieldClass}
           />
-        )}
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="メールアドレス"
-          required
-          autoComplete="email"
-          className="w-full rounded-sm border border-zinc-300 bg-zinc-50 px-3 py-2 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:placeholder:text-zinc-600"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="パスワード（6文字以上）"
-          required
-          minLength={6}
-          autoComplete={mode === "login" ? "current-password" : "new-password"}
-          className="w-full rounded-sm border border-zinc-300 bg-zinc-50 px-3 py-2 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:placeholder:text-zinc-600"
-        />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="パスワード（6文字以上）"
+            aria-label="パスワード"
+            required
+            minLength={6}
+            autoComplete={mode === "login" ? "current-password" : "new-password"}
+            className={fieldClass}
+          />
 
-        {error && (
-          <p className="text-[12px] text-red-600 dark:text-red-400">{error}</p>
-        )}
-        {notice && (
-          <p className="text-[12px] text-zinc-600 dark:text-zinc-400">{notice}</p>
-        )}
+          {error && (
+            <p className="rounded-lg bg-red-50 px-3 py-2 text-[13px] text-red-600 dark:bg-red-950/40 dark:text-red-400">
+              {error}
+            </p>
+          )}
+          {notice && (
+            <p className="rounded-lg bg-zinc-100 px-3 py-2 text-[13px] text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
+              {notice}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="mt-2 w-full rounded-lg bg-zinc-900 px-4 py-3 text-[15px] font-medium text-white transition-colors hover:bg-zinc-700 disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          >
+            {loading
+              ? "処理中..."
+              : mode === "login"
+                ? "ログイン"
+                : "アカウント作成"}
+          </button>
+        </form>
 
         <button
-          type="submit"
-          disabled={loading}
-          className="mt-2 w-full rounded-sm bg-zinc-900 px-4 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          type="button"
+          onClick={() => {
+            setMode((m) => (m === "login" ? "signup" : "login"));
+            setError(null);
+            setNotice(null);
+          }}
+          className="mt-5 w-full rounded-lg py-2 text-center text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
         >
-          {loading
-            ? "処理中..."
-            : mode === "login"
-              ? "ログイン"
-              : "アカウント作成"}
+          {mode === "login"
+            ? "アカウントを作成する"
+            : "すでにアカウントがある方はログイン"}
         </button>
-      </form>
-
-      <button
-        type="button"
-        onClick={() => {
-          setMode((m) => (m === "login" ? "signup" : "login"));
-          setError(null);
-          setNotice(null);
-        }}
-        className="mt-4 text-center text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-600 dark:hover:text-zinc-300"
-      >
-        {mode === "login"
-          ? "アカウントを作成する"
-          : "すでにアカウントがある方はログイン"}
-      </button>
+      </div>
 
       <Link
         href="/"
-        className="mt-8 text-center text-[13px] text-zinc-500 transition-colors hover:text-zinc-800 dark:hover:text-zinc-300"
+        className="mt-6 rounded-lg py-2 text-center text-[14px] text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
       >
         ← トップに戻る
       </Link>

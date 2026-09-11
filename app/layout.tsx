@@ -21,31 +21,13 @@ export const metadata: Metadata = {
   description: "技術学習ロードマップを投稿・共有・閲覧できるプラットフォーム",
 };
 
-const themeScript = `
-(function () {
-  try {
-    var theme = localStorage.getItem("recipe_theme");
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  } catch (e) {
-    document.documentElement.classList.add("dark");
-  }
-})();
-`;
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
+    //テーマは切り替えないのでダーク固定。ライトに戻したいときは dark を外す
     <html
       lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      suppressHydrationWarning
+      className={`dark ${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="flex min-h-screen flex-col bg-white text-zinc-800 antialiased dark:bg-black dark:text-zinc-300">
         <ThemeWrapper>{children}</ThemeWrapper>
       </body>

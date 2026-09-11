@@ -11,6 +11,7 @@ import {
   toggleBookmark as persistBookmark,
   idsToRecord,
 } from "../../lib/likes";
+import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "../../components/actions";
 
 //[id]がparams.idに代入される
 //params使う時のテンプレ
@@ -128,70 +129,56 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
         </p>
 
         {userRoadmaps.length === 0 ? (
-          <p className="py-12 text-center text-[14px] text-zinc-500 dark:text-zinc-600">
-            まだ投稿がありません。
-          </p>
+          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
+            <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
+              まだ投稿がありません。
+            </p>
+          </div>
         ) : (
-          <ul className="divide-y divide-zinc-200 dark:divide-zinc-900">
+          <ul className="space-y-3">
             {userRoadmaps.map((roadmap) => (
-              <li key={roadmap.id} className="py-5">
+              <li
+                key={roadmap.id}
+                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+              >
                 <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[16px] font-bold leading-snug tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white">
+                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
                     {roadmap.title}
                   </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-zinc-500">
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                     {roadmap.description}
                   </p>
                 </Link>
 
                 {/* Tags */}
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {roadmap.tags.map((tag) => (
-                    <Link
-                      key={tag}
-                      href={`/?tag=${tag}`}
-                      className="rounded-sm border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 font-mono text-[11px] text-zinc-500 dark:text-zinc-600 transition-colors hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
-                    >
-                      #{tag}
-                    </Link>
-                  ))}
-                </div>
+                {roadmap.tags.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {roadmap.tags.map((tag) => (
+                      <Link
+                        key={tag}
+                        href={`/?tag=${tag}`}
+                        className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+                      >
+                        #{tag}
+                      </Link>
+                    ))}
+                  </div>
+                )}
 
                 {/* Meta */}
-                <div className="mt-3 flex items-center gap-4 text-[12px] text-zinc-500 dark:text-zinc-600">
-                  <button
-                    type="button"
+                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+                  <LikeButton
+                    active={!!liked[roadmap.id]}
+                    count={roadmap.likes}
                     onClick={(e) => toggleLike(e, roadmap.id)}
-                    className={[
-                      "flex items-center gap-1 transition-colors",
-                      liked[roadmap.id] ? "text-zinc-700 dark:text-zinc-300" : "hover:text-zinc-600 dark:hover:text-zinc-400",
-                    ].join(" ")}
-                  >
-                    <span>{liked[roadmap.id] ? "♥" : "♡"}</span>
-                    <span>{roadmap.likes}</span>
-                  </button>
-
-                  <button
-                    type="button"
+                  />
+                  <BookmarkButton
+                    active={!!bookmarked[roadmap.id]}
                     onClick={(e) => toggleBookmark(e, roadmap.id)}
-                    className={[
-                      "flex items-center gap-1 transition-colors",
-                      bookmarked[roadmap.id] ? "text-zinc-700 dark:text-zinc-300" : "hover:text-zinc-600 dark:hover:text-zinc-400",
-                    ].join(" ")}
-                  >
-                    <span>{bookmarked[roadmap.id] ? "★" : "☆"}</span>
-                  </button>
-
-                  <span className="flex items-center gap-1">
-                    <span>👁</span>
-                    <span>
-                      {roadmap.views >= 1000
-                        ? `${(roadmap.views / 1000).toFixed(1)}k`
-                        : roadmap.views}
-                    </span>
-                  </span>
-                  <span className="ml-auto font-mono text-[11px] text-zinc-500 dark:text-zinc-700">
-                    必須 {roadmap.totalDays}日 · {roadmap.createdAt}
+                  />
+                  <ViewCount views={roadmap.views} />
+                  <span className="ml-auto">
+                    <DaysBadge days={roadmap.totalDays} />
                   </span>
                 </div>
               </li>
