@@ -131,11 +131,10 @@ function toSlug(title: string): string {
   return base ? `${base}-${suffix}` : `roadmap-${suffix}`;
 }
 
-export type NewRoadmapInput = {
+export type RoadmapContent = {
   title: string;
   description: string;
   tags: string[];
-  author: Author;
   groups: {
     id: string;
     label: string | null;
@@ -151,61 +150,54 @@ export type NewRoadmapInput = {
   }[];
 };
 
-export async function createRoadmap(input: NewRoadmapInput): Promise<string> {
-  const supabase = createClient();
-  const id = toSlug(input.title);
+export type NewRoadmapInput = RoadmapContent & { author: Author };
 
-  const totalDays = input.groups
+function countRequiredDays(groups: RoadmapContent["groups"]): number {
+  return groups
     .flatMap((g) => g.nodes)
     .filter((n) => n.required)
     .reduce((sum, n) => sum + n.days, 0);
+}
 
-  const { error: roadmapError } = await supabase.from("roadmaps").insert({
-    id,
-    title: input.title,
-    description: input.description,
-    author_id: input.author.id,
-    author_name: input.author.name,
-    author_initial: input.author.initial,
-    tags: input.tags.join(","),
-    likes: 0,
-    views: 0,
-    total_days: totalDays,
-  });
-  if (roadmapError) throw roadmapError;
+//groups / nodes / details をまとめて入れ直す。id はロードマップ id で前置きして衝突を避ける
+async function insertChildren(
+  roadmapId: string,
+  groups: RoadmapContent["groups"],
+): Promise<void> {
+  if (groups.length === 0) return;
 
-  if (input.groups.length === 0) return id;
+  const supabase = createClient();
 
   const { error: groupsError } = await supabase.from("roadmap_groups").insert(
-    input.groups.map((g, i) => ({
-      id: `${id}-${g.id}`,
-      roadmap_id: id,
+    groups.map((g, i) => ({
+      id: `${roadmapId}-${g.id}`,
+      roadmap_id: roadmapId,
       label: g.label,
       sort_order: i,
     })),
   );
   if (groupsError) throw groupsError;
 
-  const nodeRows = input.groups.flatMap((g) =>
+  const nodeRows = groups.flatMap((g) =>
     g.nodes.map((n, i) => ({
-      id: `${id}-${n.id}`,
-      group_id: `${id}-${g.id}`,
+      id: `${roadmapId}-${n.id}`,
+      group_id: `${roadmapId}-${g.id}`,
       label: n.label,
       required: n.required,
       days: n.days,
       sort_order: i,
     })),
   );
-  if (nodeRows.length === 0) return id;
+  if (nodeRows.length === 0) return;
 
   const { error: nodesError } = await supabase
     .from("roadmap_nodes")
     .insert(nodeRows);
   if (nodesError) throw nodesError;
 
-  const detailRows = input.groups.flatMap((g) =>
+  const detailRows = groups.flatMap((g) =>
     g.nodes.map((n) => ({
-      node_id: `${id}-${n.id}`,
+      node_id: `${roadmapId}-${n.id}`,
       title: n.label,
       days: n.days,
       description: n.description,
@@ -218,6 +210,53 @@ export async function createRoadmap(input: NewRoadmapInput): Promise<string> {
     .from("roadmap_details")
     .insert(detailRows);
   if (detailsError) throw detailsError;
+}
 
+export async function createRoadmap(input: NewRoadmapInput): Promise<string> {
+  const supabase = createClient();
+  const id = toSlug(input.title);
+
+  const { error: roadmapError } = await supabase.from("roadmaps").insert({
+    id,
+    title: input.title,
+    description: input.description,
+    author_id: input.author.id,
+    author_name: input.author.name,
+    author_initial: input.author.initial,
+    tags: input.tags.join(","),
+    likes: 0,
+    views: 0,
+    total_days: countRequiredDays(input.groups),
+  });
+  if (roadmapError) throw roadmapError;
+
+  await insertChildren(id, input.groups);
   return id;
+}
+
+export async function updateRoadmap(
+  id: string,
+  input: RoadmapContent,
+): Promise<void> {
+  const supabase = createClient();
+
+  const { error: roadmapError } = await supabase
+    .from("roadmaps")
+    .update({
+      title: input.title,
+      description: input.description,
+      tags: input.tags.join(","),
+      total_days: countRequiredDays(input.groups),
+    })
+    .eq("id", id);
+  if (roadmapError) throw roadmapError;
+
+  //地図は作り直す。groups を消すと nodes と details も cascade で消える
+  const { error: deleteError } = await supabase
+    .from("roadmap_groups")
+    .delete()
+    .eq("roadmap_id", id);
+  if (deleteError) throw deleteError;
+
+  await insertChildren(id, input.groups);
 }

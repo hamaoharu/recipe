@@ -260,13 +260,22 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                     </button>
                   </span>
                 ) : (
-                  <button
-                    type="button"
-                    onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
-                    className="font-mono text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-red-700"
-                  >
-                    削除
-                  </button>
+                  <>
+                    <Link
+                      href={`/roadmap/${id}/edit`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="font-mono text-[12px] text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-500 dark:hover:text-zinc-300"
+                    >
+                      編集
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
+                      className="font-mono text-[12px] text-zinc-500 dark:text-zinc-700 transition-colors hover:text-red-700"
+                    >
+                      削除
+                    </button>
+                  </>
                 )
               )}
             </div>
