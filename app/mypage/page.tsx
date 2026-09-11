@@ -3,7 +3,9 @@
 import { useState, useEffect, MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { authorFromUser } from "../lib/auth";
 import { ROADMAPS } from "../lib/roadmaps";
+import { createClient } from "../lib/supabase/client";
 import { Author, Roadmap } from "../lib/types";
 import {
   getLikedIds,
@@ -37,15 +39,18 @@ export default function MyPage() {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("recipe_user");
-      if (!saved) { router.push("/"); return; }
-      const u = JSON.parse(saved);
-      setUser(u);
-      setNameInput(u.name);
-    } catch {
-      router.push("/");
+    async function loadUser() {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getSession();
+      if (!data.session) {
+        router.replace("/login?next=/mypage");
+        return;
+      }
+      const author = authorFromUser(data.session.user);
+      setUser(author);
+      setNameInput(author.name);
     }
+    loadUser();
   }, [router]);
 
   useEffect(() => {
@@ -82,17 +87,24 @@ export default function MyPage() {
     setDeleteConfirm(null);
   };
 
-  const saveName = () => {
-    if (!nameInput.trim()) return;
-    const updated = { ...user, name: nameInput.trim() };
-    localStorage.setItem("recipe_user", JSON.stringify(updated));
-    setUser(updated);
+  const saveName = async () => {
+    if (!nameInput.trim() || !user) return;
+    const name = nameInput.trim();
+    const initial = name.slice(0, 1).toUpperCase();
+    const supabase = createClient();
+    const { error } = await supabase.auth.updateUser({
+      data: { name, initial },
+    });
+    if (error) return;
+    setUser({ ...user, name, initial });
     setEditing(false);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("recipe_user");
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
     router.push("/");
+    router.refresh();
   };
 
   const toggleLike = (e: MouseEvent<HTMLButtonElement>, id: string) => {

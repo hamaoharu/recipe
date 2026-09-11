@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import type * as React from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { authorFromUser } from "../../lib/auth";
+import { createClient } from "../../lib/supabase/client";
 import type { Author } from "../../lib/types";
 
 type EditResource = {
@@ -267,15 +269,14 @@ export default function NewRoadmapPage() {
 
   //ログインチェック
   useEffect(() => {
-    try{
-      const saved = localStorage.getItem("recipe_user");
-      if(!saved){
-        //ログインページに行ったのちにこのページに戻ってくる
+    async function checkAuth() {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getSession();
+      if (!data.session) {
         router.replace("/login?next=/roadmap/new");
       }
-    } catch {
-      router.replace("/login?next=/roadmap/new");
     }
+    checkAuth();
   }, [router]);
 
   const [title, setTitle]           = useState("");
@@ -361,7 +362,7 @@ export default function NewRoadmapPage() {
   };
 
   // ── Submit ──
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errs: FormErrors = {};
     if (!title.trim()) errs.title = "タイトルは必須です";
@@ -369,18 +370,14 @@ export default function NewRoadmapPage() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitting(true);
 
-    let author: Author;
-    try {
-      const saved = localStorage.getItem("recipe_user");
-      if (!saved) {
-        router.replace("/login?next=/roadmap/new");
-        return;
-      }
-      author = JSON.parse(saved) as Author;
-    } catch {
+    const supabase = createClient();
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
       router.replace("/login?next=/roadmap/new");
+      setSubmitting(false);
       return;
     }
+    const author: Author = authorFromUser(data.session.user);
 
     const totalDays = groups.flatMap((g) => g.nodes).filter((n) => n.required)
       .reduce((s, n) => s + (Number(n.days) || 0), 0);
