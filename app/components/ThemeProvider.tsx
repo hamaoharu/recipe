@@ -27,19 +27,17 @@ function applyTheme(theme: Theme) {
   }
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+function readStoredTheme(): Theme {
+  if (typeof window === "undefined") return "dark";
+  try {
+    return localStorage.getItem("recipe_theme") === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("recipe_theme");
-      const initial: Theme = saved === "light" ? "light" : "dark";
-      setTheme(initial);
-      applyTheme(initial);
-    } catch {
-      applyTheme("dark");
-    }
-  }, []);
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(readStoredTheme);
 
   useEffect(() => {
     applyTheme(theme);
