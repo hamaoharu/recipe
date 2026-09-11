@@ -8,7 +8,7 @@ import { BookmarkIcon, ClockIcon, EyeIcon, HeartIcon } from "./icons";
 const actionBase =
   "flex items-center gap-1.5 rounded-md px-2 py-1.5 text-[13px] tabular-nums transition-colors";
 const metaBase =
-  "flex items-center gap-1.5 px-2 py-1.5 text-[13px] tabular-nums text-zinc-500 dark:text-zinc-500";
+  "flex items-center gap-1.5 px-2 py-1.5 text-[13px] tabular-nums text-zinc-500";
 
 export function LikeButton({
   active,
@@ -28,8 +28,8 @@ export function LikeButton({
       className={[
         actionBase,
         active
-          ? "text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40"
-          : "text-zinc-500 hover:bg-zinc-100 hover:text-rose-500 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-rose-400",
+          ? "text-rose-500 hover:bg-rose-50"
+          : "text-zinc-500 hover:bg-zinc-100 hover:text-rose-500",
       ].join(" ")}
     >
       <HeartIcon filled={active} />
@@ -54,8 +54,8 @@ export function BookmarkButton({
       className={[
         actionBase,
         active
-          ? "text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/40"
-          : "text-zinc-500 hover:bg-zinc-100 hover:text-amber-500 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-amber-400",
+          ? "text-amber-500 hover:bg-amber-50"
+          : "text-zinc-500 hover:bg-zinc-100 hover:text-amber-500",
       ].join(" ")}
     >
       <BookmarkIcon filled={active} />
@@ -76,7 +76,7 @@ export function ViewCount({ views }: { views: number }) {
 export function DaysBadge({ days }: { days: number }) {
   return (
     <span
-      className="flex items-center gap-1.5 rounded-md border border-zinc-200 px-2 py-1 text-[12px] tabular-nums text-zinc-600 dark:border-zinc-800 dark:text-zinc-400"
+      className="flex items-center gap-1.5 rounded-md border border-zinc-200 px-2 py-1 text-[12px] tabular-nums text-zinc-600"
       title="必須ノードの合計日数"
     >
       <ClockIcon className="h-3.5 w-3.5" />

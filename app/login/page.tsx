@@ -81,15 +81,15 @@ function LoginContent() {
   };
 
   const fieldClass =
-    "w-full rounded-lg border border-zinc-300 bg-zinc-50 px-3.5 py-2.5 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-100/10";
+    "w-full rounded-lg border border-zinc-300 bg-zinc-50 px-3.5 py-2.5 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10";
 
   return (
     <div className="mx-auto flex w-full max-w-md flex-col px-6 py-16">
-      <div className="rounded-xl border border-zinc-200 p-8 dark:border-zinc-800">
-        <h1 className="text-[22px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+      <div className="rounded-xl border border-zinc-200 p-8">
+        <h1 className="text-[22px] font-bold tracking-tight text-zinc-900">
           {mode === "login" ? "ログイン" : "アカウント作成"}
         </h1>
-        <p className="mt-2 text-[14px] leading-relaxed text-zinc-500 dark:text-zinc-400">
+        <p className="mt-2 text-[14px] leading-relaxed text-zinc-500">
           投稿やマイページを利用するにはログインが必要です。
         </p>
 
@@ -127,12 +127,12 @@ function LoginContent() {
           />
 
           {error && (
-            <p className="rounded-lg bg-red-50 px-3 py-2 text-[13px] text-red-600 dark:bg-red-950/40 dark:text-red-400">
+            <p className="rounded-lg bg-red-50 px-3 py-2 text-[13px] text-red-600">
               {error}
             </p>
           )}
           {notice && (
-            <p className="rounded-lg bg-zinc-100 px-3 py-2 text-[13px] text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
+            <p className="rounded-lg bg-zinc-100 px-3 py-2 text-[13px] text-zinc-700">
               {notice}
             </p>
           )}
@@ -140,7 +140,7 @@ function LoginContent() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-2 w-full rounded-lg bg-zinc-900 px-4 py-3 text-[15px] font-medium text-white transition-colors hover:bg-zinc-700 disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+            className="mt-2 w-full rounded-lg bg-zinc-900 px-4 py-3 text-[15px] font-medium text-white transition-colors hover:bg-zinc-700 disabled:opacity-60"
           >
             {loading
               ? "処理中..."
@@ -157,7 +157,7 @@ function LoginContent() {
             setError(null);
             setNotice(null);
           }}
-          className="mt-5 w-full rounded-lg py-2 text-center text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+          className="mt-5 w-full rounded-lg py-2 text-center text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
         >
           {mode === "login"
             ? "アカウントを作成する"
@@ -167,7 +167,7 @@ function LoginContent() {
 
       <Link
         href="/"
-        className="mt-6 rounded-lg py-2 text-center text-[14px] text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+        className="mt-6 rounded-lg py-2 text-center text-[14px] text-zinc-500 transition-colors hover:text-zinc-900"
       >
         ← トップに戻る
       </Link>

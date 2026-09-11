@@ -173,9 +173,9 @@ export default function MyPage() {
     <div className="mx-auto w-full max-w-3xl px-6 py-10">
 
       {/* Profile card */}
-      <div className="mb-8 flex items-start justify-between border-b border-zinc-200 dark:border-zinc-800 pb-8">
+      <div className="mb-8 flex items-start justify-between border-b border-zinc-200 pb-8">
         <div className="flex items-center gap-5">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 font-mono text-[22px] font-bold text-zinc-700 dark:text-zinc-300">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 font-mono text-[22px] font-bold text-zinc-700">
             {user.initial}
           </div>
           <div>
@@ -186,53 +186,53 @@ export default function MyPage() {
                   value={nameInput}
                   onChange={(e) => setNameInput(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Enter") saveName(); if (e.key === "Escape") setEditing(false); }}
-                  className="rounded-sm border border-zinc-300 bg-zinc-50 px-2 py-1 text-[15px] text-zinc-900 focus:border-zinc-400 focus:outline-none dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100"
+                  className="rounded-sm border border-zinc-300 bg-zinc-50 px-2 py-1 text-[15px] text-zinc-900 focus:border-zinc-400 focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={saveName}
-                  className="rounded-md bg-zinc-900 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+                  className="rounded-md bg-zinc-900 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-zinc-700"
                 >
                   保存
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditing(false)}
-                  className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+                  className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
                 >
                   キャンセル
                 </button>
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <h1 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                <h1 className="text-[20px] font-bold tracking-tight text-zinc-900">
                   {user.name}
                 </h1>
                 <button
                   type="button"
                   onClick={() => setEditing(true)}
-                  className="rounded-md border border-zinc-200 px-3 py-1 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
+                  className="rounded-md border border-zinc-200 px-3 py-1 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
                 >
                   名前を変更
                 </button>
               </div>
             )}
-            <p className="mt-0.5 font-mono text-[12px] text-zinc-500 dark:text-zinc-600">@{user.id}</p>
-            <div className="mt-2 flex gap-5 text-[12px] text-zinc-500 dark:text-zinc-600">
+            <p className="mt-0.5 font-mono text-[12px] text-zinc-500">@{user.id}</p>
+            <div className="mt-2 flex gap-5 text-[12px] text-zinc-500">
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{myRoadmaps.length}</span>
+                <span className="font-semibold text-zinc-600">{myRoadmaps.length}</span>
                 {" "}投稿
               </span>
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{totalLikes}</span>
+                <span className="font-semibold text-zinc-600">{totalLikes}</span>
                 {" "}いいね獲得
               </span>
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{likedRoadmaps.length}</span>
+                <span className="font-semibold text-zinc-600">{likedRoadmaps.length}</span>
                 {" "}いいね
               </span>
               <span>
-                <span className="font-semibold text-zinc-600 dark:text-zinc-400">{bookmarkedRoadmaps.length}</span>
+                <span className="font-semibold text-zinc-600">{bookmarkedRoadmaps.length}</span>
                 {" "}保存
               </span>
             </div>
@@ -242,14 +242,14 @@ export default function MyPage() {
         <button
           type="button"
           onClick={handleLogout}
-          className="rounded-md px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+          className="rounded-md px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
         >
           ログアウト
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="mb-5 flex w-fit gap-1 rounded-lg bg-zinc-100 p-1 dark:bg-zinc-900">
+      <div className="mb-5 flex w-fit gap-1 rounded-lg bg-zinc-100 p-1">
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -261,12 +261,12 @@ export default function MyPage() {
             className={[
               "rounded-md px-4 py-2 text-[14px] transition-colors",
               tab === t.id
-                ? "bg-white font-medium text-zinc-900 shadow-sm dark:bg-zinc-800 dark:text-zinc-100"
-                : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
+                ? "bg-white font-medium text-zinc-900 shadow-sm"
+                : "text-zinc-500 hover:text-zinc-800",
             ].join(" ")}
           >
             {t.label}
-            <span className="ml-1.5 font-mono text-[12px] text-zinc-400 dark:text-zinc-500">
+            <span className="ml-1.5 font-mono text-[12px] text-zinc-400">
               {t.id === "posts"     ? myRoadmaps.length
                : t.id === "likes"  ? likedRoadmaps.length
                : bookmarkedRoadmaps.length}
@@ -277,8 +277,8 @@ export default function MyPage() {
 
       {/* Roadmap list */}
       {tabRoadmaps.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
-          <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
+        <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center">
+          <p className="text-[15px] text-zinc-600">
             {tab === "posts"     && "まだ投稿がありません。"}
             {tab === "likes"     && "まだいいねした投稿がありません。"}
             {tab === "bookmarks" && "まだ保存した投稿がありません。"}
@@ -286,7 +286,7 @@ export default function MyPage() {
           {tab === "posts" && (
             <Link
               href="/roadmap/new"
-              className="mt-4 inline-block rounded-lg bg-zinc-900 px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+              className="mt-4 inline-block rounded-lg bg-zinc-900 px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700"
             >
               投稿する
             </Link>
@@ -297,7 +297,7 @@ export default function MyPage() {
           {tabRoadmaps.map((roadmap) => (
             <li
               key={roadmap.id}
-              className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+              className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
             >
               {/* Author */}
               <div className="mb-2 flex items-center gap-2">
@@ -305,23 +305,23 @@ export default function MyPage() {
                   href={`/user/${roadmap.author.id}`}
                   className="flex items-center gap-2 transition-opacity hover:opacity-70"
                 >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 font-mono text-[10px] font-bold text-zinc-600 dark:text-zinc-400">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 font-mono text-[10px] font-bold text-zinc-600">
                     {roadmap.author.initial}
                   </span>
-                  <span className="text-[12px] text-zinc-500 hover:text-zinc-700 dark:text-zinc-300">
+                  <span className="text-[12px] text-zinc-500 hover:text-zinc-700">
                     {roadmap.author.name}
                   </span>
                 </Link>
-                <span className="text-[12px] text-zinc-400 dark:text-zinc-800">·</span>
-                <span className="text-[12px] text-zinc-500 dark:text-zinc-700">{roadmap.createdAt}</span>
+                <span className="text-[12px] text-zinc-400">·</span>
+                <span className="text-[12px] text-zinc-500">{roadmap.createdAt}</span>
               </div>
 
               {/* Title + description */}
               <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
+                <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
                   {roadmap.title}
                 </h2>
-                <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
                   {roadmap.description}
                 </p>
               </Link>
@@ -333,7 +333,7 @@ export default function MyPage() {
                     <Link
                       key={tag}
                       href={`/?tag=${tag}`}
-                      className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+                      className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800"
                     >
                       #{tag}
                     </Link>
@@ -342,7 +342,7 @@ export default function MyPage() {
               )}
 
               {/* Meta */}
-              <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+              <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
                 <LikeButton
                   active={!!liked[roadmap.id]}
                   count={roadmap.likes}
@@ -363,7 +363,7 @@ export default function MyPage() {
                 <div className="mt-3 flex items-center gap-4">
                   {deleteConfirm === roadmap.id ? (
                     <>
-                      <span className="text-[13px] text-zinc-600 dark:text-zinc-400">
+                      <span className="text-[13px] text-zinc-600">
                         本当に削除しますか？
                       </span>
                       <button
@@ -376,7 +376,7 @@ export default function MyPage() {
                       <button
                         type="button"
                         onClick={() => setDeleteConfirm(null)}
-                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
                       >
                         キャンセル
                       </button>
@@ -385,14 +385,14 @@ export default function MyPage() {
                     <>
                       <Link
                         href={`/roadmap/${roadmap.id}/edit`}
-                        className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
+                        className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
                       >
                         編集
                       </Link>
                       <button
                         type="button"
                         onClick={() => setDeleteConfirm(roadmap.id)}
-                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-zinc-500 dark:hover:bg-red-950/40 dark:hover:text-red-400"
+                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600"
                       >
                         削除
                       </button>

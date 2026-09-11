@@ -45,16 +45,16 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-5 border-b border-zinc-200 bg-white/95 px-6 backdrop-blur dark:border-zinc-800 dark:bg-black/95">
+    <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-5 border-b border-zinc-200 bg-white/95 px-6 backdrop-blur">
       <Link
         href="/"
-        className="shrink-0 rounded-md px-1 py-1 font-mono text-[16px] font-bold tracking-tight text-zinc-900 transition-colors hover:text-black dark:text-zinc-100 dark:hover:text-white"
+        className="shrink-0 rounded-md px-1 py-1 font-mono text-[16px] font-bold tracking-tight text-zinc-900 transition-colors hover:text-black"
       >
         recipe
       </Link>
 
       <form onSubmit={handleSearch} className="relative flex w-full max-w-sm">
-        <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-600">
+        <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400">
           <SearchIcon />
         </span>
         <input
@@ -63,14 +63,14 @@ export default function Header() {
           onChange={(e) => setQ(e.target.value)}
           placeholder="ロードマップを検索..."
           aria-label="ロードマップを検索"
-          className="w-full rounded-lg border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-3 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-100/10"
+          className="w-full rounded-lg border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-3 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10"
         />
       </form>
 
       <nav className="ml-auto flex items-center gap-2">
         <Link
           href={user ? "/roadmap/new" : "/login?next=/roadmap/new"}
-          className="flex items-center gap-1.5 rounded-lg bg-zinc-900 px-4 py-2 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          className="flex items-center gap-1.5 rounded-lg bg-zinc-900 px-4 py-2 text-[14px] font-medium text-white transition-colors hover:bg-zinc-700"
         >
           <PlusIcon />
           投稿する
@@ -80,19 +80,19 @@ export default function Header() {
           <>
             <Link
               href="/mypage"
-              className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
+              className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-zinc-100"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-200 font-mono text-[12px] font-bold text-zinc-700 dark:bg-zinc-700 dark:text-zinc-100">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-200 font-mono text-[12px] font-bold text-zinc-700">
                 {user.initial}
               </span>
-              <span className="max-w-[8rem] truncate text-[14px] text-zinc-700 dark:text-zinc-300">
+              <span className="max-w-[8rem] truncate text-[14px] text-zinc-700">
                 {user.name}
               </span>
             </Link>
             <button
               type="button"
               onClick={handleLogout}
-              className="rounded-lg px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+              className="rounded-lg px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
             >
               ログアウト
             </button>
@@ -100,7 +100,7 @@ export default function Header() {
         ) : (
           <Link
             href="/login"
-            className="rounded-lg px-3 py-2 text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
+            className="rounded-lg px-3 py-2 text-[14px] text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
           >
             ログイン
           </Link>

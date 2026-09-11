@@ -90,30 +90,30 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
       {/* Back */}
       <Link
         href="/"
-        className="mb-8 block font-mono text-[12px] text-zinc-500 dark:text-zinc-600 transition-colors hover:text-zinc-700 dark:hover:text-zinc-300"
+        className="mb-8 block font-mono text-[12px] text-zinc-500 transition-colors hover:text-zinc-700"
       >
         ← 一覧に戻る
       </Link>
 
       {/* Profile */}
-      <div className="mb-10 flex items-center gap-5 border-b border-zinc-200 dark:border-zinc-800 pb-8">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 font-mono text-[22px] font-bold text-zinc-700 dark:text-zinc-300">
+      <div className="mb-10 flex items-center gap-5 border-b border-zinc-200 pb-8">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 font-mono text-[22px] font-bold text-zinc-700">
           {author.initial}
         </div>
         <div>
-          <h1 className="text-[20px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <h1 className="text-[20px] font-bold tracking-tight text-zinc-900">
             {author.name}
           </h1>
-          <p className="mt-1 font-mono text-[12px] text-zinc-500 dark:text-zinc-600">
+          <p className="mt-1 font-mono text-[12px] text-zinc-500">
             @{author.id}
           </p>
-          <div className="mt-2 flex gap-4 text-[12px] text-zinc-500 dark:text-zinc-600">
+          <div className="mt-2 flex gap-4 text-[12px] text-zinc-500">
             <span>
-              <span className="font-semibold text-zinc-600 dark:text-zinc-400">{userRoadmaps.length}</span>
+              <span className="font-semibold text-zinc-600">{userRoadmaps.length}</span>
               {" "}投稿
             </span>
             <span>
-              <span className="font-semibold text-zinc-600 dark:text-zinc-400">
+              <span className="font-semibold text-zinc-600">
                 {userRoadmaps.reduce((s, r) => s + r.likes, 0)}
               </span>
               {" "}いいね獲得
@@ -124,13 +124,13 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
 
       {/* Roadmaps */}
       <section>
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
           投稿したロードマップ
         </p>
 
         {userRoadmaps.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
-            <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
+          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center">
+            <p className="text-[15px] text-zinc-600">
               まだ投稿がありません。
             </p>
           </div>
@@ -139,13 +139,13 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
             {userRoadmaps.map((roadmap) => (
               <li
                 key={roadmap.id}
-                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
               >
                 <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
+                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
                     {roadmap.title}
                   </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
                     {roadmap.description}
                   </p>
                 </Link>
@@ -157,7 +157,7 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
                       <Link
                         key={tag}
                         href={`/?tag=${tag}`}
-                        className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200"
+                        className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800"
                       >
                         #{tag}
                       </Link>
@@ -166,7 +166,7 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
                 )}
 
                 {/* Meta */}
-                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
                   <LikeButton
                     active={!!liked[roadmap.id]}
                     count={roadmap.likes}

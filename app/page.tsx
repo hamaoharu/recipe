@@ -142,8 +142,8 @@ function FeedContent() {
   return (
     <div className="mx-auto flex w-full max-w-5xl gap-10 px-6 py-8">
       <main className="min-w-0 flex-1">
-        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3 dark:border-zinc-800">
-          <div className="flex gap-1 rounded-lg bg-zinc-100 p-1 dark:bg-zinc-900">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3">
+          <div className="flex gap-1 rounded-lg bg-zinc-100 p-1">
             {(
               [
                 { value: "new", label: "新着" },
@@ -160,33 +160,33 @@ function FeedContent() {
                 className={[
                   "rounded-md px-4 py-2 text-[14px] transition-colors",
                   sort === tab.value
-                    ? "bg-white font-medium text-zinc-900 shadow-sm dark:bg-zinc-800 dark:text-zinc-100"
-                    : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
+                    ? "bg-white font-medium text-zinc-900 shadow-sm"
+                    : "text-zinc-500 hover:text-zinc-800",
                 ].join(" ")}
               >
                 {tab.label}
               </button>
             ))}
           </div>
-          <p className="font-mono text-[12px] text-zinc-500 dark:text-zinc-500">
+          <p className="font-mono text-[12px] text-zinc-500">
             {filtered.length} 件
             {q && (
-              <span className="ml-2 text-zinc-500 dark:text-zinc-500">
+              <span className="ml-2 text-zinc-500">
                 「{q}」の検索結果
               </span>
             )}
             {tagFilter && (
-              <span className="ml-2 text-zinc-500 dark:text-zinc-500">#{tagFilter}</span>
+              <span className="ml-2 text-zinc-500">#{tagFilter}</span>
             )}
           </p>
         </div>
 
         {filtered.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center dark:border-zinc-800">
-            <p className="text-[15px] text-zinc-600 dark:text-zinc-400">
+          <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center">
+            <p className="text-[15px] text-zinc-600">
               ロードマップが見つかりませんでした。
             </p>
-            <p className="mt-1.5 text-[13px] text-zinc-500 dark:text-zinc-500">
+            <p className="mt-1.5 text-[13px] text-zinc-500">
               検索条件を変えるか、最初の1件を投稿してみてください。
             </p>
           </div>
@@ -195,7 +195,7 @@ function FeedContent() {
             {filtered.map((roadmap) => (
               <li
                 key={roadmap.id}
-                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
               >
                 <div className="mb-2.5 flex items-center gap-2">
                   <Link
@@ -203,24 +203,24 @@ function FeedContent() {
                     onClick={(e) => e.stopPropagation()}
                     className="flex items-center gap-2 rounded-md py-0.5 transition-opacity hover:opacity-70"
                   >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-600">
                       {roadmap.author.initial}
                     </span>
-                    <span className="text-[13px] text-zinc-600 dark:text-zinc-400">
+                    <span className="text-[13px] text-zinc-600">
                       {roadmap.author.name}
                     </span>
                   </Link>
-                  <span className="text-zinc-300 dark:text-zinc-700">·</span>
-                  <span className="text-[13px] text-zinc-500 dark:text-zinc-500">
+                  <span className="text-zinc-300">·</span>
+                  <span className="text-[13px] text-zinc-500">
                     {roadmap.createdAt}
                   </span>
                 </div>
 
                 <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4 dark:text-zinc-100">
+                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
                     {roadmap.title}
                   </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
                     {roadmap.description}
                   </p>
                 </Link>
@@ -239,8 +239,8 @@ function FeedContent() {
                         className={[
                           "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
                           tagFilter === tag
-                            ? "border-zinc-800 bg-zinc-900 text-white dark:border-zinc-300 dark:bg-zinc-100 dark:text-zinc-900"
-                            : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200",
+                            ? "border-zinc-800 bg-zinc-900 text-white"
+                            : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
                         ].join(" ")}
                       >
                         #{tag}
@@ -249,7 +249,7 @@ function FeedContent() {
                   </div>
                 )}
 
-                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2 dark:border-zinc-900">
+                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
                   <LikeButton
                     active={!!liked[roadmap.id]}
                     count={roadmap.likes}
@@ -271,8 +271,8 @@ function FeedContent() {
       </main>
 
       <aside className="hidden w-60 shrink-0 lg:block">
-        <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+        <section className="rounded-xl border border-zinc-200 p-4">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
             タグで絞り込む
           </p>
           <div className="flex flex-wrap gap-2">
@@ -285,8 +285,8 @@ function FeedContent() {
                 className={[
                   "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
                   tagFilter === tag
-                    ? "border-zinc-800 bg-zinc-900 text-white dark:border-zinc-300 dark:bg-zinc-100 dark:text-zinc-900"
-                    : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-200",
+                    ? "border-zinc-800 bg-zinc-900 text-white"
+                    : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
                 ].join(" ")}
               >
                 #{tag}
@@ -295,8 +295,8 @@ function FeedContent() {
           </div>
         </section>
 
-        <section className="mt-4 rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+        <section className="mt-4 rounded-xl border border-zinc-200 p-4">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
             急上昇
           </p>
           <ul className="space-y-1">
@@ -307,12 +307,12 @@ function FeedContent() {
                 <li key={r.id}>
                   <Link
                     href={`/roadmap/${r.id}`}
-                    className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                    className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100"
                   >
-                    <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400 dark:text-zinc-600">
+                    <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-100">
+                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900">
                       {r.title}
                     </span>
                   </Link>

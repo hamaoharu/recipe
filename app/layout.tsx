@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ThemeWrapper from "./components/ThemeWrapper";
+import AppShell from "./components/AppShell";
 
 //フォント
 const geistSans = Geist({
@@ -23,13 +23,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    //テーマは切り替えないのでダーク固定。ライトに戻したいときは dark を外す
     <html
       lang="ja"
-      className={`dark ${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="flex min-h-screen flex-col bg-white text-zinc-800 antialiased dark:bg-black dark:text-zinc-300">
-        <ThemeWrapper>{children}</ThemeWrapper>
+      <body className="flex min-h-screen flex-col bg-white text-zinc-800 antialiased">
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

@@ -95,7 +95,7 @@ export default function EditRoadmapPage({
         <button
           type="button"
           onClick={() => router.push(`/roadmap/${id}`)}
-          className="text-[13px] text-zinc-600 underline underline-offset-4 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+          className="text-[13px] text-zinc-600 underline underline-offset-4 hover:text-zinc-900"
         >
           ロードマップに戻る
         </button>
