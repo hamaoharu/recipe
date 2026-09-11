@@ -1,16 +1,25 @@
+import type { User } from "@supabase/supabase-js";
 import type { Author } from "./types";
-
-export const MOCK_USER: Author = {
-  id: "shogo",
-  name: "shogoLog",
-  initial: "S",
-};
 
 export function getSafeRedirectPath(next: string | null): string {
   if (!next || !next.startsWith("/") || next.startsWith("//")) return "/";
   return next;
 }
 
-export function loginWithMockUser(user: Author = MOCK_USER): void {
-  localStorage.setItem("recipe_user", JSON.stringify(user));
+export function authorFromUser(user: User): Author {
+  const meta = user.user_metadata ?? {};
+  const name =
+    (typeof meta.name === "string" && meta.name) ||
+    (typeof meta.full_name === "string" && meta.full_name) ||
+    user.email?.split("@")[0] ||
+    "user";
+  const initial =
+    (typeof meta.initial === "string" && meta.initial) ||
+    name.slice(0, 1).toUpperCase();
+
+  return {
+    id: user.id,
+    name,
+    initial: initial.slice(0, 1).toUpperCase(),
+  };
 }

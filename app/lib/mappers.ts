@@ -1,4 +1,11 @@
-import type { Roadmap, RoadmapGroup, RoadmapNode } from "./types";
+import type {
+  DetailItem,
+  DetailMap,
+  DetailResource,
+  Roadmap,
+  RoadmapGroup,
+  RoadmapNode,
+} from "./types";
 
 export type RoadmapRow = {
     id: string;
@@ -88,4 +95,31 @@ export function totalRequiredDays(groups: RoadmapGroup[]): number {
         .flatMap((g) => g.nodes)
         .filter((n) => n.required)
         .reduce((sum, n) => sum + n.days, 0);
+}
+
+export type RoadmapDetailRow = {
+    node_id: string;
+    title: string;
+    days: number;
+    description: string;
+    resources: DetailResource[] | null;
+    criteria: (string | { text: string })[] | null;
+};
+
+export function toDetailItem(row: RoadmapDetailRow): DetailItem {
+    return {
+        title: row.title,
+        days: row.days,
+        description: row.description,
+        resources: Array.isArray(row.resources) ? row.resources : [],
+        criteria: Array.isArray(row.criteria) ? row.criteria : [],
+    };
+}
+
+export function buildDetailMap(rows: RoadmapDetailRow[]): DetailMap {
+    const map: DetailMap = {};
+    for (const row of rows) {
+        map[row.node_id] = toDetailItem(row);
+    }
+    return map;
 }

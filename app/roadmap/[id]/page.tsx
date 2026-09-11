@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getRoadmap } from "../../lib/roadmaps";
 import {
+  buildDetailMap,
   buildRoadmapGroups,
   toRoadmap,
   totalRequiredDays,
+  type RoadmapDetailRow,
   type RoadmapGroupRow,
   type RoadmapNodeRow,
   type RoadmapRow,
@@ -353,6 +355,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   const [userRoadmap, setUserRoadmap] = useState<UserRoadmap | null>(null);
   const [dbRoadmap, setDbRoadmap] = useState<ReturnType<typeof toRoadmap> | null>(null);
   const [dbGroups, setDbGroups] = useState<RoadmapGroup[]>([]);
+  const [dbDetails, setDbDetails] = useState<DetailMap>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -395,14 +398,31 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
             .in("group_id", groupIds)
             .order("sort_order");
           if (nodesError) throw nodesError;
+
+          const nodeRows = (nodes ?? []) as RoadmapNodeRow[];
           setDbGroups(
-            buildRoadmapGroups(
-              groups as RoadmapGroupRow[],
-              (nodes ?? []) as RoadmapNodeRow[],
-            ),
+            buildRoadmapGroups(groups as RoadmapGroupRow[], nodeRows),
           );
+
+          const nodeIds = nodeRows.map((n) => n.id);
+          if (nodeIds.length > 0) {
+            const { data: details, error: detailsError } = await supabase
+              .from("roadmap_details")
+              .select("*")
+              .in("node_id", nodeIds);
+            // テーブル未作成時はダミー DETAILS にフォールバック
+            if (detailsError) {
+              console.warn(detailsError);
+              setDbDetails({});
+            } else {
+              setDbDetails(buildDetailMap((details ?? []) as RoadmapDetailRow[]));
+            }
+          } else {
+            setDbDetails({});
+          }
         } else {
           setDbGroups([]);
+          setDbDetails({});
         }
       } catch (e) {
         console.error(e);
@@ -416,12 +436,17 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const isUser = !!userRoadmap;
   const hasDbGroups = dbGroups.length > 0;
+  const hasDbDetails = Object.keys(dbDetails).length > 0;
   const activeGroups = isUser
     ? userRoadmap.groups
     : hasDbGroups
       ? dbGroups
       : GROUPS;
-  const activeDetails = isUser ? userRoadmap.details : DETAILS;
+  const activeDetails = isUser
+    ? userRoadmap.details
+    : hasDbDetails
+      ? dbDetails
+      : DETAILS;
   const activeTotalDays = isUser
     ? userRoadmap.totalDays
     : hasDbGroups

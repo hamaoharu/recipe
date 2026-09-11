@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
+import { authorFromUser } from "../lib/auth";
+import { createClient } from "../lib/supabase/client";
 import type { Author } from "../lib/types";
 
 export default function Header() {
@@ -14,13 +16,19 @@ export default function Header() {
   const [user, setUser] = useState<Author | null>(null);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("recipe_user");
-      if (saved) setUser(JSON.parse(saved) as Author);
-      else setUser(null);
-    } catch {
-      setUser(null);
-    }
+    const supabase = createClient();
+
+    supabase.auth.getSession().then(({ data }) => {
+      setUser(data.session ? authorFromUser(data.session.user) : null);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session ? authorFromUser(session.user) : null);
+    });
+
+    return () => subscription.unsubscribe();
   }, [pathname]);
 
   const handleSearch = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -29,10 +37,12 @@ export default function Header() {
     router.push(trimmed ? `/?q=${encodeURIComponent(trimmed)}` : "/");
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("recipe_user");
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
     setUser(null);
     router.push("/");
+    router.refresh();
   };
 
   return (
