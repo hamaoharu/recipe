@@ -230,7 +230,14 @@ export async function createRoadmap(input: NewRoadmapInput): Promise<string> {
   });
   if (roadmapError) throw roadmapError;
 
-  await insertChildren(id, input.groups);
+  try {
+    await insertChildren(id, input.groups);
+  } catch (e) {
+    //中身の作成に失敗したら、空のロードマップが残らないように巻き戻す
+    await supabase.from("roadmaps").delete().eq("id", id);
+    throw e;
+  }
+
   return id;
 }
 

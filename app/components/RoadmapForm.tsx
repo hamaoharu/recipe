@@ -68,6 +68,21 @@ export type RoadmapFormResult = {
 //36進数でランダムな文字列を生成する関数
 const uid = () => Math.random().toString(36).slice(2, 9);
 
+//日数は integer 列に入れるので、桁数を絞った半角数字だけを受け付ける
+const MAX_DAYS_LENGTH = 4;
+
+function sanitizeDays(raw: string): string {
+  return raw
+    .replace(/[^0-9]/g, "")
+    .replace(/^0+(?=\d)/, "")
+    .slice(0, MAX_DAYS_LENGTH);
+}
+
+function parseDays(raw: string): number {
+  const n = Number(sanitizeDays(raw));
+  return Number.isFinite(n) ? n : 0;
+}
+
 const newNode = (): EditNode => ({
   id: uid(),
   label: "",
@@ -273,11 +288,12 @@ function NodeEditCard({
           onClick={(e) => e.stopPropagation()}
         >
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
             value={node.days}
-            onChange={(e) => onUpdate(node.id, "days", e.target.value)}
+            onChange={(e) => onUpdate(node.id, "days", sanitizeDays(e.target.value))}
             placeholder="0"
-            min="0"
+            maxLength={MAX_DAYS_LENGTH}
             aria-label="日数"
             className="w-14 rounded-sm bg-transparent px-1 py-1 text-right font-mono text-[12px] text-zinc-600 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-400 dark:placeholder:text-zinc-700"
           />
@@ -608,7 +624,7 @@ export default function RoadmapForm({
             id: n.id,
             label: n.label.trim(),
             required: n.required,
-            days: Number(n.days) || 0,
+            days: parseDays(n.days),
             description: n.nodeDescription.trim(),
             resources: n.resources
               .filter((r) => r.label.trim())
@@ -631,7 +647,7 @@ export default function RoadmapForm({
   const totalDays = groups
     .flatMap((g) => g.nodes)
     .filter((n) => n.required)
-    .reduce((s, n) => s + (Number(n.days) || 0), 0);
+    .reduce((s, n) => s + parseDays(n.days), 0);
 
   const showNodeErrors = !!errors.nodes;
 
