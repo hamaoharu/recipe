@@ -68,19 +68,19 @@ export type RoadmapFormResult = {
 //36進数でランダムな文字列を生成する関数
 const uid = () => Math.random().toString(36).slice(2, 9);
 
-//日数は integer 列に入れるので、桁数を絞った半角数字だけを受け付ける
-const MAX_DAYS_LENGTH = 4;
+//1ノードあたりの日数の上限。integer 列に収める意味もある
+const MAX_DAYS = 365;
 
+//半角数字だけを受け取り、上限を超えたら切り詰める
 function sanitizeDays(raw: string): string {
-  return raw
-    .replace(/[^0-9]/g, "")
-    .replace(/^0+(?=\d)/, "")
-    .slice(0, MAX_DAYS_LENGTH);
+  const digits = raw.replace(/[^0-9]/g, "").replace(/^0+(?=\d)/, "").slice(0, 4);
+  if (digits === "") return "";
+  return String(Math.min(Number(digits), MAX_DAYS));
 }
 
 function parseDays(raw: string): number {
   const n = Number(sanitizeDays(raw));
-  return Number.isFinite(n) ? n : 0;
+  return Number.isFinite(n) ? Math.min(n, MAX_DAYS) : 0;
 }
 
 const newNode = (): EditNode => ({
@@ -293,8 +293,8 @@ function NodeEditCard({
             value={node.days}
             onChange={(e) => onUpdate(node.id, "days", sanitizeDays(e.target.value))}
             placeholder="0"
-            maxLength={MAX_DAYS_LENGTH}
-            aria-label="日数"
+            aria-label={`日数（最大${MAX_DAYS}日）`}
+            title={`1ノードあたり最大 ${MAX_DAYS} 日まで`}
             className="w-14 rounded-sm bg-transparent px-1 py-1 text-right font-mono text-[12px] text-zinc-600 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-400 dark:placeholder:text-zinc-700"
           />
           <span className="font-mono text-[11px] text-zinc-500 dark:text-zinc-600">日</span>
@@ -878,7 +878,7 @@ export default function RoadmapForm({
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-600">02</span>
-                  <span>ノードの名前・日数・必須/任意を設定する</span>
+                  <span>ノードの名前・日数（最大{MAX_DAYS}日）・必須/任意を設定する</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 font-mono text-zinc-500 dark:text-zinc-600">03</span>
