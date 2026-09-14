@@ -39,7 +39,7 @@ export default function RoadmapCard({
 
   return (
     <li
-      className="cursor-pointer rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
+      className="cursor-pointer rounded-xl border border-zinc-200 bg-white p-4 transition-colors hover:border-zinc-300 sm:p-5"
       onClick={(e) => {
         if (isInteractive(e.target)) return;
         router.push(`/roadmap/${roadmap.id}`);
@@ -99,7 +99,7 @@ export default function RoadmapCard({
         </div>
       )}
 
-      <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
+      <div className="mt-3 flex flex-wrap items-center gap-1 border-t border-zinc-100 pt-2">
         <LikeButton active={liked} count={roadmap.likes} onClick={onLike} />
         <BookmarkButton active={bookmarked} onClick={onBookmark} />
         <ShareMenu roadmapId={roadmap.id} title={roadmap.title} compact />

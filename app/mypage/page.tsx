@@ -192,24 +192,24 @@ export default function MyPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-10">
+    <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
 
       {/* Profile card */}
-      <div className="mb-8 flex items-start justify-between border-b border-zinc-200 pb-8">
-        <div className="flex items-center gap-5">
+      <div className="mb-8 flex flex-col gap-4 border-b border-zinc-200 pb-8 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex items-start gap-4 sm:items-center sm:gap-5">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 font-mono text-[22px] font-bold text-zinc-700">
             {user.initial}
           </div>
           <div>
             {editing ? (
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <input
                   autoFocus
                   value={nameInput}
                   maxLength={80}
                   onChange={(e) => setNameInput(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Enter") saveName(); if (e.key === "Escape") setEditing(false); }}
-                  className="rounded-sm border border-zinc-300 bg-zinc-50 px-2 py-1 text-[15px] text-zinc-900 focus:border-zinc-400 focus:outline-none"
+                  className="min-w-0 flex-1 rounded-sm border border-zinc-300 bg-zinc-50 px-2 py-1 text-[15px] text-zinc-900 focus:border-zinc-400 focus:outline-none"
                 />
                 <button
                   type="button"
@@ -241,7 +241,7 @@ export default function MyPage() {
               </div>
             )}
             <p className="mt-0.5 font-mono text-[12px] text-zinc-500">@{user.id}</p>
-            <div className="mt-2 flex gap-5 text-[12px] text-zinc-500">
+            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-zinc-500">
               <span>
                 <span className="font-semibold text-zinc-600">{myRoadmaps.length}</span>
                 {" "}投稿
@@ -262,7 +262,7 @@ export default function MyPage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-2">
+        <div className="flex shrink-0 flex-row gap-2 sm:flex-col sm:items-end">
           <button
             type="button"
             onClick={handleLogout}

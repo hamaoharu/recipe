@@ -1,13 +1,10 @@
 "use client";
 
-import { use, useState, useEffect, useRef, ReactNode, type MouseEvent } from "react";
+import { use, useState, useEffect, ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ConfirmDialog from "../../components/ConfirmDialog";
 import ShareMenu from "../../components/ShareMenu";
-import { CameraIcon } from "../../components/icons";
-import { captureRoadmapImage } from "../../lib/capture-roadmap";
-import { downloadDataUrl } from "../../lib/share";
 import { totalRequiredDays } from "../../lib/mappers";
 import {
   deleteRoadmap,
@@ -61,7 +58,7 @@ function NodeBox({ node, selected, onClick }: NodeBoxProps) {
       onClick={(e) => { e.stopPropagation(); onClick(node.id); }}
       aria-pressed={isSelected}
       className={[
-        "rounded-lg px-3.5 py-3 text-left transition-colors duration-100",
+        "w-full min-w-0 rounded-lg px-3.5 py-3 text-left transition-colors duration-100",
         node.required ? "border" : "border border-dashed",
         isSelected
           ? "border-zinc-500 bg-zinc-100"
@@ -84,6 +81,14 @@ function NodeBox({ node, selected, onClick }: NodeBoxProps) {
       </div>
     </button>
   );
+}
+
+function nodesLayoutClass(count: number) {
+  if (count <= 1) return "flex";
+  return [
+    "grid gap-2",
+    count === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+  ].join(" ");
 }
 
 function DetailSection({ label, children }:{ label: string; children: ReactNode }) {
@@ -174,27 +179,35 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
   }, [id]);
 
 
-  const handleSelect = (nodeId: string) => setSelected((prev) => (prev === nodeId ? null : nodeId));
+  const handleSelect = (nodeId: string) =>
+    setSelected((prev) => (prev === nodeId ? null : nodeId));
+
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [sheetNodeId, setSheetNodeId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selected) {
+      setSheetNodeId(selected);
+      return;
+    }
+    setSheetOpen(false);
+  }, [selected]);
+
+  useEffect(() => {
+    if (!selected || !sheetNodeId) return;
+    const frame = requestAnimationFrame(() => setSheetOpen(true));
+    return () => cancelAnimationFrame(frame);
+  }, [selected, sheetNodeId]);
+
+  useEffect(() => {
+    if (selected || sheetOpen || !sheetNodeId) return;
+    const timer = window.setTimeout(() => setSheetNodeId(null), 300);
+    return () => window.clearTimeout(timer);
+  }, [selected, sheetOpen, sheetNodeId]);
 
   const isOwner = !!currentUserId && roadmap?.author.id === currentUserId;
   const [deleteConfirm, setDeleteConfirm] = useState(false);
-  const [savingImage, setSavingImage] = useState(false);
-  const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-
-  const handleSaveMap = async (e: MouseEvent) => {
-    e.stopPropagation();
-    if (!mapRef.current) return;
-    setSavingImage(true);
-    try {
-      const url = await captureRoadmapImage(mapRef.current, meta.title);
-      downloadDataUrl(url, `${meta.title || "roadmap"}.png`);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setSavingImage(false);
-    }
-  };
 
   const handleDelete = async () => {
     try {
@@ -259,19 +272,149 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     );
   }
 
+  const overviewBody = (
+    <>
+      <p className="whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
+        {meta.description || "ノードをタップすると詳細が表示されます。"}
+      </p>
+      <div className="mt-6 rounded-xl border border-zinc-200 p-4 sm:p-5">
+        <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+          全体スケジュール（必須ルート）
+        </p>
+        <div className="flex items-baseline gap-2">
+          <span className="font-mono text-[32px] font-bold leading-none text-zinc-900">
+            {activeTotalDays}
+          </span>
+          <span className="text-[13px] text-zinc-500">日</span>
+          <span className="ml-1 text-[13px] text-zinc-500">
+            ≈ {Math.round(activeTotalDays / 30)} ヶ月
+          </span>
+        </div>
+        <p className="mt-2 text-[12px] text-zinc-500">
+          1〜2時間/日で学習した場合の目安。
+        </p>
+        <div className="mt-5 space-y-2">
+          {activeGroups.map((g) => {
+            const req = g.nodes.filter((n) => n.required);
+            if (req.length === 0) return null;
+            const total = req.reduce((s, n) => s + n.days, 0);
+            return (
+              <div key={g.id} className="flex items-center gap-3">
+                <div className="w-20 shrink-0 sm:w-28">
+                  <p className="truncate font-mono text-[11px] text-zinc-500">
+                    {g.label ?? req[0].label}
+                  </p>
+                </div>
+                <div className="flex min-w-0 flex-1 items-center gap-2">
+                  <div
+                    className="h-1.5 rounded-full bg-zinc-300"
+                    style={{ width: `${activeTotalDays ? Math.round((total / activeTotalDays) * 100) : 0}%`, minWidth: "4px" }}
+                  />
+                  <span className="shrink-0 font-mono text-[10px] text-zinc-500">
+                    {total}日
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+
+  const overviewPanel = (
+    <div className="px-4 py-6 sm:px-8 lg:px-10 lg:py-10">
+      <h2 className="text-[20px] font-bold tracking-tight text-zinc-900">
+        {meta.title}
+      </h2>
+      <div className="mt-4">{overviewBody}</div>
+    </div>
+  );
+
+  const nodeDetail = (nodeId: string) => (
+    <article className="px-4 pb-8 text-[15px] leading-[1.8] text-zinc-700 sm:px-8 lg:px-10 lg:py-10">
+      <div className="mb-3 flex items-center justify-end lg:hidden">
+        <button
+          type="button"
+          onClick={() => setSelected(null)}
+          className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+        >
+          閉じる
+        </button>
+      </div>
+      <div className="flex items-baseline justify-between gap-4 border-b-2 border-zinc-300 pb-2">
+        <h2 className="text-[20px] font-bold tracking-tight text-zinc-900">
+          {activeDetails[nodeId]?.title ?? nodeId}
+        </h2>
+        {activeDetails[nodeId]?.days && (
+          <span className="shrink-0 font-mono text-[13px] text-zinc-500">
+            {activeDetails[nodeId].days}<span className="ml-0.5 text-zinc-500">日</span>
+          </span>
+        )}
+      </div>
+
+      {activeDetails[nodeId] ? (
+        <>
+          <p className="mt-5 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
+            {activeDetails[nodeId].description}
+          </p>
+
+          <DetailSection label="推奨リソース">
+            <ul className="space-y-4">
+              {activeDetails[nodeId].resources.map((r, i) => {
+                const href = safeHttpUrl(r.url);
+                return (
+                <li key={i} className="border-b border-zinc-200 pb-4 last:border-b-0 last:pb-0">
+                  <p className="text-[14px] font-semibold text-zinc-800">
+                    {href ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer"
+                        className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
+                        {r.label}
+                      </a>
+                    ) : r.label}
+                  </p>
+                  <p className="mt-1 whitespace-pre-wrap break-words text-[14px] text-zinc-500">
+                    {r.note}
+                  </p>
+                </li>
+                );
+              })}
+            </ul>
+          </DetailSection>
+
+          <DetailSection label="クリア基準">
+            <ul className="space-y-3">
+              {activeDetails[nodeId].criteria.map((c, i) => (
+                <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
+                  <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="whitespace-pre-wrap break-words">
+                    {typeof c === "string" ? c : c.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </DetailSection>
+        </>
+      ) : (
+        <p className="mt-6 text-[14px] text-zinc-500">このノードの詳細は準備中です。</p>
+      )}
+    </article>
+  );
+
   return (
     <div
-      className="flex overflow-hidden text-zinc-700"
-      style={{ height: "calc(100vh - var(--header-height))" }}
+      className="flex min-h-0 flex-col text-zinc-700 lg:h-[calc(100vh-var(--header-height))] lg:flex-row lg:overflow-hidden"
       onClick={() => setSelected(null)}
     >
-      {/* ── Left 60%: roadmap ── */}
-      <aside className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-200">
-        <div className="mx-auto w-full max-w-2xl px-10 py-10">
+      {/* ── Left: roadmap ── */}
+      <aside className="flex w-full flex-col border-zinc-200 lg:h-full lg:w-[60%] lg:shrink-0 lg:overflow-y-auto lg:border-r">
+        <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-8 lg:px-10 lg:py-10">
 
           {/* Back + meta */}
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-1">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex flex-wrap items-center gap-1">
               <Link
                 href="/"
                 className="rounded-md px-2 py-1.5 font-mono text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
@@ -297,7 +440,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                 </>
               )}
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex flex-wrap items-center gap-1" onClick={(e) => e.stopPropagation()}>
               <LikeButton
                 active={liked}
                 count={meta.likes}
@@ -316,21 +459,11 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
               <ShareMenu
                 roadmapId={id}
                 title={meta.title}
-                captureTarget={mapRef}
               />
-              <button
-                type="button"
-                onClick={handleSaveMap}
-                disabled={savingImage}
-                className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 disabled:opacity-50"
-              >
-                <CameraIcon />
-                {savingImage ? "保存中..." : "図を保存"}
-              </button>
             </div>
           </div>
 
-          <div ref={mapRef} className="bg-white">
+          <div className="bg-white">
           {/* Title + author */}
           <div className="mb-2">
             <h1 className="break-words text-[24px] font-bold leading-snug tracking-tight text-zinc-900">
@@ -368,8 +501,10 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
             )}
           </div>
 
+          <div className="mt-5 lg:hidden">{overviewBody}</div>
+
           {/* Days + legend */}
-          <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-200 pt-4">
+          <div className="mb-8 mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-zinc-200 pt-4">
             <div className="flex items-center gap-5">
               <span className="flex items-center gap-1.5 text-[11px] text-zinc-500">
                 <span className="inline-block h-2.5 w-2.5 rounded-[2px] border border-zinc-400"/>
@@ -393,12 +528,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                   {group.label}
                 </p>
               )}
-              <div className={[
-                "w-full",
-                group.nodes.length === 1 ? "flex" : "grid gap-2",
-                group.nodes.length === 2 ? "grid-cols-2" : "",
-                group.nodes.length >= 3 ? "grid-cols-3" : "",
-              ].join(" ")}>
+              <div className={`w-full ${nodesLayoutClass(group.nodes.length)}`}>
                 {group.nodes.map((node) => (
                   <NodeBox
                     key={node.id}
@@ -417,126 +547,43 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
         </div>
       </aside>
 
-      {/* ── Right 40%: detail / overview ── */}
-      <div className="h-full w-[40%] shrink-0 overflow-y-auto">
-        {!selected ? (
-          /* Overview */
-          <div className="px-10 py-10">
-            <h2 className="text-[20px] font-bold tracking-tight text-zinc-900">
-              {meta.title}
-            </h2>
-            <p className="mt-4 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
-              {meta.description || "ノードをクリックすると詳細が表示されます。"}
-            </p>
-
-            {/* Timeline bar chart */}
-            <div className="mt-8 rounded-xl border border-zinc-200 p-5">
-              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                全体スケジュール（必須ルート）
-              </p>
-              <div className="flex items-baseline gap-2">
-                <span className="font-mono text-[32px] font-bold leading-none text-zinc-900">
-                  {activeTotalDays}
-                </span>
-                <span className="text-[13px] text-zinc-500">日</span>
-                <span className="ml-1 text-[13px] text-zinc-500">
-                  ≈ {Math.round(activeTotalDays / 30)} ヶ月
-                </span>
-              </div>
-              <p className="mt-2 text-[12px] text-zinc-500">
-                1〜2時間/日で学習した場合の目安。
-              </p>
-              <div className="mt-5 space-y-2">
-                {activeGroups.map((g) => {
-                  const req = g.nodes.filter((n) => n.required);
-                  if (req.length === 0) return null;
-                  const total = req.reduce((s, n) => s + n.days, 0);
-                  return (
-                    <div key={g.id} className="flex items-center gap-3">
-                      <div className="w-28 shrink-0">
-                        <p className="truncate font-mono text-[11px] text-zinc-500">
-                          {g.label ?? req[0].label}
-                        </p>
-                      </div>
-                      <div className="flex flex-1 items-center gap-2">
-                        <div
-                          className="h-1.5 rounded-full bg-zinc-300"
-                          style={{ width: `${activeTotalDays ? Math.round((total / activeTotalDays) * 100) : 0}%`, minWidth: "4px" }}
-                        />
-                        <span className="shrink-0 font-mono text-[10px] text-zinc-500">
-                          {total}日
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* Node detail */
-          <article className="px-10 py-10 text-[15px] leading-[1.8] text-zinc-700">
-            <div className="flex items-baseline justify-between gap-4 border-b-2 border-zinc-300 pb-2">
-              <h2 className="text-[20px] font-bold tracking-tight text-zinc-900">
-                {activeDetails[selected]?.title ?? selected}
-              </h2>
-              {activeDetails[selected]?.days && (
-                <span className="shrink-0 font-mono text-[13px] text-zinc-500">
-                  {activeDetails[selected].days}<span className="ml-0.5 text-zinc-500">日</span>
-                </span>
-              )}
-            </div>
-
-            {activeDetails[selected] ? (
-              <>
-                <p className="mt-5 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
-                  {activeDetails[selected].description}
-                </p>
-
-                <DetailSection label="推奨リソース">
-                  <ul className="space-y-4">
-                    {activeDetails[selected].resources.map((r, i) => {
-                      const href = safeHttpUrl(r.url);
-                      return (
-                      <li key={i} className="border-b border-zinc-200 pb-4 last:border-b-0 last:pb-0">
-                        <p className="text-[14px] font-semibold text-zinc-800">
-                          {href ? (
-                            <a href={href} target="_blank" rel="noopener noreferrer"
-                              className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
-                              {r.label}
-                            </a>
-                          ) : r.label}
-                        </p>
-                        <p className="mt-1 whitespace-pre-wrap break-words text-[14px] text-zinc-500">
-                          {r.note}
-                        </p>
-                      </li>
-                      );
-                    })}
-                  </ul>
-                </DetailSection>
-
-                <DetailSection label="クリア基準">
-                  <ul className="space-y-3">
-                    {activeDetails[selected].criteria.map((c, i) => (
-                      <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
-                        <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="whitespace-pre-wrap break-words">
-                          {typeof c === "string" ? c : c.text}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </DetailSection>
-              </>
-            ) : (
-              <p className="mt-6 text-[14px] text-zinc-500">このノードの詳細は準備中です。</p>
-            )}
-          </article>
-        )}
+      <div
+        className="hidden h-full w-[40%] shrink-0 overflow-y-auto lg:block"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {!selected ? overviewPanel : nodeDetail(selected)}
       </div>
+
+      {sheetNodeId && (
+        <>
+          <div
+            className={[
+              "fixed inset-0 z-40 bg-black/25 transition-opacity duration-300 lg:hidden",
+              "motion-reduce:transition-none",
+              sheetOpen ? "opacity-100" : "pointer-events-none opacity-0",
+            ].join(" ")}
+            onClick={() => setSelected(null)}
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="ノードの詳細"
+            className={[
+              "fixed inset-x-0 bottom-0 z-50 max-h-[65vh] overflow-y-auto rounded-t-2xl border-t border-zinc-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] lg:hidden",
+              "transform-gpu transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none",
+              sheetOpen ? "translate-y-0" : "translate-y-full",
+            ].join(" ")}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 z-10 bg-white pt-2">
+              <div className="flex justify-center">
+                <span className="h-1 w-10 rounded-full bg-zinc-300" />
+              </div>
+            </div>
+            {nodeDetail(sheetNodeId)}
+          </div>
+        </>
+      )}
 
       <ConfirmDialog
         open={deleteConfirm}

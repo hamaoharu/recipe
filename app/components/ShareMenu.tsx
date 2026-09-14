@@ -1,14 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent, type RefObject } from "react";
-import { CameraIcon, CloseIcon, ShareIcon } from "./icons";
+import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent } from "react";
+import { CloseIcon, ShareIcon } from "./icons";
 import {
-  captureRoadmapImage,
-  dataUrlToFile,
-} from "../lib/capture-roadmap";
-import {
-  downloadDataUrl,
   facebookShareUrl,
+  isMobileDevice,
   lineShareUrl,
   roadmapShareText,
   roadmapShareUrl,
@@ -19,23 +15,19 @@ import {
 type ShareMenuProps = {
   roadmapId: string;
   title: string;
-  //詳細ページの地図。あるときだけ画像付き共有とスクショができる
-  captureTarget?: RefObject<HTMLElement | null>;
   compact?: boolean;
 };
 
 export default function ShareMenu({
   roadmapId,
   title,
-  captureTarget,
   compact = false,
 }: ShareMenuProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [capturing, setCapturing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -46,31 +38,47 @@ export default function ShareMenu({
     return () => document.removeEventListener("mousedown", onDoc);
   }, [open]);
 
-  const prepareImage = async () => {
-    if (!captureTarget?.current) return null;
-    setCapturing(true);
-    setError(null);
-    try {
-      const url = await captureRoadmapImage(captureTarget.current, title);
-      setImageUrl(url);
-      return url;
-    } catch (e) {
-      console.error(e);
-      setError("画像を作れませんでした。もう一度お試しください。");
-      return null;
-    } finally {
-      setCapturing(false);
-    }
-  };
+  useLayoutEffect(() => {
+    if (!open) return;
 
-  const handleOpen = async (e: MouseEvent) => {
+    const place = () => {
+      const root = rootRef.current;
+      const menu = menuRef.current;
+      if (!root || !menu) return;
+
+      const trigger = root.getBoundingClientRect();
+      const gap = 8;
+      const width = Math.min(288, window.innerWidth - gap * 2);
+      let left = trigger.right - width;
+      left = Math.min(Math.max(gap, left), window.innerWidth - width - gap);
+
+      const height = menu.offsetHeight;
+      let top = trigger.bottom + gap;
+      if (top + height > window.innerHeight - gap) {
+        const above = trigger.top - height - gap;
+        top = above >= gap ? above : Math.max(gap, window.innerHeight - height - gap);
+      }
+
+      menu.style.width = `${width}px`;
+      menu.style.left = `${left}px`;
+      menu.style.top = `${top}px`;
+    };
+
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+    };
+  }, [open, error, copied]);
+
+  const handleOpen = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setOpen(true);
     setCopied(false);
-    if (captureTarget?.current && !imageUrl) {
-      await prepareImage();
-    }
+    setError(null);
   };
 
   const handleCopy = async (e: MouseEvent) => {
@@ -83,84 +91,58 @@ export default function ShareMenu({
     }
   };
 
-  const handleSaveImage = async (e: MouseEvent) => {
-    e.stopPropagation();
-    const url = imageUrl ?? (await prepareImage());
-    if (!url) return;
-    downloadDataUrl(url, `${title || "roadmap"}.png`);
+  const shareWithSheet = async () => {
+    if (typeof navigator.share !== "function") return false;
+    await navigator.share({
+      title,
+      text: roadmapShareText(title, roadmapId),
+      url: roadmapShareUrl(roadmapId),
+    });
+    return true;
   };
 
-  //スマホの共有シート。Instagram など、Webから直接投稿できないアプリ向け
-  const shareWithSheet = async (withImage: boolean) => {
-    const url = withImage
-      ? imageUrl ?? (captureTarget?.current ? await prepareImage() : null)
-      : null;
-
-    if (url && typeof navigator.canShare === "function") {
-      const file = dataUrlToFile(url, `${title || "roadmap"}.png`);
-      if (navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          text: roadmapShareText(title, roadmapId),
-          title,
-        });
-        return true;
-      }
-    }
-
-    if (typeof navigator.share === "function") {
-      await navigator.share({
-        title,
-        text: roadmapShareText(title, roadmapId),
-        url: roadmapShareUrl(roadmapId),
-      });
-      return true;
-    }
-
-    return false;
-  };
-
-  const openSharePage = (href: string, attachImage: boolean) => {
-    if (attachImage && imageUrl) {
-      downloadDataUrl(imageUrl, `${title || "roadmap"}.png`);
-    }
+  const openSharePage = (href: string) => {
     window.open(href, "_blank", "noopener,noreferrer");
   };
 
   const handleShareX = async (e: MouseEvent) => {
     e.stopPropagation();
-    try {
-      if (await shareWithSheet(true)) return;
-    } catch (err) {
-      if ((err as Error).name === "AbortError") return;
+    if (isMobileDevice()) {
+      try {
+        if (await shareWithSheet()) return;
+      } catch (err) {
+        if ((err as Error).name === "AbortError") return;
+      }
     }
-    openSharePage(twitterIntentUrl(title, roadmapId), !!captureTarget);
+    openSharePage(twitterIntentUrl(title, roadmapId));
   };
 
   const handleShareLine = (e: MouseEvent) => {
     e.stopPropagation();
-    openSharePage(lineShareUrl(roadmapId), false);
+    openSharePage(lineShareUrl(roadmapId));
   };
 
   const handleShareFacebook = (e: MouseEvent) => {
     e.stopPropagation();
-    openSharePage(facebookShareUrl(roadmapId), false);
+    openSharePage(facebookShareUrl(roadmapId));
   };
 
   const handleShareThreads = async (e: MouseEvent) => {
     e.stopPropagation();
-    try {
-      if (await shareWithSheet(true)) return;
-    } catch (err) {
-      if ((err as Error).name === "AbortError") return;
+    if (isMobileDevice()) {
+      try {
+        if (await shareWithSheet()) return;
+      } catch (err) {
+        if ((err as Error).name === "AbortError") return;
+      }
     }
-    openSharePage(threadsShareUrl(title, roadmapId), !!captureTarget);
+    openSharePage(threadsShareUrl(title, roadmapId));
   };
 
   const handleShareOther = async (e: MouseEvent) => {
     e.stopPropagation();
     try {
-      if (await shareWithSheet(true)) return;
+      if (await shareWithSheet()) return;
     } catch (err) {
       if ((err as Error).name === "AbortError") return;
     }
@@ -186,9 +168,10 @@ export default function ShareMenu({
 
       {open && (
         <div
+          ref={menuRef}
           role="dialog"
           aria-label="投稿を共有"
-          className="absolute right-0 z-40 mt-2 w-72 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-lg"
+          className="fixed z-[60] max-h-[calc(100vh-1rem)] overflow-y-auto rounded-xl border border-zinc-200 bg-white shadow-lg"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-zinc-100 px-3 py-2">
@@ -202,22 +185,6 @@ export default function ShareMenu({
               <CloseIcon />
             </button>
           </div>
-
-          {captureTarget && (
-            <div className="border-b border-zinc-100 bg-zinc-50 p-3">
-              {capturing && (
-                <p className="py-6 text-center text-[12px] text-zinc-500">画像を作成中...</p>
-              )}
-              {imageUrl && (
-                // eslint-disable-next-line @next/next/no-img-element -- その場で作った data URL
-                <img
-                  src={imageUrl}
-                  alt={`${title} のロードマップ`}
-                  className="max-h-36 w-full rounded-md border border-zinc-200 object-cover object-top"
-                />
-              )}
-            </div>
-          )}
 
           {error && <p className="px-3 pt-2 text-[12px] text-red-600">{error}</p>}
 
@@ -247,19 +214,9 @@ export default function ShareMenu({
             >
               {copied ? "リンクをコピーしました" : "リンクをコピー"}
             </button>
-            {captureTarget && (
-              <button
-                type="button"
-                onClick={handleSaveImage}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-left text-[13px] text-zinc-700 hover:bg-zinc-100"
-              >
-                <CameraIcon className="h-4 w-4" />
-                図を保存
-              </button>
-            )}
           </div>
           <p className="px-3 pb-3 text-[11px] leading-relaxed text-zinc-400">
-            LINEとFacebookはリンクを貼ると図が出ます。Instagramはスマホの共有シートから送れます。
+            リンクを貼ると図が出ます。投稿画面ではプレビューが出ないことがあります。
           </p>
         </div>
       )}

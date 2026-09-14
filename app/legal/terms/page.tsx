@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function TermsPage() {
   return (
-    <article className="mx-auto w-full max-w-2xl px-6 py-12 text-[14px] leading-relaxed text-zinc-700">
+    <article className="mx-auto w-full max-w-2xl px-4 py-12 text-[14px] leading-relaxed text-zinc-700 sm:px-6">
       <h1 className="text-[22px] font-bold text-zinc-900">利用規約</h1>
       <p className="mt-4 text-zinc-500">最終更新: 2026年9月14日</p>
       <div className="mt-8 space-y-6">

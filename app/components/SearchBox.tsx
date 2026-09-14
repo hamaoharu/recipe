@@ -58,7 +58,7 @@ export default function SearchBox() {
   const showPanel = open && (historyMatches.length > 0 || titleMatches.length > 0);
 
   return (
-    <div ref={rootRef} className="relative w-full max-w-sm">
+    <div ref={rootRef} className="relative min-w-0 flex-1 max-w-sm">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -80,7 +80,7 @@ export default function SearchBox() {
             setHistory(getSearchHistory());
             setOpen(true);
           }}
-          placeholder="ロードマップを検索..."
+          placeholder="検索..."
           aria-label="ロードマップを検索"
           aria-controls="search-suggest"
           autoComplete="off"

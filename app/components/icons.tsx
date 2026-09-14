@@ -115,24 +115,6 @@ export function ShareIcon({ className = "h-[18px] w-[18px]" }: IconProps) {
   );
 }
 
-export function CameraIcon({ className = "h-[18px] w-[18px]" }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden
-      className={`${base} ${className}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4.5 8.2h3.1l1.2-2.2h6.4l1.2 2.2h3.1A1.7 1.7 0 0 1 21.2 10v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2A1.7 1.7 0 0 1 3.5 18.1V10a1.7 1.7 0 0 1 1-1.8z" />
-      <circle cx="12" cy="14" r="3.1" />
-    </svg>
-  );
-}
-
 export function CloseIcon({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg

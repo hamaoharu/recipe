@@ -10,7 +10,7 @@ export default function SiteFooter() {
   if (hideOnTallLayout) return null;
 
   return (
-    <footer className="border-t border-zinc-200 px-6 py-4 text-center text-[12px] text-zinc-400">
+    <footer className="border-t border-zinc-200 px-4 py-4 text-center text-[12px] text-zinc-400 sm:px-6">
       <Link href="/legal/terms" className="hover:text-zinc-700">
         利用規約
       </Link>

@@ -1,3 +1,13 @@
+//スマホだけ OS の共有シートを使う。Mac だと AirDrop 画面になってしまう
+export function isMobileDevice(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const uaData = (
+    navigator as Navigator & { userAgentData?: { mobile?: boolean } }
+  ).userAgentData;
+  if (typeof uaData?.mobile === "boolean") return uaData.mobile;
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
 export function getSiteOrigin(): string {
   if (typeof window !== "undefined") return window.location.origin;
   return process.env.NEXT_PUBLIC_SITE_URL ?? "https://recipe.app";
@@ -27,13 +37,4 @@ export function facebookShareUrl(id: string): string {
 
 export function threadsShareUrl(title: string, id: string): string {
   return `https://www.threads.net/intent/post?text=${encodeURIComponent(roadmapShareText(title, id))}`;
-}
-
-export function downloadDataUrl(dataUrl: string, filename: string): void {
-  const link = document.createElement("a");
-  link.href = dataUrl;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
 }

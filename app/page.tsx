@@ -140,7 +140,7 @@ function FeedContent() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl gap-10 px-6 py-8">
+    <div className="mx-auto flex w-full max-w-5xl gap-10 px-4 py-8 sm:px-6">
       <main className="min-w-0 flex-1">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3">
           <div className="flex gap-1 rounded-lg bg-zinc-100 p-1">
@@ -180,6 +180,27 @@ function FeedContent() {
             )}
           </p>
         </div>
+
+        {allTags.length > 0 && (
+          <div className="mb-4 flex flex-wrap gap-2 lg:hidden">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => handleTagClick(tag)}
+                aria-pressed={tagFilter === tag}
+                className={[
+                  "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
+                  tagFilter === tag
+                    ? "border-zinc-800 bg-zinc-900 text-white"
+                    : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
+                ].join(" ")}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
+        )}
 
         {filtered.length === 0 ? (
           <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center">

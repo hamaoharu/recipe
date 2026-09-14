@@ -503,6 +503,16 @@ export default function RoadmapForm({
 
   const selectedGroup = groups.find((g) => g.nodes.some((n) => n.id === selectedNodeId));
   const selectedNode = selectedGroup?.nodes.find((n) => n.id === selectedNodeId);
+  const detailPaneRef = useRef<HTMLDivElement>(null);
+
+  const selectNode = (id: string) => {
+    setSelectedNodeId(id);
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      requestAnimationFrame(() => {
+        detailPaneRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
 
   const addTag = () => {
     const t = tagInput.trim().replace(/,/g, "");
@@ -679,15 +689,14 @@ export default function RoadmapForm({
     <form
       onSubmit={handleSubmit}
       onKeyDown={preventImplicitSubmit}
-      className="flex overflow-hidden text-zinc-700"
-      style={{ height: "calc(100vh - var(--header-height))" }}
+      className="flex min-h-0 flex-col text-zinc-700 lg:h-[calc(100vh-var(--header-height))] lg:flex-row lg:overflow-hidden"
     >
       {/* ── 左：ロードマップの構造 ── */}
       <div
-        className="flex h-full w-[60%] shrink-0 flex-col overflow-y-auto border-r border-zinc-200"
+        className="flex w-full flex-col border-zinc-200 lg:h-full lg:w-[60%] lg:shrink-0 lg:overflow-y-auto lg:border-r"
         onClick={() => setSelectedNodeId(null)}
       >
-        <div className="mx-auto w-full max-w-2xl px-10 py-10">
+        <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-8 lg:px-10 lg:py-10">
           <AutoTextarea
             value={title}
             onChange={setTitle}
@@ -797,9 +806,11 @@ export default function RoadmapForm({
               <div
                 className={[
                   "w-full gap-2",
-                  group.nodes.length === 1 ? "flex" : "grid",
-                  group.nodes.length === 2 ? "grid-cols-2" : "",
-                  group.nodes.length >= 3 ? "grid-cols-3" : "",
+                  group.nodes.length === 1
+                    ? "flex"
+                    : group.nodes.length === 2
+                      ? "grid grid-cols-1 sm:grid-cols-2"
+                      : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
                 ].join(" ")}
               >
                 {group.nodes.map((node) => (
@@ -808,7 +819,7 @@ export default function RoadmapForm({
                     node={node}
                     selected={selectedNodeId}
                     invalid={showNodeErrors && !node.label.trim()}
-                    onSelect={setSelectedNodeId}
+                    onSelect={selectNode}
                     onUpdate={updateNode}
                     onRemove={(nid) => removeNode(group.id, nid)}
                     canRemove={group.nodes.length > 1}
@@ -850,8 +861,11 @@ export default function RoadmapForm({
       </div>
 
       {/* ── 右：ノード詳細 / 説明 ── */}
-      <div className="flex h-full w-[40%] shrink-0 flex-col overflow-y-auto">
-        <div className="flex-1 px-10 py-10">
+      <div
+        ref={detailPaneRef}
+        className="flex w-full flex-col border-t border-zinc-200 lg:h-full lg:w-[40%] lg:shrink-0 lg:overflow-y-auto lg:border-t-0"
+      >
+        <div className="flex-1 px-4 py-6 sm:px-8 lg:px-10 lg:py-10">
           {selectedNode ? (
             <>
               <p className="mb-6 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
@@ -877,7 +891,7 @@ export default function RoadmapForm({
                 {heading}
               </h2>
               <p className="mt-3 text-[13px] leading-relaxed text-zinc-500">
-                左のエリアでロードマップの構造を作成してください。
+                ロードマップの構造を作成してください。ノードを選ぶと詳細を入力できます。
               </p>
               <ul className="mt-6 space-y-3 text-[13px] text-zinc-500">
                 <li className="flex items-start gap-2">
@@ -890,7 +904,7 @@ export default function RoadmapForm({
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 font-mono text-zinc-500">03</span>
-                  <span>ノードをクリック → 説明・リソース・クリア基準を入力する</span>
+                  <span>ノードを選んで、説明・リソース・クリア基準を入力する</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 font-mono text-zinc-500">04</span>
@@ -901,7 +915,7 @@ export default function RoadmapForm({
           )}
         </div>
 
-        <div className="sticky bottom-0 border-t border-zinc-200 bg-white px-10 py-5">
+        <div className="sticky bottom-0 border-t border-zinc-200 bg-white px-4 py-4 sm:px-8 lg:px-10 lg:py-5">
           {errors.submit && (
             <p className="mb-3 text-[12px] text-red-600">{errors.submit}</p>
           )}

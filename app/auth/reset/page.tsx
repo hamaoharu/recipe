@@ -30,8 +30,8 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-md flex-col px-6 py-16">
-      <div className="rounded-xl border border-zinc-200 p-8">
+    <div className="mx-auto flex w-full max-w-md flex-col px-4 py-16 sm:px-6">
+      <div className="rounded-xl border border-zinc-200 p-5 sm:p-8">
         <div className="mb-6">
           <Logo />
         </div>
