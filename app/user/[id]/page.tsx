@@ -11,7 +11,7 @@ import {
   toggleBookmark as persistBookmark,
   idsToRecord,
 } from "../../lib/likes";
-import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "../../components/actions";
+import RoadmapCard from "../../components/RoadmapCard";
 
 //[id]がparams.idに代入される
 //params使う時のテンプレ
@@ -137,51 +137,15 @@ export default function UserPage({ params }:{params: Promise<{id: string}>}) {
         ) : (
           <ul className="space-y-3">
             {userRoadmaps.map((roadmap) => (
-              <li
+              <RoadmapCard
                 key={roadmap.id}
-                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
-              >
-                <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
-                    {roadmap.title}
-                  </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
-                    {roadmap.description}
-                  </p>
-                </Link>
-
-                {/* Tags */}
-                {roadmap.tags.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {roadmap.tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/?tag=${tag}`}
-                        className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800"
-                      >
-                        #{tag}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {/* Meta */}
-                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
-                  <LikeButton
-                    active={!!liked[roadmap.id]}
-                    count={roadmap.likes}
-                    onClick={(e) => toggleLike(e, roadmap.id)}
-                  />
-                  <BookmarkButton
-                    active={!!bookmarked[roadmap.id]}
-                    onClick={(e) => toggleBookmark(e, roadmap.id)}
-                  />
-                  <ViewCount views={roadmap.views} />
-                  <span className="ml-auto">
-                    <DaysBadge days={roadmap.totalDays} />
-                  </span>
-                </div>
-              </li>
+                roadmap={roadmap}
+                liked={!!liked[roadmap.id]}
+                bookmarked={!!bookmarked[roadmap.id]}
+                onLike={(e) => toggleLike(e, roadmap.id)}
+                onBookmark={(e) => toggleBookmark(e, roadmap.id)}
+                showAuthor={false}
+              />
             ))}
           </ul>
         )}

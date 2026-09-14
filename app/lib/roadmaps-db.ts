@@ -8,6 +8,7 @@ import {
   type RoadmapRow,
 } from "./mappers";
 import { createClient } from "./supabase/client";
+import { sanitizeResources } from "./urls";
 import type { Author, DetailItem, Roadmap, RoadmapGroup } from "./types";
 
 export async function fetchRoadmaps(): Promise<Roadmap[]> {
@@ -108,8 +109,25 @@ export async function fetchRoadmapBundle(
 }
 
 export async function incrementViews(id: string): Promise<void> {
+  if (typeof window !== "undefined") {
+    try {
+      if (sessionStorage.getItem(`recipe_viewed_${id}`)) return;
+    } catch {
+      //続行
+    }
+  }
   const supabase = createClient();
-  await supabase.rpc("increment_roadmap_views", { p_roadmap_id: id });
+  const { error } = await supabase.rpc("increment_roadmap_views", {
+    p_roadmap_id: id,
+  });
+  if (error) return;
+  if (typeof window !== "undefined") {
+    try {
+      sessionStorage.setItem(`recipe_viewed_${id}`, "1");
+    } catch {
+      //保存できなくても閲覧自体は記録済み
+    }
+  }
 }
 
 export async function deleteRoadmap(id: string): Promise<void> {
@@ -212,28 +230,58 @@ async function insertChildren(
   if (detailsError) throw detailsError;
 }
 
+function groupsPayload(groups: RoadmapContent["groups"]) {
+  return groups.map((g) => ({
+    id: g.id,
+    label: g.label,
+    nodes: g.nodes.map((n) => ({
+      id: n.id,
+      label: n.label.slice(0, 200),
+      required: n.required,
+      days: n.days,
+      description: n.description.slice(0, 20000),
+      resources: sanitizeResources(n.resources),
+      criteria: n.criteria,
+    })),
+  }));
+}
+
 export async function createRoadmap(input: NewRoadmapInput): Promise<string> {
   const supabase = createClient();
-  const id = toSlug(input.title);
+  const id = toSlug(input.title.slice(0, 200));
+  const groups = groupsPayload(input.groups);
+  const totalDays = countRequiredDays(input.groups);
 
+  const { error: rpcError } = await supabase.rpc("create_roadmap_full", {
+    p_id: id,
+    p_title: input.title.slice(0, 200),
+    p_description: input.description.slice(0, 20000),
+    p_tags: input.tags.join(","),
+    p_author_name: input.author.name.slice(0, 80),
+    p_author_initial: input.author.initial.slice(0, 1),
+    p_total_days: totalDays,
+    p_groups: groups,
+  });
+  if (!rpcError) return id;
+
+  //SQL 004 をまだ流していない環境向けの予備
   const { error: roadmapError } = await supabase.from("roadmaps").insert({
     id,
-    title: input.title,
-    description: input.description,
+    title: input.title.slice(0, 200),
+    description: input.description.slice(0, 20000),
     author_id: input.author.id,
     author_name: input.author.name,
     author_initial: input.author.initial,
     tags: input.tags.join(","),
     likes: 0,
     views: 0,
-    total_days: countRequiredDays(input.groups),
+    total_days: totalDays,
   });
   if (roadmapError) throw roadmapError;
 
   try {
-    await insertChildren(id, input.groups);
+    await insertChildren(id, groups);
   } catch (e) {
-    //中身の作成に失敗したら、空のロードマップが残らないように巻き戻す
     await supabase.from("roadmaps").delete().eq("id", id);
     throw e;
   }
@@ -246,24 +294,41 @@ export async function updateRoadmap(
   input: RoadmapContent,
 ): Promise<void> {
   const supabase = createClient();
+  const groups = groupsPayload(input.groups);
+  const totalDays = countRequiredDays(input.groups);
+
+  const { error: rpcError } = await supabase.rpc("save_roadmap_content", {
+    p_id: id,
+    p_title: input.title.slice(0, 200),
+    p_description: input.description.slice(0, 20000),
+    p_tags: input.tags.join(","),
+    p_total_days: totalDays,
+    p_groups: groups,
+  });
+  if (!rpcError) return;
 
   const { error: roadmapError } = await supabase
     .from("roadmaps")
     .update({
-      title: input.title,
-      description: input.description,
+      title: input.title.slice(0, 200),
+      description: input.description.slice(0, 20000),
       tags: input.tags.join(","),
-      total_days: countRequiredDays(input.groups),
+      total_days: totalDays,
     })
     .eq("id", id);
   if (roadmapError) throw roadmapError;
 
-  //地図は作り直す。groups を消すと nodes と details も cascade で消える
   const { error: deleteError } = await supabase
     .from("roadmap_groups")
     .delete()
     .eq("roadmap_id", id);
   if (deleteError) throw deleteError;
 
-  await insertChildren(id, input.groups);
+  await insertChildren(id, groups);
+}
+
+export async function deleteOwnAccount(): Promise<void> {
+  const supabase = createClient();
+  const { error } = await supabase.rpc("delete_own_account");
+  if (error) throw error;
 }

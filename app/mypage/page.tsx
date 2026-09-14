@@ -5,13 +5,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authorFromUser } from "../lib/auth";
 import {
+  deleteOwnAccount,
   deleteRoadmap,
   fetchRoadmapsByAuthor,
   fetchRoadmapsByIds,
 } from "../lib/roadmaps-db";
 import { createClient } from "../lib/supabase/client";
 import { Author, Roadmap } from "../lib/types";
-import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "../components/actions";
+import ConfirmDialog from "../components/ConfirmDialog";
+import RoadmapCard from "../components/RoadmapCard";
 import {
   getLikedIds,
   getBookmarkedIds,
@@ -42,6 +44,9 @@ export default function MyPage() {
   //| nullが必要なのは初期値がnullの時だけ
   const [userRoadmaps, setUserRoadmaps] = useState<Roadmap[]>([]);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [deleteAccountOpen, setDeleteAccountOpen] = useState(false);
+  const [deletingAccount, setDeletingAccount] = useState(false);
+  const [accountError, setAccountError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadUser() {
@@ -143,6 +148,23 @@ export default function MyPage() {
     router.refresh();
   };
 
+  const handleDeleteAccount = async () => {
+    if (deletingAccount) return;
+    setDeletingAccount(true);
+    setAccountError(null);
+    try {
+      await deleteOwnAccount();
+      const supabase = createClient();
+      await supabase.auth.signOut();
+      router.push("/");
+      router.refresh();
+    } catch (e) {
+      console.error(e);
+      setAccountError("退会に失敗しました。時間をおいて再度お試しください。");
+      setDeletingAccount(false);
+    }
+  };
+
   const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
     e.preventDefault();
     const wasLiked = !!liked[id];
@@ -184,6 +206,7 @@ export default function MyPage() {
                 <input
                   autoFocus
                   value={nameInput}
+                  maxLength={80}
                   onChange={(e) => setNameInput(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Enter") saveName(); if (e.key === "Escape") setEditing(false); }}
                   className="rounded-sm border border-zinc-300 bg-zinc-50 px-2 py-1 text-[15px] text-zinc-900 focus:border-zinc-400 focus:outline-none"
@@ -239,13 +262,28 @@ export default function MyPage() {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={handleLogout}
-          className="rounded-md px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
-        >
-          ログアウト
-        </button>
+        <div className="flex flex-col items-end gap-2">
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="rounded-md px-3 py-2 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+          >
+            ログアウト
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setDeleteAccountOpen(true);
+              setAccountError(null);
+            }}
+            className="rounded-md px-3 py-2 text-[13px] text-zinc-400 hover:bg-red-50 hover:text-red-600"
+          >
+            退会する
+          </button>
+          {accountError && (
+            <p className="max-w-[12rem] text-right text-[12px] text-red-600">{accountError}</p>
+          )}
+        </div>
       </div>
 
       {/* Tabs */}
@@ -295,115 +333,57 @@ export default function MyPage() {
       ) : (
         <ul className="space-y-3">
           {tabRoadmaps.map((roadmap) => (
-            <li
+            <RoadmapCard
               key={roadmap.id}
-              className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
-            >
-              {/* Author */}
-              <div className="mb-2 flex items-center gap-2">
-                <Link
-                  href={`/user/${roadmap.author.id}`}
-                  className="flex items-center gap-2 transition-opacity hover:opacity-70"
-                >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-200 font-mono text-[10px] font-bold text-zinc-600">
-                    {roadmap.author.initial}
-                  </span>
-                  <span className="text-[12px] text-zinc-500 hover:text-zinc-700">
-                    {roadmap.author.name}
-                  </span>
-                </Link>
-                <span className="text-[12px] text-zinc-400">·</span>
-                <span className="text-[12px] text-zinc-500">{roadmap.createdAt}</span>
-              </div>
-
-              {/* Title + description */}
-              <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
-                  {roadmap.title}
-                </h2>
-                <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
-                  {roadmap.description}
-                </p>
-              </Link>
-
-              {/* Tags */}
-              {roadmap.tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {roadmap.tags.map((tag) => (
+              roadmap={roadmap}
+              liked={!!liked[roadmap.id]}
+              bookmarked={!!bookmarked[roadmap.id]}
+              onLike={(e) => toggleLike(e, roadmap.id)}
+              onBookmark={(e) => toggleBookmark(e, roadmap.id)}
+              footer={
+                tab === "posts" ? (
+                  <div className="mt-3 flex items-center gap-2">
                     <Link
-                      key={tag}
-                      href={`/?tag=${tag}`}
-                      className="rounded-md border border-zinc-200 px-2.5 py-1 font-mono text-[12px] text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-800"
+                      href={`/roadmap/${roadmap.id}/edit`}
+                      className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
                     >
-                      #{tag}
+                      編集
                     </Link>
-                  ))}
-                </div>
-              )}
-
-              {/* Meta */}
-              <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
-                <LikeButton
-                  active={!!liked[roadmap.id]}
-                  count={roadmap.likes}
-                  onClick={(e) => toggleLike(e, roadmap.id)}
-                />
-                <BookmarkButton
-                  active={!!bookmarked[roadmap.id]}
-                  onClick={(e) => toggleBookmark(e, roadmap.id)}
-                />
-                <ViewCount views={roadmap.views} />
-                <span className="ml-auto">
-                  <DaysBadge days={roadmap.totalDays} />
-                </span>
-              </div>
-
-              {/* Delete for own posts */}
-              {tab === "posts" && (
-                <div className="mt-3 flex items-center gap-4">
-                  {deleteConfirm === roadmap.id ? (
-                    <>
-                      <span className="text-[13px] text-zinc-600">
-                        本当に削除しますか？
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => removeRoadmap(roadmap.id)}
-                        className="rounded-md bg-red-600 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-red-500"
-                      >
-                        削除する
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setDeleteConfirm(null)}
-                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
-                      >
-                        キャンセル
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <Link
-                        href={`/roadmap/${roadmap.id}/edit`}
-                        className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
-                      >
-                        編集
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => setDeleteConfirm(roadmap.id)}
-                        className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600"
-                      >
-                        削除
-                      </button>
-                    </>
-                  )}
-                </div>
-              )}
-            </li>
+                    <button
+                      type="button"
+                      onClick={() => setDeleteConfirm(roadmap.id)}
+                      className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600"
+                    >
+                      削除
+                    </button>
+                  </div>
+                ) : null
+              }
+            />
           ))}
         </ul>
       )}
+
+      <ConfirmDialog
+        open={!!deleteConfirm}
+        title="投稿を削除しますか？"
+        description="削除すると元に戻せません。"
+        onCancel={() => setDeleteConfirm(null)}
+        onConfirm={() => {
+          if (deleteConfirm) removeRoadmap(deleteConfirm);
+        }}
+      />
+      <ConfirmDialog
+        open={deleteAccountOpen}
+        title="退会しますか？"
+        description="アカウントと自分の投稿は削除され、元に戻せません。"
+        confirmLabel={deletingAccount ? "削除中..." : "退会する"}
+        confirmDisabled={deletingAccount}
+        onCancel={() => {
+          if (!deletingAccount) setDeleteAccountOpen(false);
+        }}
+        onConfirm={handleDeleteAccount}
+      />
     </div>
   );
 }

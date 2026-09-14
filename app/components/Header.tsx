@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
-import { PlusIcon, SearchIcon } from "./icons";
+import { useState, useEffect } from "react";
+import { PlusIcon } from "./icons";
+import Logo from "./Logo";
+import SearchBox from "./SearchBox";
 import { authorFromUser } from "../lib/auth";
 import { createClient } from "../lib/supabase/client";
 import type { Author } from "../lib/types";
@@ -11,7 +13,6 @@ import type { Author } from "../lib/types";
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
-  const [q, setQ] = useState("");
   const [user, setUser] = useState<Author | null>(null);
 
   useEffect(() => {
@@ -30,12 +31,6 @@ export default function Header() {
     return () => subscription.unsubscribe();
   }, [pathname]);
 
-  const handleSearch = (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const trimmed = q.trim();
-    router.push(trimmed ? `/?q=${encodeURIComponent(trimmed)}` : "/");
-  };
-
   const handleLogout = async () => {
     const supabase = createClient();
     await supabase.auth.signOut();
@@ -48,24 +43,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-5 border-b border-zinc-200 bg-white/95 px-6 backdrop-blur">
       <Link
         href="/"
-        className="shrink-0 rounded-md px-1 py-1 font-mono text-[16px] font-bold tracking-tight text-zinc-900 transition-colors hover:text-black"
+        aria-label="recipe トップへ"
+        className="shrink-0 rounded-md px-1 py-1 transition-opacity hover:opacity-80"
       >
-        recipe
+        <Logo />
       </Link>
 
-      <form onSubmit={handleSearch} className="relative flex w-full max-w-sm">
-        <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400">
-          <SearchIcon />
-        </span>
-        <input
-          type="text"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="ロードマップを検索..."
-          aria-label="ロードマップを検索"
-          className="w-full rounded-lg border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-3 text-[14px] text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10"
-        />
-      </form>
+      <SearchBox />
 
       <nav className="ml-auto flex items-center gap-2">
         <Link

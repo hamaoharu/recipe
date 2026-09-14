@@ -13,7 +13,7 @@ import {
   idsToRecord,
 } from "./lib/likes";
 import { fetchRoadmaps } from "./lib/roadmaps-db";
-import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "./components/actions";
+import RoadmapCard from "./components/RoadmapCard";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
@@ -193,78 +193,16 @@ function FeedContent() {
         ) : (
           <ul className="space-y-3">
             {filtered.map((roadmap) => (
-              <li
+              <RoadmapCard
                 key={roadmap.id}
-                className="rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300"
-              >
-                <div className="mb-2.5 flex items-center gap-2">
-                  <Link
-                    href={`/user/${roadmap.author.id}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 rounded-md py-0.5 transition-opacity hover:opacity-70"
-                  >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 font-mono text-[11px] font-bold text-zinc-600">
-                      {roadmap.author.initial}
-                    </span>
-                    <span className="text-[13px] text-zinc-600">
-                      {roadmap.author.name}
-                    </span>
-                  </Link>
-                  <span className="text-zinc-300">·</span>
-                  <span className="text-[13px] text-zinc-500">
-                    {roadmap.createdAt}
-                  </span>
-                </div>
-
-                <Link href={`/roadmap/${roadmap.id}`} className="group block">
-                  <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900 group-hover:underline group-hover:underline-offset-4">
-                    {roadmap.title}
-                  </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-relaxed text-zinc-600">
-                    {roadmap.description}
-                  </p>
-                </Link>
-
-                {roadmap.tags.length > 0 && (
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    {roadmap.tags.map((tag) => (
-                      <button
-                        key={tag}
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleTagClick(tag);
-                        }}
-                        aria-pressed={tagFilter === tag}
-                        className={[
-                          "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
-                          tagFilter === tag
-                            ? "border-zinc-800 bg-zinc-900 text-white"
-                            : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
-                        ].join(" ")}
-                      >
-                        #{tag}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-3 flex items-center gap-1 border-t border-zinc-100 pt-2">
-                  <LikeButton
-                    active={!!liked[roadmap.id]}
-                    count={roadmap.likes}
-                    onClick={(e) => toggleLike(e, roadmap.id)}
-                  />
-                  <BookmarkButton
-                    active={!!bookmarked[roadmap.id]}
-                    onClick={(e) => toggleBookmark(e, roadmap.id)}
-                  />
-                  <ViewCount views={roadmap.views} />
-                  <span className="ml-auto">
-                    <DaysBadge days={roadmap.totalDays} />
-                  </span>
-                </div>
-              </li>
+                roadmap={roadmap}
+                liked={!!liked[roadmap.id]}
+                bookmarked={!!bookmarked[roadmap.id]}
+                onLike={(e) => toggleLike(e, roadmap.id)}
+                onBookmark={(e) => toggleBookmark(e, roadmap.id)}
+                activeTag={tagFilter}
+                onTagClick={handleTagClick}
+              />
             ))}
           </ul>
         )}

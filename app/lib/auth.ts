@@ -2,7 +2,10 @@ import type { User } from "@supabase/supabase-js";
 import type { Author } from "./types";
 
 export function getSafeRedirectPath(next: string | null): string {
-  if (!next || !next.startsWith("/") || next.startsWith("//")) return "/";
+  if (!next) return "/";
+  //同一サイト内のパスだけ。// や /\ は別サイト扱いになり得る
+  if (!next.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) return "/";
+  if (next.includes("\\") || next.includes("://")) return "/";
   return next;
 }
 

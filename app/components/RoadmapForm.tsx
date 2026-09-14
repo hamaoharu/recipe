@@ -136,6 +136,7 @@ type AutoTextareaProps = {
   className?: string;
   //タイトルなど改行させたくない欄で使う
   singleLine?: boolean;
+  maxLength?: number;
   ariaLabel?: string;
   onClick?: (e: React.MouseEvent<HTMLTextAreaElement>) => void;
 };
@@ -146,6 +147,7 @@ function AutoTextarea({
   placeholder,
   className = "",
   singleLine = false,
+  maxLength,
   ariaLabel,
   onClick,
 }: AutoTextareaProps) {
@@ -164,6 +166,7 @@ function AutoTextarea({
       ref={ref}
       rows={1}
       value={value}
+      maxLength={maxLength}
       aria-label={ariaLabel}
       placeholder={placeholder}
       onClick={onClick}
@@ -254,11 +257,12 @@ function NodeEditCard({
           onClick={(e) => e.stopPropagation()}
           placeholder="ノード名"
           singleLine
+          maxLength={200}
           ariaLabel="ノード名"
           className={[
             "min-w-0 flex-1 break-words bg-transparent text-[13px] font-semibold leading-snug",
             "placeholder:text-zinc-400 focus:outline-none",
-            isSelected ?"text-zinc-900":"text-zinc-600",
+            isSelected ? "text-zinc-900" : "text-zinc-600",
           ].join(" ")}
         />
         {canRemove && (
@@ -313,11 +317,11 @@ function NodeEditCard({
 function Connector() {
   return (
     <div className="flex flex-col items-center py-1">
-      <div className="h-4 w-px bg-zinc-300"/>
-      <svg width="10"height="6"viewBox="0 0 10 6"fill="none"className="text-zinc-500">
+      <div className="h-4 w-px bg-zinc-300" />
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="text-zinc-500">
         <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <div className="h-2 w-px bg-zinc-300"/>
+      <div className="h-2 w-px bg-zinc-300" />
     </div>
   );
 }
@@ -369,8 +373,9 @@ function NodeDetailPanel({
         <AutoTextarea
           value={node.nodeDescription}
           onChange={(val) => onUpdate("nodeDescription", val)}
-          placeholder="このトピックを学ぶ理由や実務での重要性を書いてください。改行できます。"
+          placeholder="このトピックを学ぶ理由や実務での重要性を書いてください。"
           ariaLabel="説明・思想"
+          maxLength={20000}
           className={`${inputBase} min-h-[92px]`}
         />
       </div>
@@ -405,8 +410,9 @@ function NodeDetailPanel({
                 type="url"
                 value={r.url}
                 onChange={(e) => onUpdateResource(r.id, "url", e.target.value)}
-                placeholder="URL（任意）"
+                placeholder="https://（任意）"
                 aria-label="URL"
+                maxLength={2000}
                 className={inputSm}
               />
               <AutoTextarea
@@ -688,6 +694,7 @@ export default function RoadmapForm({
             onClick={(e) => e.stopPropagation()}
             placeholder="ロードマップのタイトル"
             singleLine
+            maxLength={200}
             ariaLabel="ロードマップのタイトル"
             className={[
               "w-full break-words bg-transparent text-[22px] font-bold leading-snug tracking-tight text-zinc-900",
@@ -703,8 +710,9 @@ export default function RoadmapForm({
             value={description}
             onChange={setDescription}
             onClick={(e) => e.stopPropagation()}
-            placeholder="このロードマップの概要・目的を書いてください（改行できます）"
+            placeholder="このロードマップの概要・目的を書いてください"
             ariaLabel="ロードマップの概要"
+            maxLength={20000}
             className="mt-3 w-full break-words bg-transparent text-[14px] leading-relaxed text-zinc-600 placeholder:text-zinc-400 focus:outline-none"
           />
 
@@ -746,11 +754,11 @@ export default function RoadmapForm({
           <div className="mb-8 mt-4 flex items-center justify-between border-t border-zinc-200 pt-3">
             <div className="flex items-center gap-4 text-[11px] text-zinc-500">
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-[2px] border border-zinc-400"/>
+                <span className="inline-block h-2 w-2 rounded-[2px] border border-zinc-400" />
                 必須
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-[2px] border border-dashed border-zinc-400"/>
+                <span className="inline-block h-2 w-2 rounded-[2px] border border-dashed border-zinc-400" />
                 任意
               </span>
             </div>
@@ -889,10 +897,6 @@ export default function RoadmapForm({
                   <span>「＋ ノードを追加」「＋ セクションを追加」で構造を拡張する</span>
                 </li>
               </ul>
-              <p className="mt-6 text-[12px] leading-relaxed text-zinc-500">
-                入力欄で Enter を押しても投稿されません。長い文章は自動で折り返され、
-                説明欄では改行できます。
-              </p>
             </>
           )}
         </div>

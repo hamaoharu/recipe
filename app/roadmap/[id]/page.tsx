@@ -1,8 +1,13 @@
 "use client";
 
-import { use, useState, useEffect, ReactNode } from "react";
+import { use, useState, useEffect, useRef, ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ConfirmDialog from "../../components/ConfirmDialog";
+import ShareMenu from "../../components/ShareMenu";
+import { CameraIcon } from "../../components/icons";
+import { captureRoadmapImage } from "../../lib/capture-roadmap";
+import { downloadDataUrl } from "../../lib/share";
 import { totalRequiredDays } from "../../lib/mappers";
 import {
   deleteRoadmap,
@@ -11,6 +16,7 @@ import {
 } from "../../lib/roadmaps-db";
 import { createClient } from "../../lib/supabase/client";
 import { BookmarkButton, LikeButton } from "../../components/actions";
+import { safeHttpUrl } from "../../lib/urls";
 import type {
   DetailMap,
   Roadmap,
@@ -172,7 +178,23 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const isOwner = !!currentUserId && roadmap?.author.id === currentUserId;
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+  const [savingImage, setSavingImage] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  const handleSaveMap = async (e: MouseEvent) => {
+    e.stopPropagation();
+    if (!mapRef.current) return;
+    setSavingImage(true);
+    try {
+      const url = await captureRoadmapImage(mapRef.current, meta.title);
+      downloadDataUrl(url, `${meta.title || "roadmap"}.png`);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSavingImage(false);
+    }
+  };
 
   const handleDelete = async () => {
     try {
@@ -223,6 +245,20 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     );
   }
 
+  if (!roadmap) {
+    return (
+      <div
+        className="flex flex-col items-center justify-center gap-3 text-zinc-500"
+        style={{ height: "calc(100vh - var(--header-height))" }}
+      >
+        <p className="text-[16px] font-medium text-zinc-800">ページが見つかりません</p>
+        <Link href="/" className="text-[14px] text-zinc-600 underline underline-offset-4">
+          トップへ戻る
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div
       className="flex overflow-hidden text-zinc-700"
@@ -243,44 +279,22 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                 ← 一覧に戻る
               </Link>
               {isOwner && (
-                deleteConfirm ? (
-                  <span className="flex items-center gap-1">
-                    <span className="px-2 text-[13px] text-zinc-600">
-                      本当に削除しますか？
-                    </span>
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); handleDelete(); }}
-                      className="rounded-md bg-red-600 px-3 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-red-500"
-                    >
-                      削除する
-                    </button>
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); setDeleteConfirm(false); }}
-                      className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
-                    >
-                      キャンセル
-                    </button>
-                  </span>
-                ) : (
-                  <>
-                    <Link
-                      href={`/roadmap/${id}/edit`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
-                    >
-                      編集
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
-                      className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600"
-                    >
-                      削除
-                    </button>
-                  </>
-                )
+                <>
+                  <Link
+                    href={`/roadmap/${id}/edit`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="rounded-md border border-zinc-200 px-3 py-1.5 text-[13px] text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900"
+                  >
+                    編集
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setDeleteConfirm(true); }}
+                    className="rounded-md px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-600"
+                  >
+                    削除
+                  </button>
+                </>
               )}
             </div>
             <div className="flex items-center gap-1">
@@ -299,9 +313,24 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                   handleToggleBookmark();
                 }}
               />
+              <ShareMenu
+                roadmapId={id}
+                title={meta.title}
+                captureTarget={mapRef}
+              />
+              <button
+                type="button"
+                onClick={handleSaveMap}
+                disabled={savingImage}
+                className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 disabled:opacity-50"
+              >
+                <CameraIcon />
+                {savingImage ? "保存中..." : "図を保存"}
+              </button>
             </div>
           </div>
 
+          <div ref={mapRef} className="bg-white">
           {/* Title + author */}
           <div className="mb-2">
             <h1 className="break-words text-[24px] font-bold leading-snug tracking-tight text-zinc-900">
@@ -382,6 +411,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
               {gi < activeGroups.length - 1 && <Connector />}
             </div>
           ))}
+          </div>
 
           <div className="h-16" />
         </div>
@@ -465,11 +495,13 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
                 <DetailSection label="推奨リソース">
                   <ul className="space-y-4">
-                    {activeDetails[selected].resources.map((r, i) => (
+                    {activeDetails[selected].resources.map((r, i) => {
+                      const href = safeHttpUrl(r.url);
+                      return (
                       <li key={i} className="border-b border-zinc-200 pb-4 last:border-b-0 last:pb-0">
                         <p className="text-[14px] font-semibold text-zinc-800">
-                          {r.url ? (
-                            <a href={r.url} target="_blank" rel="noopener noreferrer"
+                          {href ? (
+                            <a href={href} target="_blank" rel="noopener noreferrer"
                               className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
                               {r.label}
                             </a>
@@ -479,7 +511,8 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                           {r.note}
                         </p>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </DetailSection>
 
@@ -504,6 +537,14 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
           </article>
         )}
       </div>
+
+      <ConfirmDialog
+        open={deleteConfirm}
+        title="投稿を削除しますか？"
+        description="削除すると元に戻せません。"
+        onCancel={() => setDeleteConfirm(false)}
+        onConfirm={handleDelete}
+      />
     </div>
   );
 }
