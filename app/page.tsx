@@ -18,12 +18,28 @@ import RoadmapCard from "./components/RoadmapCard";
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
 type SortMode = "new" | "trend";
 
+const PAGE_SIZE = 10;
+
+function pageItems(current: number, total: number): (number | "ellipsis")[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const wanted = new Set([1, total, current - 1, current, current + 1]);
+  const nums = [...wanted].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b);
+  const items: (number | "ellipsis")[] = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] - nums[i - 1] > 1) items.push("ellipsis");
+    items.push(nums[i]);
+  }
+  return items;
+}
+
 function FeedContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const q = searchParams.get("q") ?? "";
   const tagFilter = searchParams.get("tag") ?? "";
+  const researchFilter = searchParams.get("research") === "ai";
+  const requestedPage = Math.max(1, Number(searchParams.get("page") ?? "1") || 1);
 
   //setSortの引数に入るのは"new"か"trend"のどちらかにしている
   //stateはジェネリクスを使って型を指定
@@ -120,23 +136,66 @@ function FeedContent() {
       list = list.filter((r) => (r.tags ?? []).includes(tagFilter));
     }
 
+    if (researchFilter) {
+      list = list.filter((r) => r.isAiResearch);
+    }
+
     if (sort === "trend") {
-      list.sort((a, b) => b.likes - a.likes);
+      list.sort((a, b) => {
+        if (a.isAiResearch !== b.isAiResearch) return a.isAiResearch ? -1 : 1;
+        return b.likes - a.likes;
+      });
     } else {
-      list.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      list.sort((a, b) => {
+        if (a.isAiResearch !== b.isAiResearch) return a.isAiResearch ? -1 : 1;
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
     }
     return list;
-  }, [allRoadmaps, q, tagFilter, sort]);
+  }, [allRoadmaps, q, tagFilter, researchFilter, sort]);
 
-  const handleTagClick = (tag: string) => {
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const page = Math.min(requestedPage, totalPages);
+  const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+  const pushQuery = (mutate: (params: URLSearchParams) => void) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (params.get("tag") === tag) {
-      params.delete("tag");
-    } else {
-      params.set("tag", tag);
-    }
+    mutate(params);
     const query = params.toString();
     router.push(query ? `/?${query}` : "/");
+  };
+
+  const handleResearchClick = () => {
+    pushQuery((params) => {
+      if (params.get("research") === "ai") params.delete("research");
+      else params.set("research", "ai");
+      params.delete("page");
+    });
+  };
+
+  const handleTagClick = (tag: string) => {
+    pushQuery((params) => {
+      if (params.get("tag") === tag) params.delete("tag");
+      else params.set("tag", tag);
+      params.delete("page");
+    });
+  };
+
+  const handleSort = (value: SortMode) => {
+    setSort(value);
+    if (requestedPage > 1) {
+      pushQuery((params) => {
+        params.delete("page");
+      });
+    }
+  };
+
+  const handlePage = (next: number) => {
+    pushQuery((params) => {
+      if (next <= 1) params.delete("page");
+      else params.set("page", String(next));
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -155,7 +214,7 @@ function FeedContent() {
               <button
                 key={tab.value}
                 type="button"
-                onClick={() => setSort(tab.value)}
+                onClick={() => handleSort(tab.value)}
                 aria-pressed={sort === tab.value}
                 className={[
                   "rounded-md px-4 py-2 text-[14px] transition-colors",
@@ -170,10 +229,18 @@ function FeedContent() {
           </div>
           <p className="font-mono text-[12px] text-zinc-500">
             {filtered.length} 件
+            {filtered.length > 0 && totalPages > 1 && (
+              <span className="ml-2 text-zinc-400">
+                {((page - 1) * PAGE_SIZE) + 1}–{Math.min(page * PAGE_SIZE, filtered.length)}
+              </span>
+            )}
             {q && (
               <span className="ml-2 text-zinc-500">
                 「{q}」の検索結果
               </span>
+            )}
+            {researchFilter && (
+              <span className="ml-2 text-zinc-500">AI Research</span>
             )}
             {tagFilter && (
               <span className="ml-2 text-zinc-500">#{tagFilter}</span>
@@ -181,8 +248,20 @@ function FeedContent() {
           </p>
         </div>
 
-        {allTags.length > 0 && (
-          <div className="mb-4 flex flex-wrap gap-2 lg:hidden">
+        <div className="mb-4 flex max-h-28 flex-wrap gap-2 overflow-y-auto lg:hidden">
+            <button
+              type="button"
+              onClick={handleResearchClick}
+              aria-pressed={researchFilter}
+              className={[
+                "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
+                researchFilter
+                  ? "border-zinc-800 bg-zinc-900 text-white"
+                  : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
+              ].join(" ")}
+            >
+              AI Research
+            </button>
             {allTags.map((tag) => (
               <button
                 key={tag}
@@ -200,7 +279,6 @@ function FeedContent() {
               </button>
             ))}
           </div>
-        )}
 
         {filtered.length === 0 ? (
           <div className="rounded-xl border border-dashed border-zinc-300 py-16 text-center">
@@ -213,7 +291,7 @@ function FeedContent() {
           </div>
         ) : (
           <ul className="space-y-3">
-            {filtered.map((roadmap) => (
+            {paged.map((roadmap) => (
               <RoadmapCard
                 key={roadmap.id}
                 roadmap={roadmap}
@@ -227,58 +305,119 @@ function FeedContent() {
             ))}
           </ul>
         )}
+
+        {filtered.length > 0 && totalPages > 1 && (
+          <nav
+            aria-label="ページ"
+            className="mt-8 flex flex-wrap items-center justify-center gap-1"
+          >
+            <button
+              type="button"
+              onClick={() => handlePage(page - 1)}
+              disabled={page <= 1}
+              className="rounded-md px-3 py-2 text-[13px] text-zinc-600 hover:bg-zinc-100 disabled:text-zinc-300 disabled:hover:bg-transparent"
+            >
+              前へ
+            </button>
+            {pageItems(page, totalPages).map((item, i) =>
+              item === "ellipsis" ? (
+                <span key={`e-${i}`} className="px-2 font-mono text-[13px] text-zinc-400">
+                  …
+                </span>
+              ) : (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => handlePage(item)}
+                  aria-current={item === page ? "page" : undefined}
+                  className={[
+                    "min-w-9 rounded-md px-3 py-2 font-mono text-[13px]",
+                    item === page
+                      ? "bg-zinc-900 text-white"
+                      : "text-zinc-600 hover:bg-zinc-100",
+                  ].join(" ")}
+                >
+                  {item}
+                </button>
+              ),
+            )}
+            <button
+              type="button"
+              onClick={() => handlePage(page + 1)}
+              disabled={page >= totalPages}
+              className="rounded-md px-3 py-2 text-[13px] text-zinc-600 hover:bg-zinc-100 disabled:text-zinc-300 disabled:hover:bg-transparent"
+            >
+              次へ
+            </button>
+          </nav>
+        )}
       </main>
 
       <aside className="hidden w-60 shrink-0 lg:block">
-        <section className="rounded-xl border border-zinc-200 p-4">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
-            タグで絞り込む
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {allTags.map((tag) => (
+        <div className="space-y-4">
+          <section className="rounded-xl border border-zinc-200 p-4">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+              急上昇
+            </p>
+            <ul className="space-y-1">
+              {[...allRoadmaps]
+                .sort((a, b) => b.views - a.views)
+                .slice(0, 4)
+                .map((r, i) => (
+                  <li key={r.id}>
+                    <Link
+                      href={`/roadmap/${r.id}`}
+                      className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100"
+                    >
+                      <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900">
+                        {r.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </section>
+
+          <section className="rounded-xl border border-zinc-200 p-4">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+              タグで絞り込む
+            </p>
+            <div className="flex flex-wrap gap-2">
               <button
-                key={tag}
                 type="button"
-                onClick={() => handleTagClick(tag)}
-                aria-pressed={tagFilter === tag}
+                onClick={handleResearchClick}
+                aria-pressed={researchFilter}
                 className={[
                   "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
-                  tagFilter === tag
+                  researchFilter
                     ? "border-zinc-800 bg-zinc-900 text-white"
                     : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
                 ].join(" ")}
               >
-                #{tag}
+                AI Research
               </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-4 rounded-xl border border-zinc-200 p-4">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
-            急上昇
-          </p>
-          <ul className="space-y-1">
-            {[...allRoadmaps]
-              .sort((a, b) => b.views - a.views)
-              .slice(0, 4)
-              .map((r, i) => (
-                <li key={r.id}>
-                  <Link
-                    href={`/roadmap/${r.id}`}
-                    className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100"
-                  >
-                    <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900">
-                      {r.title}
-                    </span>
-                  </Link>
-                </li>
+              {allTags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => handleTagClick(tag)}
+                  aria-pressed={tagFilter === tag}
+                  className={[
+                    "rounded-md border px-2.5 py-1 font-mono text-[12px] transition-colors",
+                    tagFilter === tag
+                      ? "border-zinc-800 bg-zinc-900 text-white"
+                      : "border-zinc-200 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800",
+                  ].join(" ")}
+                >
+                  #{tag}
+                </button>
               ))}
-          </ul>
-        </section>
+            </div>
+          </section>
+        </div>
       </aside>
     </div>
   );

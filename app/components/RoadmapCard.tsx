@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import type { Roadmap } from "../lib/types";
 import { BookmarkButton, DaysBadge, LikeButton, ViewCount } from "./actions";
 import ShareMenu from "./ShareMenu";
+import ResearchBadge from "./ResearchBadge";
 
 type RoadmapCardProps = {
   roadmap: Roadmap;
@@ -61,6 +62,12 @@ export default function RoadmapCard({
         </div>
       )}
 
+      {roadmap.isAiResearch && (
+        <div className="mb-2.5">
+          <ResearchBadge compact sourceCount={roadmap.sourceCount} />
+        </div>
+      )}
+
       <h2 className="text-[18px] font-bold leading-snug tracking-tight text-zinc-900">
         {roadmap.title}
       </h2>
@@ -104,9 +111,11 @@ export default function RoadmapCard({
         <BookmarkButton active={bookmarked} onClick={onBookmark} />
         <ShareMenu roadmapId={roadmap.id} title={roadmap.title} compact />
         <ViewCount views={roadmap.views} />
-        <span className="ml-auto">
-          <DaysBadge days={roadmap.totalDays} />
-        </span>
+        {!roadmap.isAiResearch && (
+          <span className="ml-auto">
+            <DaysBadge days={roadmap.totalDays} />
+          </span>
+        )}
       </div>
 
       {footer}

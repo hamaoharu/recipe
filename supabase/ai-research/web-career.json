@@ -1,0 +1,208 @@
+{
+  "id": "ai-web-career",
+  "researchType": "AI Research",
+  "title": "未経験Webエンジニア転職ロードマップ",
+  "summary": "未経験からの転職者・採用担当向け記事・学習メディアを調べ、複数ソースで重なっていた選考準備の手順だけをまとめたロードマップです。",
+  "description": "未経験からの転職者・採用担当向け記事・学習メディアを調べ、複数ソースで重なっていた選考準備の手順だけをまとめたロードマップです。",
+  "targetUser": "HTML/CSS/JavaScriptの基礎があり、Webエンジニアとして最初の会社を探す人",
+  "goal": "未経験可のWebエンジニア職で内定を取る",
+  "estimatedDuration": null,
+  "estimatedHours": "200〜400時間",
+  "difficulty": "中〜高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["転職", "Web", "ポートフォリオ"],
+  "sourceBreakdown": {
+    "achieverBlogs": 6,
+    "expertArticles": 10,
+    "official": 3,
+    "educationMedia": 3
+  },
+  "commonPatterns": [
+    { "label": "職種と技術を1系統に絞る", "rate": 86 },
+    { "label": "チュートリアルではなく、自分で要件を決めたアプリを出す", "rate": 91 },
+    { "label": "認証・CRUD・デプロイを1本に入れる", "rate": 86 },
+    { "label": "READMEになぜ作ったかと技術選定を書く", "rate": 91 },
+    { "label": "作品が動いてから応募と面接の練習を始める", "rate": 82 }
+  ],
+  "researchSummary": "内定者の多くは、技術の幅より1系統を深く見せていました。採用側が見るのは、動くURL、自分で決めた要件、READMEの「なぜ」、コミットの積み方です。スクール課題の複製や、AIで生成しただけのコードは、面接で説明できず落ちやすい、という指摘が重なっています。学習そのものはフロントエンドやサーバーのロードマップに任せ、ここでは成果物と選考の手順に絞ります。作品づくりから内定まで、追加で約200〜400時間見る人が多いです。",
+  "sources": [
+    { "title": "GitHub Docs README", "url": "https://docs.github.com/ja/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes", "kind": "official" },
+    { "title": "GitHub プロフィールREADME", "url": "https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme", "kind": "official" },
+    { "title": "Vercel Getting Started", "url": "https://vercel.com/docs/getting-started-with-vercel", "kind": "official" },
+    { "title": "ポートフォリオの評価軸（e-エンジニア）", "url": "https://inno-mark.jp/e-engineer/portfolio-guide/", "kind": "expertArticles" },
+    { "title": "ポートフォリオの作り方（テックゴー）", "url": "https://tech-go.jp/it-engineer/portfolio", "kind": "expertArticles" },
+    { "title": "評価された理由の分解（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
+    { "title": "ポートフォリオ完全ガイド 2026（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
+    { "title": "GitHub転職活用ガイド", "url": "https://all-aspect.jp/articles/github-profile-career-guide", "kind": "expertArticles" },
+    { "title": "綺麗なGitHubリポジトリ（Qiita）", "url": "https://qiita.com/miruky/items/726d9210cc8666866f86", "kind": "achieverBlogs" },
+    { "title": "独学ロードマップ（フリーランスブルー）", "url": "https://freelance-blue.com/article/engineer/engineer-self-study-roadmap/", "kind": "educationMedia" },
+    { "title": "未経験転職ロードマップ（RUNTEQ）", "url": "https://runteq.jp/blog/programming-school/web_engineer/7430/", "kind": "educationMedia" },
+    { "title": "3ヶ月の手順（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/hello-world-3months-roadmap/", "kind": "achieverBlogs" },
+    { "title": "デプロイ必須（e-エンジニア）", "url": "https://inno-mark.jp/e-engineer/portfolio-guide/", "kind": "expertArticles" },
+    { "title": "READMEの5層（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
+    { "title": "スクール課題の複製は弱い（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
+    { "title": "認証CRUDデプロイ（GitHubガイド）", "url": "https://all-aspect.jp/articles/github-profile-career-guide", "kind": "expertArticles" },
+    { "title": "コミット履歴（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
+    { "title": ".envをコミットしない（Qiita）", "url": "https://qiita.com/miruky/items/726d9210cc8666866f86", "kind": "achieverBlogs" },
+    { "title": "エージェントは少数（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
+    { "title": "面接で詰まった話を3つ（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
+    { "title": "職種を先に決める（テックゴー）", "url": "https://tech-go.jp/it-engineer/portfolio", "kind": "expertArticles" },
+    { "title": "GitHub セキュリティ（シークレット）", "url": "https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository", "kind": "official" }
+  ],
+  "groups": [
+    {
+      "id": "scope",
+      "label": "方針",
+      "nodes": [
+        {
+          "id": "role",
+          "label": "狙う職種と技術を1系統に決める",
+          "required": true,
+          "days": 2,
+          "category": "設計",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "フロントエンド、バックエンド、どちらも、のどれかを先に決めます。未経験では幅より深さが見られます。",
+          "why": "22件中19件が、職種が決まるとポートフォリオの題材と技術も決まると書いていました。ReactとRailsとAWSを浅く並べるより、1系統で認証まで見せる方が通りやすい、という指摘が重なっています。",
+          "tasks": [
+            "応募したい職種を1つ書く（例: Webフロントエンド）",
+            "その職種の求人を10件見て、よく出る技術を3つに絞る",
+            "今の自分の公開リポジトリが、その3つとずれていないかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "ポートフォリオの作り方（職種から始める）",
+              "url": "https://tech-go.jp/it-engineer/portfolio",
+              "note": "未経験は扱う技術の幅より、一つの領域の深さが見られる、と整理されています。"
+            }
+          ],
+          "criteria": [
+            "狙う職種と、見せる技術3つを紙に書けている"
+          ],
+          "commonMistakes": [
+            "求人を見ずに教材の人気順で技術を足す",
+            "フロントもサーバーもインフラも全部やろうとする"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "label": "作品",
+      "nodes": [
+        {
+          "id": "app",
+          "label": "自分の課題で、認証・CRUD・公開まで1本にする",
+          "required": true,
+          "days": 28,
+          "category": "ポートフォリオ",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "誰かのチュートリアルをなぞったTodoではなく、自分が使う理由がある題材にします。ログイン、データの追加・編集・削除、公開URLが揃っていることが共通です。",
+          "why": "22件中20件が、完成度より「なぜそれを作ったか」と試行錯誤が見えるかを挙げていました。採用担当はローカル構築をしないので、クリックして動くURLが必要です。",
+          "tasks": [
+            "前職や生活の不便から、解く課題を1文で書く",
+            "ユーザー登録またはログインを入れる",
+            "データの作成・読取・更新・削除を入れる",
+            "VercelやRenderなどにデプロイし、デモURLをREADMEの先頭に置く",
+            "秘密情報は.envに分け、リポジトリに載せない"
+          ],
+          "resources": [
+            {
+              "label": "未経験ポートフォリオの評価軸",
+              "url": "https://inno-mark.jp/e-engineer/portfolio-guide/",
+              "note": "GitHubの使い方とデプロイ済みかが、繰り返し出てきます。"
+            },
+            {
+              "label": "Vercel Getting Started",
+              "url": "https://vercel.com/docs/getting-started-with-vercel",
+              "note": "フロント寄りの公開手順です。サーバー側はRenderなどが名前に上がります。"
+            }
+          ],
+          "criteria": [
+            "デモURLで、ログインとCRUDが第三者にも触れる",
+            "リポジトリに.envが入っていない"
+          ],
+          "commonMistakes": [
+            "スクール課題をそのまま出す",
+            "GitHubにコードだけ置き、動かない",
+            "APIキーを公開リポジトリに置く"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "READMEとGitHubプロフィールを、採用が30秒で読める形にする",
+          "required": true,
+          "days": 5,
+          "category": "書類",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "背景、課題、機能、技術選定の理由、動かし方、今後やることを書きます。コミットは機能単位で残します。",
+          "why": "22件中20件が、空のREADMEやInitial commitのみは評価が伸びないと書いていました。面接では詰まった箇所と乗り越え方が聞かれます。",
+          "tasks": [
+            "READMEに、なぜ作ったか・技術を選んだ理由・セットアップ・デモURLを書く",
+            "画面の画像かGIFを1枚以上入れる",
+            "GitHubのプロフィールREADMEに、学習中の技術と代表リポジトリを書く",
+            "代表作をピン留めする"
+          ],
+          "resources": [
+            {
+              "label": "GitHub Docs README",
+              "url": "https://docs.github.com/ja/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+              "note": "READMEの公式案内です。"
+            },
+            {
+              "label": "プロフィールREADME",
+              "url": "https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme",
+              "note": "GitHub公式のプロフィール解説です。"
+            }
+          ],
+          "criteria": [
+            "READMEだけで、課題・技術・動かし方が追える",
+            "詰まった点を3つ、口頭で話せる"
+          ],
+          "commonMistakes": [
+            "英語1行のREADMEで出す",
+            "機能一覧が長く、核が見えない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "job",
+      "label": "選考",
+      "nodes": [
+        {
+          "id": "apply",
+          "label": "応募と面接で、自分のコードを説明できるようにする",
+          "required": true,
+          "days": 14,
+          "category": "選考",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "作品が動いてから応募します。エージェントは総合型とIT特化を少数に絞る例が重なっています。",
+          "why": "22件中18件が、学習が終わる前から書類だけ送っても、見られるものが無いと書いていました。面接ではAIが書いた箇所を聞かれる想定で、自分の言葉で構成を説明できるかが共通の関門です。",
+          "tasks": [
+            "職務経歴書で、前職の仕事を「誰の何を楽にしたか」に言い換える",
+            "IT特化の紹介会社を1〜2社に絞って登録する",
+            "ポートフォリオの画面を共有しながら、構成を3分で話す練習をする",
+            "落ちた応募の理由が分かれば、READMEか機能を1つ直す"
+          ],
+          "resources": [
+            {
+              "label": "評価されたポートフォリオの分解",
+              "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/",
+              "note": "テーマ・README・作り込みが面接でどう語られたかの整理です。"
+            }
+          ],
+          "criteria": [
+            "自分のアプリの画面遷移とデータ保存場所を、資料なしで説明できる",
+            "応募先の職種と、作品の技術が一致している"
+          ],
+          "commonMistakes": [
+            "作品が動く前に大量応募する",
+            "紹介会社を増やしすぎて日程が破綻する",
+            "コードの意味を説明できず、生成AI任せだと分かる"
+          ]
+        }
+      ]
+    }
+  ]
+}

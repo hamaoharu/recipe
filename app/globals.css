@@ -3,8 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #27272a;
-  /* ヘッダーの高さ。全画面の編集画面がこの値を引いて高さを決めている */
-  --header-height: 56px;
+  /* ヘッダーの高さ。ノッチ分を足す。全画面の編集画面がこの値を引いて高さを決めている */
+  --header-height: calc(56px + env(safe-area-inset-top, 0px));
 }
 
 @theme inline {

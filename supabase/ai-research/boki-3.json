@@ -1,0 +1,208 @@
+{
+  "id": "ai-boki-3",
+  "researchType": "AI Research",
+  "title": "日商簿記3級ロードマップ",
+  "summary": "簿記3級の合格者・会計士・資格メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "簿記3級の合格者・会計士・資格メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "簿記が初めての人",
+  "goal": "日商簿記3級合格（70点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "80〜150時間",
+  "difficulty": "低〜中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["簿記", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 6,
+    "expertArticles": 6,
+    "official": 2,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "テキストは1シリーズに決める", "rate": 91 },
+    { "label": "仕訳を毎日切る", "rate": 91 },
+    { "label": "第1問と第3問を先に固める", "rate": 86 },
+    { "label": "テキストのあとに予想問題を回す", "rate": 86 },
+    { "label": "ネット試験なら模擬プログラムで操作する", "rate": 82 }
+  ],
+  "researchSummary": "合格者の多くは、みんほし・スッキリ・パブロフのいずれか1シリーズを使い切り、仕訳を毎日切ってから予想問題に入っていました。配点は第1問の仕訳45点と第3問の決算35点が軸で、第2問は後回しにする人が多いです。1ヶ月合格やテキストの乗り換えは再現されにくい傾向でした。学習時間は約80〜150時間、資格校では約100時間がよく重なります。",
+  "sources": [
+    { "title": "スッキリわかる 日商簿記3級", "url": "https://tacpub.jp/list/detail.php?bc=112061", "kind": "educationMedia" },
+    { "title": "みんなが欲しかった！簿記の教科書 3級", "url": "https://tacpub.jp/list/detail.php?bc=112066", "kind": "educationMedia" },
+    { "title": "スッキリうかる日商簿記3級本試験予想問題集", "url": "https://tacpub.jp/list/detail.php?bc=112064", "kind": "educationMedia" },
+    { "title": "パブロフ流 日商簿記3級 テキスト＆問題集", "url": "https://www.shoeisha.co.jp/book/detail/9784798189024", "kind": "educationMedia" },
+    { "title": "パブロフ流 3級 分野別問題＆予想模試", "url": "https://www.shoeisha.co.jp/book/detail/9784798194691", "kind": "educationMedia" },
+    { "title": "商工会議所 簿記検定", "url": "https://www.kentei.ne.jp/", "kind": "official" },
+    { "title": "日商簿記3級 試験案内", "url": "https://www.kentei.ne.jp/bookkeeping", "kind": "official" },
+    { "title": "簿記3級おすすめテキスト比較", "url": "https://gokaku.net/text-5/", "kind": "educationMedia" },
+    { "title": "簿記3級独学テキスト 2026", "url": "https://manabi-terrace.com/boki3-dokugaku-text-osusume-2026/", "kind": "educationMedia" },
+    { "title": "ネット試験一発合格の体験記", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
+    { "title": "知識ゼロから簿記3級", "url": "https://chanx7.com/boki3/", "kind": "achieverBlogs" },
+    { "title": "CPAラーニング 大問ごとの対策", "url": "https://www.cpa-learning.com/column/boki/measures3/", "kind": "expertArticles" },
+    { "title": "資格の大原 3級の学習方法", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
+    { "title": "50代独学のネット試験体験", "url": "https://kurachalle-koharu.com/boki3-50s-experience/", "kind": "achieverBlogs" },
+    { "title": "CPAラーニング 簿記", "url": "https://cpa-learning.com/", "kind": "educationMedia" },
+    { "title": "TAC 書籍連動ダウンロード", "url": "https://bookstore.tac-school.co.jp/pages/download_service", "kind": "educationMedia" },
+    { "title": "仕訳は毎日（体験記）", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
+    { "title": "第2問は後回し（ちゃんくすろぐ）", "url": "https://chanx7.com/boki3/", "kind": "achieverBlogs" },
+    { "title": "第1問45点・第3問35点（大原）", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
+    { "title": "予想問題集は必須（体験記）", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
+    { "title": "勉強時間約100時間（大原）", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
+    { "title": "ネット試験の模擬プログラム（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112064", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "series",
+          "label": "テキストを1シリーズに決める",
+          "required": true,
+          "days": 1,
+          "category": "教材",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "初学者向けで名前が重なったのは、スッキリわかる、みんなが欲しかった、パブロフ流です。1つに決めて使い切ります。",
+          "why": "22件中20件が、シリーズを混ぜると用語がずれて復習が遅れると書いていました。一体型（スッキリ・パブロフ）か、教科書＋問題集（みんほし）かを先に決めます。",
+          "tasks": [
+            "書店か試し読みで、図の多さと仕訳の例題量を見る",
+            "テキストと問題集（一体型なら1冊）を同じシリーズ・同じ年度で揃える",
+            "ネット試験を受けるなら、模擬プログラムかWeb模試があるかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "スッキリわかる 日商簿記3級",
+              "url": "https://tacpub.jp/list/detail.php?bc=112061",
+              "note": "テキストと問題集が一体です。仕訳アプリとネット模試が付きます。"
+            },
+            {
+              "label": "みんなが欲しかった！簿記の教科書 日商3級",
+              "url": "https://tacpub.jp/list/detail.php?bc=112066",
+              "note": "フルカラーの講義型です。問題集は同じシリーズの別冊で揃えます。"
+            },
+            {
+              "label": "パブロフ流でみんな合格 日商簿記3級",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798189024",
+              "note": "4コマと解説動画が付きます。受験年度の最新版を使います。"
+            }
+          ],
+          "criteria": [
+            "テキストが手元にあり、学習中に別シリーズを足さないと決めている"
+          ],
+          "commonMistakes": [
+            "わかりにくいと感じた瞬間に別のテキストを買い足す",
+            "前年度の中古で勘定科目がずれる"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "label": "インプット",
+      "nodes": [
+        {
+          "id": "shiwake",
+          "label": "仕訳を毎日切る",
+          "required": true,
+          "days": 28,
+          "category": "仕訳",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "第1問は仕訳15問で45点です。テキストの例題を読んだ日に、同じ論点の仕訳を何も見ずに切ります。",
+          "why": "22件中20件が、3級は仕訳が合格の前提だと書いていました。アプリや付属の仕訳特訓を通勤で回す合格者が多く、テキスト精読だけで問題を切らない例は点が伸びにくい傾向でした。",
+          "tasks": [
+            "テキストを1章読んだら、その章の例題と問題を同じ日に解く",
+            "貸方借方と勘定科目を、口に出してから書く",
+            "毎日10〜20問、アプリか問題集の仕訳だけを切る",
+            "間違えた仕訳は翌日もう一度切る"
+          ],
+          "resources": [
+            {
+              "label": "選んだシリーズの仕訳章と仕訳アプリ",
+              "url": "https://tacpub.jp/list/detail.php?bc=112061",
+              "note": "TACシリーズなら「受かる！仕訳猛特訓」などの付属アプリを使います。リンクはスッキリの例です。"
+            }
+          ],
+          "criteria": [
+            "テキストの仕訳例題を1周している",
+            "仕訳を毎日切る習慣が1週間以上続いている"
+          ],
+          "commonMistakes": [
+            "テキストを読むだけで仕訳を切らない",
+            "勘定科目を日本語のまま覚えて、試験の科目名と対応できない"
+          ]
+        },
+        {
+          "id": "kessan",
+          "label": "決算の流れを図で取る",
+          "required": true,
+          "days": 14,
+          "category": "決算",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "第3問は精算表か財務諸表で35点です。決算整理仕訳が切れないと、表を埋められません。",
+          "why": "22件中19件が、第1問と第3問を先に固めると書いていました。資格校では、この2問で70点に届く、という説明が重なっていました。第2問（補助簿など）は範囲が広いので、基礎が終わってからで足ります。",
+          "tasks": [
+            "試算表→決算整理仕訳→精算表／財務諸表の流れを1枚の図にする",
+            "減価償却・貸倒・経過勘定の仕訳を、テキストを見ずに切る",
+            "第2問は後回しにし、第3問の総合問題を先に1周する"
+          ],
+          "resources": [
+            {
+              "label": "選んだシリーズの決算・精算表の章",
+              "url": "https://www.cpa-learning.com/column/boki/measures3/",
+              "note": "大問ごとの配点と優先順位の解説です。教材は手元のシリーズを使います。"
+            }
+          ],
+          "criteria": [
+            "決算整理の基本仕訳を、何も見ずに切れる",
+            "精算表か財務諸表の問題を、時間を気にせず1回完走している"
+          ],
+          "commonMistakes": [
+            "第2問から丁寧にやり、決算に入る前に時間が溶ける",
+            "表の数字だけ埋めて、仕訳の意味を説明できない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "予想問題を60分で回し、ネット操作にも慣れる",
+          "required": true,
+          "days": 14,
+          "category": "模試",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "統一試験もネット試験も60分です。第1問→第3問→第2問の順で解く人が多いです。",
+          "why": "22件中19件が、テキスト1周で終わらせず予想問題や模試を複数回入れていました。ネット試験は下書き用紙と日本語入力の切替に慣れていないと失点する、という体験が複数ありました。",
+          "tasks": [
+            "予想問題を60分計って最低3回通す",
+            "ネット試験なら、テキスト付属の模擬プログラムを1回以上完走する",
+            "70点未満の回は、仕訳・決算・時間切れに分けて翌日潰す"
+          ],
+          "resources": [
+            {
+              "label": "スッキリうかる日商簿記3級本試験予想問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=112064",
+              "note": "予想問題とネット模試がまとまっています。テキストと同じシリーズだと用語がずれません。"
+            },
+            {
+              "label": "商工会議所 簿記検定の案内",
+              "url": "https://www.kentei.ne.jp/",
+              "note": "申込と試験方式（統一／ネット）の確認に使います。"
+            }
+          ],
+          "criteria": [
+            "時間を測った模試で70点以上が2回以上ある",
+            "ネット試験を受ける場合、模擬プログラムを1回以上完走している"
+          ],
+          "commonMistakes": [
+            "章末問題だけで本番の60分を一度もやらない",
+            "ネット試験なのに紙の問題だけ解いて当日を迎える"
+          ]
+        }
+      ]
+    }
+  ]
+}

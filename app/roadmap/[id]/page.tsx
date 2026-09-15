@@ -14,6 +14,9 @@ import {
 import { createClient } from "../../lib/supabase/client";
 import { BookmarkButton, LikeButton } from "../../components/actions";
 import { safeHttpUrl } from "../../lib/urls";
+import ResearchBadge from "../../components/ResearchBadge";
+import ResearchPanel from "../../components/ResearchPanel";
+import { supportRateCopy } from "../../lib/research";
 import type {
   DetailMap,
   Roadmap,
@@ -30,6 +33,7 @@ import {
 type NodeBoxProps = {
   node: RoadmapNode;
   selected: string | null;
+  showDays: boolean;
 
   //関数の型だけ指定する書き方
   onClick: (nodeId: string) => void;
@@ -50,7 +54,7 @@ function Connector() {
   );
 }
 
-function NodeBox({ node, selected, onClick }: NodeBoxProps) {
+function NodeBox({ node, selected, showDays, onClick }: NodeBoxProps) {
   const isSelected = selected === node.id;
   return (
     <button
@@ -74,10 +78,12 @@ function NodeBox({ node, selected, onClick }: NodeBoxProps) {
         ].join(" ")}>
           {node.label}
         </p>
-        <p className={[
-          "shrink-0 font-mono text-[11px] tabular-nums",
-          isSelected ?"text-zinc-600":"text-zinc-500",
-        ].join(" ")}>{node.days}日</p>
+        {showDays && (
+          <p className={[
+            "shrink-0 font-mono text-[11px] tabular-nums",
+            isSelected ?"text-zinc-600":"text-zinc-500",
+          ].join(" ")}>{node.days}日</p>
+        )}
       </div>
     </button>
   );
@@ -160,7 +166,20 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     views: 0,
     totalDays: 0,
     createdAt: "",
+    isAiResearch: false,
+    targetUser: null,
+    goal: null,
+    estimatedDuration: null,
+    estimatedHours: null,
+    difficulty: null,
+    sourceCount: null,
+    confidence: null,
+    sourceBreakdown: null,
+    commonPatterns: null,
+    researchSummary: null,
+    sources: null,
   };
+  const showDays = !meta.isAiResearch;
 
   const [selected, setSelected] = useState<string | null>(null);
   const [liked, setLiked] = useState(false);
@@ -274,51 +293,57 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
   const overviewBody = (
     <>
-      <p className="whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
-        {meta.description || "ノードをタップすると詳細が表示されます。"}
-      </p>
-      <div className="mt-6 rounded-xl border border-zinc-200 p-4 sm:p-5">
-        <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-          全体スケジュール（必須ルート）
-        </p>
-        <div className="flex items-baseline gap-2">
-          <span className="font-mono text-[32px] font-bold leading-none text-zinc-900">
-            {activeTotalDays}
-          </span>
-          <span className="text-[13px] text-zinc-500">日</span>
-          <span className="ml-1 text-[13px] text-zinc-500">
-            ≈ {Math.round(activeTotalDays / 30)} ヶ月
-          </span>
-        </div>
-        <p className="mt-2 text-[12px] text-zinc-500">
-          1〜2時間/日で学習した場合の目安。
-        </p>
-        <div className="mt-5 space-y-2">
-          {activeGroups.map((g) => {
-            const req = g.nodes.filter((n) => n.required);
-            if (req.length === 0) return null;
-            const total = req.reduce((s, n) => s + n.days, 0);
-            return (
-              <div key={g.id} className="flex items-center gap-3">
-                <div className="w-20 shrink-0 sm:w-28">
-                  <p className="truncate font-mono text-[11px] text-zinc-500">
-                    {g.label ?? req[0].label}
-                  </p>
-                </div>
-                <div className="flex min-w-0 flex-1 items-center gap-2">
-                  <div
-                    className="h-1.5 rounded-full bg-zinc-300"
-                    style={{ width: `${activeTotalDays ? Math.round((total / activeTotalDays) * 100) : 0}%`, minWidth: "4px" }}
-                  />
-                  <span className="shrink-0 font-mono text-[10px] text-zinc-500">
-                    {total}日
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      {meta.isAiResearch ? (
+        <ResearchPanel roadmap={meta} />
+      ) : (
+        <>
+          <p className="whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
+            {meta.description || "ノードをタップすると詳細が表示されます。"}
+          </p>
+          <div className="mt-6 rounded-xl border border-zinc-200 p-4 sm:p-5">
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              全体スケジュール（必須ルート）
+            </p>
+            <div className="flex items-baseline gap-2">
+              <span className="font-mono text-[32px] font-bold leading-none text-zinc-900">
+                {activeTotalDays}
+              </span>
+              <span className="text-[13px] text-zinc-500">日</span>
+              <span className="ml-1 text-[13px] text-zinc-500">
+                ≈ {Math.round(activeTotalDays / 30)} ヶ月
+              </span>
+            </div>
+            <p className="mt-2 text-[12px] text-zinc-500">
+              1〜2時間/日で学習した場合の目安。
+            </p>
+            <div className="mt-5 space-y-2">
+              {activeGroups.map((g) => {
+                const req = g.nodes.filter((n) => n.required);
+                if (req.length === 0) return null;
+                const total = req.reduce((s, n) => s + n.days, 0);
+                return (
+                  <div key={g.id} className="flex items-center gap-3">
+                    <div className="w-20 shrink-0 sm:w-28">
+                      <p className="truncate font-mono text-[11px] text-zinc-500">
+                        {g.label ?? req[0].label}
+                      </p>
+                    </div>
+                    <div className="flex min-w-0 flex-1 items-center gap-2">
+                      <div
+                        className="h-1.5 rounded-full bg-zinc-300"
+                        style={{ width: `${activeTotalDays ? Math.round((total / activeTotalDays) * 100) : 0}%`, minWidth: "4px" }}
+                      />
+                      <span className="shrink-0 font-mono text-[10px] text-zinc-500">
+                        {total}日
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 
@@ -331,7 +356,14 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
     </div>
   );
 
-  const nodeDetail = (nodeId: string) => (
+  const nodeDetail = (nodeId: string) => {
+    const item = activeDetails[nodeId];
+    const rate = supportRateCopy(item?.sourceSupportRate);
+    const criteriaLabel = meta.isAiResearch || (item?.criteria.length ?? 0) > 0
+      ? "クリア条件"
+      : "クリア基準";
+
+    return (
     <article className="px-4 pb-8 text-[15px] leading-[1.8] text-zinc-700 sm:px-8 lg:px-10 lg:py-10">
       <div className="mb-3 flex items-center justify-end lg:hidden">
         <button
@@ -344,64 +376,126 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
       </div>
       <div className="flex items-baseline justify-between gap-4 border-b-2 border-zinc-300 pb-2">
         <h2 className="text-[20px] font-bold tracking-tight text-zinc-900">
-          {activeDetails[nodeId]?.title ?? nodeId}
+          {item?.title ?? nodeId}
         </h2>
-        {activeDetails[nodeId]?.days && (
+        {showDays && item?.days ? (
           <span className="shrink-0 font-mono text-[13px] text-zinc-500">
-            {activeDetails[nodeId].days}<span className="ml-0.5 text-zinc-500">日</span>
+            {item.days}<span className="ml-0.5 text-zinc-500">日</span>
           </span>
-        )}
+        ) : null}
       </div>
 
-      {activeDetails[nodeId] ? (
+      {item ? (
         <>
-          <p className="mt-5 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
-            {activeDetails[nodeId].description}
-          </p>
+          {item.category && (
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+              {item.category}
+            </p>
+          )}
 
-          <DetailSection label="推奨リソース">
-            <ul className="space-y-4">
-              {activeDetails[nodeId].resources.map((r, i) => {
-                const href = safeHttpUrl(r.url);
-                return (
-                <li key={i} className="border-b border-zinc-200 pb-4 last:border-b-0 last:pb-0">
-                  <p className="text-[14px] font-semibold text-zinc-800">
-                    {href ? (
-                      <a href={href} target="_blank" rel="noopener noreferrer"
-                        className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
-                        {r.label}
-                      </a>
-                    ) : r.label}
-                  </p>
-                  <p className="mt-1 whitespace-pre-wrap break-words text-[14px] text-zinc-500">
-                    {r.note}
-                  </p>
-                </li>
-                );
-              })}
-            </ul>
-          </DetailSection>
+          {rate && (
+            <div className="mt-4 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2.5">
+              <p className="text-[14px] font-semibold text-zinc-800">
+                採用率 {rate.percent}
+              </p>
+              {rate.detail && (
+                <p className="mt-0.5 text-[13px] text-zinc-500">{rate.detail}</p>
+              )}
+            </div>
+          )}
 
-          <DetailSection label="クリア基準">
-            <ul className="space-y-3">
-              {activeDetails[nodeId].criteria.map((c, i) => (
-                <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
-                  <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="whitespace-pre-wrap break-words">
-                    {typeof c === "string" ? c : c.text}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </DetailSection>
+          {item.why && (
+            <DetailSection label="なぜ必要なのか">
+              <p className="whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
+                {item.why}
+              </p>
+            </DetailSection>
+          )}
+
+          {item.tasks.length > 0 && (
+            <DetailSection label="実施内容">
+              <ul className="space-y-3">
+                {item.tasks.map((task, i) => (
+                  <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
+                    <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="whitespace-pre-wrap break-words">{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </DetailSection>
+          )}
+
+          {!item.why && item.description && (
+            <p className="mt-5 whitespace-pre-wrap break-words text-[15px] leading-[1.85] text-zinc-600">
+              {item.description}
+            </p>
+          )}
+
+          {item.resources.length > 0 && (
+            <DetailSection label="推奨リソース">
+              <ul className="space-y-4">
+                {item.resources.map((r, i) => {
+                  const href = safeHttpUrl(r.url);
+                  return (
+                  <li key={i} className="border-b border-zinc-200 pb-4 last:border-b-0 last:pb-0">
+                    <p className="text-[14px] font-semibold text-zinc-800">
+                      {href ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer"
+                          className="underline decoration-zinc-700 underline-offset-2 hover:decoration-zinc-400">
+                          {r.label}
+                        </a>
+                      ) : r.label}
+                    </p>
+                    <p className="mt-1 whitespace-pre-wrap break-words text-[14px] text-zinc-500">
+                      {r.note}
+                    </p>
+                  </li>
+                  );
+                })}
+              </ul>
+            </DetailSection>
+          )}
+
+          {item.criteria.length > 0 && (
+            <DetailSection label={criteriaLabel}>
+              <ul className="space-y-3">
+                {item.criteria.map((c, i) => (
+                  <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
+                    <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="whitespace-pre-wrap break-words">
+                      {typeof c === "string" ? c : c.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </DetailSection>
+          )}
+
+          {item.commonMistakes.length > 0 && (
+            <DetailSection label="よくある失敗">
+              <ul className="space-y-3">
+                {item.commonMistakes.map((mistake, i) => (
+                  <li key={i} className="flex gap-3 text-[15px] leading-[1.75] text-zinc-600">
+                    <span className="mt-[3px] shrink-0 font-mono text-[11px] text-zinc-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="whitespace-pre-wrap break-words">{mistake}</span>
+                  </li>
+                ))}
+              </ul>
+            </DetailSection>
+          )}
         </>
       ) : (
         <p className="mt-6 text-[14px] text-zinc-500">このノードの詳細は準備中です。</p>
       )}
     </article>
-  );
+    );
+  };
 
   return (
     <div
@@ -469,6 +563,11 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
             <h1 className="break-words text-[24px] font-bold leading-snug tracking-tight text-zinc-900">
               {meta.title}
             </h1>
+            {meta.isAiResearch && (
+              <div className="mt-3">
+                <ResearchBadge sourceCount={meta.sourceCount} />
+              </div>
+            )}
             <div className="mt-3 flex items-center gap-2 text-[13px] text-zinc-500">
               <Link
                 href={`/user/${meta.author.id}`}
@@ -503,7 +602,6 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
 
           <div className="mt-5 lg:hidden">{overviewBody}</div>
 
-          {/* Days + legend */}
           <div className="mb-8 mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-zinc-200 pt-4">
             <div className="flex items-center gap-5">
               <span className="flex items-center gap-1.5 text-[11px] text-zinc-500">
@@ -515,9 +613,11 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                 任意
               </span>
             </div>
-            <p className="font-mono text-[12px] text-zinc-500">
-              <span className="text-zinc-600">{activeTotalDays} 日</span>
-            </p>
+            {showDays && (
+              <p className="font-mono text-[12px] text-zinc-500">
+                <span className="text-zinc-600">{activeTotalDays} 日</span>
+              </p>
+            )}
           </div>
 
           {/* Groups */}
@@ -534,6 +634,7 @@ export default function RoadmapDetailPage({ params }:{ params: Promise<{ id: str
                     key={node.id}
                     node={node}
                     selected={selected}
+                    showDays={showDays}
                     onClick={handleSelect}
                   />
                 ))}

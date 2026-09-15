@@ -1,0 +1,240 @@
+{
+  "id": "ai-ielts-70",
+  "researchType": "AI Research",
+  "title": "IELTS 7.0ロードマップ",
+  "summary": "IELTS 7.0達成者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "IELTS 7.0達成者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "総合6.0前後、または英検準1級・TOEIC800点前後で海外進学や移住のスコアが必要な人",
+  "goal": "IELTS Academic オーバーオール7.0",
+  "estimatedDuration": null,
+  "estimatedHours": "200〜400時間",
+  "difficulty": "高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["IELTS", "英語", "留学"],
+  "sourceBreakdown": {
+    "achieverBlogs": 6,
+    "expertArticles": 7,
+    "official": 5,
+    "educationMedia": 4
+  },
+  "commonPatterns": [
+    { "label": "Cambridge公式問題集で時間を測って現状を見る", "rate": 95 },
+    { "label": "4技能を別々に診断し、WritingとSpeakingを厚くする", "rate": 91 },
+    { "label": "Band descriptorsに沿って答案を見直す", "rate": 86 },
+    { "label": "WritingとSpeakingは第三者のフィードバックを入れる", "rate": 86 },
+    { "label": "丸暗記テンプレートは使わない", "rate": 82 }
+  ],
+  "researchSummary": "達成者の多くは、Cambridge公式問題集で時間どおりに4技能を測り、総合点ではなく技能ごとの穴から計画を組んでいました。日本人が7.0で止まりやすいのはWritingとSpeakingです。公式問題集は形式と時間配分の軸になり、技能そのものの伸ばし方はBand descriptorsと添削・模擬面接が担います。テンプレート暗記はTask Responseで減点されやすい、という指摘が重なっています。Academicを対象にしています。総合6.0前後からなら約200〜400時間です。5.5から始める場合はさらにかかります。",
+  "sources": [
+    { "title": "IELTS 日本公式（試験概要）", "url": "https://ieltsjp.com/japan/about/ielts", "kind": "official" },
+    { "title": "IELTS 公式の教材案内", "url": "https://ieltsjp.com/japan/prepare/books/other-books", "kind": "official" },
+    { "title": "British Council IELTS", "url": "https://www.britishcouncil.jp/exam/ielts", "kind": "official" },
+    { "title": "無料練習テスト（British Council）", "url": "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-practice-tests", "kind": "official" },
+    { "title": "Cambridge English IELTS カタログ", "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts", "kind": "official" },
+    { "title": "IELTS 7.0に必要な英語力（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
+    { "title": "独学半年で4.5→7.0（IELTS7.0独学ブログ）", "url": "https://ielts-score.net/study", "kind": "achieverBlogs" },
+    { "title": "Writing独学で7.0（なないろ）", "url": "https://mari7iro.com/ielts-writing-7-selfstudy/", "kind": "achieverBlogs" },
+    { "title": "教材の選び方（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
+    { "title": "おすすめ教材8冊（Kumikoの英語道）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
+    { "title": "役立った教材まとめ（note）", "url": "https://note.com/wakame_msds/n/na88c45a5457e", "kind": "achieverBlogs" },
+    { "title": "IELTS参考書13選（Best Teacher）", "url": "https://www.best-teacher-inc.com/blog/ielts-textbook", "kind": "educationMedia" },
+    { "title": "Cambridge公式問題集が軸（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
+    { "title": "WritingとSpeakingは本だけでは足りない（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
+    { "title": "Band descriptorsで見直す（なないろ）", "url": "https://mari7iro.com/ielts-writing-7-selfstudy/", "kind": "achieverBlogs" },
+    { "title": "添削が必要（独学ブログ）", "url": "https://ielts-score.net/study", "kind": "achieverBlogs" },
+    { "title": "テンプレート暗記を避ける（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
+    { "title": "日本人はWとSが弱い（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
+    { "title": "Official Cambridge Guide（公式教材案内）", "url": "https://ieltsjp.com/japan/prepare/books/other-books", "kind": "official" },
+    { "title": "意見→理由→具体例（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
+    { "title": "最新刊のCambridgeから（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
+    { "title": "AcademicとGTを取り違えない（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "diag",
+      "label": "診断",
+      "nodes": [
+        {
+          "id": "baseline",
+          "label": "Cambridge公式問題集で4技能を測る",
+          "required": true,
+          "days": 7,
+          "category": "診断",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "Academic最新刊の1回分を、Listening・Reading・Writing・Speakingの時間どおりに通します。総合点だけでなく技能ごとの数字を残します。",
+          "why": "22件中21件が、Cambridge公式問題集を軸にしていました。番号が大きいほど新しいので、最新刊から使います。AcademicとGeneral Trainingを取り違えるとReadingとWritingがずれます。",
+          "tasks": [
+            "Cambridge IELTSのAcademic最新刊を用意する",
+            "Listening約30分、Reading60分、Writing60分で1回分を通す",
+            "Speakingは録音して11〜14分の流れで1回やる",
+            "4技能の概算バンドを書き、一番低い技能を学習の厚みにする"
+          ],
+          "resources": [
+            {
+              "label": "Cambridge English IELTS カタログ",
+              "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts",
+              "note": "公式問題集の最新刊（Academic）を選びます。General版は留学用と中身が違います。"
+            },
+            {
+              "label": "British Council 無料練習テスト",
+              "url": "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-practice-tests",
+              "note": "本が届く前の形式確認に使えます。本番の難易度合わせはCambridgeが軸です。"
+            }
+          ],
+          "criteria": [
+            "Academicの公式1回分を時間どおり完走している",
+            "4技能それぞれの概算スコアがある"
+          ],
+          "commonMistakes": [
+            "General Trainingの問題集でAcademicの現状を測る",
+            "総合点だけ見てWritingの6.0を放置する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "receptive",
+      "label": "入力",
+      "nodes": [
+        {
+          "id": "lr",
+          "label": "ListeningとReadingは公式問題を時間内に処理する",
+          "required": true,
+          "days": 28,
+          "category": "リーディング・リスニング",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "この2技能は独学で伸ばしやすい、という指摘が重なっています。解き方と時間配分を公式問題で固定します。",
+          "why": "22件中18件が、Cambridgeを繰り返し、間違えた問題の根拠を本文に戻ると書いていました。単語帳の追加より、公式問題に出た語を拾う方が7.0帯では効率が良い、という声もあります。",
+          "tasks": [
+            "公式問題集をListeningとReadingだけ先に2〜3回分やる",
+            "間違えた問題は、本文の該当文を書き出す",
+            "Readingはパッセージあたり20分を超えない"
+          ],
+          "resources": [
+            {
+              "label": "Cambridge IELTS Academic（最新刊）",
+              "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts",
+              "note": "本番に最も近い問題です。解説が薄いので、根拠は自分で本文に戻します。"
+            }
+          ],
+          "criteria": [
+            "公式のL/Rを、時間どおりに3回分以上処理している"
+          ],
+          "commonMistakes": [
+            "辞書を引きながらReadingし、本番の時間感覚がつかない",
+            "古い番号の公式問題ばかりで新しい形式に触れない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "productive",
+      "label": "出力",
+      "nodes": [
+        {
+          "id": "writing",
+          "label": "Task 1とTask 2を、採点基準で書き直す",
+          "required": true,
+          "days": 35,
+          "category": "ライティング",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "Task 1は20分150語以上、Task 2は40分250語以上です。課題応答・一貫性・語彙・文法の4観点で見直します。",
+          "why": "22件中20件が、Writingが7.0のボトルネックだと書いていました。テンプレートの丸暗記は課題応答で減点されやすいです。自分では間違いに気付きにくいので、週1本は第三者のフィードバックを入れる人が多いです。",
+          "tasks": [
+            "Band descriptorsの4観点を日本語で説明できるようにする",
+            "Task 2を週2本、Task 1を週1本、時間を測って書く",
+            "書いた答案を、観点ごとに1行ずつ自己評価する",
+            "週1本は添削か信頼できる解答例で書き直す"
+          ],
+          "resources": [
+            {
+              "label": "IELTS 公式の教材案内（Official Cambridge Guide）",
+              "url": "https://ieltsjp.com/japan/prepare/books/other-books",
+              "note": "技能別の設問タイプと公式ガイドがまとまっています。"
+            },
+            {
+              "label": "IELTS 日本公式",
+              "url": "https://ieltsjp.com/japan/about/ielts",
+              "note": "Academicの試験の流れと申込の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "Task 2を時間内に8本以上書いている",
+            "答案を4観点で自己評価した記録がある"
+          ],
+          "commonMistakes": [
+            "暗記エッセイを使い回す",
+            "語数を数えず、Task 2に60分使う"
+          ]
+        },
+        {
+          "id": "speaking",
+          "label": "Part 2を録音し、広げて話す",
+          "required": true,
+          "days": 21,
+          "category": "スピーキング",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "Speakingは約11〜14分です。意見→理由→具体例で答えを伸ばし、丸暗記の原稿は使いません。",
+          "why": "22件中19件が、Writingと同様に第三者の耳が必要だと書いていました。流暢さを先に取り、録音してつなぎ言葉と文法の幅を確認する手順が共通しています。",
+          "tasks": [
+            "Part 1の定番質問に、理由と例を付けて30秒以上話す",
+            "Part 2は1分でメモし、2分話し切ることを録音する",
+            "同じトピックを、原稿なしでもう一度話す",
+            "模擬面接を定期的に入れる"
+          ],
+          "resources": [
+            {
+              "label": "British Council IELTS",
+              "url": "https://www.britishcouncil.jp/exam/ielts",
+              "note": "試験当日の流れと準備の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "Part 2の録音が8本以上ある",
+            "模擬面接またはレッスンを1回以上受けている"
+          ],
+          "commonMistakes": [
+            "模範解答を暗記して試験で詰まる",
+            "Yes/Noで終わらせ、理由を話さない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "公式問題をもう1回分、本番の順番で通す",
+          "required": true,
+          "days": 7,
+          "category": "模試",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "直前期は新しい市販模試を足さず、Cambridgeの未使用回を本番の順で通します。",
+          "why": "22件中18件が、本番前にフル模試を入れると書いていました。WritingとSpeakingのフィードバックで直した型を、時間制限の中で再現できるかが焦点です。",
+          "tasks": [
+            "公式問題集の未使用1回分を、L→R→Wの順で通す",
+            "Speakingは別日でもよいので録音する",
+            "総合7.0と、大学が求める技能別下限の両方を確認する"
+          ],
+          "resources": [
+            {
+              "label": "Cambridge IELTS Academic",
+              "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts",
+              "note": "通しは最新寄りの未使用回を残しておきます。"
+            }
+          ],
+          "criteria": [
+            "診断分とは別の公式1回分を、本番の順で完走している"
+          ],
+          "commonMistakes": [
+            "直前期に新しい単語帳を足す",
+            "Overall 7.0だけ見て、Writing 6.0の条件校を見落とす"
+          ]
+        }
+      ]
+    }
+  ]
+}

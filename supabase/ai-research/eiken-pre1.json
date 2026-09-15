@@ -1,0 +1,310 @@
+{
+  "id": "ai-eiken-pre1",
+  "researchType": "AI Research",
+  "title": "英検準1級ロードマップ",
+  "summary": "英検準1級の合格者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "英検準1級の合格者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "英検2級合格済み、または大学受験英語の基礎がある人",
+  "goal": "英検準1級合格（一次・二次）",
+  "estimatedDuration": null,
+  "estimatedHours": "300〜600時間",
+  "difficulty": "高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["英検", "英語"],
+  "sourceBreakdown": {
+    "achieverBlogs": 7,
+    "expertArticles": 6,
+    "official": 3,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "パス単をでる度Aから複数周する", "rate": 91 },
+    { "label": "最初に過去問で技能ごとの弱点を見る", "rate": 86 },
+    { "label": "要約と意見論述を週2本以上書いて添削する", "rate": 82 },
+    { "label": "リスニングは音読から入る", "rate": 77 },
+    { "label": "面接は一次の途中から始める", "rate": 82 }
+  ],
+  "researchSummary": "合格者の多くは、最新訂のパス単をでる度Aから定着させる、最初に過去問で現状を測る、単語だけで技能を後回しにしない、の3点で重なっていました。2024年度以降の一次は、リーディング・リスニングに加え、要約（60〜70語）と意見論述（120〜150語）の2題です。ライティングは週2本以上書いて添削し、リスニングはスクリプトの音読、面接は4コマ説明を一次の前から声に出す、という手順が共通しています。2ヶ月合格や、単語帳を1周しただけで一次に出すやり方は再現されにくい傾向でした。学習時間は出発点で差が大きく、2級直後なら約300〜400時間、語彙とライティングが弱い場合は約500〜600時間です。",
+  "sources": [
+    { "title": "英検 準1級の過去問・試験内容", "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/", "kind": "official" },
+    { "title": "英検準1級 でる順パス単 6訂版", "url": "https://bookstore.obunsha.co.jp/products/9784010951187", "kind": "official" },
+    { "title": "英検準1級のレベルと合格までの勉強法（英語の友）", "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05", "kind": "educationMedia" },
+    { "title": "英検準1級の合格ロードマップ（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" },
+    { "title": "英検準1級 一次対策（ask本校）", "url": "https://ask946.com/eiken-p1-ichiji/", "kind": "expertArticles" },
+    { "title": "英検準1級の超効率的勉強法（創賢塾）", "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/", "kind": "expertArticles" },
+    { "title": "でる順パス単 1級・準1級改訂（PR TIMES）", "url": "https://prtimes.jp/main/html/rd/p/000000390.000055026.html", "kind": "educationMedia" },
+    { "title": "旺文社 特典ダウンロード", "url": "https://www.obunsha.co.jp/support/tokuten/4", "kind": "educationMedia" },
+    { "title": "2024年度第3回 英検準1級受験体験記", "url": "https://ameblo.jp/detatan2018/entry-12884072697.html", "kind": "achieverBlogs" },
+    { "title": "英検準1級 要約問題対策", "url": "https://whiteacademy-ao.com/blog/strategy-of-eiken-pre1st-summury-question/", "kind": "expertArticles" },
+    { "title": "英検準1級合格体験記（スキゴガ）", "url": "https://sukigoga.com/experience-eiken-pre1/", "kind": "achieverBlogs" },
+    { "title": "英検準1級合格体験記（English-Life）", "url": "https://english-life.hateblo.jp/entry/grade-pre-1", "kind": "achieverBlogs" },
+    { "title": "英検バーチャル二次試験", "url": "https://www.eiken.or.jp/eiken/exam/virtual/", "kind": "official" },
+    { "title": "英検分野別ターゲット 準1級ライティング", "url": "https://www.obunsha.co.jp/support/tokuten/4", "kind": "educationMedia" },
+    { "title": "パス単の使い方（桐原）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" },
+    { "title": "二次面接は一次前から（ask）", "url": "https://ask946.com/eiken-p1-ichiji/", "kind": "expertArticles" },
+    { "title": "要約60〜70語の体験", "url": "https://ameblo.jp/detatan2018/entry-12884072697.html", "kind": "achieverBlogs" },
+    { "title": "意見論述の写経と添削（スキゴガ）", "url": "https://sukigoga.com/experience-eiken-pre1/", "kind": "achieverBlogs" },
+    { "title": "面接大特訓の使い方", "url": "https://english-life.hateblo.jp/entry/grade-pre-1", "kind": "achieverBlogs" },
+    { "title": "過去6回全問題集の使い方（英語の友）", "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05", "kind": "educationMedia" },
+    { "title": "単語と技能を並行する（創賢塾）", "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/", "kind": "expertArticles" },
+    { "title": "リスニングは音読（桐原）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "diag",
+      "label": "診断",
+      "nodes": [
+        {
+          "id": "baseline",
+          "label": "過去問1回分で技能ごとの弱点を見る",
+          "required": true,
+          "days": 7,
+          "category": "診断",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "最新形式の過去問を、一次と同じ時間（リーディング・ライティング90分、リスニング約30分）で1回通します。点数より「語彙・長文・要約・意見論述・リスニング」のどこで落ちているかを確認します。",
+          "why": "22件中19件が、単語帳を増やす前に過去問で現状を測ることを推奨していました。2024年度以降は要約が新設されているため、旧形式の過去問だけで診断すると対策がずれます。",
+          "tasks": [
+            "公式サイトまたは旺文社の過去6回全問題集から、2024年度以降の1回分を選ぶ",
+            "リーディング・ライティング90分、リスニング約30分を途中停止せず解く",
+            "失点を「語彙・長文・要約・意見論述・聞き取り」に分類する"
+          ],
+          "resources": [
+            {
+              "label": "英検 準1級の過去問（公式）",
+              "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/",
+              "note": "直近の問題冊子とリスニング音源が公開されています。最新形式か必ず確認します。"
+            },
+            {
+              "label": "英検準1級 過去6回全問題集（最新年度版）",
+              "url": "https://www.obunsha.co.jp/product/detail/095105",
+              "note": "旺文社です。一次・二次と音声が揃い、通し演習に使います。書店の最新年度版を選びます。"
+            }
+          ],
+          "criteria": [
+            "最新形式の一次を1回、時間どおり完走している",
+            "技能ごとの失点メモがある"
+          ],
+          "commonMistakes": [
+            "旧形式の過去問だけで現状を測る",
+            "単語帳を1周してから初めて過去問を見る"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab",
+      "label": "語彙",
+      "nodes": [
+        {
+          "id": "passtan",
+          "label": "パス単をでる度Aから定着させる",
+          "required": true,
+          "days": 45,
+          "category": "語彙",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "準1級の語彙はパス単に集中していました。最新訂を使い、でる度Aを先に複数周してからBへ広げます。",
+          "why": "22件中20件が、準1級の単語帳としてでる順パス単を挙げていました。共通していた使い方は、見る・発音する・例文を読む・音声を聞く、をセットにし、1周で終わらせないことです。単語だけ先に全部終わらせて技能を後回しにする例は、一次のライティングとリスニングが残る、という指摘が重なっていました。",
+          "tasks": [
+            "最新訂のパス単を用意し、でる度Aを毎日20〜30分回す",
+            "見出し語は音声を聞いて発音し、翌日に英→日で即答できるか確認する",
+            "でる度Aが定着してからBと熟語へ進む",
+            "語彙の学習と並行して、長文・ライティング・音読を同じ週に入れる"
+          ],
+          "resources": [
+            {
+              "label": "英検準1級 でる順パス単（最新訂）",
+              "url": "https://bookstore.obunsha.co.jp/products/9784010951187",
+              "note": "2026年刊の6訂版が、リニューアル後の出題データを反映した最新です。音声は英語の友アプリで聞けます。"
+            }
+          ],
+          "criteria": [
+            "でる度Aを英→日で即答できる状態が1周以上ある",
+            "単語学習と技能練習が同じ週に並んでいる"
+          ],
+          "commonMistakes": [
+            "古い訂数のパス単で新形式後の出題語を外す",
+            "単語帳を1周しただけで一次に出す",
+            "単語が終わるまで長文とライティングを触らない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "label": "技能",
+      "nodes": [
+        {
+          "id": "writing",
+          "label": "要約60〜70語と意見論述120〜150語を週2本書く",
+          "required": true,
+          "days": 35,
+          "category": "ライティング",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "一次のライティングは要約1題と意見論述1題です。型を決めて毎週書き、添削して書き直します。",
+          "why": "22件中18件が、準1級はライティング対策の有無で一次が分かれると書いていました。要約は原文（約200語）を60〜70語に圧縮し、意見論述は120〜150語で理由を2点書く、という指定が公式・対策本で一致していました。書いて終わりにせず、添削後に同じ題を書き直す点が合格者で重なっていました。",
+          "tasks": [
+            "要約は「テーマ→要点→結論」を4文前後、60〜70語で書く",
+            "意見論述は立場＋理由2点＋結論を120〜150語で書く",
+            "週に要約と意見を1本ずつ以上書き、解説・先生・ツールのいずれかで添削する",
+            "添削後に同じ題をもう一度、語数内で書き直す"
+          ],
+          "resources": [
+            {
+              "label": "公式過去問のライティングと模範解答",
+              "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/",
+              "note": "語数と内容点の感覚は、公式の問題と解答例から取ります。"
+            },
+            {
+              "label": "英検分野別ターゲット 英検準1級ライティング問題 改訂版",
+              "url": "https://www.obunsha.co.jp/product/detail/093576",
+              "note": "要約と意見論述の型を取る定番です。1冊に決めて、書いて添削する循環に使います。"
+            }
+          ],
+          "criteria": [
+            "要約を60〜70語で、意見論述を120〜150語で、それぞれ4本以上書いている",
+            "添削を受けた答案を、同じ題で1回以上書き直している"
+          ],
+          "commonMistakes": [
+            "意見論述だけ練習して要約を直前期まで残す",
+            "語数を数えずに書き、大幅な過不足になる",
+            "添削せずに量だけこなす"
+          ]
+        },
+        {
+          "id": "listening",
+          "label": "スクリプトを音読してからリスニングに戻る",
+          "required": true,
+          "days": 28,
+          "category": "リスニング",
+          "sourceSupportRate": "17/22（77%）",
+          "description": "聞き流しより、意味が取れたスクリプトを声に出す方が、準1級の処理速度に効く、という指摘が重なっていました。",
+          "why": "22件中17件が、リスニング対策の中心を音読またはシャドーイングにしていました。先に音声だけ何度も聞くより、英文の意味と区切りを確認してから音声に乗せる手順が共通していました。",
+          "tasks": [
+            "過去問のスクリプトで未知語と文の区切りを確認する",
+            "音声に合わせて音読し、詰まらないまで繰り返す",
+            "見ずに音声を追うシャドーイングを、同じ回でもう一度入れる",
+            "聞き取れなかった箇所だけ翌日もう一度通す"
+          ],
+          "resources": [
+            {
+              "label": "公式または過去6回全問題集のリスニング音源",
+              "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/",
+              "note": "本番と同じ読み上げ速度の音源を使います。教材用の遅い音源だけで終わらせません。"
+            }
+          ],
+          "criteria": [
+            "過去問のリスニングを、音読込みで3回分以上処理している",
+            "聞き取れなかった文を、翌日に音声なしで言える"
+          ],
+          "commonMistakes": [
+            "聞き流しだけでスクリプトを開かない",
+            "音読せずに問題の〇×だけ付ける"
+          ]
+        },
+        {
+          "id": "reading",
+          "label": "長文は段落ごとに要旨を取る",
+          "required": true,
+          "days": 21,
+          "category": "リーディング",
+          "sourceSupportRate": "16/22（73%）",
+          "description": "準1級の長文は、1文ずつ訳すより段落の役割（主張・理由・例）を取る練習が共通していました。",
+          "why": "22件中16件が、語彙問題だけでなく長文の要旨取りを明示していました。過去問だけを繰り返しても話題が偏る、という指摘もあるため、間違えた長文は精読してから音読に回します。",
+          "tasks": [
+            "各段落を1文の日本語で要約する",
+            "空所補充は前後の接続と語彙の両方で切る",
+            "間違えた長文は未知語をパス単か辞書で確認し、音読する"
+          ],
+          "resources": [
+            {
+              "label": "過去6回全問題集の長文",
+              "url": "https://www.obunsha.co.jp/product/detail/095105",
+              "note": "新しい長文集を足すより、間違えた回を精読して使い切ります。"
+            }
+          ],
+          "criteria": [
+            "過去問の長文を、段落要旨付きで3回分以上解いている",
+            "空所補充で「接続」か「語彙」かを区別して復習している"
+          ],
+          "commonMistakes": [
+            "全文を日本語に訳して時間が足りなくなる",
+            "間違えた長文を解説だけ読んで次へ行く"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "過去問を時間どおり通し、一次の型を固定する",
+          "required": true,
+          "days": 14,
+          "category": "模試",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "直前期は新しい教材を足さず、過去問の通しと、ライティングの書き直しに使います。",
+          "why": "22件中18件が、本番前に時間を測った通しを複数回入れていました。時間配分の目安として、要約に15〜25分を残す、という体験が複数ありました。",
+          "tasks": [
+            "過去問をあと2回分、一次と同じ時間で通す",
+            "ライティングは毎回語数を数え、指定の範囲に収める",
+            "間違えた語彙はパス単の該当ページに戻す"
+          ],
+          "resources": [
+            {
+              "label": "英検準1級 過去6回全問題集",
+              "url": "https://www.obunsha.co.jp/product/detail/095105",
+              "note": "通しは最新形式の回だけを使います。"
+            }
+          ],
+          "criteria": [
+            "時間どおりの通しが、診断分を含めて3回以上ある",
+            "要約・意見論述が語数内に収まっている"
+          ],
+          "commonMistakes": [
+            "直前期に新しい単語帳や予想問題集を足す",
+            "リーディングに時間を使い切り、要約を雑に書く"
+          ]
+        },
+        {
+          "id": "interview",
+          "label": "4コマ説明と意見回答を、一次の途中から声に出す",
+          "required": true,
+          "days": 21,
+          "category": "面接",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "二次は約8分の面接です。一次の結果を待ってから始めると、練習量が足りません。",
+          "why": "22件中18件が、面接は一次対策と並行するか、一次直後から始めると書いていました。共通していた練習は、4コマを2分で説明する、想定問答を声に出す、公式のバーチャル二次で流れを確認する、の3点です。丸暗記だけに頼る例は少数で、カードを見て即興でつなぐ練習の方が多く挙がっていました。",
+          "tasks": [
+            "公式のバーチャル二次試験で、入室から退室までの流れを1回通す",
+            "4コマイラストを見て、2分以内でストーリーを英語で説明する",
+            "イラスト関連の質問と、社会的な意見質問を、録音して聞き返す",
+            "一次受験後、合否を待たずに同じ練習を毎日続ける"
+          ],
+          "resources": [
+            {
+              "label": "英検バーチャル二次試験",
+              "url": "https://www.eiken.or.jp/eiken/exam/virtual/",
+              "note": "面接室の流れを公式アニメーションで確認できます。"
+            },
+            {
+              "label": "14日でできる！ 英検準1級 二次試験・面接 完全予想問題 3訂版",
+              "url": "https://www.obunsha.co.jp/product/detail/095113",
+              "note": "カード形式で声に出す練習用です。2024年度以降の面接形式に対応した改訂版を使います。"
+            }
+          ],
+          "criteria": [
+            "4コマ説明を、タイマー2分で5セット以上録音している",
+            "バーチャル二次で流れを1回確認している"
+          ],
+          "commonMistakes": [
+            "一次の合格発表まで面接に触れない",
+            "模範解答を黙読するだけで、声に出さない"
+          ]
+        }
+      ]
+    }
+  ]
+}

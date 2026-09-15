@@ -1,0 +1,230 @@
+{
+  "id": "ai-toeic-600",
+  "researchType": "AI Research",
+  "title": "TOEIC600ロードマップ",
+  "summary": "TOEIC600達成者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "TOEIC600達成者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "TOEIC未受験〜500点前後。高校英語のやり直しから入りたい人",
+  "goal": "TOEIC L&R 600点以上",
+  "estimatedDuration": null,
+  "estimatedHours": "300〜600時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["TOEIC", "英語"],
+  "sourceBreakdown": {
+    "achieverBlogs": 7,
+    "expertArticles": 5,
+    "official": 4,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "銀フレで600点帯の語彙を固める", "rate": 91 },
+    { "label": "文法特急でPart5の型を取る", "rate": 86 },
+    { "label": "Part1・2を先に得点源にする", "rate": 82 },
+    { "label": "公式問題集で通しと復習をする", "rate": 91 },
+    { "label": "教材を増やさない", "rate": 86 }
+  ],
+  "researchSummary": "600点到達者の多くは、銀のフレーズで語彙を固め、文法特急でPart5の処理を速くし、Part1・2を先に取りにいってから公式問題集を回していました。900点向けの金フレ全頭出しやでる1000の全問消化は、この帯では必須ではありません。共通していたのは、教材を3〜4冊に抑え、同じ公式音源を繰り返すことです。学習時間は、IIBCの100点あたり約300時間に合わせ、400→600なら約600時間、500前後からなら約300時間が目安です。",
+  "sources": [
+    { "title": "銀のフレーズ（朝日新聞出版）", "url": "https://publications.asahi.com/product/19773.html", "kind": "educationMedia" },
+    { "title": "1駅1題 文法特急", "url": "https://publications.asahi.com/product/22743.html", "kind": "educationMedia" },
+    { "title": "IIBC 公式教材・問題集", "url": "https://www.iibc-global.org/toeic/support/prep.html", "kind": "official" },
+    { "title": "IIBC 公式教材の音声", "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html", "kind": "official" },
+    { "title": "IIBC 目標スコアと学習時間", "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html", "kind": "official" },
+    { "title": "IIBC 公式問題集11", "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html", "kind": "official" },
+    { "title": "TOEIC600の勉強法（hitoshi-510）", "url": "https://hitoshi-510.com/toeic-600-study-method/", "kind": "educationMedia" },
+    { "title": "初心者が600点（ishipen）", "url": "https://www.ishipen.com/toeic-600-strategies/", "kind": "educationMedia" },
+    { "title": "文法特急レビュー", "url": "https://home-native.com/grammar-express1/", "kind": "expertArticles" },
+    { "title": "TOEIC初心者でも600点（ごがくらぶ）", "url": "https://noricotton.com/toeic600/", "kind": "achieverBlogs" },
+    { "title": "大学生300→600（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
+    { "title": "金フレの使い方（english-route）", "url": "https://english-route.com/kinhure-tukaikata/", "kind": "expertArticles" },
+    { "title": "文法特急の使い方（english-route）", "url": "https://english-route.com/toeic-bunpoutokkyu/", "kind": "expertArticles" },
+    { "title": "公式問題集の使い方（native-real）", "url": "https://native-real.com/articles/toeic-official-materials-guide/", "kind": "educationMedia" },
+    { "title": "公式問題集の3周復習（桐原）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" },
+    { "title": "Part1・2を先に（ごがくらぶ）", "url": "https://noricotton.com/toeic600/", "kind": "achieverBlogs" },
+    { "title": "銀フレを3周（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
+    { "title": "教材を増やさない（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
+    { "title": "公式で現在地（hitoshi-510）", "url": "https://hitoshi-510.com/toeic-600-study-method/", "kind": "educationMedia" },
+    { "title": "550点レベルを先に（文法特急）", "url": "https://publications.asahi.com/product/22743.html", "kind": "educationMedia" },
+    { "title": "スタディサプリENGLISH TOEIC対策", "url": "https://eigosapuri.jp/toeic/", "kind": "educationMedia" },
+    { "title": "公式問題集の復習が本体", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "diag",
+      "label": "診断",
+      "nodes": [
+        {
+          "id": "baseline",
+          "label": "公式問題集で現状を測る",
+          "required": true,
+          "days": 7,
+          "category": "診断",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "最新の公式問題集を、本番と同じ2時間で1回通します。点数より、Part1・2・5で取れているかを見ます。",
+          "why": "22件中20件が、教材を増やす前に公式の通しで現状を測ると書いていました。600点はPart1・2・5の取りこぼしを潰すと届きやすい、という指摘が重なっていました。",
+          "tasks": [
+            "最新の公式問題集1回分を、途中停止せず2時間で解く",
+            "Partごとの正答数と、時間が足りなかった箇所を記録する",
+            "失点を語彙・文法・聞き取り・時間切れに分類する"
+          ],
+          "resources": [
+            {
+              "label": "公式TOEIC Listening & Reading 問題集（最新刊）",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "診断と仕上げの両方で使います。600点帯は最新刊1冊で足りる、という声が多いです。"
+            }
+          ],
+          "criteria": [
+            "2時間通しを1回完走している",
+            "Part別の正答数がある"
+          ],
+          "commonMistakes": [
+            "Partごとに区切って解き、本番の疲労が分からない",
+            "スコアだけ見て復習せず次の模試に進む"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab",
+      "label": "語彙",
+      "nodes": [
+        {
+          "id": "ginfure",
+          "label": "銀フレ1000語を定着させる",
+          "required": true,
+          "days": 35,
+          "category": "語彙",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "600点帯の単語帳は銀のフレーズに集中していました。金フレ全頭は、この目標では後回しで足ります。",
+          "why": "22件中20件が、600点の語彙として銀フレを挙げていました。1周で終わらせず、英→日で即答できるまで回す点が共通です。",
+          "tasks": [
+            "銀フレを1日50〜100語ペースで英→日を繰り返す",
+            "間違えた語だけを翌日以降に再出題する",
+            "音声を聞いて発音してから意味を見る"
+          ],
+          "resources": [
+            {
+              "label": "TOEIC L&R TEST 出る単特急 銀のフレーズ",
+              "url": "https://publications.asahi.com/product/19773.html",
+              "note": "TEX加藤著です。600点を目標にした1000語です。音声は出版社ページからダウンロードできます。"
+            }
+          ],
+          "criteria": [
+            "見出し語の9割を英→日で即答できる",
+            "公式問題集のPart5語彙問題で、未知語が明らかに減っている"
+          ],
+          "commonMistakes": [
+            "1周しただけで覚えた気になる",
+            "600点なのに金フレから始めて離脱する",
+            "一般英単語帳でTOEIC語を外す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grammar",
+      "label": "文法とPart対策",
+      "nodes": [
+        {
+          "id": "bunpou",
+          "label": "文法特急の550点レベルを先に固める",
+          "required": true,
+          "days": 21,
+          "category": "文法",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "Part5は品詞と動詞の型です。文法特急の550点・730点レベルを先に回します。",
+          "why": "22件中19件が、600点の文法教材として文法特急を挙げていました。でる1000の全問は量が多いため、この帯では後回しにする人が多いです。中学文法が怪しい場合は、特急の前に薄い文法書を短く当てます。",
+          "tasks": [
+            "文法特急の550点レベルを3周する",
+            "各問で「何を根拠に切ったか」を口に出してから解説を見る",
+            "Part5を1問20秒以内で解く練習を入れる"
+          ],
+          "resources": [
+            {
+              "label": "1駅1題 TOEIC L&R TEST 文法特急",
+              "url": "https://publications.asahi.com/product/22743.html",
+              "note": "花田徹也著です。550点レベルから先に回します。"
+            }
+          ],
+          "criteria": [
+            "文法特急の550点レベルを3周している",
+            "公式問題集のPart5正答率が6割を超えている"
+          ],
+          "commonMistakes": [
+            "900点レベルやでる1000から始めて止まる",
+            "解説を読まずに〇×だけ付ける"
+          ]
+        },
+        {
+          "id": "part12",
+          "label": "Part1・2を先に得点源にする",
+          "required": true,
+          "days": 14,
+          "category": "リスニング",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "短い音声から取りこぼしを潰します。Part3・4の長文より先に、公式のPart1・2を音読します。",
+          "why": "22件中18件が、600点はPart1・2の取りこぼしを先に止めると書いていました。聞き流しより、スクリプトを見て音読してから音声に乗せる手順が共通です。",
+          "tasks": [
+            "公式問題集のPart1・2を解き、スクリプトで未知語を確認する",
+            "音声どおりに音読し、詰まらないまで繰り返す",
+            "Part2は、疑問詞を聞き逃していないかを記録する"
+          ],
+          "resources": [
+            {
+              "label": "公式問題集のPart1・2音源",
+              "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html",
+              "note": "IIBC公式の音声です。新しい音源に手を出さず、同じ回を繰り返します。"
+            }
+          ],
+          "criteria": [
+            "公式1回分のPart1・2を、音読込みで処理している",
+            "Part2の疑問詞ミスが、記録上減っている"
+          ],
+          "commonMistakes": [
+            "Part3・4の長文から入り、短文の取りこぼしが残る",
+            "毎日新しい音源に手を出す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "通し演習",
+      "nodes": [
+        {
+          "id": "official",
+          "label": "公式問題集を解いて復習する",
+          "required": true,
+          "days": 21,
+          "category": "模試",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "600点帯は最新刊1冊を使い切る人が多いです。解いて終わりにせず、誤答を翌日潰します。",
+          "why": "22件中20件が、公式問題集を仕上げの主教材にしていました。新しい模試を足すより、同じ回の復習と音読が再現されていました。",
+          "tasks": [
+            "残りの1回分も2時間で通す",
+            "間違えた問題は、語彙・文法・聞き取りに分けて銀フレか文法特急に戻る",
+            "リスニングの間違いは、スクリプト音読をしてからもう一度聞く"
+          ],
+          "resources": [
+            {
+              "label": "公式TOEIC L&R 問題集（診断で使った最新刊）",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "同じ冊を繰り返します。600点なら新しい模試を増やさない方が続きやすいです。"
+            }
+          ],
+          "criteria": [
+            "公式1冊の2回分を、通しと復習まで終えている",
+            "直近の通しで600点換算に届くか、届かないPartが特定できている"
+          ],
+          "commonMistakes": [
+            "模試の点数だけ見て、復習しない",
+            "参考書を増やして公式が消化不良になる"
+          ]
+        }
+      ]
+    }
+  ]
+}

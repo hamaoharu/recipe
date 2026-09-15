@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -18,10 +18,22 @@ const geistMono = Geist_Mono({
 //メタデータ
 export const metadata: Metadata = {
   title: "Recipe — ロードマップ共有プラットフォーム",
-  description: "技術学習ロードマップを投稿・共有・閲覧できるプラットフォーム",
+  description: "目標達成のためのロードマップを投稿・共有・閲覧できるプラットフォーム",
+  applicationName: "recipe",
   ...(process.env.NEXT_PUBLIC_SITE_URL
     ? { metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL) }
     : {}),
+  appleWebApp: {
+    capable: true,
+    title: "recipe",
+    statusBarStyle: "default",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   openGraph: {
     siteName: "recipe",
     locale: "ja_JP",
@@ -30,6 +42,16 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  icons: {
+    apple: "/icons/apple-touch-icon.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

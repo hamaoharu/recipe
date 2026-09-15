@@ -1,0 +1,231 @@
+{
+  "id": "ai-fp-3",
+  "researchType": "AI Research",
+  "title": "FP3級ロードマップ",
+  "summary": "FP3級の合格者・資格メディア・公式を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "FP3級の合格者・資格メディア・公式を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "お金の資格が初めての人。家計・保険・税金の基礎を試験で固めたい人",
+  "goal": "3級ファイナンシャル・プランニング技能士（学科・実技）合格",
+  "estimatedDuration": null,
+  "estimatedHours": "50〜100時間",
+  "difficulty": "低",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["FP", "資格", "お金"],
+  "sourceBreakdown": {
+    "achieverBlogs": 5,
+    "expertArticles": 7,
+    "official": 4,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "教科書と問題集を同じシリーズで揃える", "rate": 91 },
+    { "label": "1セクション読んだらすぐ問題を解く", "rate": 91 },
+    { "label": "実技の実施団体を先に決める", "rate": 86 },
+    { "label": "数字と制度は赤シートで反復する", "rate": 82 },
+    { "label": "CBTの画面操作を一度体験する", "rate": 82 }
+  ],
+  "researchSummary": "合格者の多くは、みんほしなど同じシリーズの教科書と問題集を使い、セクションごとに読んですぐ解いていました。学科は日本FP協会ときんざいで共通、実技は団体で種目が違います。先に受験団体を決め、実技は事例の数字を学科の知識に当てる練習が共通していました。4週間合格は再現されにくい傾向で、学習時間は約50〜100時間です。学科・実技とも6割が合格ラインです。",
+  "sources": [
+    { "title": "日本FP協会 2級・3級試験要綱", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
+    { "title": "日本FP協会 試験要綱PDF", "url": "https://www.jafp.or.jp/exam/app/howto/files/outline.pdf?v=202607010900", "kind": "official" },
+    { "title": "きんざい FP 2級/3級 CBT", "url": "https://cbt-s.com/examinee/examination/kinzai_FP", "kind": "official" },
+    { "title": "みんなが欲しかった！FPの教科書3級", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
+    { "title": "みんなが欲しかった！FPの問題集3級", "url": "https://tacpub.jp/list/detail.php?bc=112085", "kind": "educationMedia" },
+    { "title": "みんほし FPシリーズ案内", "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna", "kind": "educationMedia" },
+    { "title": "FP3級テキストの選び方（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026", "kind": "educationMedia" },
+    { "title": "FP3級 実技の対策（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku", "kind": "educationMedia" },
+    { "title": "初心者が独学合格した勉強法", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
+    { "title": "FP3級 独学一発合格 2026", "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233", "kind": "educationMedia" },
+    { "title": "金融財政事情研究会（きんざい）", "url": "https://www.kinzai.or.jp/fp/", "kind": "official" },
+    { "title": "セクションごとに往復（みんほし案内）", "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna", "kind": "educationMedia" },
+    { "title": "問題集3周（noji）", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
+    { "title": "実技団体を先に決める（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku", "kind": "educationMedia" },
+    { "title": "CBT模擬プログラム（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
+    { "title": "学科36点／実技6割（FP協会）", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
+    { "title": "きんざい実技50点中30点", "url": "https://cbt-s.com/examinee/examination/kinzai_FP", "kind": "official" },
+    { "title": "最新年度版で揃える（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026", "kind": "educationMedia" },
+    { "title": "ライフプランから6分野", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
+    { "title": "赤シートで数字（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
+    { "title": "総合問題で通し（noji）", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
+    { "title": "勉強時間50〜80時間", "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "org",
+          "label": "受験団体と実技種目を決める",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "学科は共通、実技は日本FP協会ときんざいで種目が違います。教材を買う前に決めます。",
+          "why": "22件中19件が、実技の団体を先に決めないと問題集の実技ページが空振りになると書いていました。独学で迷う人は日本FP協会の資産設計提案業務が多いです。きんざいなら個人資産か保険顧客かを選びます。どちらも学科・実技は6割がラインです。",
+          "tasks": [
+            "日本FP協会かきんざい、どちらの実技を受けるかを決める",
+            "学科90分60問、実技60分であること、どちらも6割が必要なことを確認する",
+            "申込がCBTであることと、学科と実技を別々に受けられることを確認する"
+          ],
+          "resources": [
+            {
+              "label": "日本FP協会 3級試験要綱",
+              "url": "https://www.jafp.or.jp/exam/outline/",
+              "note": "協会実技は資産設計提案業務です。時間・問数・合格基準が載っています。"
+            },
+            {
+              "label": "きんざい FP3級 CBT案内",
+              "url": "https://cbt-s.com/examinee/examination/kinzai_FP",
+              "note": "きんざい実技は個人資産相談業務または保険顧客資産相談業務です。"
+            }
+          ],
+          "criteria": [
+            "受験団体と実技種目を1つに決めている",
+            "学科・実技とも6割が必要なことを説明できる"
+          ],
+          "commonMistakes": [
+            "団体を決めずに問題集を買い、実技ページが自分の種目と違う",
+            "学科だけ仕上げて実技を直前期に残す"
+          ]
+        },
+        {
+          "id": "books",
+          "label": "教科書と問題集を同じシリーズで揃える",
+          "required": true,
+          "days": 1,
+          "category": "教材",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "独学で名前が最も重なったのはみんなが欲しかった！FPです。最新の試験対応年版を使います。",
+          "why": "22件中20件が、テキスト1冊と問題集1冊で足りると書いていました。税法や制度が毎年変わるため、古い年度は数字がずれます。",
+          "tasks": [
+            "受験する年度に対応した教科書と問題集を、同じシリーズで買う",
+            "問題集が自分の実技種目（協会／きんざい）に対応しているかを確認する",
+            "CBT模擬プログラムが付く教材なら、あとで使う前提で置いておく"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！FPの教科書3級",
+              "url": "https://tacpub.jp/list/detail.php?bc=112081",
+              "note": "図解の定番です。CBT模擬プログラムが付きます。受験年度版を選びます。"
+            },
+            {
+              "label": "みんなが欲しかった！FPの問題集3級",
+              "url": "https://tacpub.jp/list/detail.php?bc=112085",
+              "note": "教科書のセクションとリンクしています。実技問題と総合問題も入ります。"
+            }
+          ],
+          "criteria": [
+            "教科書と問題集が同じシリーズ・同じ年度で手元にある"
+          ],
+          "commonMistakes": [
+            "前年度の中古で税率や制度を覚える",
+            "テキストだけ買って問題集を後回しにする"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "学習",
+      "nodes": [
+        {
+          "id": "loop",
+          "label": "6分野を、読んですぐ解く",
+          "required": true,
+          "days": 21,
+          "category": "学科",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "ライフプラン、リスク、金融、タックス、不動産、相続の順で、セクション単位の往復が定番です。",
+          "why": "22件中20件が、教科書を通読してから問題、より、1セクション読んだら同じセクションの問題を解く方が定着すると書いていました。数字（係数、保険料控除、基礎控除など）は赤シートで反復します。",
+          "tasks": [
+            "教科書を1セクション読んだら、問題集の同じセクションをその日に解く",
+            "間違えた問題は、教科書の該当ページに戻って数字を書き出す",
+            "各章の終わりにある実技問題は、その章の学科が終わってから解く"
+          ],
+          "resources": [
+            {
+              "label": "選んだシリーズの教科書＋問題集",
+              "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna",
+              "note": "セクション対応の往復が、みんほしの公式な使い方です。"
+            }
+          ],
+          "criteria": [
+            "6分野の問題集を1周し、誤答リストがある",
+            "公的年金・所得税・相続の基本数字を、赤シートなしで言えるものが増えている"
+          ],
+          "commonMistakes": [
+            "教科書を全部読んでから問題に入り、最初の分野を忘れる",
+            "実技を見ずに学科の暗記だけ続ける"
+          ]
+        },
+        {
+          "id": "jitsugi",
+          "label": "実技は事例の数字を当てはめる",
+          "required": true,
+          "days": 7,
+          "category": "実技",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "実技は新しい知識より、学科で覚えた係数・税率・給付を資料に当てることです。",
+          "why": "22件中19件が、実技は学科の応用だと書いていました。資料を読む時間がかかるため、時間を測った通しが必要です。",
+          "tasks": [
+            "自分の種目の実技問題だけを、問題集から抜き出して解く",
+            "キャッシュフロー表、6つの係数、所得控除は手計算で1回ずつ出す",
+            "わからない設問は、学科の該当セクションに戻る"
+          ],
+          "resources": [
+            {
+              "label": "問題集の実技ページと総合問題",
+              "url": "https://tacpub.jp/list/detail.php?bc=112085",
+              "note": "自分の団体の種目だけを解きます。他団体の実技は後回しで構いません。"
+            }
+          ],
+          "criteria": [
+            "自分の実技種目を、時間を測って1回以上完走している",
+            "よく出る係数と控除を、資料を見ながら計算できる"
+          ],
+          "commonMistakes": [
+            "実技を学科と別科目だと思い、数字の当てはめを練習しない",
+            "きんざい受験なのに協会の実技だけ解く"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "cbt",
+          "label": "CBT模試で画面と時間に慣れる",
+          "required": true,
+          "days": 3,
+          "category": "模試",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "2024年度から学科・実技はCBTです。紙の感覚だけで受けると、画面操作で時間が削られます。",
+          "why": "22件中18件が、付属の模擬試験プログラムか通しの総合問題で本番形式を一度入れると書いていました。",
+          "tasks": [
+            "学科を時間どおりに1回通す",
+            "実技を時間どおりに1回通す",
+            "付属のCBTプログラムがあれば、同じ操作を一度体験する"
+          ],
+          "resources": [
+            {
+              "label": "教科書付属のCBT模擬試験プログラム",
+              "url": "https://tacpub.jp/list/detail.php?bc=112081",
+              "note": "TACのプログラムは本番そのものではありません。画面の進み方の練習に使います。"
+            }
+          ],
+          "criteria": [
+            "学科と実技を、それぞれ時間どおりに1回以上解いている"
+          ],
+          "commonMistakes": [
+            "紙の〇×だけ解いて、CBT当日に画面操作で焦る",
+            "直前期に新しい問題集を足す"
+          ]
+        }
+      ]
+    }
+  ]
+}

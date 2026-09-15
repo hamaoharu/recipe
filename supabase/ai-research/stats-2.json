@@ -1,0 +1,201 @@
+{
+  "id": "ai-stats-2",
+  "researchType": "AI Research",
+  "title": "統計検定2級ロードマップ",
+  "summary": "統計検定2級の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "統計検定2級の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "大学初級の統計、またはデータ分析で推定・検定を説明したい人",
+  "goal": "統計検定2級合格（CBT・100点中60点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "80〜160時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["統計検定", "統計", "データ"],
+  "sourceBreakdown": {
+    "achieverBlogs": 6,
+    "expertArticles": 4,
+    "official": 6,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "公式テキストで記述統計から確率分布まで通す", "rate": 86 },
+    { "label": "推定と仮説検定を厚く繰り返す", "rate": 91 },
+    { "label": "公式問題集か過去問を時間どおり解く", "rate": 91 },
+    { "label": "電卓の操作に慣れる", "rate": 82 },
+    { "label": "用語の暗記より、どの手法を選ぶかを取る", "rate": 86 }
+  ],
+  "researchSummary": "合格者の多くは、日本統計学会の『統計学基礎』で範囲を一通り取り、推定と仮説検定で繰り返し計算していました。試験はCBTで35問前後・90分・60点です。統計WEBは範囲の補助として名前が重なります。CBT対応の公式問題集だけでは量が足りないと感じ、紙の過去問も回す人がいます。正規分布とt分布の使い分け、片側と両側が関門です。学習時間は約80〜160時間です。",
+  "sources": [
+    { "title": "統計検定2級 公式", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
+    { "title": "統計検定2級 Odyssey CBT", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
+    { "title": "改訂版 統計学基礎（東京図書）", "url": "https://www.tokyo-tosho.co.jp/02227/", "kind": "official" },
+    { "title": "公式問題集 CBT対応版（実務教育出版）", "url": "https://books.jitsumu.co.jp/book/b614221.html", "kind": "official" },
+    { "title": "対応公式テキスト案内", "url": "https://www.toukei-kentei.jp/preparation/books/", "kind": "official" },
+    { "title": "統計学の時間（統計WEB）", "url": "https://bellcurve.jp/statistics/course/", "kind": "educationMedia" },
+    { "title": "2回受けて合格（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
+    { "title": "2級取得に向けてやったこと（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
+    { "title": "出題範囲は大学基礎（公式）", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
+    { "title": "90分35問60点（Odyssey）", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
+    { "title": "章末問題を繰り返す（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
+    { "title": "仮説検定がイメージしにくい（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
+    { "title": "統計WEBで範囲カバー（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
+    { "title": "CBT版だけでは量が足りない場合（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
+    { "title": "電卓に慣れる（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
+    { "title": "正規分布とt分布（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
+    { "title": "練習問題付き（統計WEB）", "url": "https://bellcurve.jp/statistics/course/", "kind": "educationMedia" },
+    { "title": "区間推定と検定（東京図書）", "url": "https://www.tokyo-tosho.co.jp/02227/", "kind": "educationMedia" },
+    { "title": "模擬テスト（実務教育出版）", "url": "https://books.jitsumu.co.jp/book/b614221.html", "kind": "educationMedia" },
+    { "title": "持ち込み電卓の制限（Odyssey）", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
+    { "title": "線形回帰も範囲（公式）", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
+    { "title": "本質を理解してから速く解く（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "format",
+          "label": "CBTの時間・問数・電卓を確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "35問程度、90分、100点中60点です。四則・百分率・平方根の電卓は持ち込めます。関数電卓の高機能は制限があります。",
+          "why": "22件中20件が、紙の過去問だけだと画面と時間の感覚がずれると書いていました。再受験は7日空けるルールがあります。",
+          "tasks": [
+            "公式の出題範囲表を一読する",
+            "使える電卓の条件をOdysseyの案内で確認する",
+            "手元の本が2級対応か、3級だけで終わっていないかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "統計検定2級 公式",
+              "url": "https://www.toukei-kentei.jp/grade/grade2/",
+              "note": "範囲と合格基準の公式案内です。"
+            },
+            {
+              "label": "Odyssey CBT 統計検定2級",
+              "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html",
+              "note": "時間、電卓、再受験ルールが載っています。"
+            }
+          ],
+          "criteria": [
+            "90分35問60点と、電卓の制限を説明できる"
+          ],
+          "commonMistakes": [
+            "グラフ電卓や高機能関数電卓を持ち込もうとする",
+            "3級の内容だけで受験する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "学習",
+      "nodes": [
+        {
+          "id": "text",
+          "label": "公式テキストで、記述統計から確率分布まで通す",
+          "required": true,
+          "days": 21,
+          "category": "インプット",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "平均・分散、相関、確率、主要な分布までを、章末問題とセットで進めます。",
+          "why": "22件中19件が、統計学基礎か統計WEBで範囲の地図を先に取ると書いていました。数式を見る前に、その手法が何を判定するかを日本語で言えるようにします。",
+          "tasks": [
+            "公式テキストを1章読んだら、章末をその日に解く",
+            "分からない定義は統計WEBの同じ項目で補う",
+            "正規分布・二項分布・t分布の使いどころを1枚にまとめる"
+          ],
+          "resources": [
+            {
+              "label": "改訂版 統計検定2級対応 統計学基礎",
+              "url": "https://www.tokyo-tosho.co.jp/02227/",
+              "note": "日本統計学会公式認定のテキストです。練習問題の解答は統計検定HPにあります。"
+            },
+            {
+              "label": "統計学の時間（統計WEB）",
+              "url": "https://bellcurve.jp/statistics/course/",
+              "note": "2級範囲をほぼカバーする無料解説です。練習問題が付きます。"
+            }
+          ],
+          "criteria": [
+            "記述統計と確率分布の章末を、解説なしで半分以上解ける"
+          ],
+          "commonMistakes": [
+            "動画だけ見て計算しない",
+            "分布の名前だけ覚えて、いつ使うか言えない"
+          ]
+        },
+        {
+          "id": "infer",
+          "label": "区間推定と仮説検定を、手順どおりに計算する",
+          "required": true,
+          "days": 14,
+          "category": "推測統計",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "信頼区間、p値、2種類の過誤、1標本と2標本、カイ二乗です。2級で点が分かれる塊です。",
+          "why": "22件中20件が、ここを1回読んだだけでは解けないと書いていました。正規分布とt分布、片側と両側を、問題を見て選べるかが共通の関門です。",
+          "tasks": [
+            "母平均の区間推定を、電卓で3問以上出す",
+            "同じデータで両側検定と片側検定を書き分ける",
+            "カイ二乗の適合度か独立性を1問、手順を口で説明する"
+          ],
+          "resources": [
+            {
+              "label": "統計学基礎の推定・検定の章",
+              "url": "https://www.tokyo-tosho.co.jp/02227/",
+              "note": "手順が本文にあります。章末を何周もします。"
+            }
+          ],
+          "criteria": [
+            "問題を見て、使う分布と片側・両側を選べる",
+            "検定の手順を、仮説→統計量→棄却域の順で書ける"
+          ],
+          "commonMistakes": [
+            "p値の意味を暗記して、計算手順が抜けている",
+            "回帰分析に逃げて、検定を残す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "drill",
+          "label": "公式問題を90分で通し、電卓を手に慣れさせる",
+          "required": true,
+          "days": 10,
+          "category": "問題演習",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "CBT対応の公式問題集を軸にします。量が足りなければ、紙の過去問も回します。",
+          "why": "22件中20件が、理解したつもりでも90分だと間に合わないと書いていました。平方根と百分率を電卓で速く出す練習が重なっています。",
+          "tasks": [
+            "分野別問題を1周し、推定・検定の誤答をリストにする",
+            "模擬を90分で1回通す",
+            "間違えた問題は、テキストの該当節に戻ってから再解する"
+          ],
+          "resources": [
+            {
+              "label": "統計検定2級 公式問題集［CBT対応版］",
+              "url": "https://books.jitsumu.co.jp/book/b614221.html",
+              "note": "実務教育出版です。分野別と模擬が入ります。"
+            }
+          ],
+          "criteria": [
+            "時間どおりの通しが1回以上ある",
+            "本番で使う電卓と同じ機種で計算している"
+          ],
+          "commonMistakes": [
+            "解説を読んで分かった気になり、自分で数字を出さない",
+            "直前期に新しい参考書を足す"
+          ]
+        }
+      ]
+    }
+  ]
+}

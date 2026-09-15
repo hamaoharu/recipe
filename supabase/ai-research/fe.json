@@ -1,0 +1,248 @@
+{
+  "id": "ai-fe",
+  "researchType": "AI Research",
+  "title": "基本情報技術者ロードマップ",
+  "summary": "基本情報技術者の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "基本情報技術者の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "ITの用語に初めて触れる人、または独学で国家試験を受ける人",
+  "goal": "基本情報技術者試験 合格（科目A・科目Bとも評価点600点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "150〜250時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["基本情報", "IT", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 6,
+    "expertArticles": 6,
+    "official": 4,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "最新シラバスの参考書を軽く1周する", "rate": 86 },
+    { "label": "科目Aは過去問道場を中心に回す", "rate": 95 },
+    { "label": "科目Bは出るとこだけとIPA公開問題でトレースする", "rate": 91 },
+    { "label": "古い午前・午後本は使わない", "rate": 82 },
+    { "label": "不合格の多くは科目B", "rate": 86 }
+  ],
+  "researchSummary": "合格者の多くは、最新シラバス対応の参考書をざっと1周したあと、科目Aは過去問道場、科目Bは擬似言語のトレース専用教材とIPAのサンプル／公開問題、の順でした。科目A・科目Bはどちらも1000点満点中600点が基準で、CBTの同日受験です。平成の午前・午後問題集を主教材にしない点が共通しています。科目Aは過去問の反復で点が伸びやすい一方、科目Bは公開問題が少なく、トレース練習を別途積まないと落ちやすい、という指摘が重なっていました。学習時間は約150〜200時間、科目Bが初めてなら約250時間まで見ます。",
+  "sources": [
+    { "title": "基本情報技術者過去問道場", "url": "https://www.fe-siken.com/fekakomon.php", "kind": "educationMedia" },
+    { "title": "試験の形式と合格基準（FE.com）", "url": "https://www.fe-siken.com/fekeisiki.html", "kind": "educationMedia" },
+    { "title": "ITパスポート・基本情報 パンフレット（IPA）", "url": "https://www.ipa.go.jp/shiken/about/gmcbt8000000cy3n-att/pamphlet_IP-FE.pdf", "kind": "official" },
+    { "title": "科目B サンプル問題（IPA）", "url": "https://www.ipa.go.jp/shiken/syllabus/ps6vr7000000oett-att/fe_kamoku_b_sample.pdf", "kind": "official" },
+    { "title": "令和8年度 科目B 公開問題（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_b_qs.pdf", "kind": "official" },
+    { "title": "CBT 基本情報技術者", "url": "https://cbt-s.com/examinee/examination/fe", "kind": "official" },
+    { "title": "過去問道場の使い方（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
+    { "title": "過去問の使い方 2026（next-skill-shift）", "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/", "kind": "educationMedia" },
+    { "title": "過去問道場ガイド（CayTech Lab）", "url": "https://caymezon.com/fe-exam-kakomon-dojo-guide/", "kind": "educationMedia" },
+    { "title": "基本情報の勉強方法（Qiita）", "url": "https://qiita.com/yuyadesu/items/c9153c49d5c72247ae2e", "kind": "achieverBlogs" },
+    { "title": "過去問ひたすらやれ（note）", "url": "https://note.com/nowa0402/n/n670630f8bb03", "kind": "achieverBlogs" },
+    { "title": "おすすめテキスト（ぴよパス）", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" },
+    { "title": "おすすめ参考書（BizIT Frontier）", "url": "https://noribloglab.com/fe-books/", "kind": "achieverBlogs" },
+    { "title": "科目Bの対策（Tech Teacher）", "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/", "kind": "expertArticles" },
+    { "title": "出るとこだけ 科目B", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" },
+    { "title": "キタミ式の位置づけ", "url": "https://noribloglab.com/fe-books/", "kind": "achieverBlogs" },
+    { "title": "科目Bは道場だけでは不足（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
+    { "title": "選択肢シャッフル（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
+    { "title": "IPA公開問題をやる（note）", "url": "https://note.com/nowa0402/n/n670630f8bb03", "kind": "achieverBlogs" },
+    { "title": "科目Aは分野別→模試（next-skill-shift）", "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/", "kind": "educationMedia" },
+    { "title": "擬似言語トレース（Tech Teacher）", "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/", "kind": "expertArticles" },
+    { "title": "シラバス対応の最新版を選ぶ（ぴよパス）", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "format",
+          "label": "CBTの科目A・Bと合格基準を確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "科目Aは90分60問、科目Bは100分20問です。どちらも評価点600点が必要で、古い午前・午後の配点感覚は使いません。",
+          "why": "22件中20件が、現行がCBTの科目A・Bであること、両方600点が必要なことを前提にしていました。平成までの午前・午後問題集を主に使うと、科目Bの擬似言語量とセキュリティ比率がずれます。",
+          "tasks": [
+            "科目A 90分60問、科目B 100分20問、休憩最大10分を確認する",
+            "合格は両科目とも1000点中600点以上だと覚える",
+            "持っている教材が「科目A／科目B」対応か、「午前／午後」の旧版でないかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "試験の形式と合格基準",
+              "url": "https://www.fe-siken.com/fekeisiki.html",
+              "note": "時間・問数・600点基準がまとまっています。"
+            },
+            {
+              "label": "IPA パンフレット",
+              "url": "https://www.ipa.go.jp/shiken/about/gmcbt8000000cy3n-att/pamphlet_IP-FE.pdf",
+              "note": "公式の出題数と合格基準です。科目Bはセキュリティ約2割、アルゴリズム約8割です。"
+            }
+          ],
+          "criteria": [
+            "両科目600点が必要なことを説明できる",
+            "手元の本が最新シラバス対応だと確認している"
+          ],
+          "commonMistakes": [
+            "午前・午後の古い過去問本を主教材にする",
+            "科目Aだけ仕上げて科目Bを直前期に残す"
+          ]
+        },
+        {
+          "id": "text",
+          "label": "最新シラバスの参考書を軽く1周する",
+          "required": true,
+          "days": 14,
+          "category": "インプット",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "用語の地図を作るための1周です。ここで完璧に暗記せず、すぐ過去問に入ります。",
+          "why": "22件中19件が、完全未経験ならイラスト多めの総合テキストを1冊通すことを推奨していました。名前が重なったのはキタミ式、いちばんやさしい、出るとこだけの総合版です。精読し過ぎると科目Bのトレース時間が足りなくなる、という注意が複数ありました。",
+          "tasks": [
+            "受験年度対応の総合テキストを1冊決める",
+            "1章読んだら、その章の確認問題だけ解いて次へ進む",
+            "分からない用語は印を付け、過去問で出会ったときに戻る"
+          ],
+          "resources": [
+            {
+              "label": "キタミ式イラストIT塾 基本情報技術者（最新年度）",
+              "url": "https://gihyo.jp/book/2025/978-4-297-15301-4",
+              "note": "技術評論社の初学者向け定番です。科目Aの用語理解に使い、科目Bの演習量は別教材で足します。令和08年版を例にしています。"
+            }
+          ],
+          "criteria": [
+            "総合テキストを1周し、印を付けた用語リストがある",
+            "テキスト精読を止めて、科目Aの過去問に入っている"
+          ],
+          "commonMistakes": [
+            "テキストを2周3周してからでないと問題を解かない",
+            "科目B専用のトレース本を買わずに総合テキストだけで済ませる"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a",
+      "label": "科目A",
+      "nodes": [
+        {
+          "id": "dojo",
+          "label": "過去問道場を分野別から模試へ回す",
+          "required": true,
+          "days": 35,
+          "category": "科目A",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "科目Aの主戦場は無料の過去問道場です。答えの位置を覚えず、解説の理由を取ります。",
+          "why": "22件中21件が、科目Aの中心教材を基本情報技術者試験.comの過去問道場にしていました。共通していた使い方は、最初は分野別で苦手を潰し、後半は模擬試験モードで時間配分を体に入れることです。選択肢シャッフルを使わないと、位置記憶になる、という注意が複数ありました。",
+          "tasks": [
+            "アカウントを作り、学習履歴が残る状態にする",
+            "分野指定でテクノロジ（基礎理論、ネットワーク、セキュリティ、データベースなど）から回す",
+            "間違えた問題は解説を読み、なぜ他の肢がダメかを一言書く",
+            "正答率が低い分野だけ繰り返してから、模擬試験モードを時間どおりに解く"
+          ],
+          "resources": [
+            {
+              "label": "基本情報技術者過去問道場",
+              "url": "https://www.fe-siken.com/fekakomon.php",
+              "note": "無料のWeb問題集です。科目Aの主教材にします。選択肢シャッフルを使います。"
+            }
+          ],
+          "criteria": [
+            "分野別で苦手分野の正答率が上がっている",
+            "模擬試験モードを時間90分で2回以上完走している"
+          ],
+          "commonMistakes": [
+            "解説を読まずに〇×だけ付ける",
+            "選択肢の位置で正解を覚える",
+            "科目Aを完璧にしてから科目Bを始める"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "label": "科目B",
+      "nodes": [
+        {
+          "id": "trace",
+          "label": "擬似言語を紙にトレースする",
+          "required": true,
+          "days": 28,
+          "category": "科目B",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "科目Bはアルゴリズム約8割、セキュリティ約2割です。不合格の多くは、ここのトレース不足でした。",
+          "why": "22件中20件が、科目Bは過去問道場だけでは問題数が足りないと書いていました。名前が重なった対策は、出るとこだけ［科目B］で型を取り、IPAのサンプル問題と公開問題を必ず解くことです。最初は変数の値を紙に書き、条件分岐・ループ・配列・関数を追います。",
+          "tasks": [
+            "出るとこだけ［科目B］で、トレースの手順（変数表の書き方）を1周する",
+            "IPAのサンプル問題と、受験年度の公開問題をすべて解く",
+            "配列・ループ・関数の問題は、1行ずつ値を紙に書いてから選択肢を見る",
+            "セキュリティ問題も公開分を通し、科目Aのセキュリティ分野に戻って用語を補う"
+          ],
+          "resources": [
+            {
+              "label": "情報処理教科書 出るとこだけ！基本情報技術者［科目B］",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798182520",
+              "note": "翔泳社です。擬似言語のトレース手順に特化した定番で、第4版を例にしています。"
+            },
+            {
+              "label": "IPA 科目B サンプル問題",
+              "url": "https://www.ipa.go.jp/shiken/syllabus/ps6vr7000000oett-att/fe_kamoku_b_sample.pdf",
+              "note": "公式の出題イメージです。市販本の前か並行して必ず解きます。"
+            },
+            {
+              "label": "IPA 科目B 公開問題（受験年度）",
+              "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_b_qs.pdf",
+              "note": "本番の一部公開です。道場の科目B問題集と合わせて使い切ります。"
+            }
+          ],
+          "criteria": [
+            "IPAのサンプルと公開問題を、解答根拠付きで解いている",
+            "配列・ループの問題を、紙の変数表なしでも追えるものが増えている"
+          ],
+          "commonMistakes": [
+            "科目Aの過去問だけで科目Bも足りると思う",
+            "擬似言語を目で追うだけで、変数の値を書かない",
+            "公開問題を一度も解かずに本番を迎える"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "cbt",
+          "label": "科目A模試と科目Bトレースを同日のペースで通す",
+          "required": true,
+          "days": 7,
+          "category": "模試",
+          "sourceSupportRate": "16/22（73%）",
+          "description": "本番は同日にA→休憩→Bです。片方だけ元気でも、Bの100分で落ちます。",
+          "why": "22件中16件が、直前期に時間を測った通しを入れていました。CBTの申込はcbt-s.comです。リテイクは前回受験の翌日から30日後、という公式案内もあります。",
+          "tasks": [
+            "科目Aの模擬試験90分の直後に、科目Bの問題を100分相当で解く日を1日作る",
+            "科目Bで時間が足りなかったら、変数表を簡略化する練習を翌日入れる",
+            "申込ページで会場とリテイク間隔を確認して予約する"
+          ],
+          "resources": [
+            {
+              "label": "CBT-Solutions 基本情報技術者",
+              "url": "https://cbt-s.com/examinee/examination/fe",
+              "note": "申込と試験時間、リテイクポリシーの公式案内です。"
+            }
+          ],
+          "criteria": [
+            "AとBを続けて解く練習を1回以上している",
+            "申込日と受験日を決めている"
+          ],
+          "commonMistakes": [
+            "科目Aの正答率だけ見て申し込む",
+            "科目Bの長文を本番で初めて時間どおりに読む"
+          ]
+        }
+      ]
+    }
+  ]
+}

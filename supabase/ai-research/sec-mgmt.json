@@ -1,0 +1,226 @@
+{
+  "id": "ai-sec-mgmt",
+  "researchType": "AI Research",
+  "title": "情報セキュリティマネジメントロードマップ",
+  "summary": "情報セキュリティマネジメント試験の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "情報セキュリティマネジメント試験の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "情シスや業務部門でセキュリティに関わる人。ITパスポート前後でも可",
+  "goal": "情報セキュリティマネジメント試験合格（総合評価点600点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "50〜120時間",
+  "difficulty": "低〜中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["セキュリティ", "IT", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 5,
+    "expertArticles": 5,
+    "official": 5,
+    "educationMedia": 7
+  },
+  "commonPatterns": [
+    { "label": "最新シラバスの参考書を軽く1周する", "rate": 82 },
+    { "label": "科目Aは過去問道場を中心に回す", "rate": 95 },
+    { "label": "科目BはIPA公開問題で事例の読み方を取る", "rate": 91 },
+    { "label": "予想問題より過去問と公開問題を優先する", "rate": 77 },
+    { "label": "120分60問の通しを入れる", "rate": 82 }
+  ],
+  "researchSummary": "合格者の多くは、出るとこだけなど最新対応の参考書をざっと1周したあと、過去問道場で科目Aを回し、科目BはIPAの公開問題と旧午後の事例で読み方を取っていました。試験は科目A48問と科目B12問をあわせて120分、総合600点です。ITパスポート経験者はテキストを短く済ませ、過去問から入る人もいます。道場の予想問題は本番より難しいと感じる声があり、過去問と公開問題を先に仕上げる点が共通しています。学習時間は約50〜120時間です。",
+  "sources": [
+    { "title": "IPA 情報セキュリティマネジメント 出題内容", "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html", "kind": "official" },
+    { "title": "令和8年度 公開問題（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html", "kind": "official" },
+    { "title": "令和8年度 科目A・B 公開問題冊子", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_qs.pdf", "kind": "official" },
+    { "title": "令和8年度 公開問題 解答例", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_ans.pdf", "kind": "official" },
+    { "title": "情報セキュリティマネジメント過去問道場", "url": "https://www.sg-siken.com/sgkakomon.php", "kind": "educationMedia" },
+    { "title": "出るとこだけ！SG テキスト 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194431", "kind": "educationMedia" },
+    { "title": "出るとこだけ！SG 予想＋過去問題集 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194455", "kind": "educationMedia" },
+    { "title": "1ヶ月で一発合格（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
+    { "title": "独学の勉強方法（note）", "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd", "kind": "achieverBlogs" },
+    { "title": "過去問道場の使い方（城咲子）", "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku", "kind": "expertArticles" },
+    { "title": "TAC 公開セミナー資料", "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf", "kind": "educationMedia" },
+    { "title": "CBT申込", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/", "kind": "official" },
+    { "title": "科目A48問・科目B12問（TAC）", "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf", "kind": "educationMedia" },
+    { "title": "公開問題は必ずやる（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
+    { "title": "予想問題は後回し（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
+    { "title": "IT経験者は道場から（note）", "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd", "kind": "achieverBlogs" },
+    { "title": "旧午後を選択肢の根拠に読む（城咲子）", "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku", "kind": "expertArticles" },
+    { "title": "科目Bのトラップ対策（翔泳社）", "url": "https://www.seshop.com/product/detail/27219", "kind": "educationMedia" },
+    { "title": "計算問題の対策（翔泳社問題集）", "url": "https://www.shoeisha.co.jp/book/detail/9784798194455", "kind": "educationMedia" },
+    { "title": "総合600点（IPA）", "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html", "kind": "official" },
+    { "title": "テキスト2周＋道場（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
+    { "title": "SEshop 出るとこだけテキスト", "url": "https://www.seshop.com/product/detail/27219", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "format",
+          "label": "120分60問と総合600点を確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "科目A48問と科目B12問を、一つの120分で解きます。合格は総合評価点600点です。基本情報のように科目別の足切りはありません。",
+          "why": "22件中20件が、令和5年度以降は午前・午後が一体化していることを前提にしていました。科目Bは長文の事例で、時間配分を科目Aだけで使い切ると落ちやすい、という指摘が重なっています。",
+          "tasks": [
+            "科目A48問・科目B12問、合計120分、総合600点だと覚える",
+            "申込がIPAのCBTサイトであることを確認する",
+            "手元の本が科目A・科目B対応か、旧午前・午後のままでないかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "IPA 出題内容",
+              "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html",
+              "note": "科目A・Bの範囲と600点基準の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "120分でAとBをまとめて解くことと、総合600点を説明できる"
+          ],
+          "commonMistakes": [
+            "科目Aだけ解いて科目Bの長文を残す",
+            "基本情報と同じく科目別600点が必要だと思う"
+          ]
+        },
+        {
+          "id": "text",
+          "label": "最新対応の参考書を軽く1周する",
+          "required": true,
+          "days": 10,
+          "category": "インプット",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "用語の地図を作る1周です。ITパスポートや情シス経験がある人は、ここを短くして過去問に入って構いません。",
+          "why": "22件中18件が、いきなり過去問だけだと1問ごとに調べ物が増えると書いていました。名前が重なったのは出るとこだけです。経験者は道場から入る例もあります。",
+          "tasks": [
+            "科目A・B対応のテキストを1冊決める",
+            "1章読んだら確認問題だけ解いて次へ進む",
+            "ISMS、リスクアセスメント、関連法規の見出しは飛ばさない"
+          ],
+          "resources": [
+            {
+              "label": "出るとこだけ！情報セキュリティマネジメント テキスト 2026年版",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194431",
+              "note": "科目Bの読み方と模擬2回分が入ります。Webアプリで科目Aを回せます。"
+            }
+          ],
+          "criteria": [
+            "テキストを1周し、苦手章に印がある"
+          ],
+          "commonMistakes": [
+            "テキストを暗記し切ってから過去問に入る",
+            "用語が全く分からないのに道場だけ回す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "学習",
+      "nodes": [
+        {
+          "id": "kamoku-a",
+          "label": "科目Aは過去問道場を周回する",
+          "required": true,
+          "days": 14,
+          "category": "知識",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "科目Aの主戦場は過去問道場です。分野別から模試へ移し、正解理由まで読みます。",
+          "why": "22件中21件が道場を挙げていました。試験回ごとに解くと成績レポートが使えます。稼働率やIPアドレスなど計算は、問題集の序章で型を取ると早いです。",
+          "tasks": [
+            "分野別で1周し、正答率が低い分野に印を付ける",
+            "間違えた問題は、正解と誤選択肢の両方を説明できるようにする",
+            "計算問題は公式を書き出してから解く"
+          ],
+          "resources": [
+            {
+              "label": "情報セキュリティマネジメント過去問道場",
+              "url": "https://www.sg-siken.com/sgkakomon.php",
+              "note": "過去問と公開問題が中心です。予想問題は後回しで構いません。"
+            },
+            {
+              "label": "出るとこだけ！予想＋過去問題集 2026年版",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194455",
+              "note": "計算の解き方と公開問題がまとまっています。テキストとページが対応します。"
+            }
+          ],
+          "criteria": [
+            "過去問を分野別で1周以上している",
+            "計算の型（稼働率・IP）を紙に書ける"
+          ],
+          "commonMistakes": [
+            "予想問題から入って難しく感じ、過去問を残す",
+            "正解だけ見て解説を読まない"
+          ]
+        },
+        {
+          "id": "kamoku-b",
+          "label": "科目Bは公開問題で事例の読み方を取る",
+          "required": true,
+          "days": 7,
+          "category": "事例",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "科目Bは情報資産管理やリスク対応の長文です。設問を先に読み、本文の過不足を選択肢と突き合わせます。",
+          "why": "22件中20件が、科目Aの知識だけでは科目Bが安定しないと書いていました。IPAの公開問題と、テキストの科目B対策（下から読む、時系列で整理する）が重なっています。",
+          "tasks": [
+            "令和5年度以降の公開問題を、時間を意識して解く",
+            "設問を先に読み、本文の該当箇所に線を引く",
+            "旧午後の過去問は、論点の確認用に読む"
+          ],
+          "resources": [
+            {
+              "label": "IPA 令和8年度 公開問題",
+              "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html",
+              "note": "本番に出た問題の一部です。科目Bの雰囲気合わせに使います。"
+            }
+          ],
+          "criteria": [
+            "公開問題の科目Bを1セット以上、解説まで読んでいる",
+            "設問先読みの手順を自分で再現できる"
+          ],
+          "commonMistakes": [
+            "本文を最初から丁寧に読み、時間切れになる",
+            "科目Aの正答率だけで受験する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "120分60問の通しを入れる",
+          "required": true,
+          "days": 3,
+          "category": "模試",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "科目Aに時間を使い過ぎないよう、通しで配分を体に入れます。",
+          "why": "22件中18件が、模試形式かテキスト付属の模擬を1回以上入れると書いていました。直前期は新しい予想問題を足さず、誤答のやり直しが中心です。",
+          "tasks": [
+            "120分で60問を1回通す",
+            "科目Bに少なくとも30分残せるかを確認する",
+            "間違えた問題だけ道場とテキストに戻る"
+          ],
+          "resources": [
+            {
+              "label": "テキスト巻末の模擬問題",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194431",
+              "note": "科目A48問・科目B12問が2回分あります。Webアプリでも科目Aを回せます。"
+            }
+          ],
+          "criteria": [
+            "120分の通しが1回以上ある",
+            "科目Bを最後まで解けている"
+          ],
+          "commonMistakes": [
+            "科目Aで時間を使い切り、科目Bを勘で塗る",
+            "直前期に予想問題だけを増やす"
+          ]
+        }
+      ]
+    }
+  ]
+}

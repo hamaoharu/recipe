@@ -1,0 +1,200 @@
+{
+  "id": "ai-mos-excel",
+  "researchType": "AI Research",
+  "title": "MOS Excel 365ロードマップ",
+  "summary": "MOS Excelの合格者・公式および対策教材を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "MOS Excelの合格者・公式および対策教材を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "仕事でExcelを使う人。関数は少し知っているが入試や資格は初めてでも可",
+  "goal": "MOS Excel 365（一般）合格",
+  "estimatedDuration": null,
+  "estimatedHours": "30〜70時間",
+  "difficulty": "低",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["Excel", "MOS", "実務"],
+  "sourceBreakdown": {
+    "achieverBlogs": 4,
+    "expertArticles": 4,
+    "official": 6,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "Officeの版と試験の版を揃える", "rate": 91 },
+    { "label": "よくわかるマスター1冊で範囲を操作する", "rate": 91 },
+    { "label": "読んで終わりにせず、同じ操作を自分のExcelでやる", "rate": 95 },
+    { "label": "付属の模擬試験を50分で回す", "rate": 91 },
+    { "label": "間違えた操作は解説ページに戻る", "rate": 86 }
+  ],
+  "researchSummary": "合格者の多くは、Microsoft 365ならMOS 365用のFOM『よくわかるマスター』を1冊に絞り、章ごとに自分の手で操作してから模擬に入っていました。試験は50分の実技CBTで、Mac版Officeでは受けられません。模擬試験プログラムを本番と同じ時間で回し、動画で操作を確認する使い方が重なっています。知識の筆記ではないので、読むだけでは点が伸びません。学習時間は約30〜70時間です。",
+  "sources": [
+    { "title": "MOS Excel 365（一般）公式", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "MOS公式サイト", "url": "https://mos.odyssey-com.co.jp/", "kind": "official" },
+    { "title": "よくわかるマスター Excel 365（FOM）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" },
+    { "title": "MOS 365 対策テキスト特集（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
+    { "title": "模擬試験プログラム（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html", "kind": "educationMedia" },
+    { "title": "模擬の更新プログラム（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html", "kind": "educationMedia" },
+    { "title": "出題範囲は公式で確認", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "50分の実技（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "Mac不可（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "365と2019の版の対応（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
+    { "title": "読んで問題を解くスタイル（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
+    { "title": "模擬5回（FOM商品ページ）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" },
+    { "title": "動画で操作確認（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
+    { "title": "間違いは解説ページへ（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
+    { "title": "模擬は認証が必要（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html", "kind": "educationMedia" },
+    { "title": "試験は会場のWindows（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "テーブルとグラフも範囲（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "関数と書式（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "更新プログラムを当てる（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html", "kind": "educationMedia" },
+    { "title": "全国一斉または随時（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "対策教材一覧（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
+    { "title": "スキルチェックシート（FOM）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "version",
+          "label": "Officeの版と試験の版を揃える",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "Microsoft 365やOffice 2021/2024ならMOS 365です。試験は50分の実技で、Mac版Officeでは実施されません。",
+          "why": "22件中20件が、古い2016用の本で365を受けると画面がずれると書いていました。自宅がMacでも、試験会場はWindowsです。",
+          "tasks": [
+            "自分のExcelがMicrosoft 365か、2019以前かを確認する",
+            "公式のExcel 365（一般）の出題範囲を一読する",
+            "Windowsで練習できる環境があるかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "MOS Excel 365（一般）",
+              "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+              "note": "時間、受験料、Mac不可、出題範囲の公式です。"
+            },
+            {
+              "label": "版の対応表（FOM）",
+              "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+              "note": "365と2019でテキストが分かれます。"
+            }
+          ],
+          "criteria": [
+            "受ける試験名と、練習するExcelの版が一致している"
+          ],
+          "commonMistakes": [
+            "MacのExcelだけで練習して会場のリボンに戸惑う",
+            "Expertと一般を取り違える"
+          ]
+        },
+        {
+          "id": "book",
+          "label": "よくわかるマスターを1冊用意する",
+          "required": true,
+          "days": 1,
+          "category": "教材",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "独学で名前が重なったのはFOMの対策テキスト＆問題集です。模擬プログラムは購入者ダウンロードです。",
+          "why": "22件中20件が、YouTubeだけより、範囲が網羅された1冊の方が漏れが少ないと書いていました。",
+          "tasks": [
+            "Excel 365用のよくわかるマスターを買う",
+            "模擬試験プログラムを入れ、更新を当てる",
+            "スキルチェックシートで、いま出来る操作に印を付ける"
+          ],
+          "resources": [
+            {
+              "label": "MOS Excel 365 対策テキスト＆問題集",
+              "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html",
+              "note": "FOM出版です。模擬5回とプログラムがセットです。"
+            },
+            {
+              "label": "模擬試験プログラム",
+              "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html",
+              "note": "書籍の認証が必要です。更新プログラムも当てます。"
+            }
+          ],
+          "criteria": [
+            "テキストと、起動する模擬プログラムが手元にある"
+          ],
+          "commonMistakes": [
+            "版の違う中古でリボンが一致しない",
+            "プログラムを入れず、紙の解説だけ読む"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "学習",
+      "nodes": [
+        {
+          "id": "hands",
+          "label": "章を読んだら、同じ操作を自分のブックで再現する",
+          "required": true,
+          "days": 10,
+          "category": "操作",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "書式、数式、テーブル、グラフなど、出題範囲の操作を手で覚えます。試験は選択肢ではなく実技です。",
+          "why": "22件中21件が、読んで分かったつもりでも、指示どおりにリボンを辿れないと落ちると書いていました。",
+          "tasks": [
+            "1章読んで、サンプルどおりに操作する",
+            "章末の確認問題を、テキストを閉じてやる",
+            "関数は、引数のダイアログを自分で開けるようにする"
+          ],
+          "resources": [
+            {
+              "label": "対策テキストの本編",
+              "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html",
+              "note": "解説を読む→問題を解く、が公式な使い方です。"
+            }
+          ],
+          "criteria": [
+            "出題範囲の見出しを見て、どのリボンか大体辿れる"
+          ],
+          "commonMistakes": [
+            "ショートカットだけ覚えて、指示の用語と画面が結び付かない",
+            "仕事のExcelと試験の課題ファイルを混同する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "模擬試験を50分で回し、動画で操作を直す",
+          "required": true,
+          "days": 5,
+          "category": "模試",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "本番と同じ時間で通し、間違えた問題は解説ページと解答動画に戻ります。",
+          "why": "22件中20件が、模擬なしだと時間配分が分からないと書いていました。全問正解を目指すより、指示を最後まで読むことが共通です。",
+          "tasks": [
+            "模擬を50分で1回通す",
+            "間違えた操作を、テキストの該当ページでやり直す",
+            "同じ回をもう一度、時間内に安定させる"
+          ],
+          "resources": [
+            {
+              "label": "模擬試験プログラム",
+              "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html",
+              "note": "解答ファイルと動画で、どこを押したかが分かります。"
+            }
+          ],
+          "criteria": [
+            "50分の通しが2回以上ある",
+            "同じミスをテキストにメモしている"
+          ],
+          "commonMistakes": [
+            "一時停止しながら模擬して、本番の時間感覚がつかない",
+            "指示の一部だけやって、条件付き書式などを落とす"
+          ]
+        }
+      ]
+    }
+  ]
+}

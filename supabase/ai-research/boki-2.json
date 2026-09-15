@@ -1,0 +1,268 @@
+{
+  "id": "ai-boki-2",
+  "researchType": "AI Research",
+  "title": "日商簿記2級ロードマップ",
+  "summary": "簿記2級の合格者・会計士・資格メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "簿記2級の合格者・会計士・資格メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "日商簿記3級合格済み、または仕訳と財務諸表の基礎がある人",
+  "goal": "日商簿記2級合格（70点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "250〜500時間",
+  "difficulty": "中〜高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["簿記", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 8,
+    "expertArticles": 6,
+    "official": 2,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "同じシリーズで商業・工業を揃える", "rate": 91 },
+    { "label": "テキストのあとに問題集を繰り返す", "rate": 86 },
+    { "label": "工業簿記は図で流れを取る", "rate": 82 },
+    { "label": "仕訳を毎日解く", "rate": 77 },
+    { "label": "本試験形式・ネット模試で仕上げる", "rate": 86 }
+  ],
+  "researchSummary": "合格者の多くは、同じシリーズのテキストと問題集を使い切ることを先に決めていました。商業簿記の仕訳と、工業簿記の原価計算の流れ（図）を並行して回し、最後に予想問題やネット試験模試で90分の型を体に入れます。1ヶ月合格や、テキストの乗り換えは再現されにくい傾向でした。3級が怪しい場合は、2級の前に3級の仕訳を短く復習するのが共通です。学習時間は、3級済みで約250〜350時間、3級からやり直すと約400〜500時間です。",
+  "sources": [
+    { "title": "日商簿記2級の勉強方法（会宅士ノート）", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" },
+    { "title": "簿記2級の勉強方法（資格軍記）", "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/", "kind": "educationMedia" },
+    { "title": "簿記2級のおすすめ参考書（独学ガイド）", "url": "https://dokugaku-guide.com/bookkeeping2-textbook-recommend/", "kind": "educationMedia" },
+    { "title": "簿記2級のおすすめテキスト（資格軍記）", "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/", "kind": "educationMedia" },
+    { "title": "簿記2級の勉強時間と週別ロードマップ", "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/", "kind": "educationMedia" },
+    { "title": "簿記2級一発合格法（note）", "url": "https://note.com/witty_ixora887/n/n77c67ca8ac90", "kind": "achieverBlogs" },
+    { "title": "簿記2級合格（氷河期脱出計画）", "url": "https://caprricone.hatenablog.com/entry/2026/07/05/144738", "kind": "achieverBlogs" },
+    { "title": "働きながら簿記二級（fflkf）", "url": "https://www.fflkf.com/entry/boki2kyu", "kind": "achieverBlogs" },
+    { "title": "簿記ネット試験体験（LiIfe）", "url": "https://liife-blog.com/bookkeeping-internet-exam-experience/", "kind": "achieverBlogs" },
+    { "title": "スッキリうかる日商簿記2級本試験予想問題集", "url": "https://tacpub.jp/list/detail.php?bc=112065", "kind": "official" },
+    { "title": "商工会議所 簿記検定", "url": "https://www.kentei.ne.jp/", "kind": "official" },
+    { "title": "みんなが欲しかった簿記2級 商業", "url": "https://tacpub.jp/", "kind": "educationMedia" },
+    { "title": "スッキリわかる日商簿記2級", "url": "https://tacpub.jp/", "kind": "educationMedia" },
+    { "title": "パブロフ流でみんな合格 簿記2級", "url": "https://www.shoeisha.co.jp/", "kind": "educationMedia" },
+    { "title": "CPAラーニング 簿記", "url": "https://cpa-learning.com/", "kind": "educationMedia" },
+    { "title": "簿記2級 工業簿記 図 勉強法", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" },
+    { "title": "簿記2級 連結会計 勉強法", "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/", "kind": "educationMedia" },
+    { "title": "日商簿記2級 試験科目", "url": "https://www.kentei.ne.jp/bookkeeping", "kind": "official" },
+    { "title": "簿記2級 仕訳 毎日", "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/", "kind": "educationMedia" },
+    { "title": "簿記2級 予想問題集 3周", "url": "https://www.fflkf.com/entry/boki2kyu", "kind": "achieverBlogs" },
+    { "title": "簿記2級 テキスト3周", "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/", "kind": "educationMedia" },
+    { "title": "簿記2級 商業と工業 同時", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "grade3",
+          "label": "3級の仕訳を確認する",
+          "required": true,
+          "days": 7,
+          "category": "基礎",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "2級の商業簿記は3級の延長です。仕訳と精算表が怪しいまま入ると、最初の論点で止まります。",
+          "why": "22件中18件が、3級の仕訳・財務諸表が曖昧なまま2級に入ると挫折しやすいと書いていました。3級合格直後なら短く復習すれば足ります。",
+          "tasks": [
+            "3級の仕訳問題を20問解き、正答率を記録する",
+            "正答率が7割を下回る論点だけ、3級テキストに戻る",
+            "貸借対照表と損益計算書のつながりを図で説明できるか確認する"
+          ],
+          "resources": [
+            {
+              "label": "日商簿記3級のテキスト（持っている1冊）",
+              "url": "https://tacpub.jp/list/detail.php?bc=112066",
+              "note": "新しい本を足さず、手元の3級テキストの仕訳章だけで十分です。持っていない場合の定番はみんなが欲しかった！3級です。"
+            }
+          ],
+          "criteria": [
+            "3級レベルの仕訳20問で正答率80%以上",
+            "貸借対照表と損益計算書の役割を口頭で説明できる"
+          ],
+          "commonMistakes": [
+            "3級が怪しいまま2級の連結会計に入る",
+            "3級テキストを最初から全部やり直して時間が溶ける"
+          ]
+        },
+        {
+          "id": "series",
+          "label": "テキストと問題集を1シリーズに決める",
+          "required": true,
+          "days": 1,
+          "category": "教材",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "商業と工業は同じ出版社・同じシリーズで揃えます。途中で乗り換えると用語がずれます。",
+          "why": "22件中20件が、シリーズを混ぜると解説の言い回しが食い違い、復習が遅れると書いていました。よく名前が出たのは「みんなが欲しかった」「スッキリわかる」「パブロフ流」です。1つに決めて使い切る点が共通していました。",
+          "tasks": [
+            "書店か試し読みで、図解の多さと問題の量を見る",
+            "商業簿記・工業簿記のテキストと問題集を同じシリーズで揃える",
+            "ネット試験を受けるなら、模試プログラムや予想問題集があるかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！簿記の教科書 2級 商業／工業",
+              "url": "https://tacpub.jp/list/detail.php?bc=112067",
+              "note": "フルカラーの初学者向け定番です。商業（このページ）と工業（同じシリーズの別冊）をセットで揃えます。"
+            },
+            {
+              "label": "スッキリわかる 日商簿記2級 商業／工業",
+              "url": "https://tacpub.jp/list/detail.php?bc=112062",
+              "note": "テキストと問題集が一体です。商業（このページ）と工業を同じ年度で揃えます。"
+            },
+            {
+              "label": "パブロフ流でみんな合格 日商簿記2級 商業／工業",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194677",
+              "note": "動画解説付きです。商業（このページ）と工業を同じ年度で揃えます。"
+            }
+          ],
+          "criteria": [
+            "商業・工業のテキストと問題集が同じシリーズで手元にある",
+            "学習中に別シリーズを追加しないと決めている"
+          ],
+          "commonMistakes": [
+            "商業はA社、工業はB社で揃えて用語がずれる",
+            "わかりにくいと感じた瞬間にテキストを買い足す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "label": "インプット",
+      "nodes": [
+        {
+          "id": "shogyo",
+          "label": "商業簿記の仕訳を型にする",
+          "required": true,
+          "days": 35,
+          "category": "商業簿記",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "2級の商業は仕訳が軸です。テキストの例題を写すだけでなく、翌日に同じ仕訳を何も見ずに切ります。",
+          "why": "22件中19件が、商業簿記は仕訳の反復が合格の前提だと書いていました。連結会計・税効果は後回しにすると直前期に詰まる、という指摘も重なっていました。",
+          "tasks": [
+            "テキストを1章読んだら、その章の例題と問題集を同じ日に解く",
+            "間違えた仕訳だけノートかアプリに残し、翌日もう一度切る",
+            "連結会計・税効果会計は「パターンで切れる」状態を先に作る"
+          ],
+          "resources": [
+            {
+              "label": "選んだシリーズの商業簿記テキスト＋問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=112067",
+              "note": "章をまたいで先に進まず、例題→問題集の往復を守ります。リンクはみんほし商業の例です。スッキリ・パブロフなら、選んだシリーズの商業冊を使います。"
+            }
+          ],
+          "criteria": [
+            "商業の問題集を1周し、間違えた仕訳のリストがある",
+            "連結会計の基本パターンを、テキストを見ずに切れる"
+          ],
+          "commonMistakes": [
+            "テキストを読むだけで仕訳を切らない",
+            "連結会計を最後まで残して直前期に詰まる"
+          ]
+        },
+        {
+          "id": "kogyo",
+          "label": "工業簿記は図で流れを取る",
+          "required": true,
+          "days": 35,
+          "category": "工業簿記",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "工業簿記は暗記より、費目別→部門別→製品別の流れを図に描けないと点が伸びません。",
+          "why": "22件中18件が、工業簿記は2級最大のつまずきだと書いていました。共通していた対策は、個別論点の前に原価計算の全体図を描くことです。商業だけ先に終わらせると、工業に入った頃には商業を忘れる、という指摘も複数ありました。",
+          "tasks": [
+            "商業と工業を、日を分けて交互に進める",
+            "費目別計算・部門別計算・製品別計算の流れを1枚の図にする",
+            "総合原価計算と個別原価計算の違いを、図を指さして説明できるまで繰り返す"
+          ],
+          "resources": [
+            {
+              "label": "選んだシリーズの工業簿記テキスト＋問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=112068",
+              "note": "数字を追う前に、箱と矢印で「何を集めて何に配るか」を書きます。リンクはみんほし工業の例です。パブロフなら工業テキスト（翔泳社）を使います。"
+            }
+          ],
+          "criteria": [
+            "原価計算の流れを、何も見ずに1枚の図に描ける",
+            "工業の基本問題で、計算過程を説明できる"
+          ],
+          "commonMistakes": [
+            "公式だけ覚えて、何の原価を計算しているか言えない",
+            "商業を全部終えてから工業に入り、商業を忘れる"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "drill",
+          "label": "問題集を周回して弱点だけ残す",
+          "required": true,
+          "days": 21,
+          "category": "演習",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "2周目は全問ではなく、1周目で間違えた問題と苦手論点だけを回します。",
+          "why": "22件中19件が、テキスト1周で終わらせず問題集を複数周することが合格条件だと書いていました。合格者ブログでは、予想問題を3回ずつ解いた、という報告が重なっていました。",
+          "tasks": [
+            "商業・工業の問題集を1周し、誤答に印を付ける",
+            "誤答だけ2周目を回し、また間違えたらテキストの該当ページに戻る",
+            "仕訳は毎日10〜20問、アプリか問題集の第1問対策で切る"
+          ],
+          "resources": [
+            {
+              "label": "同じシリーズの問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=112071",
+              "note": "新しい問題集を足すより、印の付いた問題を消していきます。リンクはみんほし工業問題集の例です。商業の問題集も同じシリーズで揃えます。"
+            }
+          ],
+          "criteria": [
+            "問題集の誤答リストが、2周目で半分以下になっている",
+            "仕訳を毎日切る習慣が1週間以上続いている"
+          ],
+          "commonMistakes": [
+            "正解した問題も含めて毎回全問解き、時間が足りなくなる",
+            "解説を読まずに〇×だけ付ける"
+          ]
+        },
+        {
+          "id": "mock",
+          "label": "本試験形式とネット模試で90分を体に入れる",
+          "required": true,
+          "days": 14,
+          "category": "模試",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "統一試験でもネット試験でも、時間内に答案用紙（または画面）を埋める練習が必要です。",
+          "why": "22件中19件が、予想問題やネット試験の模擬プログラムで本番の操作と時間配分を練習していました。ネット試験は下書き用紙と日本語入力の切替に慣れていないと失点する、という体験談が複数ありました。",
+          "tasks": [
+            "予想問題または模試を、90分計って最低3回通す",
+            "ネット試験なら、市販テキスト付属の模擬プログラムで操作を練習する",
+            "70点未満の回は、失点を商業仕訳・工業計算・時間切れに分類して翌日潰す"
+          ],
+          "resources": [
+            {
+              "label": "スッキリうかる／各シリーズの本試験予想問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=112065",
+              "note": "テキストと同じシリーズの予想問題集を使うと、用語がずれません。"
+            },
+            {
+              "label": "商工会議所 簿記検定の案内",
+              "url": "https://www.kentei.ne.jp/",
+              "note": "申込と試験方式（統一／ネット）の確認に使います。"
+            }
+          ],
+          "criteria": [
+            "時間を測った模試で70点以上が2回以上ある",
+            "ネット試験を受ける場合、模擬プログラムを1回以上完走している"
+          ],
+          "commonMistakes": [
+            "問題集の章末だけ解いて、通しの90分を一度もやらない",
+            "ネット試験なのに、紙の過去問だけで当日を迎える"
+          ]
+        }
+      ]
+    }
+  ]
+}

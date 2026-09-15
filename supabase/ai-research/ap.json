@@ -1,0 +1,212 @@
+{
+  "id": "ai-ap",
+  "researchType": "AI Research",
+  "title": "応用情報技術者ロードマップ",
+  "summary": "応用情報技術者の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "応用情報技術者の合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "基本情報技術者に合格した人、またはITの実務で用語が通じる人",
+  "goal": "応用情報技術者試験合格（科目A・科目Bとも60点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "200〜300時間",
+  "difficulty": "中〜高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["応用情報", "IT", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 4,
+    "expertArticles": 6,
+    "official": 5,
+    "educationMedia": 7
+  },
+  "commonPatterns": [
+    { "label": "科目Aは過去問道場を中心に回す", "rate": 91 },
+    { "label": "科目Bの記述を中盤から毎週書く", "rate": 91 },
+    { "label": "科目Bの問1セキュリティは必須として先に取る", "rate": 86 },
+    { "label": "得意分野を5〜6個に絞って選択する", "rate": 82 },
+    { "label": "基本情報合格者はテキスト通読より過去問から入る", "rate": 77 }
+  ],
+  "researchSummary": "合格者の多くは、科目A（旧午前）は過去問の反復、科目B（旧午後）は答案を自分で書く練習、という分担でした。合否は記述の仕上がりで分かれやすく、学習時間のおよそ6割を科目Bに置く設計が重なっています。問1の情報セキュリティは必須なので、選択分野より先に型を取ります。2026年度はCBTの前期・後期ですが、出題形式と時間は従来どおりです。基本情報合格者なら約200〜300時間、未経験から始めると約400〜500時間まで見ます。このロードマップは前者を対象にしています。",
+  "sources": [
+    { "title": "IPA 応用情報技術者試験", "url": "https://www.ipa.go.jp/shiken/kubun/ap.html", "kind": "official" },
+    { "title": "令和8年度の実施予定（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
+    { "title": "令和7年度 問題冊子・解答例（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html", "kind": "official" },
+    { "title": "応用情報技術者過去問道場", "url": "https://www.ap-siken.com/apkakomon.php", "kind": "educationMedia" },
+    { "title": "令和08年 応用情報技術者 合格教本", "url": "https://direct.gihyo.jp/view/item/000000003962", "kind": "educationMedia" },
+    { "title": "情報処理教科書 応用情報 テキスト＆問題集 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194424", "kind": "educationMedia" },
+    { "title": "応用情報の勉強時間（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
+    { "title": "TAC 応用情報の勉強方法", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
+    { "title": "応用情報は独学で合格できる？（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
+    { "title": "おすすめ参考書と勉強法（プロエンジニア）", "url": "https://proengineer.internous.co.jp/content/columnfeature/3812", "kind": "expertArticles" },
+    { "title": "午後問1 情報セキュリティ（試験.com）", "url": "https://www.ap-siken.com/kakomon/06_haru/pm01.html", "kind": "educationMedia" },
+    { "title": "基本情報合格者は過去問から（TAC）", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
+    { "title": "午前4割・午後6割（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
+    { "title": "科目名称の変更（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
+    { "title": "過去問の再出題（TAC）", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
+    { "title": "午後は答案を書く（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
+    { "title": "選択分野を絞る（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
+    { "title": "IPA公式PDFで学ぶ（プロエンジニア）", "url": "https://proengineer.internous.co.jp/content/columnfeature/3812", "kind": "expertArticles" },
+    { "title": "出題形式は変更なし（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
+    { "title": "合格教本で調べ物（技術評論社）", "url": "https://direct.gihyo.jp/view/item/000000003962", "kind": "educationMedia" },
+    { "title": "直近4回を時間どおり（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
+    { "title": "記述は直前詰め込みが効きにくい（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "format",
+          "label": "科目A・Bの時間と合格基準を確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "科目Aは150分80問の四肢択一、科目Bは150分で11問中5問の記述です。どちらも100点中60点が必要です。",
+          "why": "22件中20件が、午前・午後の名前が科目A・Bに変わっても、問数と時間は同じだと前提にしていました。2026年度はCBTの前期・後期です。基本情報の科目B（擬似言語）とは別物です。",
+          "tasks": [
+            "科目A 80問150分、科目B 11問中5問150分、両方60点以上だと覚える",
+            "科目Bの問1が情報セキュリティの必須だと確認する",
+            "手元の本が現行の出題に対応しているかを確認する"
+          ],
+          "resources": [
+            {
+              "label": "IPA 応用情報技術者試験",
+              "url": "https://www.ipa.go.jp/shiken/kubun/ap.html",
+              "note": "時間・問数・対象者像の公式案内です。"
+            },
+            {
+              "label": "令和8年度の実施予定",
+              "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html",
+              "note": "CBT化と科目名称の変更、出題範囲は変わらないことが書いてあります。"
+            }
+          ],
+          "criteria": [
+            "両方60点が必要なことと、問1が必須であることを説明できる"
+          ],
+          "commonMistakes": [
+            "基本情報の科目B対策本を応用情報の記述対策だと思う",
+            "科目Aだけ仕上げて記述を直前期に残す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "am",
+      "label": "科目A",
+      "nodes": [
+        {
+          "id": "kakomon-a",
+          "label": "科目Aは過去問道場を周回する",
+          "required": true,
+          "days": 28,
+          "category": "知識",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "基本情報合格者はテキストの通読より、過去問で穴を見つけて教科書に戻る方が速い、という指摘が重なっていました。",
+          "why": "22件中20件が、科目Aは過去問の流用と類題が多いと書いていました。正解だけでなく、誤選択肢がどの場面の話かも説明できるまで繰り返します。わからない論点だけ合格教本で調べます。",
+          "tasks": [
+            "過去問道場を分野別で1周し、正答率が低い分野に印を付ける",
+            "間違えた問題は、正解と誤選択肢の両方を自分の言葉で言い直す",
+            "用語が浮かばないときだけ、合格教本の該当章を読む"
+          ],
+          "resources": [
+            {
+              "label": "応用情報技術者過去問道場",
+              "url": "https://www.ap-siken.com/apkakomon.php",
+              "note": "科目A（旧午前）の反復用です。選択肢シャッフルがあると暗記になりにくいです。"
+            },
+            {
+              "label": "令和08年 応用情報技術者 合格教本",
+              "url": "https://direct.gihyo.jp/view/item/000000003962",
+              "note": "調べる教科書です。最初から通読する必要はありません。DEKIDAS-Webが付きます。"
+            }
+          ],
+          "criteria": [
+            "分野別で弱い領域のメモがある",
+            "直近数年の科目Aを、解説を読んで2周以上している"
+          ],
+          "commonMistakes": [
+            "教科書を全部読んでから過去問に入る",
+            "正解番号だけ覚えて、誤選択肢を読まない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pm",
+      "label": "科目B",
+      "nodes": [
+        {
+          "id": "sec",
+          "label": "問1の情報セキュリティを先に取る",
+          "required": true,
+          "days": 10,
+          "category": "記述",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "科目Bの問1は情報セキュリティの必須です。選択分野より先に、設問の読み方と字数の感覚を作ります。",
+          "why": "22件中19件が、問1を落として選択問題で挽回する設計は危ないと書いていました。ゼロトラストやインシデント対応など、事例の要点を短く書く練習が共通しています。",
+          "tasks": [
+            "直近数年の問1を、解答例を見る前に自分で書く",
+            "採点講評で、求められている字数と観点を確認する",
+            "同じ問題を、講評の言葉で書き直す"
+          ],
+          "resources": [
+            {
+              "label": "IPA 問題冊子・解答例・採点講評",
+              "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html",
+              "note": "公式の解答例と講評です。書き方の基準に使います。"
+            },
+            {
+              "label": "午後問1の解説（試験.com）",
+              "url": "https://www.ap-siken.com/kakomon/06_haru/pm01.html",
+              "note": "事例の読み方を日本語で追う補助です。公式PDFとセットで使います。"
+            }
+          ],
+          "criteria": [
+            "問1を時間を測って3回以上書いている",
+            "講評の観点で、自分の答案の抜けを指摘できる"
+          ],
+          "commonMistakes": [
+            "問1を読んだだけで書かず、選択分野の暗記に逃げる",
+            "解答例を写してできた気になる"
+          ]
+        },
+        {
+          "id": "choice",
+          "label": "得意分野を5〜6個に絞って毎週書く",
+          "required": true,
+          "days": 28,
+          "category": "記述",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "本番は必須1問＋選択4問です。プログラミング、データベース、ネットワークなど、書ける分野を先に固定します。",
+          "why": "22件中18件が、全分野を浅く読むより、書ける分野を厚くすると書いていました。記述は中盤から毎週続けないと、直前の詰め込みが効きにくい、という指摘が重なっています。",
+          "tasks": [
+            "自分が答案を書けそうな分野を5〜6個決める",
+            "各分野の過去問を、時間を測って自分の言葉で書く",
+            "書けなかった設問だけ、教科書の該当章に戻る"
+          ],
+          "resources": [
+            {
+              "label": "情報処理教科書 応用情報 テキスト＆問題集",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194424",
+              "note": "午後の演習と解説が1冊に入っています。選択分野の型取りに使います。"
+            },
+            {
+              "label": "応用情報技術者過去問道場（午後）",
+              "url": "https://www.ap-siken.com/apkakomon.php",
+              "note": "分野を指定して回せます。答案は別紙に書いてから解説を開きます。"
+            }
+          ],
+          "criteria": [
+            "選択予定の分野で、自分の答案が各2問以上ある",
+            "150分で5問を選んで書き切る通しが1回以上ある"
+          ],
+          "commonMistakes": [
+            "解説を読むだけで答案を書かない",
+            "苦手分野を試験当日に初めて選ぶ"
+          ]
+        }
+      ]
+    }
+  ]
+}

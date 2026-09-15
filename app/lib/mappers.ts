@@ -19,6 +19,18 @@ export type RoadmapRow = {
     views: number;
     total_days: number;
     created_at: string;
+    is_ai_research?: boolean | null;
+    target_user?: string | null;
+    goal?: string | null;
+    estimated_duration?: string | null;
+    estimated_hours?: string | null;
+    difficulty?: string | null;
+    source_count?: number | null;
+    confidence?: number | null;
+    source_breakdown?: Roadmap["sourceBreakdown"];
+    common_patterns?: Roadmap["commonPatterns"];
+    research_summary?: string | null;
+    sources?: Roadmap["sources"];
 };
 
 export function toRoadmap(row: RoadmapRow): Roadmap {
@@ -38,6 +50,18 @@ export function toRoadmap(row: RoadmapRow): Roadmap {
         views: row.views,
         totalDays: row.total_days,
         createdAt: row.created_at.slice(0, 10),
+        isAiResearch: Boolean(row.is_ai_research),
+        targetUser: row.target_user ?? null,
+        goal: row.goal ?? null,
+        estimatedDuration: row.estimated_duration ?? null,
+        estimatedHours: row.estimated_hours ?? null,
+        difficulty: row.difficulty ?? null,
+        sourceCount: row.source_count ?? null,
+        confidence: row.confidence ?? null,
+        sourceBreakdown: row.source_breakdown ?? null,
+        commonPatterns: row.common_patterns ?? null,
+        researchSummary: row.research_summary ?? null,
+        sources: Array.isArray(row.sources) ? row.sources : null,
     };
 }
 
@@ -104,6 +128,11 @@ export type RoadmapDetailRow = {
     description: string;
     resources: DetailResource[] | null;
     criteria: (string | { text: string })[] | null;
+    why?: string | null;
+    tasks?: string[] | null;
+    common_mistakes?: string[] | null;
+    source_support_rate?: string | null;
+    category?: string | null;
 };
 
 export function toDetailItem(row: RoadmapDetailRow): DetailItem {
@@ -113,6 +142,11 @@ export function toDetailItem(row: RoadmapDetailRow): DetailItem {
         description: row.description,
         resources: Array.isArray(row.resources) ? row.resources : [],
         criteria: Array.isArray(row.criteria) ? row.criteria : [],
+        why: row.why ?? null,
+        tasks: Array.isArray(row.tasks) ? row.tasks : [],
+        commonMistakes: Array.isArray(row.common_mistakes) ? row.common_mistakes : [],
+        sourceSupportRate: row.source_support_rate ?? null,
+        category: row.category ?? null,
     };
 }
 

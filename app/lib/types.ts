@@ -4,7 +4,26 @@ export type Author = {
   initial: string;
 };
 
-// 一覧・カード用（地図データは含まない）
+export type ResearchPattern = {
+  label: string;
+  rate: number;
+};
+
+export type SourceBreakdown = {
+  achieverBlogs?: number;
+  expertArticles?: number;
+  official?: number;
+  educationMedia?: number;
+  youtube?: number;
+  reddit?: number;
+};
+
+export type ResearchSource = {
+  title: string;
+  url: string | null;
+  kind: string;
+};
+
 export type Roadmap = {
   id: string;
   title: string;
@@ -15,6 +34,18 @@ export type Roadmap = {
   views: number;
   totalDays: number;
   createdAt: string;
+  isAiResearch: boolean;
+  targetUser: string | null;
+  goal: string | null;
+  estimatedDuration: string | null;
+  estimatedHours: string | null;
+  difficulty: string | null;
+  sourceCount: number | null;
+  confidence: number | null;
+  sourceBreakdown: SourceBreakdown | null;
+  commonPatterns: ResearchPattern[] | null;
+  researchSummary: string | null;
+  sources: ResearchSource[] | null;
 };
 
 export type RoadmapNode = {
@@ -44,11 +75,15 @@ export type DetailItem = {
   description: string;
   resources: DetailResource[];
   criteria: DetailCriterion[];
+  why: string | null;
+  tasks: string[];
+  commonMistakes: string[];
+  sourceSupportRate: string | null;
+  category: string | null;
 };
 
 export type DetailMap = Record<string, DetailItem>;
 
-// ユーザー投稿用（地図 + 詳細つき）
 export type UserRoadmap = Roadmap & {
   groups: RoadmapGroup[];
   details: DetailMap;

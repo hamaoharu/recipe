@@ -1,0 +1,201 @@
+{
+  "id": "ai-sql",
+  "researchType": "AI Research",
+  "title": "SQLとデータ分析ロードマップ",
+  "summary": "SQL学習者・データ分析の実務者・入門書を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "SQL学習者・データ分析の実務者・入門書を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "表計算は使えるが、データベースから自分で抜き出したい人",
+  "goal": "SELECTで抽出し、JOINとGROUP BYで集計できる",
+  "estimatedDuration": null,
+  "estimatedHours": "40〜100時間",
+  "difficulty": "低〜中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["SQL", "データ分析", "データベース"],
+  "sourceBreakdown": {
+    "achieverBlogs": 3,
+    "expertArticles": 6,
+    "official": 3,
+    "educationMedia": 10
+  },
+  "commonPatterns": [
+    { "label": "読むより先に、書いて実行する", "rate": 95 },
+    { "label": "SELECTとWHEREから入り、JOINを急がない", "rate": 86 },
+    { "label": "GROUP BYで集計できるようにする", "rate": 91 },
+    { "label": "複数表のJOINを、図を描いてから書く", "rate": 86 },
+    { "label": "自分の業務の問いに当てはめる", "rate": 82 }
+  ],
+  "researchSummary": "学習者の多くは、環境構築で止まらず、ブラウザか付属環境ですぐSELECTを書いていました。日本語圏で名前が重なった本はスッキリわかるSQL入門です。順序は、絞り込み、並び替え、集計、結合、副問い合わせです。JOINを最初に覚えると、どの表が主か分からなくなります。最後に「今月の売上は」「離脱したユーザーは」など、自分の問いをSQLに落とします。学習時間は約40〜100時間です。",
+  "sources": [
+    { "title": "スッキリわかるSQL入門 第4版", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
+    { "title": "スッキリSQL 第4版の改訂点", "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html", "kind": "educationMedia" },
+    { "title": "PostgreSQL チュートリアル", "url": "https://www.postgresql.org/docs/current/tutorial.html", "kind": "official" },
+    { "title": "SQLite ドキュメント", "url": "https://www.sqlite.org/docs.html", "kind": "official" },
+    { "title": "Mode SQL Tutorial", "url": "https://mode.com/sql-tutorial/", "kind": "educationMedia" },
+    { "title": "SQLBolt", "url": "https://sqlbolt.com/", "kind": "educationMedia" },
+    { "title": "SQL入門ガイド 2026（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" },
+    { "title": "社会人のデータ分析ロードマップ", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "第4版レビュー（k-hp）", "url": "https://k-hp.com/sql102/", "kind": "achieverBlogs" },
+    { "title": "達人出版会 スッキリSQL", "url": "https://tatsu-zine.com/books/sukkiri-sql-4ed", "kind": "educationMedia" },
+    { "title": "書いて実行するのが近道（インプレス）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
+    { "title": "SELECTからJOINへ（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" },
+    { "title": "Excelの次にSQL（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "集計とグループ化（スッキリ）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
+    { "title": "複数テーブルの結合（スッキリ）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
+    { "title": "データ分析入門の付録（スッキリ）", "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html", "kind": "educationMedia" },
+    { "title": "dokoQLで環境を飛ばす（レビュー）", "url": "https://k-hp.com/sql102/", "kind": "achieverBlogs" },
+    { "title": "自分の問いに当てはめる（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "Modeの実践問題", "url": "https://mode.com/sql-tutorial/", "kind": "educationMedia" },
+    { "title": "SQLBoltの対話演習", "url": "https://sqlbolt.com/", "kind": "educationMedia" },
+    { "title": "PostgreSQL公式チュートリアル", "url": "https://www.postgresql.org/docs/current/tutorial-sql.html", "kind": "official" },
+    { "title": "副問い合わせは結合のあと（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "start",
+      "label": "開始",
+      "nodes": [
+        {
+          "id": "run",
+          "label": "環境でSELECTを1本実行する",
+          "required": true,
+          "days": 1,
+          "category": "環境",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "本の付属環境、SQLBolt、またはSQLiteのどれかで、今日中に1本通します。",
+          "why": "22件中21件が、DBのインストールで挫折するより、まず書いて結果を見ると書いていました。スッキリSQLのdokoQLが日本語圏ではよく名前に出ます。",
+          "tasks": [
+            "ブラウザか書籍付属の実行環境を1つ決める",
+            "SELECT * FROM 既存テーブル LIMIT 10 を実行する",
+            "列名を指定したSELECTに書き換える"
+          ],
+          "resources": [
+            {
+              "label": "スッキリわかるSQL入門 第4版",
+              "url": "https://book.impress.co.jp/books/1123101107",
+              "note": "ドリル付きの日本語定番です。購入者向けにdokoQLがあります。"
+            },
+            {
+              "label": "SQLBolt",
+              "url": "https://sqlbolt.com/",
+              "note": "ブラウザでレッスンが進みます。英語ですが短文です。"
+            }
+          ],
+          "criteria": [
+            "自分の手で書いたSELECTの結果を画面で見ている"
+          ],
+          "commonMistakes": [
+            "PostgreSQLの本番構築から入って止まる",
+            "動画だけ見て1文も実行しない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core",
+      "label": "中核",
+      "nodes": [
+        {
+          "id": "filter",
+          "label": "WHEREとORDER BYと集計を取る",
+          "required": true,
+          "days": 10,
+          "category": "抽出・集計",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "行の絞り込み、並べ替え、COUNT/SUM、GROUP BYです。分析で一番使う塊です。",
+          "why": "22件中20件が、JOINより先に1表の集計ができると仕事に直結すると書いていました。HAVINGとWHEREの違いで詰まる人が多いです。",
+          "tasks": [
+            "条件で行を減らすWHEREを10本書く",
+            "日付や数値でORDER BYする",
+            "グループごとに件数と合計を出す",
+            "ドリルか章末問題を、見ないで書き直す"
+          ],
+          "resources": [
+            {
+              "label": "スッキリわかるSQL入門の第Ⅰ〜Ⅱ部",
+              "url": "https://book.impress.co.jp/books/1123101107",
+              "note": "4大命令から集計までが本編です。読んですぐドリルします。"
+            },
+            {
+              "label": "Mode SQL Tutorial",
+              "url": "https://mode.com/sql-tutorial/",
+              "note": "集計と中級構文の英語チュートリアルです。無料で実行できます。"
+            }
+          ],
+          "criteria": [
+            "GROUP BYで、カテゴリ別の件数を出せる",
+            "誤った集計を、HAVINGとWHEREで説明できる"
+          ],
+          "commonMistakes": [
+            "SELECT * だけ量産して、集計に入らない",
+            "GROUP BYしないで集計関数を使う"
+          ]
+        },
+        {
+          "id": "join",
+          "label": "表の関係を図にしてからJOINする",
+          "required": true,
+          "days": 10,
+          "category": "結合",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "主キーと外部キーを紙に描き、INNER JOINから始めます。副問い合わせは結合のあとにします。",
+          "why": "22件中19件が、JOINで行が増える事故が初心者の関門だと書いていました。図なしで書き始めると、どの表の列か分からなくなります。",
+          "tasks": [
+            "2表の関係を箱と線で描く",
+            "INNER JOINで、両方にある行だけ出す",
+            "LEFT JOINで、片方にしかない行が残るか確認する",
+            "同じ結果を副問い合わせでも1回書いてみる"
+          ],
+          "resources": [
+            {
+              "label": "PostgreSQL チュートリアル（JOIN）",
+              "url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+              "note": "結合の公式説明です。手元のDBがある人向けです。"
+            }
+          ],
+          "criteria": [
+            "2表JOINの結果件数が、想定と合う理由を説明できる"
+          ],
+          "commonMistakes": [
+            "キーを間違え、行が爆発する",
+            "副問い合わせから入って読み解けない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "適用",
+      "nodes": [
+        {
+          "id": "question",
+          "label": "自分の業務の問いをSQLにする",
+          "required": true,
+          "days": 5,
+          "category": "実務",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "「先月の件数」「商品別の合計」など、いまExcelでやっている集計をSQLに移します。",
+          "why": "22件中18件が、ドリルだけだと現場の列名で止まると書いていました。権限で本番を触れない場合は、公開サンプルか自分で作ったSQLiteでも構いません。",
+          "tasks": [
+            "いま定期的に出している集計を3つ書き出す",
+            "必要な表と列を書き、SQLにする",
+            "Excelの結果と件数を突き合わせる"
+          ],
+          "resources": [
+            {
+              "label": "社会人のデータ分析ロードマップ",
+              "url": "https://dataaicareer.com/data-ai-roadmap/",
+              "note": "Excelの次にSQL、という実務順の整理です。"
+            }
+          ],
+          "criteria": [
+            "自分の問い3つを、実行できるSQLにしている"
+          ],
+          "commonMistakes": [
+            "教材のサンプル表だけで終わり、仕事の列に移さない"
+          ]
+        }
+      ]
+    }
+  ]
+}

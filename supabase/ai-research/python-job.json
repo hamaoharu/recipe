@@ -1,0 +1,201 @@
+{
+  "id": "ai-python-job",
+  "researchType": "AI Research",
+  "title": "Pythonで仕事に使うロードマップ",
+  "summary": "業務でPythonを使い始めた人・自動化とデータ加工の教材・公式を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "業務でPythonを使い始めた人・自動化とデータ加工の教材・公式を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "ExcelやCSVの繰り返し作業がある人。プログラミングは初めてでも可",
+  "goal": "自分の業務ファイルを、Pythonで整形・集計・自動化できる",
+  "estimatedDuration": null,
+  "estimatedHours": "80〜180時間",
+  "difficulty": "低〜中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["Python", "自動化", "データ"],
+  "sourceBreakdown": {
+    "achieverBlogs": 4,
+    "expertArticles": 6,
+    "official": 4,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "文法は1系統で短く取る", "rate": 91 },
+    { "label": "自分のCSVやExcelですぐ動かす", "rate": 91 },
+    { "label": "表データはpandasで扱う", "rate": 86 },
+    { "label": "機械学習より先に自動化と前処理を終わらせる", "rate": 86 },
+    { "label": "仮想環境を分けて入れる", "rate": 77 }
+  ],
+  "researchSummary": "仕事で使い始めた人の多くは、入門書か公式チュートリアルで文法を短く取り、すぐ自分の表計算ファイルに当てていました。名前が重なった本は、スッキリわかるPython入門と、退屈なことはPythonにやらせようです。表の結合・欠損・集計はpandasが共通です。機械学習やWebアプリから入ると、業務の繰り返し作業が残ったまま終わりやすい、という指摘が重なっています。学習時間は約80〜180時間です。",
+  "sources": [
+    { "title": "Python 公式チュートリアル", "url": "https://docs.python.org/ja/3/tutorial/", "kind": "official" },
+    { "title": "pandas ユーザーガイド", "url": "https://pandas.pydata.org/docs/user_guide/index.html", "kind": "official" },
+    { "title": "venv（公式）", "url": "https://docs.python.org/ja/3/library/venv.html", "kind": "official" },
+    { "title": "スッキリわかるPython入門 第2版", "url": "https://book.impress.co.jp/books/1122101165", "kind": "educationMedia" },
+    { "title": "退屈なことはPythonにやらせよう 第2版", "url": "https://www.oreilly.co.jp/books/9784873119274/", "kind": "educationMedia" },
+    { "title": "Pythonによるあたらしいデータ分析の教科書 第3版", "url": "https://www.shoeisha.co.jp/book/detail/9784798191027", "kind": "educationMedia" },
+    { "title": "Pythonデータ分析の独学（@SOHO）", "url": "https://atsoho.com/blog/python-data-analysis-skill", "kind": "achieverBlogs" },
+    { "title": "社会人のデータ分析ロードマップ", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "Pythonの本おすすめ（note）", "url": "https://note.com/tasuto11/n/n5578d908b1ed", "kind": "educationMedia" },
+    { "title": "6ヶ月ロードマップ（pythonbunseki）", "url": "https://pythonbunseki.com/6months-roadmap/", "kind": "expertArticles" },
+    { "title": "Kaggle Learn", "url": "https://www.kaggle.com/learn", "kind": "educationMedia" },
+    { "title": "文法のあとすぐ業務データ（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "pandasで前処理（pythonbunseki）", "url": "https://pythonbunseki.com/6months-roadmap/", "kind": "expertArticles" },
+    { "title": "Excel操作の自動化（オライリー）", "url": "https://www.oreilly.co.jp/books/9784873119274/", "kind": "educationMedia" },
+    { "title": "機械学習は後回し（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "公式チュートリアルと手を動かす（@SOHO）", "url": "https://atsoho.com/blog/python-data-analysis-skill", "kind": "achieverBlogs" },
+    { "title": "Jupyterで試す（教科書）", "url": "https://www.shoeisha.co.jp/book/detail/9784798191027", "kind": "educationMedia" },
+    { "title": "pipとvenv（公式）", "url": "https://docs.python.org/ja/3/library/venv.html", "kind": "official" },
+    { "title": "CSVの読み書き（pandas）", "url": "https://pandas.pydata.org/docs/user_guide/io.html", "kind": "official" },
+    { "title": "200〜400時間は分析職まで（@SOHO）", "url": "https://atsoho.com/blog/python-data-analysis-skill", "kind": "achieverBlogs" },
+    { "title": "資格より手を動かす（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
+    { "title": "dokopyで環境構築を飛ばせる（インプレス）", "url": "https://book.impress.co.jp/books/1122101165", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "env",
+          "label": "Pythonを入れ、作業フォルダと仮想環境を分ける",
+          "required": true,
+          "days": 1,
+          "category": "環境",
+          "sourceSupportRate": "17/22（77%）",
+          "description": "公式のインストーラか、入門書の手順で入れます。仕事用のフォルダにvenvを作り、そこにライブラリを入れます。",
+          "why": "22件中17件が、環境構築で止まる例を挙げていました。システム全体にパッケージを入れると、あとから壊れやすいです。入門書のブラウザ実行環境は文法の入口にし、自分のファイルを触る段階でローカルへ移します。",
+          "tasks": [
+            "Python 3を入れ、ターミナルで python --version を確認する",
+            "仕事用のフォルダで python -m venv .venv を実行する",
+            "有効化してから pip install pandas openpyxl を行う"
+          ],
+          "resources": [
+            {
+              "label": "venv（公式）",
+              "url": "https://docs.python.org/ja/3/library/venv.html",
+              "note": "仮想環境の公式手順です。"
+            }
+          ],
+          "criteria": [
+            "仮想環境を有効にした状態で、pandasをimportできる"
+          ],
+          "commonMistakes": [
+            "複数のPythonが混ざり、入れたつもりが動かない",
+            "会社PCの制約を確認せずインストールで止まる"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lang",
+      "label": "文法",
+      "nodes": [
+        {
+          "id": "syntax",
+          "label": "文法は1系統で、リストと辞書と関数まで取る",
+          "required": true,
+          "days": 14,
+          "category": "基礎",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "変数、条件、繰り返し、関数、リスト、辞書です。オブジェクト指向の深掘りは後回しで構いません。",
+          "why": "22件中20件が、文法の本を何冊も並行しないと書いていました。名前が重なったのは公式チュートリアルとスッキリわかるPython入門です。",
+          "tasks": [
+            "入門書か公式チュートリアルを1系統決める",
+            "章末の小問を、見ないで書けるまでやる",
+            "自分の業務に出る値（日付、金額、名前）で同じ処理を書き直す"
+          ],
+          "resources": [
+            {
+              "label": "Python 公式チュートリアル",
+              "url": "https://docs.python.org/ja/3/tutorial/",
+              "note": "言語の公式入口です。最初の数章で十分です。"
+            },
+            {
+              "label": "スッキリわかるPython入門 第2版",
+              "url": "https://book.impress.co.jp/books/1122101165",
+              "note": "なぜそう書くかの説明が厚い日本語定番です。"
+            }
+          ],
+          "criteria": [
+            "リストと辞書を使った小さなスクリプトを、見ないで書ける"
+          ],
+          "commonMistakes": [
+            "動画を何本も見て、1行も残らない",
+            "クラスの設計から入る"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "label": "仕事",
+      "nodes": [
+        {
+          "id": "files",
+          "label": "自分のExcelやCSVを読み、整形して書き出す",
+          "required": true,
+          "days": 14,
+          "category": "データ加工",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "業務の実ファイル（個人情報はマスク）をpandasで読み、列の選択・結合・集計をして保存します。",
+          "why": "22件中20件が、練習用のきれいなデータだけで終わると現場で使えないと書いていました。欠損と日付と文字コードで詰まるのが共通です。",
+          "tasks": [
+            "仕事で毎週作っている表を1つ選ぶ（個人情報は消す）",
+            "pandasで読み、必要な列だけ残す",
+            "グループ集計か結合を1つ入れる",
+            "ExcelまたはCSVに書き出し、人が検算できる形にする"
+          ],
+          "resources": [
+            {
+              "label": "pandas ユーザーガイド",
+              "url": "https://pandas.pydata.org/docs/user_guide/index.html",
+              "note": "読み込み、欠損、結合の公式です。"
+            },
+            {
+              "label": "Pythonによるあたらしいデータ分析の教科書 第3版",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798191027",
+              "note": "pandasと可視化の日本語定番です。機械学習の章は後回しで構いません。"
+            }
+          ],
+          "criteria": [
+            "自分の業務ファイルを入力に、整形済みファイルを出力できている"
+          ],
+          "commonMistakes": [
+            "Kaggleだけやって、自分の列名で詰まって終わる",
+            "機械学習の精度競争から入る"
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "繰り返している作業を、1本のスクリプトにする",
+          "required": true,
+          "days": 10,
+          "category": "自動化",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "ファイル名の変更、複数シートの結合、決まったメール用CSVの作成など、手作業の一連を関数にします。",
+          "why": "22件中19件が、文法の演習と仕事の自動化は別だと書いていました。退屈なことはPythonにやらせようが、Excel・ファイル・正規表現の入口として名前が重なります。",
+          "tasks": [
+            "今手動で30分以上かかっている作業を1つ書き出す",
+            "入力フォルダと出力フォルダを決めてスクリプトにする",
+            "失敗した行が分かるよう、件数をprintする",
+            "同じ作業を次の週も同じコマンドで回す"
+          ],
+          "resources": [
+            {
+              "label": "退屈なことはPythonにやらせよう 第2版",
+              "url": "https://www.oreilly.co.jp/books/9784873119274/",
+              "note": "Excel、ファイル、正規表現の自動化が本編です。オライリー・ジャパンです。"
+            }
+          ],
+          "criteria": [
+            "毎週1回以上、同じスクリプトで実作業を代替している"
+          ],
+          "commonMistakes": [
+            "スクレイピングやGUI操作から入り、規約や壊れやすさで止まる",
+            "一度動いて満足し、翌週のファイル形式の違いで使えない"
+          ]
+        }
+      ]
+    }
+  ]
+}

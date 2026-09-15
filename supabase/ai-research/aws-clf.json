@@ -1,0 +1,208 @@
+{
+  "id": "ai-aws-clf",
+  "researchType": "AI Research",
+  "title": "AWS Cloud Practitionerロードマップ",
+  "summary": "AWS認定クラウドプラクティショナーの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "AWS認定クラウドプラクティショナーの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "クラウドが初めての人。IT用語の入口があると進みやすい",
+  "goal": "AWS Certified Cloud Practitioner（CLF-C02）合格",
+  "estimatedDuration": null,
+  "estimatedHours": "30〜80時間",
+  "difficulty": "低",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["AWS", "クラウド", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 5,
+    "expertArticles": 5,
+    "official": 6,
+    "educationMedia": 6
+  },
+  "commonPatterns": [
+    { "label": "公式Essentialsかテキスト1冊で全体像を取る", "rate": 91 },
+    { "label": "無料枠でIAM・S3・請求画面を触る", "rate": 82 },
+    { "label": "Ping-tや公式練習問題を周回する", "rate": 91 },
+    { "label": "似たサービスの違いを対で整理する", "rate": 86 },
+    { "label": "公式試験ガイドで4ドメインを確認する", "rate": 77 }
+  ],
+  "researchSummary": "合格者の多くは、Skill BuilderのCloud Practitioner Essentialsか日本語テキスト1冊で全体像を取り、無料枠で画面を触り、問題集を周回する順でした。CLFは設計問題より、サービスが何をするか・いつ選ぶかの広く浅い知識です。落ちる人の多くは用語暗記だけで、EC2とLambda、S3とEBSなどの対比が弱い、という指摘が重なっています。合格ラインは1000点中700点です。IT経験者なら約30〜50時間、未経験なら約50〜80時間です。",
+  "sources": [
+    { "title": "AWS Certified Cloud Practitioner 公式", "url": "https://aws.amazon.com/jp/certification/certified-cloud-practitioner/", "kind": "official" },
+    { "title": "CLF-C02 試験ガイド（日本語PDF）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
+    { "title": "AWS 認定試験に向けて準備する", "url": "https://aws.amazon.com/jp/certification/certification-prep/", "kind": "official" },
+    { "title": "AWS 無料利用枠", "url": "https://aws.amazon.com/jp/free/", "kind": "official" },
+    { "title": "Cloud Practitioner トレーニング（AWS）", "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/", "kind": "official" },
+    { "title": "AWS Skill Builder", "url": "https://skillbuilder.aws/", "kind": "official" },
+    { "title": "AWS教科書 クラウドプラクティショナー 第2版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194912", "kind": "educationMedia" },
+    { "title": "Ping-t", "url": "https://mondai.ping-t.com/", "kind": "educationMedia" },
+    { "title": "CLF-C02 受験ガイド（AWS資格の森）", "url": "https://aws-master.com/clf/clf-exam-guide/", "kind": "educationMedia" },
+    { "title": "未経験2週間の合格勉強法", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
+    { "title": "CLF-C02 合格への最短ルート（Montopi）", "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026", "kind": "educationMedia" },
+    { "title": "2026年版 未経験合格ガイド（Speed Study）", "url": "https://www.speed-study.com/aws/blog/aws-clf", "kind": "expertArticles" },
+    { "title": "Essentialsで一周（Speed Study）", "url": "https://www.speed-study.com/aws/blog/aws-clf", "kind": "expertArticles" },
+    { "title": "公式練習問題集20問", "url": "https://aws.amazon.com/jp/certification/certification-prep/", "kind": "official" },
+    { "title": "Ping-tを周回（Sunbridge）", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
+    { "title": "模試85%目安（Sunbridge）", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
+    { "title": "サービスの使い分け（AWS資格の森）", "url": "https://aws-master.com/clf/clf-exam-guide/", "kind": "educationMedia" },
+    { "title": "請求・料金ドメイン（試験ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
+    { "title": "ハンズオン付きテキスト（翔泳社）", "url": "https://www.shoeisha.co.jp/book/detail/9784798194912", "kind": "educationMedia" },
+    { "title": "Cloud Quest（AWS）", "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/", "kind": "official" },
+    { "title": "責任共有モデル（試験ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
+    { "title": "無料アカウントで画面確認（Montopi）", "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "guide",
+          "label": "公式試験ガイドで4ドメインを確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験範囲",
+          "sourceSupportRate": "17/22（77%）",
+          "description": "CLF-C02は、クラウドのコンセプト、セキュリティ、テクノロジーとサービス、請求・料金・サポートの4領域です。合格は1000点中700点、65問90分です。",
+          "why": "22件中17件が、公式ガイドかドメイン配点に触れていました。セキュリティは約30%、請求は約12%です。請求を捨てると700点が遠い、という指摘があります。SAAのような設計トレードオフは範囲外です。",
+          "tasks": [
+            "公式試験ガイドの4ドメインを一読する",
+            "合格ライン700点、65問90分を確認する",
+            "責任共有モデルと、よく出るサービスの一覧に目を通す"
+          ],
+          "resources": [
+            {
+              "label": "CLF-C02 試験ガイド",
+              "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf",
+              "note": "AWS公式です。出題領域と対象サービスの確認に使います。"
+            },
+            {
+              "label": "認定の概要ページ",
+              "url": "https://aws.amazon.com/jp/certification/certified-cloud-practitioner/",
+              "note": "受験方法と対象者の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "4ドメインと700点ラインを説明できる"
+          ],
+          "commonMistakes": [
+            "SAAの問題集から入る",
+            "請求・サポートを後回しにする"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "label": "インプット",
+      "nodes": [
+        {
+          "id": "essentials",
+          "label": "Essentialsかテキスト1冊で全体像を取る",
+          "required": true,
+          "days": 7,
+          "category": "基礎",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "無料ならSkill BuilderのCloud Practitioner Essentials、日本語ならAWS教科書が名前の重なりです。深掘りせず1周します。",
+          "why": "22件中20件が、インプットは1系統で足りると書いていました。Essentialsを全部暗記してから問題、より、軽く一周して問題に入る方が早い、という声が重なっています。",
+          "tasks": [
+            "Essentialsかテキストのどちらか1系統を決める",
+            "各章の確認問題だけ解いて次へ進む",
+            "責任共有、IAM、EC2、S3、VPC、請求の見出しは飛ばさない"
+          ],
+          "resources": [
+            {
+              "label": "AWS Cloud Practitioner トレーニング",
+              "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/",
+              "note": "EssentialsとCloud Questへの入口です。Skill Builderのアカウントが必要です。"
+            },
+            {
+              "label": "AWS教科書 AWS認定クラウドプラクティショナー テキスト＆問題集 第2版",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194912",
+              "note": "CLF-C02対応の日本語定番です。模試と実践環境ガイドが付きます。"
+            }
+          ],
+          "criteria": [
+            "1系統を1周し、4ドメインの見出しを自分の言葉で言える"
+          ],
+          "commonMistakes": [
+            "動画と本を並行してどちらも終わらない",
+            "Essentialsを何周もして問題に入らない"
+          ]
+        },
+        {
+          "id": "hands-on",
+          "label": "無料枠でIAM・S3・請求画面を触る",
+          "required": true,
+          "days": 3,
+          "category": "ハンズオン",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "コンソールでユーザー、バケット、請求の警報を一度作ると、用語が画面と結び付きます。",
+          "why": "22件中18件が、画面を見ないと選択肢の言葉が残らないと書いていました。CLFは構築問題ではありませんが、IAMとS3と請求は触った人の正答が安定しやすい、という指摘が重なっています。",
+          "tasks": [
+            "無料利用枠のアカウントを作り、ルートとIAMユーザーを分ける",
+            "S3バケットを1つ作り、公開設定を確認する",
+            "請求ダッシュボードとBudgetsの画面を開く",
+            "使い終わったら、作ったリソースを消す"
+          ],
+          "resources": [
+            {
+              "label": "AWS 無料利用枠",
+              "url": "https://aws.amazon.com/jp/free/",
+              "note": "課金を避けるため、作ったリソースは消します。"
+            }
+          ],
+          "criteria": [
+            "IAMユーザーとS3バケットを自分で1回作成している",
+            "請求画面の場所を説明できる"
+          ],
+          "commonMistakes": [
+            "ルートアカウントのまま練習する",
+            "リソースを消し忘れ課金する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drill",
+      "label": "演習",
+      "nodes": [
+        {
+          "id": "questions",
+          "label": "問題集を周回し、似たサービスを対で整理する",
+          "required": true,
+          "days": 10,
+          "category": "問題演習",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "日本語圏で名前が重なったのはPing-tです。公式の練習問題20問も形式確認に使います。",
+          "why": "22件中20件が、問題演習なしでは700点に届きにくいと書いていました。正解の暗記より、なぜ他のサービスが要件を満たさないかを書くことが共通です。模試で8割前後が安定すると受験する人が多いです。",
+          "tasks": [
+            "Ping-tかテキストの問題を1周し、誤答に印を付ける",
+            "EC2とLambda、S3とEBS、SGとNACLなど、対になるサービスを表にする",
+            "公式練習問題20問を1回解く",
+            "誤答だけをもう1周する"
+          ],
+          "resources": [
+            {
+              "label": "Ping-t",
+              "url": "https://mondai.ping-t.com/",
+              "note": "解説付きのWeb問題集です。Hitにするだけでなく、解説の一文を自分の言葉で書き出します。"
+            },
+            {
+              "label": "AWS 公式の練習問題",
+              "url": "https://aws.amazon.com/jp/certification/certification-prep/",
+              "note": "20問の公式セットです。本番の言い回し合わせに使います。"
+            }
+          ],
+          "criteria": [
+            "問題集を2周以上し、対比表がある",
+            "公式20問を1回解いている"
+          ],
+          "commonMistakes": [
+            "正解番号だけ覚えて対比を書かない",
+            "SAAの長い設計問題に手を出す"
+          ]
+        }
+      ]
+    }
+  ]
+}

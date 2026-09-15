@@ -1,0 +1,217 @@
+{
+  "id": "ai-aws-saa",
+  "researchType": "AI Research",
+  "title": "AWS SAA-C03ロードマップ",
+  "summary": "AWS認定ソリューションアーキテクト アソシエイトの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "AWS認定ソリューションアーキテクト アソシエイトの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "ITの基礎用語が分かる人。AWS未経験でも可",
+  "goal": "AWS Certified Solutions Architect – Associate（SAA-C03）合格",
+  "estimatedDuration": null,
+  "estimatedHours": "60〜150時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["AWS", "クラウド", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 8,
+    "expertArticles": 5,
+    "official": 4,
+    "educationMedia": 5
+  },
+  "commonPatterns": [
+    { "label": "テキストまたは動画を1系統で全体像を取る", "rate": 91 },
+    { "label": "無料枠でIAM・EC2・S3・VPCを触る", "rate": 82 },
+    { "label": "Ping-tやUdemy模試を周回する", "rate": 91 },
+    { "label": "正解理由と誤選択肢まで読む", "rate": 86 },
+    { "label": "公式試験ガイドで出題領域を確認する", "rate": 77 }
+  ],
+  "researchSummary": "合格者の多くは、インプット1系統→無料枠ハンズオン→問題集の周回、の順で進めていました。日本語圏で名前が重なったインプットは、通称オレンジ本・徹底攻略（黒本）・Udemyの網羅講座です。問題演習ではPing-tとUdemy模試が突出しています。共通していたのは、正解を暗記せず「なぜ他の選択肢が要件を満たさないか」まで読むことです。Ping-tをHitにするだけでは、ハンズオンも解説精読もないと初見の設計問題で落ちやすい、という指摘が重なっていました。学習時間はIT経験者で約60〜90時間、AWS未経験で約100〜150時間です。",
+  "sources": [
+    { "title": "AWS Certified Solutions Architect – Associate 公式", "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/", "kind": "official" },
+    { "title": "SAA-C03 試験ガイド（日本語）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html", "kind": "official" },
+    { "title": "AWS 無料利用枠", "url": "https://aws.amazon.com/jp/free/", "kind": "official" },
+    { "title": "AWS Well-Architected", "url": "https://aws.amazon.com/jp/architecture/well-architected/", "kind": "official" },
+    { "title": "Ping-t", "url": "https://mondai.ping-t.com/", "kind": "educationMedia" },
+    { "title": "SAA-C02 合格体験記（Qiita）", "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40", "kind": "achieverBlogs" },
+    { "title": "SAA-C03 合格体験記（Qiita eritty）", "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89", "kind": "achieverBlogs" },
+    { "title": "SAA 1ヶ月独学（はてな）", "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226", "kind": "achieverBlogs" },
+    { "title": "AWS SAAに合格した（Qiita haruler）", "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb", "kind": "achieverBlogs" },
+    { "title": "CLFなし未経験からのSAA（Qiita）", "url": "https://qiita.com/msys825/items/b2c39e2d3acdebef75af", "kind": "achieverBlogs" },
+    { "title": "AWS SAA独学ロードマップ 2026", "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/", "kind": "educationMedia" },
+    { "title": "SAAの勉強法（CloudTech）", "url": "https://kws-cloud-tech.com/saa-study-guide/", "kind": "educationMedia" },
+    { "title": "SAA-C03 完全ロードマップ（IT資格ラボ）", "url": "https://it-cert-lab.com/aws-lab-20260111/", "kind": "expertArticles" },
+    { "title": "SAA-C03 入門（swiftwand）", "url": "https://swiftwand.com/aws-solutions-architect-associate-saa-c03-introduction/", "kind": "educationMedia" },
+    { "title": "AWS認定の勉強法（Lazy Director）", "url": "https://lazydirector.net/server/aws-qualification-strategy/", "kind": "achieverBlogs" },
+    { "title": "SAA-C03 問題集対策（CloudCamp）", "url": "https://cloud-camp.net/saa-c03/", "kind": "expertArticles" },
+    { "title": "Ping-tの周回法（Qiita haruler）", "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb", "kind": "achieverBlogs" },
+    { "title": "誤選択肢まで読む（はてな）", "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226", "kind": "achieverBlogs" },
+    { "title": "ハンズオンが分かれ目（techotakulab）", "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/", "kind": "educationMedia" },
+    { "title": "オレンジ本1周（Qiita eritty）", "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89", "kind": "achieverBlogs" },
+    { "title": "黒本とオレンジ本の使い分け（Qiita）", "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40", "kind": "achieverBlogs" },
+    { "title": "試験ドメイン配点（公式ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html", "kind": "official" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "guide",
+          "label": "公式試験ガイドで4ドメインを確認する",
+          "required": true,
+          "days": 2,
+          "category": "試験範囲",
+          "sourceSupportRate": "17/22（77%）",
+          "description": "SAA-C03は、セキュア・回復性・高性能・コスト最適化の4領域です。教材を開く前に、何が問われるかを公式で押さえます。",
+          "why": "22件中17件が、公式の試験ガイドまたは出題ドメインに触れていました。配点はセキュア約30%、回復性約26%、高性能約24%、コスト約20%です。セキュリティ領域を後回しにすると合格点が遠い、という指摘が重なっていました。",
+          "tasks": [
+            "公式試験ガイドの4ドメインと、対象サービスの一覧を一読する",
+            "合格ラインが1000点中720点であること、問題数が65問前後であることを確認する",
+            "IAM・VPC・EC2・S3・RDSが繰り返し出る前提で、学習の軸を決める"
+          ],
+          "resources": [
+            {
+              "label": "SAA-C03 試験ガイド",
+              "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html",
+              "note": "AWS公式です。出題領域とサービス一覧の確認に使います。"
+            },
+            {
+              "label": "認定の概要ページ",
+              "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+              "note": "試験時間・問題形式・受験方法の確認に使います。"
+            }
+          ],
+          "criteria": [
+            "4ドメインの名前と、セキュリティ領域の配点が最も高いことを説明できる",
+            "教材を増やす前に、公式ガイドを1回読んでいる"
+          ],
+          "commonMistakes": [
+            "サービスカタログを全部暗記しようとして試験ガイドを読まない",
+            "セキュリティ領域を後回しにする"
+          ]
+        },
+        {
+          "id": "book",
+          "label": "テキストか動画を1系統だけ1周する",
+          "required": true,
+          "days": 21,
+          "category": "インプット",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "全体像は1系統で十分です。日本語圏で名前が重なったのはオレンジ本、徹底攻略（黒本）、Udemyの網羅講座です。",
+          "why": "22件中20件が、問題集の前にテキストまたは動画でサービス役割を一度通すことを推奨していました。未経験者には図解のオレンジ本、ある程度ITがある人には黒本やUdemy、という使い分けが複数の合格記で重なっていました。2冊を同時に通読する例は少数です。",
+          "tasks": [
+            "オレンジ本・黒本・Udemy講座のいずれか1つに決める",
+            "章またはセクションごとに、章末問題か確認クイズをその日のうちに解く",
+            "分からないサービス名は箇条書きにし、ハンズオンと問題演習で潰す"
+          ],
+          "resources": [
+            {
+              "label": "AWS認定資格試験テキスト ソリューションアーキテクト アソシエイト（オレンジ本）",
+              "url": "https://www.sbcr.jp/product/4815617943/",
+              "note": "SBクリエイティブ刊・図解中心の定番です。AWS未経験ならこちらから1周します。SAA-C03対応の改訂第3版です。"
+            },
+            {
+              "label": "徹底攻略 AWS認定ソリューションアーキテクト − アソシエイト（黒本）",
+              "url": "https://book.impress.co.jp/books/1122101088",
+              "note": "インプレスの徹底攻略シリーズです。章末と模試付きの第3版［SAA-C03］を使います。"
+            },
+            {
+              "label": "Udemy の SAA-C03 網羅講座（日本語または Maarek）",
+              "url": "https://www.udemy.com/course/aws-associate/",
+              "note": "日本語なら柴田章吾の講座がよく名前に出ます。英語なら Stephane Maarek です。倍速の流し見ではなく、構成図を自分で描きながら見ます。"
+            }
+          ],
+          "criteria": [
+            "選んだ1系統を1周し、章末または確認問題を解いている",
+            "学習中に別の教科書を追加していない"
+          ],
+          "commonMistakes": [
+            "オレンジ本と黒本を同時に通読する",
+            "動画を流し見して、サービス同士の組み合わせを説明できない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hands",
+      "label": "ハンズオン",
+      "nodes": [
+        {
+          "id": "freetier",
+          "label": "無料枠でIAM・EC2・S3・VPCを一度組み立てる",
+          "required": true,
+          "days": 10,
+          "category": "ハンズオン",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "選択肢の文言は、コンソールで一度作ったことがあると切れます。課金アラートを先に設定します。",
+          "why": "22件中18件が、無料枠または講座付属ハンズオンで実機を触ることを推奨していました。特にVPC（公開／非公開サブネット、ルートテーブル、セキュリティグループ）とIAM（ユーザー・ロール・ポリシー）は、文章だけでは混同しやすい、という指摘が重なっていました。ハンズオンなしで問題集だけ、という合格例もありますが、初見の設計問題で落ちやすい、という反論も複数あったため、必須にしています。",
+          "tasks": [
+            "AWSアカウントで請求アラーム（予算アラート）を先に付ける",
+            "IAMで管理者以外のユーザーとロールを1つ作り、最小権限のポリシーを付ける",
+            "VPCに公開サブネットと非公開サブネットを作り、EC2を1台起動する",
+            "S3バケットを作り、静的ファイルを置いてブロックパブリックアクセスを確認する",
+            "使い終わったEC2とNATなど、課金源になるリソースを消す"
+          ],
+          "resources": [
+            {
+              "label": "AWS 無料利用枠",
+              "url": "https://aws.amazon.com/jp/free/",
+              "note": "12ヶ月無料と常時無料があります。NATゲートウェイや大きなインスタンスは有料なので、作成したら削除します。"
+            }
+          ],
+          "criteria": [
+            "IAM・VPC・EC2・S3を、自分のアカウントで1回以上作成している",
+            "請求アラームを設定し、不要リソースを削除している"
+          ],
+          "commonMistakes": [
+            "参考書だけ読んでコンソールを一度も開かない",
+            "課金アラームを付けずにNATゲートウェイを残す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "演習",
+      "nodes": [
+        {
+          "id": "pingt",
+          "label": "Ping-tかUdemy模試を、誤選択肢まで周回する",
+          "required": true,
+          "days": 28,
+          "category": "演習",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "SAAは「どれも動きそうな選択肢から、要件に対する最適解を選ぶ」試験です。正解の暗記では点が伸びません。",
+          "why": "22件中20件が、Ping-tまたはUdemy模試（Tutorials Dojo / 日本語模試）を主教材にしていました。合格者の使い方で重なっていたのは、未出題を潰す→間違いだけ回す→試験レベルや通し模試で8割前後を安定させる、です。Ping-tのHitやコンボだけを追うと、位置記憶になる、という注意も複数ありました。",
+          "tasks": [
+            "Ping-tまたはUdemy模試のどちらかを主にし、もう一方は足りない分だけ足す",
+            "各問で「正解の理由」と「他の選択肢が要件を満たさない理由」を口に出す",
+            "間違えたサービスは、テキストの該当ページか公式ドキュメントに戻る",
+            "通し模試を時間どおりに解き、正答率が安定するまで弱点分野だけ戻る"
+          ],
+          "resources": [
+            {
+              "label": "Ping-t AWS ソリューションアーキテクト アソシエイト",
+              "url": "https://mondai.ping-t.com/",
+              "note": "分野別と模試があります。選択肢シャッフルを使い、位置で覚えないようにします。"
+            },
+            {
+              "label": "Udemy の SAA 模擬試験",
+              "url": "https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate/",
+              "note": "Tutorials Dojo 系など、本番に近い長文問題の練習に使います。解説で誤選択肢まで読みます。"
+            }
+          ],
+          "criteria": [
+            "誤選択肢の切り方を、間違えた問題についてメモしている",
+            "時間を測った模試で、正答率がおおむね7〜8割に乗っている回がある"
+          ],
+          "commonMistakes": [
+            "Ping-tをHitにするだけで、なぜ他がダメかを言えない",
+            "模試の点数だけ見て、解説を読まない",
+            "新しい問題集を直前期に足す"
+          ]
+        }
+      ]
+    }
+  ]
+}

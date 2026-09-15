@@ -1,0 +1,241 @@
+{
+  "id": "ai-takken",
+  "researchType": "AI Research",
+  "title": "宅地建物取引士ロードマップ",
+  "summary": "宅建士の合格者・資格校・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "宅建士の合格者・資格校・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "法律の学習が初めての人。不動産業での受験も含む",
+  "goal": "宅地建物取引士試験 合格",
+  "estimatedDuration": null,
+  "estimatedHours": "200〜400時間",
+  "difficulty": "中〜高",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["宅建", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 4,
+    "expertArticles": 8,
+    "official": 2,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "同じシリーズで教科書と過去問を揃える", "rate": 91 },
+    { "label": "教科書と論点別過去問を往復する", "rate": 91 },
+    { "label": "宅建業法を得点源にする", "rate": 95 },
+    { "label": "権利関係は深追いしない", "rate": 86 },
+    { "label": "最後に年度別過去問と模試で仕上げる", "rate": 86 }
+  ],
+  "researchSummary": "独学合格者の多くは、同じシリーズの教科書と過去問で揃えていました。名前が最も重なったのは「みんなが欲しかった！宅建士」です。進め方は、分野ごとに教科書を読んだらすぐ論点別過去問を解く往復です。得点の軸は宅建業法（20問）で、権利関係（民法など14問）は頻出だけを取り深追いしない、法令上の制限は数字と手続きの暗記、最後に12年分などの年度別過去問と直前模試、が共通しています。直前期の新しい教材は、法改正と用語のずれで点が落ちやすい、という注意が重なっていました。合格点は相対評価で年により変動します。学習時間は約200〜300時間、初学者で権利関係が重い場合は約400時間まで上がります。",
+  "sources": [
+    { "title": "みんなが欲しかった！宅建士の教科書", "url": "https://tacpub.jp/list/detail.php?bc=111927", "kind": "educationMedia" },
+    { "title": "みんなが欲しかった！宅建士の論点別過去問題集", "url": "https://tacpub.jp/list/detail.php?bc=111928", "kind": "educationMedia" },
+    { "title": "みんなが欲しかった！宅建士の12年過去問題集", "url": "https://www.amazon.co.jp/dp/4300119309", "kind": "educationMedia" },
+    { "title": "不動産適正取引推進機構", "url": "https://www.retio.or.jp/", "kind": "official" },
+    { "title": "宅建業法の勉強ロードマップ（資格クエスト）", "url": "https://www.shikakuquest.com/takken/gyouhou/", "kind": "expertArticles" },
+    { "title": "独学合格の学習方法（SEOテック）", "url": "https://seotech.jp/takken-self-study-since-august/", "kind": "achieverBlogs" },
+    { "title": "宅建の問題集の選び方（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
+    { "title": "権利関係の勉強法（アガルート）", "url": "https://www.agaroot.jp/takken/column/kenrikankei/", "kind": "expertArticles" },
+    { "title": "科目別勉強法（フォーサイト）", "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/", "kind": "expertArticles" },
+    { "title": "法令上の制限の出題ポイント（資格道場）", "url": "https://shikaku-dojo.lb-product.com/takkenshi/articles/chapter-houritsu", "kind": "educationMedia" },
+    { "title": "法令上の制限（オンスク）", "url": "https://onsuku.jp/blog/takkenshi_gakusyu_004", "kind": "educationMedia" },
+    { "title": "法令上の制限（アガルート）", "url": "https://www.agaroot.jp/takken/column/houreiseigen/", "kind": "expertArticles" },
+    { "title": "法令上の制限の攻略（伊藤塾）", "url": "https://column.itojuku.co.jp/takken/method/houreijounoseigen/", "kind": "expertArticles" },
+    { "title": "法令上の制限の学習時間", "url": "https://shyakariki.com/houreijounoseigen/", "kind": "expertArticles" },
+    { "title": "教科書と論点別のリンク（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=111928", "kind": "educationMedia" },
+    { "title": "業法→権利→法令の順（SEOテック）", "url": "https://seotech.jp/takken-self-study-since-august/", "kind": "achieverBlogs" },
+    { "title": "権利関係は7〜9点目標（アガルート）", "url": "https://www.agaroot.jp/takken/column/kenrikankei/", "kind": "expertArticles" },
+    { "title": "業法で満点を狙う（フォーサイト）", "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/", "kind": "expertArticles" },
+    { "title": "直前期に教材を増やさない", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
+    { "title": "テーマ別の縦解き（資格クエスト）", "url": "https://www.shikakuquest.com/takken/gyouhou/", "kind": "expertArticles" },
+    { "title": "法改正は最新版で（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
+    { "title": "年度別過去問は仕上げ（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "series",
+          "label": "教科書と過去問を1シリーズに決める",
+          "required": true,
+          "days": 1,
+          "category": "教材",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "宅建は法改正が入るため、受験年度の新品で揃えます。商業と工業のように、教科書と問題集のページが対応しているシリーズが再現されていました。",
+          "why": "22件中20件が、教科書と過去問を同じシリーズにすることを推奨していました。独学記事で最も名前が出たのはみんなが欲しかった！宅建士（教科書＋論点別過去問題集、必要なら一問一答）です。シリーズを混ぜると、解説の参照ページがずれて往復が遅くなります。",
+          "tasks": [
+            "受験する年度の教科書と、論点別の過去問題集を同じシリーズで買う",
+            "一問一答があるシリーズなら、通勤用に足してよい",
+            "古い年度の中古は、業法と法令上の制限の数字がずれるため使わない"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！宅建士の教科書（受験年度版）",
+              "url": "https://tacpub.jp/list/detail.php?bc=111927",
+              "note": "フルカラーの初学者向け定番です。分野ごとに取り外せます。"
+            },
+            {
+              "label": "みんなが欲しかった！宅建士の論点別過去問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=111928",
+              "note": "教科書とリンクした問題集です。学習の往復の主軸にします。"
+            }
+          ],
+          "criteria": [
+            "教科書と論点別過去問が同じシリーズ・同じ年度で手元にある",
+            "学習中に別シリーズを追加しないと決めている"
+          ],
+          "commonMistakes": [
+            "教科書はA社、過去問はB社で用語がずれる",
+            "前年度の中古で業法の数字を覚える"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "label": "分野別",
+      "nodes": [
+        {
+          "id": "gyoho",
+          "label": "宅建業法を先に得点源にする",
+          "required": true,
+          "days": 28,
+          "category": "宅建業法",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "業法は20問です。免許、35条・37条、8種規制、報酬、監督処分を、テーマごとに縦に解きます。",
+          "why": "22件中21件が、宅建業法を最初に仕上げる、または最も時間を割く対象にしていました。合格者の目標として18点前後が繰り返し出ていました。テキストを全部読んでから問題、より、1テーマ読んだらそのテーマの過去問を連続で解く縦解きが、業法記事で重なっていました。",
+          "tasks": [
+            "教科書の宅建業法を、免許→重要事項説明→契約書面→媒介規制の順で進める",
+            "各テーマの直後に、論点別過去問の同じテーマを解く",
+            "4肢すべての正誤理由を確認し、数字と期限は表に抜き出す",
+            "毎日、前日の誤答だけを10問繰り返す"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！宅建士の教科書（受験年度版）",
+              "url": "https://tacpub.jp/list/detail.php?bc=111927",
+              "note": "業法はテーマ別の縦解きが再現されていました。分冊できるので業法だけ持って進めます。"
+            },
+            {
+              "label": "みんなが欲しかった！宅建士の論点別過去問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=111928",
+              "note": "教科書の同じテーマを読んだ直後に解きます。"
+            }
+          ],
+          "criteria": [
+            "業法の論点別過去問を1周し、誤答リストがある",
+            "35条と37条の記載事項の違いを、何も見ずに言える"
+          ],
+          "commonMistakes": [
+            "業法を流して権利関係の六法に逃げる",
+            "正解肢だけ見て、残り3肢のどこが誤りか確認しない"
+          ]
+        },
+        {
+          "id": "kenri",
+          "label": "権利関係は頻出だけを毎日少し進める",
+          "required": true,
+          "days": 28,
+          "category": "権利関係",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "権利関係は14問ありますが、民法全体を追うと時間が溶けます。意思表示・代理・物権変動・抵当権・賃貸借・借地借家に絞ります。",
+          "why": "22件中19件が、権利関係の深追いは不合格パターンだと書いていました。資格校の目標はおおむね7〜9点で、14点満点を取りにいかない点が共通していました。毎日少しずつ図を描いて人物関係を追う、という手順が複数ありました。",
+          "tasks": [
+            "業法と並行し、権利関係は1日1テーマまでにする",
+            "代理・物権変動・抵当権・借地借家は、登場人物を図に描いてから肢を読む",
+            "判例の細部やマイナー条文は、過去問に出たもの以外を追わない",
+            "区分所有と登記は過去問の範囲だけにする"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！宅建士の教科書（権利関係）",
+              "url": "https://tacpub.jp/list/detail.php?bc=111927",
+              "note": "目標は7〜9点です。民法の基本書には進みません。同じシリーズの論点別で演習します。"
+            }
+          ],
+          "criteria": [
+            "頻出テーマの過去問で、なぜその肢が誤りかを言える",
+            "権利関係に使う時間が、業法より長くなっていない"
+          ],
+          "commonMistakes": [
+            "民法の基本書や判例集に手を出す",
+            "権利関係で満点を狙って業法の復習が止まる"
+          ]
+        },
+        {
+          "id": "hotei",
+          "label": "法令上の制限は数字表で暗記する",
+          "required": true,
+          "days": 14,
+          "category": "法令上の制限",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "法令上の制限は8問です。都市計画法と建築基準法を厚く、あとは過去問に出た数字を表にします。",
+          "why": "22件中18件が、法令上の制限は理解より反復暗記だと書いていました。毎年出る都市計画法・建築基準法を先にし、開発許可の面積など数字のひっかけを表で潰す点が共通していました。深入りは禁物、という資格校の注意も重なっていました。",
+          "tasks": [
+            "都市計画法と建築基準法の章を、教科書→論点別の順で往復する",
+            "開発許可面積、建蔽率・容積率、農地法の許可区分など、数字だけ1枚にまとめる",
+            "税・その他は過去問の頻出（印紙、不動産取得税、登録免許税など）に限定する"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！宅建士の教科書（法令上の制限・税その他）",
+              "url": "https://tacpub.jp/list/detail.php?bc=111927",
+              "note": "細かい例外は過去問に出たもの以外を追いません。目標は8問中6問前後です。"
+            }
+          ],
+          "criteria": [
+            "数字表を毎日見直し、開発許可の面積を混同しない",
+            "法令上の制限の論点別を1周している"
+          ],
+          "commonMistakes": [
+            "都市計画法の細部まで六法で追う",
+            "数字を文章のまま覚え、表にしない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "yearly",
+          "label": "年度別の過去問と模試で本番の50問に慣れる",
+          "required": true,
+          "days": 21,
+          "category": "模試",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "論点別のあとに、年度ごとの50問を時間どおり解きます。直前期は新しい本を足しません。",
+          "why": "22件中19件が、仕上げに年度別過去問（12年分など）または直前模試を入れていました。宅建は相対評価のため、みんなが取る問題を落とさないことが合格条件、という指摘が重なっていました。法改正の確認は、教材の正誤表と公式の発表を見る、が共通です。",
+          "tasks": [
+            "12年過去問題集または同等の年度別過去問を、50問・時間を測って複数回通す",
+            "合格点前後の回は、失点を業法・権利・法令・税に分けて翌日潰す",
+            "直前模試は1冊（または1セット）だけ追加し、新しい教科書は買わない",
+            "試験団体のサイトで、当年の受験案内と法改正の有無を確認する"
+          ],
+          "resources": [
+            {
+              "label": "みんなが欲しかった！宅建士の12年過去問題集",
+              "url": "https://tacpub.jp/list/detail.php?bc=111930",
+              "note": "年度別の通し用です。論点別が終わってから使います。受験年度版を選びます。"
+            },
+            {
+              "label": "不動産適正取引推進機構（試験実施）",
+              "url": "https://www.retio.or.jp/",
+              "note": "受験案内と公式情報の確認に使います。過去問PDFは解説がないため、学習の主軸にはしません。"
+            }
+          ],
+          "criteria": [
+            "年度別の50問通しを3回以上している",
+            "直前期に新しいシリーズを追加していない"
+          ],
+          "commonMistakes": [
+            "論点別だけ解いて、50問通しを一度もしない",
+            "直前期に別の予想問題集を何冊も足す"
+          ]
+        }
+      ]
+    }
+  ]
+}

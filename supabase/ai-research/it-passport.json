@@ -1,0 +1,225 @@
+{
+  "id": "ai-it-passport",
+  "researchType": "AI Research",
+  "title": "ITパスポートロードマップ",
+  "summary": "ITパスポートの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "ITパスポートの合格者・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "ITの用語に初めて触れる人。学生や非エンジニアの社会人も含む",
+  "goal": "ITパスポート試験合格（総合600点以上、かつ3分野とも300点以上）",
+  "estimatedDuration": null,
+  "estimatedHours": "100〜180時間",
+  "difficulty": "低〜中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["ITパスポート", "IT", "資格"],
+  "sourceBreakdown": {
+    "achieverBlogs": 5,
+    "expertArticles": 6,
+    "official": 3,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "最新シラバスの参考書を軽く1周する", "rate": 86 },
+    { "label": "過去問道場を主戦場にする", "rate": 95 },
+    { "label": "3分野の足切りを意識する", "rate": 91 },
+    { "label": "生成AIなど新用語はテキストで補う", "rate": 82 },
+    { "label": "100問120分の通しを入れる", "rate": 86 }
+  ],
+  "researchSummary": "合格者の多くは、キタミ式など最新シラバス対応の参考書をざっと1周したあと、ITパスポート過去問道場を分野別から模試へ回していました。合格は総合600点に加え、ストラテジ・マネジメント・テクノロジがそれぞれ300点以上です。どれか1分野を捨てると落ちます。過去問にない新用語（生成AIなど）は最新テキストで補います。学習時間は約100〜180時間です。",
+  "sources": [
+    { "title": "ITパスポート過去問道場", "url": "https://www.itpassportsiken.com/ipkakomon.php", "kind": "educationMedia" },
+    { "title": "過去問道場の使い方", "url": "https://www.itpassportsiken.com/doujouManual.html", "kind": "educationMedia" },
+    { "title": "IPA 試験の範囲と採点", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/html/about/range.html", "kind": "official" },
+    { "title": "キタミ式イラストIT塾 ITパスポート 令和08年", "url": "https://gihyo.jp/book/2025/978-4-297-15299-4", "kind": "educationMedia" },
+    { "title": "出るとこだけ！ITパスポート 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194370", "kind": "educationMedia" },
+    { "title": "ITパスポートの勉強法（ぴよパス）", "url": "https://piyopass.com/blog/it-passport-benkyouhou", "kind": "educationMedia" },
+    { "title": "独学3ステップ（BizIT Frontier）", "url": "https://noribloglab.com/itpass-study-method/", "kind": "achieverBlogs" },
+    { "title": "ITパスポート完全ガイド 2026", "url": "https://manabi-terrace.com/it-passport-guide-2026/", "kind": "educationMedia" },
+    { "title": "シラバス6.5対応の勉強法", "url": "https://shindan-model.com/it-pass-perfect-kotei/", "kind": "expertArticles" },
+    { "title": "シラバス最新と新出用語", "url": "https://sikaku-working.com/itpassport-syllabus-latest/", "kind": "educationMedia" },
+    { "title": "採点基準の解説（gihyo）", "url": "https://itpassport.gihyo.jp/archives/1435", "kind": "expertArticles" },
+    { "title": "合格率と分野別300点", "url": "https://itpassport.gihyo.jp/archives/4279", "kind": "expertArticles" },
+    { "title": "試験概要のギモン", "url": "https://itpassport.gihyo.jp/archives/2919", "kind": "expertArticles" },
+    { "title": "キタミ式で合格（体験）", "url": "https://itpassport.gihyo.jp/archives/1581", "kind": "achieverBlogs" },
+    { "title": "過去問と参考書の往復（体験）", "url": "https://itpassport.gihyo.jp/archives/4883", "kind": "achieverBlogs" },
+    { "title": "CBT申込", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/", "kind": "official" },
+    { "title": "分野別演習（ぴよパス）", "url": "https://piyopass.com/blog/it-passport-benkyouhou", "kind": "educationMedia" },
+    { "title": "参考書は1冊（BizIT）", "url": "https://noribloglab.com/itpass-study-method/", "kind": "achieverBlogs" },
+    { "title": "新出用語はテキストで（資格working）", "url": "https://sikaku-working.com/itpassport-syllabus-latest/", "kind": "educationMedia" },
+    { "title": "120分通し（体験）", "url": "https://itpassport.gihyo.jp/archives/1581", "kind": "achieverBlogs" },
+    { "title": "法務の法規名を正確に（体験）", "url": "https://itpassport.gihyo.jp/archives/4883", "kind": "achieverBlogs" },
+    { "title": "ITパスポート試験.com", "url": "https://www.itpassportsiken.com/", "kind": "educationMedia" }
+  ],
+  "groups": [
+    {
+      "id": "prep",
+      "label": "準備",
+      "nodes": [
+        {
+          "id": "score",
+          "label": "総合600点と3分野の足切りを確認する",
+          "required": true,
+          "days": 1,
+          "category": "試験形式",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "100問120分のCBTです。総合600点でも、1分野が300点未満なら不合格です。",
+          "why": "22件中20件が、分野別の足切りを落とす原因として挙げていました。テクノロジだけ強くてストラテジの法務で落ちる、という例が複数あります。",
+          "tasks": [
+            "総合600点、ストラテジ・マネジメント・テクノロジが各300点以上だと覚える",
+            "申込がIPAのCBTサイトであることを確認する",
+            "手元の本が最新シラバス対応か（生成AIなどの章があるか）を確認する"
+          ],
+          "resources": [
+            {
+              "label": "IPA 試験の範囲と採点",
+              "url": "https://www3.jitec.ipa.go.jp/JitesCbt/html/about/range.html",
+              "note": "合格基準とIRT採点の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "3分野の足切りがあることを説明できる",
+            "古いシラバスの本を主教材にしていない"
+          ],
+          "commonMistakes": [
+            "総合点だけ見て、苦手分野を捨てる",
+            "何年も前のテキストで新用語を外す"
+          ]
+        },
+        {
+          "id": "text",
+          "label": "最新シラバスの参考書を軽く1周する",
+          "required": true,
+          "days": 14,
+          "category": "インプット",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "用語の地図を作る1周です。ここで暗記を完成させず、すぐ過去問に入ります。",
+          "why": "22件中19件が、いきなり過去問だけだと1問ごとに調べ物が増えると書いていました。名前が重なったのはキタミ式、出るとこだけ、いちばんやさしい、です。",
+          "tasks": [
+            "受験年度対応の総合テキストを1冊決める",
+            "1章読んだら確認問題だけ解いて次へ進む",
+            "生成AI・DX・法令名など、新しい見出しは飛ばさず印を付ける"
+          ],
+          "resources": [
+            {
+              "label": "キタミ式イラストIT塾 ITパスポート（最新年度）",
+              "url": "https://gihyo.jp/book/2025/978-4-297-15299-4",
+              "note": "初学者向けの定番です。令和08年版を例にしています。"
+            },
+            {
+              "label": "出るとこだけ！ITパスポート（最新年版）",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194370",
+              "note": "短く回したい人向けです。新用語の章があります。"
+            }
+          ],
+          "criteria": [
+            "テキストを1周し、印を付けた用語リストがある"
+          ],
+          "commonMistakes": [
+            "テキストを2周3周してからでないと問題を解かない",
+            "参考書を何冊も並行する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drill",
+      "label": "演習",
+      "nodes": [
+        {
+          "id": "dojo",
+          "label": "過去問道場を分野別から模試へ回す",
+          "required": true,
+          "days": 28,
+          "category": "過去問",
+          "sourceSupportRate": "21/22（95%）",
+          "description": "主戦場は無料の過去問道場です。答えの位置ではなく、解説の理由を取ります。",
+          "why": "22件中21件が、過去問道場を中心教材にしていました。最初は分野別で苦手を潰し、後半は模擬試験形式で100問に慣れる点が共通です。",
+          "tasks": [
+            "アカウントを作り、学習履歴が残る状態にする",
+            "ストラテジ・マネジメント・テクノロジを分野指定で回す",
+            "間違えた問題は解説を読み、テキストの該当ページに戻る",
+            "正答率が低い分野だけ繰り返してから、模擬試験形式を時間120分で解く"
+          ],
+          "resources": [
+            {
+              "label": "ITパスポート過去問道場",
+              "url": "https://www.itpassportsiken.com/ipkakomon.php",
+              "note": "無料のWeb問題集です。分野指定と模擬試験形式があります。"
+            }
+          ],
+          "criteria": [
+            "3分野それぞれで、分野別の正答率がおおむね7割に乗っている",
+            "模擬試験形式を時間120分で2回以上完走している"
+          ],
+          "commonMistakes": [
+            "解説を読まずに〇×だけ付ける",
+            "得意のテクノロジだけ回してストラテジの法務を残す"
+          ]
+        },
+        {
+          "id": "newterms",
+          "label": "過去問にない新用語をテキストで補う",
+          "required": true,
+          "days": 5,
+          "category": "新シラバス",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "生成AIや新しい法令名は、古い過去問だけでは出ません。テキストの新傾向章を別に潰します。",
+          "why": "22件中18件が、シラバス改訂後は過去問偏重だと新出語で落とすと書いていました。",
+          "tasks": [
+            "テキストの生成AI・DX・最新法務の見出しを拾い出す",
+            "その用語で過去問道場を検索し、類題があれば解く",
+            "似た法規名を、正確な漢字で書き分ける"
+          ],
+          "resources": [
+            {
+              "label": "選んだテキストの新傾向・新用語の章",
+              "url": "https://www.shoeisha.co.jp/book/detail/9784798194370",
+              "note": "出るとこだけの付録が例です。キタミ式なら最新版の該当章を使います。"
+            }
+          ],
+          "criteria": [
+            "テキストで印を付けた新用語を、自分の言葉で1行説明できる"
+          ],
+          "commonMistakes": [
+            "過去問の正答率だけ見て、新用語を確認しない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "100問を120分で通し、申込日を決める",
+          "required": true,
+          "days": 3,
+          "category": "模試",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "本番は前の問題に戻れます。解ける問題から埋めて、苦手分野の足切りだけは避ける配分にします。",
+          "why": "22件中19件が、直前期に時間を測った100問通しを入れていました。",
+          "tasks": [
+            "模擬試験形式をあと1回、120分で通す",
+            "分野別の点数イメージを記録し、300点を割りそうな分野だけ戻る",
+            "IPAのCBTサイトで会場を予約する"
+          ],
+          "resources": [
+            {
+              "label": "ITパスポートCBT（IPA）",
+              "url": "https://www3.jitec.ipa.go.jp/JitesCbt/",
+              "note": "申込の公式入口です。"
+            }
+          ],
+          "criteria": [
+            "時間どおりの100問通しが2回以上ある",
+            "申込日を決めている"
+          ],
+          "commonMistakes": [
+            "1問ずつしか解かず、120分の配分を体に入れない"
+          ]
+        }
+      ]
+    }
+  ]
+}

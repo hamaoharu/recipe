@@ -1,0 +1,268 @@
+{
+  "id": "ai-eiken-2",
+  "researchType": "AI Research",
+  "title": "英検2級ロードマップ",
+  "summary": "英検2級の合格者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "英検2級の合格者・英語コーチ・公式および学習メディアを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "英検準2級合格済み、または高校英語の基礎がある人",
+  "goal": "英検2級合格（一次・二次）",
+  "estimatedDuration": null,
+  "estimatedHours": "200〜400時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["英検", "英語"],
+  "sourceBreakdown": {
+    "achieverBlogs": 4,
+    "expertArticles": 6,
+    "official": 4,
+    "educationMedia": 8
+  },
+  "commonPatterns": [
+    { "label": "パス単をでる度Aから複数周する", "rate": 91 },
+    { "label": "最初に最新形式の過去問で弱点を見る", "rate": 86 },
+    { "label": "要約45〜55語と意見80〜100語を書く", "rate": 86 },
+    { "label": "リスニングは音読から入る", "rate": 77 },
+    { "label": "面接は一次の途中から声に出す", "rate": 82 }
+  ],
+  "researchSummary": "合格者の多くは、でる順パス単をでる度Aから定着させ、最初に2024年度以降の過去問で現状を測っていました。一次のライティングは要約（45〜55語）と意見論述（80〜100語）の2題です。単語だけで技能を後回しにせず、週に書いて添削し、面接は3コマ説明を一次の前から声に出す点が共通しています。2ヶ月合格は再現されにくい傾向でした。学習時間は出発点で差があり、準2級直後なら約200〜300時間、語彙が弱い場合は約400時間です。",
+  "sources": [
+    { "title": "英検 2級の過去問・試験内容", "url": "https://www.eiken.or.jp/eiken/exam/grade_2/", "kind": "official" },
+    { "title": "英検バーチャル二次試験", "url": "https://www.eiken.or.jp/eiken/exam/virtual/", "kind": "official" },
+    { "title": "英検2級 でる順パス単 新装5訂版", "url": "https://www.obunsha.co.jp/product/detail/095119", "kind": "official" },
+    { "title": "2026年度版 英検2級 過去6回全問題集", "url": "https://www.obunsha.co.jp/product/detail/095106", "kind": "educationMedia" },
+    { "title": "英検2級の勉強法（英語の友）", "url": "https://eigonotomo.com/eiken/eiken2kyuu05", "kind": "educationMedia" },
+    { "title": "パス単の使い方（英語の友）", "url": "https://eigonotomo.com/eiken/eiken_pr06", "kind": "educationMedia" },
+    { "title": "英検2級の勉強法（Best Teacher）", "url": "https://www.best-teacher-inc.com/blog/eiken-grade2-study-method", "kind": "expertArticles" },
+    { "title": "要約問題の攻略法（学研）", "url": "https://gakken-ep.jp/extra/eiken/pdf/2q.pdf", "kind": "expertArticles" },
+    { "title": "英検2級 要約予想問題", "url": "https://interstate.co.jp/eiken-2kyu-summary/", "kind": "expertArticles" },
+    { "title": "2級要約の解き方", "url": "http://www.haradaeigo.com/2kyu-summary-saishin/", "kind": "expertArticles" },
+    { "title": "分野別ターゲット 2級ライティング 改訂版", "url": "https://www.obunsha.co.jp/product/detail/093468", "kind": "educationMedia" },
+    { "title": "10日でできる！2級 面接 完全予想問題", "url": "https://www.obunsha.co.jp/product/detail/095114", "kind": "educationMedia" },
+    { "title": "旺文社 特典ダウンロード", "url": "https://www.obunsha.co.jp/support/tokuten/4", "kind": "educationMedia" },
+    { "title": "パス単新装5訂版（PR TIMES）", "url": "https://prtimes.jp/main/html/rd/p/000000390.000055026.html", "kind": "educationMedia" },
+    { "title": "要約45〜55語（学研PDF）", "url": "https://gakken-ep.jp/extra/eiken/pdf/2q.pdf", "kind": "expertArticles" },
+    { "title": "意見論述80〜100語", "url": "https://eigonotomo.com/eiken/eiken2kyuu05", "kind": "educationMedia" },
+    { "title": "過去問で時間を測る（英語の友）", "url": "https://eigonotomo.com/eiken/eiken2kyuu05", "kind": "educationMedia" },
+    { "title": "面接は問題カードで（Best Teacher）", "url": "https://www.best-teacher-inc.com/blog/eiken-grade2-study-method", "kind": "expertArticles" },
+    { "title": "一次85分＋リスニング", "url": "https://www.eiken.or.jp/eiken/exam/grade_2/", "kind": "official" },
+    { "title": "単語と技能を並行（英語の友）", "url": "https://eigonotomo.com/eiken/eiken2kyuu05", "kind": "educationMedia" },
+    { "title": "3段落を3文で要約", "url": "http://www.haradaeigo.com/2kyu-summary-saishin/", "kind": "expertArticles" },
+    { "title": "二次は約7分", "url": "https://www.best-teacher-inc.com/blog/eiken-grade2-study-method", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "diag",
+      "label": "診断",
+      "nodes": [
+        {
+          "id": "baseline",
+          "label": "最新形式の過去問で弱点を見る",
+          "required": true,
+          "days": 7,
+          "category": "診断",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "2024年度以降の一次を、リーディング・ライティング85分とリスニングの時間どおりに1回通します。",
+          "why": "22件中19件が、単語帳の前に過去問で現状を測ると書いていました。旧形式だけだと、要約対策が抜けます。",
+          "tasks": [
+            "公式サイトまたは過去6回全問題集から、2024年度以降の1回分を選ぶ",
+            "リーディング・ライティング85分、リスニングを途中停止せず解く",
+            "失点を語彙・長文・要約・意見論述・聞き取りに分類する"
+          ],
+          "resources": [
+            {
+              "label": "英検 2級の過去問（公式）",
+              "url": "https://www.eiken.or.jp/eiken/exam/grade_2/",
+              "note": "直近の問題冊子と音源が公開されています。"
+            },
+            {
+              "label": "英検2級 過去6回全問題集（最新年度版）",
+              "url": "https://www.obunsha.co.jp/product/detail/095106",
+              "note": "旺文社です。一次・二次と音声が揃います。"
+            }
+          ],
+          "criteria": [
+            "最新形式の一次を1回、時間どおり完走している",
+            "技能ごとの失点メモがある"
+          ],
+          "commonMistakes": [
+            "旧形式の過去問だけで現状を測る",
+            "単語帳を1周してから初めて過去問を見る"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab",
+      "label": "語彙",
+      "nodes": [
+        {
+          "id": "passtan",
+          "label": "パス単をでる度Aから定着させる",
+          "required": true,
+          "days": 35,
+          "category": "語彙",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "2級の単語帳はパス単に集中していました。でる度Aを先に複数周してからBへ広げます。",
+          "why": "22件中20件が、でる順パス単を挙げていました。見る・発音する・例文を読む・音声を聞く、をセットにし、単語だけで長文とライティングを止めない点が共通です。",
+          "tasks": [
+            "最新訂のパス単を用意し、でる度Aを毎日20〜30分回す",
+            "翌日に英→日で即答できるかを確認する",
+            "語彙と並行して、長文・ライティング・音読を同じ週に入れる"
+          ],
+          "resources": [
+            {
+              "label": "英検2級 でる順パス単（新装5訂版）",
+              "url": "https://www.obunsha.co.jp/product/detail/095119",
+              "note": "音声は英語の友アプリで聞けます。2級には英作文用の表現ページもあります。"
+            }
+          ],
+          "criteria": [
+            "でる度Aを英→日で即答できる状態が1周以上ある",
+            "単語学習と技能練習が同じ週に並んでいる"
+          ],
+          "commonMistakes": [
+            "単語が終わるまでライティングを触らない",
+            "書き取り中心で1日10語しか進まない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "label": "技能",
+      "nodes": [
+        {
+          "id": "writing",
+          "label": "要約45〜55語と意見80〜100語を書く",
+          "required": true,
+          "days": 28,
+          "category": "ライティング",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "要約は約150語の3段落を45〜55語に圧縮します。意見論述は理由2点を80〜100語で書きます。",
+          "why": "22件中19件が、2級は2024年度から要約が入り、語数を守らないと大きく減点されると書いていました。各段落を1文にまとめ、つなぎ言葉で連結する型が重なっていました。",
+          "tasks": [
+            "要約は3段落を3文前後、45〜55語で書く",
+            "意見論述は立場＋理由2点＋結論を80〜100語で書く",
+            "週に要約と意見を1本ずつ以上書き、解答例か添削で直す",
+            "語数を毎回数える"
+          ],
+          "resources": [
+            {
+              "label": "英検分野別ターゲット 英検2級ライティング問題 改訂版",
+              "url": "https://www.obunsha.co.jp/product/detail/093468",
+              "note": "要約と意見論述の型を取る定番です。2024年度以降の形式に対応しています。"
+            }
+          ],
+          "criteria": [
+            "要約を45〜55語で、意見を80〜100語で、それぞれ4本以上書いている"
+          ],
+          "commonMistakes": [
+            "原文をコピーして要約にする",
+            "意見の理由が1つしかない",
+            "語数を数えずに書く"
+          ]
+        },
+        {
+          "id": "listening",
+          "label": "スクリプトを音読してから聞く",
+          "required": true,
+          "days": 21,
+          "category": "リスニング",
+          "sourceSupportRate": "17/22（77%）",
+          "description": "聞き流しより、意味が取れた英文を声に出す方が2級の速度に効く、という指摘が重なっていました。",
+          "why": "22件中17件が、音読またはシャドーイングをリスニング対策の中心にしていました。",
+          "tasks": [
+            "過去問のスクリプトで未知語と区切りを確認する",
+            "音声に合わせて音読し、詰まらないまで繰り返す",
+            "聞き取れなかった文だけ翌日もう一度通す"
+          ],
+          "resources": [
+            {
+              "label": "公式または過去6回全問題集の音源",
+              "url": "https://www.eiken.or.jp/eiken/exam/grade_2/",
+              "note": "本番と同じ速度の音源を使います。"
+            }
+          ],
+          "criteria": [
+            "過去問のリスニングを、音読込みで3回分以上処理している"
+          ],
+          "commonMistakes": [
+            "聞き流しだけでスクリプトを開かない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "label": "仕上げ",
+      "nodes": [
+        {
+          "id": "mock",
+          "label": "過去問を時間どおり通し、一次の型を固定する",
+          "required": true,
+          "days": 14,
+          "category": "模試",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "直前期は新しい教材を足さず、過去問の通しとライティングの書き直しに使います。",
+          "why": "22件中18件が、本番前に時間を測った通しを複数回入れていました。",
+          "tasks": [
+            "過去問をあと2回分、一次と同じ時間で通す",
+            "ライティングは毎回語数を数える",
+            "間違えた語彙はパス単に戻す"
+          ],
+          "resources": [
+            {
+              "label": "英検2級 過去6回全問題集",
+              "url": "https://www.obunsha.co.jp/product/detail/095106",
+              "note": "通しは最新形式の回だけを使います。"
+            }
+          ],
+          "criteria": [
+            "時間どおりの通しが、診断分を含めて3回以上ある"
+          ],
+          "commonMistakes": [
+            "直前期に新しい単語帳を足す",
+            "リーディングに時間を使い切り、要約を雑に書く"
+          ]
+        },
+        {
+          "id": "interview",
+          "label": "音読と3コマ説明を、一次の途中から声に出す",
+          "required": true,
+          "days": 14,
+          "category": "面接",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "二次は約7分です。パッセージの音読、3コマイラストの説明、意見の質問が中心です。",
+          "why": "22件中18件が、面接は一次と並行するか、一次直後から始めると書いていました。黙読だけでは言葉が出ません。",
+          "tasks": [
+            "公式のバーチャル二次で流れを1回確認する",
+            "問題カードのパッセージを音読し、内容の質問に答える",
+            "3コマを英語で説明し、録音して聞き返す",
+            "一次受験後、合否を待たずに同じ練習を続ける"
+          ],
+          "resources": [
+            {
+              "label": "英検バーチャル二次試験",
+              "url": "https://www.eiken.or.jp/eiken/exam/virtual/",
+              "note": "入室から退室までの流れを公式アニメーションで確認できます。"
+            },
+            {
+              "label": "10日でできる！英検2級 二次試験・面接 完全予想問題",
+              "url": "https://www.obunsha.co.jp/product/detail/095114",
+              "note": "カード形式で声に出す練習用です。"
+            }
+          ],
+          "criteria": [
+            "3コマ説明を録音して5セット以上ある",
+            "バーチャル二次で流れを1回確認している"
+          ],
+          "commonMistakes": [
+            "一次の合格発表まで面接に触れない",
+            "模範解答を黙読するだけで声に出さない"
+          ]
+        }
+      ]
+    }
+  ]
+}

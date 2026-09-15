@@ -1,0 +1,388 @@
+{
+  "id": "ai-toeic-500-900",
+  "researchType": "AI Research",
+  "title": "TOEIC500→900ロードマップ",
+  "summary": "TOEIC900達成者・英語コーチ・公式および学習メディア24件を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "TOEIC900達成者・英語コーチ・公式および学習メディア24件を調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "TOEIC450〜600点",
+  "goal": "TOEIC900点以上",
+  "estimatedDuration": null,
+  "estimatedHours": "1000〜1300時間",
+  "difficulty": "高",
+  "sourceCount": 25,
+  "confidence": 4,
+  "tags": ["TOEIC", "英語"],
+  "sourceBreakdown": {
+    "achieverBlogs": 8,
+    "expertArticles": 6,
+    "official": 4,
+    "educationMedia": 4,
+    "youtube": 2,
+    "reddit": 1
+  },
+  "commonPatterns": [
+    { "label": "金フレなどのTOEIC語彙", "rate": 92 },
+    { "label": "公式問題集", "rate": 88 },
+    { "label": "模試の間違い分析", "rate": 83 },
+    { "label": "Part5の文法演習", "rate": 83 },
+    { "label": "公式音源のシャドーイング", "rate": 79 }
+  ],
+  "researchSummary": "900点到達者の多くは、語彙→文法（Part5）→公式音源のシャドーイング→Part対策→公式問題集の通し演習、の順で進めていました。共通していたのは「教材を増やさず、同じ公式音源と模試を繰り返す」ことです。単語帳を1周で終わらせる、書き取り中心、30日で+400点を狙うやり方は、再現されにくい傾向でした。学習時間の目安は、IIBCの「100点あたり約300時間」（自己学習でも同程度）に合わせ、500→900で約1000〜1300時間です。",
+  "sources": [
+    { "title": "金のフレーズの使い方（english-route）", "url": "https://english-route.com/kinhure-tukaikata/", "kind": "expertArticles" },
+    { "title": "TOEIC 900点の単語学習と金フレ（森くんのメメント）", "url": "https://forest-memento.com/toeic-900-words-kinhure-based/", "kind": "achieverBlogs" },
+    { "title": "文法特急の使い方（english-route）", "url": "https://english-route.com/toeic-bunpoutokkyu/", "kind": "expertArticles" },
+    { "title": "TOEIC 900点の勉強法（native-real）", "url": "https://native-real.com/articles/toeic-900-study-plan/", "kind": "educationMedia" },
+    { "title": "TOEIC900の勉強法（StudyChain）", "url": "https://studychain.jp/media/toeic-900-study-highschool/", "kind": "educationMedia" },
+    { "title": "TOEICシャドーイングの手順（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-shadowing-study-guide/", "kind": "expertArticles" },
+    { "title": "Part3・4はシャドーイング（English Lab）", "url": "https://englishlab.jp/2021/10/22/toeic_part3_part4/", "kind": "expertArticles" },
+    { "title": "Part3・4は音読とシャドーイング（TOEICで500点スコアアップ）", "url": "https://toeic-500up.com/2016/12/toeic-part3.html", "kind": "achieverBlogs" },
+    { "title": "公式問題集の使い方（native-real）", "url": "https://native-real.com/articles/toeic-official-materials-guide/", "kind": "educationMedia" },
+    { "title": "公式問題集の3周復習法（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" },
+    { "title": "IIBC 公式教材の音声", "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html", "kind": "official" },
+    { "title": "IIBC 公式問題集11", "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html", "kind": "official" },
+    { "title": "IIBC 公式教材・問題集", "url": "https://www.iibc-global.org/toeic/support/prep.html", "kind": "official" },
+    { "title": "IIBC 目標スコアと学習時間", "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html", "kind": "official" },
+    { "title": "Reddit r/japanlife TOEIC advice", "url": "https://www.reddit.com/r/japanlife/comments/33cj2r/need_some_advice_from_english_teachersanyone_who/", "kind": "reddit" },
+    { "title": "金フレの使い方（amirohblog）", "url": "https://amirohblog.com/toeic_kinfure/", "kind": "achieverBlogs" },
+    { "title": "TOEIC体験談（sukigoga）", "url": "https://sukigoga.com/toeic-experience/", "kind": "achieverBlogs" },
+    { "title": "TOEIC800台の勉強記録（moric-blog）", "url": "https://moric-blog.com/toeic-study-800/", "kind": "achieverBlogs" },
+    { "title": "文法特急の使い方（goh-english）", "url": "https://goh-english.com/toeic/toeic-study/grammar-express/", "kind": "expertArticles" },
+    { "title": "文法特急〜900点特急（eigo3hours）", "url": "https://eigo3hours.com/express900/", "kind": "achieverBlogs" },
+    { "title": "スタディサプリENGLISH TOEIC対策", "url": "https://eigosapuri.jp/toeic/", "kind": "educationMedia" },
+    { "title": "TOEIC勉強法（nekopajamas）", "url": "https://www.nekopajamas.net/entry/study-toeic", "kind": "achieverBlogs" },
+    { "title": "TOEIC勉強法（Zenn）", "url": "https://zenn.dev/taku_sid/articles/20250416_toeic_study", "kind": "achieverBlogs" },
+    { "title": "スタディサプリENGLISH（YouTube）", "url": "https://www.youtube.com/@studysapuri", "kind": "youtube" },
+    { "title": "Morite2 English Channel（YouTube）", "url": "https://www.youtube.com/@morite2english", "kind": "youtube" }
+  ],
+  "groups": [
+    {
+      "id": "diag",
+      "label": "診断",
+      "nodes": [
+        {
+          "id": "baseline",
+          "label": "公式問題集で現状を測る",
+          "required": true,
+          "days": 7,
+          "category": "診断",
+          "sourceSupportRate": "22/24（92%）",
+          "description": "最新の公式問題集を、本番と同じ2時間で1回通します。点数より「どのPartで落ちているか」を確認します。",
+          "why": "調査24件中22件が、教材を増やす前に公式の通し受験で現状を測ることを推奨していました。弱点が見えないまま単語帳だけを回すことが、伸びない原因として繰り返し挙げられていました。",
+          "tasks": [
+            "最新の公式問題集1回分を、途中停止せず2時間で解く",
+            "Partごとの正答数と、時間が足りなかった箇所を記録する",
+            "間違いは「語彙・文法・聞き取り・時間切れ」に分類する"
+          ],
+          "resources": [
+            {
+              "label": "公式TOEIC Listening & Reading 問題集（最新刊）",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "ETSが本番と同じプロセスで作った問題です。診断と仕上げの両方で使います。"
+            },
+            {
+              "label": "公式教材の音声",
+              "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html",
+              "note": "IIBC公式アプリまたはサイトから無料でダウンロードできます。"
+            }
+          ],
+          "criteria": [
+            "2時間通しを1回完走している",
+            "Part別の正答数と、失点理由の分類表がある"
+          ],
+          "commonMistakes": [
+            "途中で止めてPartごとに解いてしまい、本番の疲労が分からない",
+            "スコアだけ見て復習せず次の模試に進む",
+            "古い形式の問題集で現状を測る"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab",
+      "label": "語彙",
+      "nodes": [
+        {
+          "id": "kinfure",
+          "label": "金フレ1000語を定着させる",
+          "required": true,
+          "days": 45,
+          "category": "語彙",
+          "sourceSupportRate": "22/24（92%）",
+          "description": "TOEIC用の語彙を先に固めます。見出し語1000と、設問・選択肢に出る語、前置詞・接続詞まで含めます。",
+          "why": "24件中22件で、語彙不足が500点台の最大のボトルネックとされていました。達成者が挙げていた単語帳は金のフレーズに集中しており、一般英単語帳や書き取り中心の暗記は少数派でした。",
+          "tasks": [
+            "金フレを1日100語ペースで英→日を繰り返す",
+            "1周で終わらせず、間違えた語だけを翌日以降に再出題する",
+            "Supplementの設問・選択肢語と前置詞・接続詞も覚える",
+            "Quizletやabceedがある場合は音声付きで回す"
+          ],
+          "resources": [
+            {
+              "label": "TOEIC L&R TEST 出る単特急 金のフレーズ",
+              "url": "https://publications.asahi.com/product/25791.html",
+              "note": "TEX加藤著・朝日新聞出版です。最新の増補改訂版を使います。音声は出版社ページからダウンロードできます。"
+            },
+            {
+              "label": "Quizlet",
+              "url": "https://quizlet.com/",
+              "note": "金フレ用デッキで英→日の反復ができます。書き取りより再認速度を優先してください。"
+            }
+          ],
+          "criteria": [
+            "見出し語1000のうち900語以上を英→日で即答できる",
+            "公式問題集のPart5語彙問題で正答率70%以上"
+          ],
+          "commonMistakes": [
+            "1周しただけで覚えた気になる",
+            "書き取り中心で1日10語しか進まない",
+            "例文まで全部覚えようとして止まる",
+            "金フレのあとに別の単語帳へすぐ乗り換える"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grammar",
+      "label": "文法",
+      "nodes": [
+        {
+          "id": "bunpou",
+          "label": "文法特急でPart5の型を取る",
+          "required": true,
+          "days": 21,
+          "category": "文法",
+          "sourceSupportRate": "20/24（83%）",
+          "description": "Part5は品詞・動詞・前置詞の型を速く処理します。文法特急で550・730点レベルを先に固めます。",
+          "why": "24件中20件がPart5の処理速度を、Part7の時間を残す前提条件として挙げていました。入門〜中級で繰り返し名前が出たのが文法特急です。900点レベル問題より、基礎の反復とあとのでる1000が多い傾向でした。",
+          "tasks": [
+            "文法特急の550点・730点レベルを先に3周する",
+            "各問で「何を根拠に切ったか」を口に出してから解説を見る",
+            "Part5を1問20秒以内で解く練習を入れる"
+          ],
+          "resources": [
+            {
+              "label": "1駅1題 TOEIC L&R TEST 文法特急",
+              "url": "https://publications.asahi.com/product/22743.html",
+              "note": "花田徹也著です。通勤サイズでPart5の型を取る定番です。550点・730点レベルから先に回します。"
+            }
+          ],
+          "criteria": [
+            "文法特急の550・730点レベルを3周している",
+            "公式問題集のPart5正答率70%以上",
+            "Part5・6を合計20分以内で終えられる"
+          ],
+          "commonMistakes": [
+            "900点レベルから始めて基礎が抜けたままになる",
+            "解説を読まずに〇×だけ付ける",
+            "文法書の通読から入って問題演習が後回しになる"
+          ]
+        },
+        {
+          "id": "deru1000",
+          "label": "でる1000でPart5の演習量を足す",
+          "required": false,
+          "days": 21,
+          "category": "文法",
+          "sourceSupportRate": "14/24（58%）",
+          "description": "Part5で9割を取りたい場合の追加演習です。文法特急のあとに置きます。",
+          "why": "900点を狙う記事の半数以上が、文法特急の次にでる1000で演習量を足していました。文法特急のあとに置く追加演習です。",
+          "tasks": [
+            "品詞・動詞など弱点タイプだけ先に解く",
+            "1セットを時間を測って解き、解説で根拠を確認する"
+          ],
+          "resources": [
+            {
+              "label": "TOEIC L&Rテスト 文法問題 でる1000問",
+              "url": "https://www.ask-books.com/book-details/?slug=9784866390833",
+              "note": "アスク出版・TEX加藤著です。Part5のタイプ別演習で、文法特急のあとに使います。"
+            }
+          ],
+          "criteria": [
+            "弱点タイプを1周以上している",
+            "公式問題集のPart5正答率85%以上"
+          ],
+          "commonMistakes": [
+            "文法特急を飛ばしていきなり1000問に入る",
+            "全問を均等に解き、間違えたタイプを繰り返さない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "listen",
+      "label": "リスニング",
+      "nodes": [
+        {
+          "id": "shadow",
+          "label": "公式音源でシャドーイングする",
+          "required": true,
+          "days": 60,
+          "category": "リスニング",
+          "sourceSupportRate": "19/24（79%）",
+          "description": "Part3・4は、公式音源を精読してから同じセットを何度もシャドーイングします。",
+          "why": "24件中19件が、聞き流しではなく公式音源の精読→音読→シャドーイングを推奨していました。達成者ブログと出版社記事の両方で「1セットを3日以上繰り返す」が重なっていました。",
+          "tasks": [
+            "公式問題集のPart3・4を1セット解く",
+            "スクリプトを精読し、未知語と構文を潰す",
+            "スクリプトありのシャドーイングのあと、なしで繰り返す",
+            "同じ音源を最低3日、合計10回以上口に出す"
+          ],
+          "resources": [
+            {
+              "label": "公式問題集のPart3・4音源",
+              "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html",
+              "note": "本番と同じスピーカーです。市販の別音源で模試代わりにはしないでください。"
+            }
+          ],
+          "criteria": [
+            "公式1冊分のPart3・4を、精読＋シャドーイングまで終えている",
+            "スクリプトなしで大意が追えるセットが半分以上ある"
+          ],
+          "commonMistakes": [
+            "聞いて終わりにし、スクリプトを読まない",
+            "毎日新しい音源に手を出して定着しない",
+            "最初からスクリプトなしでつまずく"
+          ]
+        },
+        {
+          "id": "preview",
+          "label": "Part3・4の設問先読みを習慣にする",
+          "required": true,
+          "days": 21,
+          "category": "リスニング",
+          "sourceSupportRate": "18/24（75%）",
+          "description": "音声のDirections中に設問と選択肢を先に読みます。聞きながら探す癖をやめます。",
+          "why": "24件中18件が、Part3・4の失点原因として先読み不足を挙げていました。実務者の助言でも、Directionsを聞いている間に次問を読むことが繰り返し出ていました。",
+          "tasks": [
+            "Directionsの間に次の3問の疑問詞とキーワードを拾う",
+            "図表問題は先に図表の軸を確認する",
+            "聞き逃したら即次問へ切り替え、引きずらない"
+          ],
+          "resources": [
+            {
+              "label": "公式問題集 Part3・4",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "本番と同じDirectionsの長さで、先読みの練習ができます。"
+            }
+          ],
+          "criteria": [
+            "模試のPart3・4で、各セット開始前に設問を見終わっている",
+            "図表問題で軸を読み落とさない"
+          ],
+          "commonMistakes": [
+            "Directionsを最後まで聞いてしまい先読みできない",
+            "1問に引っかかって次の会話を聞き逃す"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "label": "読解",
+      "nodes": [
+        {
+          "id": "part7",
+          "label": "Part7の時間配分と精読",
+          "required": true,
+          "days": 30,
+          "category": "読解",
+          "sourceSupportRate": "20/24（83%）",
+          "description": "Part5・6を速く終わらせ、Part7に55分以上残します。全文を急いで雑に読まず、設問の根拠箇所を取ります。",
+          "why": "24件中20件が、900点のリーディングはPart7の時間切れが最大要因だと書いていました。対策として共通していたのは、Part5・6の時短と、公式文書の精読（根拠線を引く）でした。",
+          "tasks": [
+            "Part5・6を20分以内、Part7を55分以上で解く配分を固定する",
+            "公式のシングル→ダブル→トリプルの順で精読する",
+            "各設問の根拠箇所に線を引き、言い換えを確認する",
+            "解けなかった文書は翌日、時間を測らず全文を理解する"
+          ],
+          "resources": [
+            {
+              "label": "公式問題集 Part7",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "文書の言い換えが本番に近いです。市販の難問集より先に公式を精読してください。"
+            }
+          ],
+          "criteria": [
+            "模試でPart7に55分以上残せる",
+            "精読した公式文書は、根拠箇所を説明できる"
+          ],
+          "commonMistakes": [
+            "Part5に時間を使いすぎてPart7が塗り絵になる",
+            "速読だけを意識して根拠を取らない",
+            "トリプルパッセージから始めて挫折する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mock",
+      "label": "通し演習",
+      "nodes": [
+        {
+          "id": "official-loop",
+          "label": "公式問題集を通しで回す",
+          "required": true,
+          "days": 45,
+          "category": "模試",
+          "sourceSupportRate": "21/24（88%）",
+          "description": "最新刊を中心に、公式を本番条件で複数回通します。新しい模試を買うより、同じ冊子を復習します。",
+          "why": "24件中21件が公式問題集を軸にしていました。出版社・達成者ともに「1冊を3周（測定→精読・音源→時間を測って再受験）」が最多です。教材を増やす人より、公式を使い切る人の方が再現されていました。",
+          "tasks": [
+            "最新の公式問題集を本番と同じ時刻・2時間で解く",
+            "1周目のあと、全文書を精読しPart3・4をシャドーイングする",
+            "1〜2週間後に同じテストを時間を測って再受験する",
+            "公式は最低2冊分（テスト4回）をこのサイクルで回す"
+          ],
+          "resources": [
+            {
+              "label": "公式TOEIC L&R 問題集（新しいものから）",
+              "url": "https://www.iibc-global.org/toeic/support/prep.html",
+              "note": "新しい刊ほど現行テストに近いです。古い1〜数冊は音源練習用でも使えます。"
+            }
+          ],
+          "criteria": [
+            "公式テスト4回分を、通し受験＋復習まで終えている",
+            "同じテストの2周目で、1周目より明らかな時間余りまたは正答増がある"
+          ],
+          "commonMistakes": [
+            "解いて採点して次の模試を買う",
+            "非公式模試ばかりで本番のスピーカーに慣れない",
+            "復習前に答えを覚えた気になって2周目を雑に解く"
+          ]
+        },
+        {
+          "id": "review",
+          "label": "間違いを分類して弱点を潰す",
+          "required": true,
+          "days": 30,
+          "category": "復習",
+          "sourceSupportRate": "20/24（83%）",
+          "description": "模試のたびに、失点を語彙・文法・聞き取り・時間切れに分け、同じタイプだけを翌日の学習にします。",
+          "why": "24件中20件が「模試は受けることより復習」と書いていました。スコアを記録するだけでPart別の対策に戻らない人が、800点前後で止まる、という指摘が達成者ブログに共通していました。",
+          "tasks": [
+            "毎回の模試でPart別正答と失点理由を同じ表に足す",
+            "最も多い失点タイプに、翌日以降の学習時間の半分を使う",
+            "同じ問題を数日後に解き直し、根拠を言えるか確認する"
+          ],
+          "resources": [
+            {
+              "label": "自分の誤答ログ（表計算で可）",
+              "url": null,
+              "note": "Part / 問題タイプ / 理由 の3列があれば足ります。"
+            }
+          ],
+          "criteria": [
+            "直近の公式模試2回分の誤答がすべて分類されている",
+            "最多の失点タイプ向けのドリルを1週間以上続けている"
+          ],
+          "commonMistakes": [
+            "スコア推移だけ見て満足する",
+            "全Partを均等に復習して弱点が残る",
+            "間違えた問題を翌日に解き直さない"
+          ]
+        }
+      ]
+    }
+  ]
+}

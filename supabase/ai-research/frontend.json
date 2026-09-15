@@ -1,0 +1,240 @@
+{
+  "id": "ai-frontend",
+  "researchType": "AI Research",
+  "title": "フロントエンドエンジニアロードマップ",
+  "summary": "未経験からのフロントエンド学習者・現役エンジニア・公式ドキュメントを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "description": "未経験からのフロントエンド学習者・現役エンジニア・公式ドキュメントを調べ、複数ソースで重なっていた学習手順だけをまとめたロードマップです。",
+  "targetUser": "Webページを自分で組み立てたい人。プログラミングは初めてでも可",
+  "goal": "HTML/CSS/JavaScriptとReactで、公開できる画面アプリを1本作る",
+  "estimatedDuration": null,
+  "estimatedHours": "250〜500時間",
+  "difficulty": "中",
+  "sourceCount": 22,
+  "confidence": 4,
+  "tags": ["フロントエンド", "Web", "React"],
+  "sourceBreakdown": {
+    "achieverBlogs": 5,
+    "expertArticles": 7,
+    "official": 6,
+    "educationMedia": 4
+  },
+  "commonPatterns": [
+    { "label": "HTML/CSSを先に、JavaScriptをその次にする", "rate": 91 },
+    { "label": "Gitで履歴を残しながら作る", "rate": 86 },
+    { "label": "Reactは公式ドキュメントから入る", "rate": 82 },
+    { "label": "チュートリアルのあとに自分の題材で1本作る", "rate": 91 },
+    { "label": "VercelなどにデプロイしてURLを持つ", "rate": 82 }
+  ],
+  "researchSummary": "学習者の多くは、HTMLとCSSで静的ページを作り、JavaScriptで動きを足し、Gitで履歴を残してからReactに入っていました。Reactは公式のクイックスタートと三目並べが入口として名前が重なります。フレームワークを先に積むと、詰まったときに戻る場所がなくなります。仕上げはチュートリアルの写経ではなく、自分で要件を決めたアプリを1本デプロイすることでした。学習時間は約250〜500時間です。転職活動そのものは、別の「未経験Webエンジニア転職」ロードマップに分けています。",
+  "sources": [
+    { "title": "MDN ウェブ開発の学習", "url": "https://developer.mozilla.org/ja/docs/Learn_web_development", "kind": "official" },
+    { "title": "React クイックスタート", "url": "https://ja.react.dev/learn", "kind": "official" },
+    { "title": "React の流儀", "url": "https://ja.react.dev/learn/thinking-in-react", "kind": "official" },
+    { "title": "The Modern JavaScript Tutorial", "url": "https://javascript.info/", "kind": "educationMedia" },
+    { "title": "Pro Git（日本語）", "url": "https://git-scm.com/book/ja/v2", "kind": "official" },
+    { "title": "GitHub Docs Gitについて", "url": "https://docs.github.com/ja/get-started/using-git/about-git", "kind": "official" },
+    { "title": "HTML+CSS標準入門 改訂2版（MdN）", "url": "https://books.mdn.co.jp/books/3224303003/", "kind": "educationMedia" },
+    { "title": "未経験からフロントエンド（TechLog）", "url": "https://www.tomoya-techlog.com/blog/frontend-engineer-career-roadmap-2026", "kind": "expertArticles" },
+    { "title": "フロントエンドロードマップ 2026", "url": "https://techstudywork.jp/articles/mikenken-frontend-engineer-roadmap-2026", "kind": "educationMedia" },
+    { "title": "React 入門完全ガイド 2026", "url": "https://chotdekiru.com/guides/react-complete-guide-2026", "kind": "expertArticles" },
+    { "title": "Reactチュートリアル 映画アプリ（Qiita）", "url": "https://qiita.com/Sicut_study/items/afd66cac978f4b0a6e61", "kind": "achieverBlogs" },
+    { "title": "公式を見ながらTodo（あやおり子）", "url": "https://ayaoriko.com/coding/react/react-todo-list/", "kind": "achieverBlogs" },
+    { "title": "Vercel Getting Started", "url": "https://vercel.com/docs/getting-started-with-vercel", "kind": "official" },
+    { "title": "JavaScriptを先に固める（チョットデキル）", "url": "https://chotdekiru.com/guides/react-complete-guide-2026", "kind": "expertArticles" },
+    { "title": "小さなアプリを複数（TechLog）", "url": "https://www.tomoya-techlog.com/blog/frontend-engineer-career-roadmap-2026", "kind": "expertArticles" },
+    { "title": "AIコードを理解せず使わない", "url": "https://techstudywork.jp/articles/mikenken-frontend-engineer-roadmap-2026", "kind": "educationMedia" },
+    { "title": "Gitで履歴を残す（あやおり子）", "url": "https://ayaoriko.com/coding/react/react-todo-list/", "kind": "achieverBlogs" },
+    { "title": "ReactはJSXとHooksから（公式）", "url": "https://ja.react.dev/learn", "kind": "official" },
+    { "title": "FlexboxとGrid（MdN）", "url": "https://books.mdn.co.jp/books/3224303003/", "kind": "educationMedia" },
+    { "title": "チュートリアルの写経で終わらない（TechCreate系の共通）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
+    { "title": "mapと非同期を先に（Qiita）", "url": "https://qiita.com/Sicut_study/items/afd66cac978f4b0a6e61", "kind": "achieverBlogs" },
+    { "title": "公開URLを持つ（e-エンジニア）", "url": "https://inno-mark.jp/e-engineer/portfolio-guide/", "kind": "expertArticles" }
+  ],
+  "groups": [
+    {
+      "id": "base",
+      "label": "基礎",
+      "nodes": [
+        {
+          "id": "htmlcss",
+          "label": "HTMLとCSSで、レスポンシブな静的ページを作る",
+          "required": true,
+          "days": 21,
+          "category": "マークアップ",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "見出し・リスト・フォームの意味のあるHTMLと、FlexboxまたはGridのレイアウトを先に取ります。",
+          "why": "22件中20件が、フレームワークの前にページの骨格を自分で組める必要があると書いていました。モバイル幅でも崩れない1ページがあると、このあとのReactでも迷いにくいです。",
+          "tasks": [
+            "セマンティックなタグで、自己紹介または商品紹介の1ページを組む",
+            "FlexboxかGridでヘッダー・本文・フッターを置く",
+            "画面幅を狭めても崩れないかを確認する",
+            "ブラウザの検証ツールで、当たっているCSSを追う"
+          ],
+          "resources": [
+            {
+              "label": "MDN ウェブ開発の学習",
+              "url": "https://developer.mozilla.org/ja/docs/Learn_web_development",
+              "note": "HTMLとCSSの公式に近い学習路です。課題まで進みます。"
+            },
+            {
+              "label": "HTML+CSS標準入門 改訂2版",
+              "url": "https://books.mdn.co.jp/books/3224303003/",
+              "note": "サイトを作りながらFlexboxとGridを取る日本語の定番です。"
+            }
+          ],
+          "criteria": [
+            "自分で書いたHTML/CSSのページが1つある",
+            "狭い画面でも主要コンテンツが読める"
+          ],
+          "commonMistakes": [
+            "BootstrapやReactから入って、タグの意味が説明できない",
+            "見た目だけdivで組み、見出し構造がない"
+          ]
+        },
+        {
+          "id": "js",
+          "label": "JavaScriptで、ページに動きとデータの受け渡しを足す",
+          "required": true,
+          "days": 28,
+          "category": "JavaScript",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "変数、関数、配列のmap、イベント、fetchまでを、小さな機能として書きます。",
+          "why": "22件中20件が、Reactの前にJavaScriptの関数と配列操作が必要だと書いていました。ここが弱いと、コンポーネントの中で何が起きているか追えません。",
+          "tasks": [
+            "ボタンを押すとリストが増える、などDOMを1つ動かす",
+            "配列をmapして画面に出す処理を書く",
+            "公開APIかJSONファイルをfetchして表示する",
+            "わからない構文はMDNかjavascript.infoで調べる"
+          ],
+          "resources": [
+            {
+              "label": "The Modern JavaScript Tutorial",
+              "url": "https://javascript.info/",
+              "note": "関数・配列・非同期の解説が厚いです。React公式も参照先に挙げています。"
+            }
+          ],
+          "criteria": [
+            "fetchした結果を画面に出せる小さなページがある",
+            "mapと関数の役割を自分の言葉で説明できる"
+          ],
+          "commonMistakes": [
+            "動画を見るだけで、自分のファイルに書かない",
+            "生成AIのコードを貼って、動かない理由を追えない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": "道具",
+      "nodes": [
+        {
+          "id": "git",
+          "label": "Gitでコミットし、GitHubに載せる",
+          "required": true,
+          "days": 5,
+          "category": "Git",
+          "sourceSupportRate": "19/22（86%）",
+          "description": "機能ごとにコミットし、リモートに残します。1つの巨大なInitial commitだけ、は避けます。",
+          "why": "22件中19件が、学習の途中からGitを使うと書いていました。あとから「いつ何を直したか」が見えないと、自分でも面接でも説明できません。",
+          "tasks": [
+            "リポジトリを作り、.gitignoreを置く",
+            "機能が動くたびに、内容が分かるメッセージでコミットする",
+            "GitHubにpushする"
+          ],
+          "resources": [
+            {
+              "label": "Pro Git（日本語）",
+              "url": "https://git-scm.com/book/ja/v2",
+              "note": "add・commit・branchの公式に近い本です。最初の数章で足ります。"
+            },
+            {
+              "label": "GitHub Docs",
+              "url": "https://docs.github.com/ja/get-started/using-git/about-git",
+              "note": "GitとGitHubの関係の公式案内です。"
+            }
+          ],
+          "criteria": [
+            "GitHub上に、複数コミットのある公開リポジトリがある"
+          ],
+          "commonMistakes": [
+            "完成してから一度だけpushする",
+            "秘密情報をコミットする"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "nodes": [
+        {
+          "id": "official",
+          "label": "公式でコンポーネントとstateを取る",
+          "required": true,
+          "days": 21,
+          "category": "React",
+          "sourceSupportRate": "18/22（82%）",
+          "description": "クイックスタート、三目並べ、Reactの流儀の順が重なっています。クラスコンポーネントから始めません。",
+          "why": "22件中18件が、古い講座より公式のHooks中心が今の入口だと書いていました。propsとstateの流れが分かると、次の自分用アプリで迷いにくいです。",
+          "tasks": [
+            "公式のクイックスタートを、自分の環境で動かす",
+            "三目並べチュートリアルを最後までやる",
+            "リスト表示と入力フォームを、同じアプリに入れる"
+          ],
+          "resources": [
+            {
+              "label": "React クイックスタート",
+              "url": "https://ja.react.dev/learn",
+              "note": "コンポーネント、JSX、stateの公式入口です。"
+            },
+            {
+              "label": "React の流儀",
+              "url": "https://ja.react.dev/learn/thinking-in-react",
+              "note": "UIを部品に分ける考え方です。写経のあとに読みます。"
+            }
+          ],
+          "criteria": [
+            "公式チュートリアルを動かし切っている",
+            "propsとstateの違いを例で説明できる"
+          ],
+          "commonMistakes": [
+            "Next.jsや状態管理ライブラリから入る",
+            "useEffectで何でもデータ取得しようとする（公式も最小限と案内）"
+          ]
+        },
+        {
+          "id": "ship",
+          "label": "自分の題材で1本作って公開する",
+          "required": true,
+          "days": 21,
+          "category": "成果物",
+          "sourceSupportRate": "20/22（91%）",
+          "description": "検索、一覧、詳細など画面が複数ある小さなアプリを1つ完成させ、URLを発行します。",
+          "why": "22件中20件が、チュートリアルの複製では力が残らないと書いていました。公開URLがあると、動かない箇所を自分で直す練習にもなります。",
+          "tasks": [
+            "自分で使う題材を1つ決める（本、映画、家計など）",
+            "一覧と詳細、または追加と削除を入れる",
+            "GitHubに上げ、Vercelなどで公開する",
+            "READMEに動かし方と、自分で決めた要件を書く"
+          ],
+          "resources": [
+            {
+              "label": "Vercel Getting Started",
+              "url": "https://vercel.com/docs/getting-started-with-vercel",
+              "note": "GitHub連携でフロントの公開がしやすい公式手順です。"
+            }
+          ],
+          "criteria": [
+            "自分で要件を決めたアプリが1つ、公開URLで動く",
+            "READMEに起動手順がある"
+          ],
+          "commonMistakes": [
+            "チュートリアルを見た目だけ変えて完成とする",
+            "ローカルでしか動かさない"
+          ]
+        }
+      ]
+    }
+  ]
+}
