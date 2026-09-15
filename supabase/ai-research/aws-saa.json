@@ -11,7 +11,11 @@
   "difficulty": "中",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["AWS", "クラウド", "資格"],
+  "tags": [
+    "AWS",
+    "クラウド",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 8,
     "expertArticles": 5,
@@ -19,36 +23,139 @@
     "educationMedia": 5
   },
   "commonPatterns": [
-    { "label": "テキストまたは動画を1系統で全体像を取る", "rate": 91 },
-    { "label": "無料枠でIAM・EC2・S3・VPCを触る", "rate": 82 },
-    { "label": "Ping-tやUdemy模試を周回する", "rate": 91 },
-    { "label": "正解理由と誤選択肢まで読む", "rate": 86 },
-    { "label": "公式試験ガイドで出題領域を確認する", "rate": 77 }
+    {
+      "label": "テキストまたは動画を1系統で全体像を取る",
+      "rate": 91
+    },
+    {
+      "label": "無料枠でIAM・EC2・S3・VPCを触る",
+      "rate": 82
+    },
+    {
+      "label": "Ping-tやUdemy模試を周回する",
+      "rate": 91
+    },
+    {
+      "label": "正解理由と誤選択肢まで読む",
+      "rate": 86
+    },
+    {
+      "label": "公式試験ガイドで出題領域を確認する",
+      "rate": 77
+    }
   ],
   "researchSummary": "合格者の多くは、インプット1系統→無料枠ハンズオン→問題集の周回、の順で進めていました。日本語圏で名前が重なったインプットは、通称オレンジ本・徹底攻略（黒本）・Udemyの網羅講座です。問題演習ではPing-tとUdemy模試が突出しています。共通していたのは、正解を暗記せず「なぜ他の選択肢が要件を満たさないか」まで読むことです。Ping-tをHitにするだけでは、ハンズオンも解説精読もないと初見の設計問題で落ちやすい、という指摘が重なっていました。学習時間はIT経験者で約60〜90時間、AWS未経験で約100〜150時間です。",
   "sources": [
-    { "title": "AWS Certified Solutions Architect – Associate 公式", "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/", "kind": "official" },
-    { "title": "SAA-C03 試験ガイド（日本語）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html", "kind": "official" },
-    { "title": "AWS 無料利用枠", "url": "https://aws.amazon.com/jp/free/", "kind": "official" },
-    { "title": "AWS Well-Architected", "url": "https://aws.amazon.com/jp/architecture/well-architected/", "kind": "official" },
-    { "title": "Ping-t", "url": "https://mondai.ping-t.com/", "kind": "educationMedia" },
-    { "title": "SAA-C02 合格体験記（Qiita）", "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40", "kind": "achieverBlogs" },
-    { "title": "SAA-C03 合格体験記（Qiita eritty）", "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89", "kind": "achieverBlogs" },
-    { "title": "SAA 1ヶ月独学（はてな）", "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226", "kind": "achieverBlogs" },
-    { "title": "AWS SAAに合格した（Qiita haruler）", "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb", "kind": "achieverBlogs" },
-    { "title": "CLFなし未経験からのSAA（Qiita）", "url": "https://qiita.com/msys825/items/b2c39e2d3acdebef75af", "kind": "achieverBlogs" },
-    { "title": "AWS SAA独学ロードマップ 2026", "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/", "kind": "educationMedia" },
-    { "title": "SAAの勉強法（CloudTech）", "url": "https://kws-cloud-tech.com/saa-study-guide/", "kind": "educationMedia" },
-    { "title": "SAA-C03 完全ロードマップ（IT資格ラボ）", "url": "https://it-cert-lab.com/aws-lab-20260111/", "kind": "expertArticles" },
-    { "title": "SAA-C03 入門（swiftwand）", "url": "https://swiftwand.com/aws-solutions-architect-associate-saa-c03-introduction/", "kind": "educationMedia" },
-    { "title": "AWS認定の勉強法（Lazy Director）", "url": "https://lazydirector.net/server/aws-qualification-strategy/", "kind": "achieverBlogs" },
-    { "title": "SAA-C03 問題集対策（CloudCamp）", "url": "https://cloud-camp.net/saa-c03/", "kind": "expertArticles" },
-    { "title": "Ping-tの周回法（Qiita haruler）", "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb", "kind": "achieverBlogs" },
-    { "title": "誤選択肢まで読む（はてな）", "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226", "kind": "achieverBlogs" },
-    { "title": "ハンズオンが分かれ目（techotakulab）", "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/", "kind": "educationMedia" },
-    { "title": "オレンジ本1周（Qiita eritty）", "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89", "kind": "achieverBlogs" },
-    { "title": "黒本とオレンジ本の使い分け（Qiita）", "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40", "kind": "achieverBlogs" },
-    { "title": "試験ドメイン配点（公式ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html", "kind": "official" }
+    {
+      "title": "AWS Certified Solutions Architect – Associate 公式",
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "kind": "official"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（日本語）",
+      "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html",
+      "kind": "official"
+    },
+    {
+      "title": "AWS 無料利用枠",
+      "url": "https://aws.amazon.com/jp/free/",
+      "kind": "official"
+    },
+    {
+      "title": "AWS Well-Architected",
+      "url": "https://aws.amazon.com/jp/architecture/well-architected/",
+      "kind": "official"
+    },
+    {
+      "title": "Ping-t",
+      "url": "https://mondai.ping-t.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SAA-C02 合格体験記（Qiita）",
+      "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "SAA-C03 合格体験記（Qiita eritty）",
+      "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "SAA 1ヶ月独学（はてな）",
+      "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "AWS SAAに合格した（Qiita haruler）",
+      "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CLFなし未経験からのSAA（Qiita）",
+      "url": "https://qiita.com/msys825/items/b2c39e2d3acdebef75af",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "AWS SAA独学ロードマップ 2026",
+      "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SAAの勉強法（CloudTech）",
+      "url": "https://kws-cloud-tech.com/saa-study-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SAA-C03 完全ロードマップ（IT資格ラボ）",
+      "url": "https://it-cert-lab.com/aws-lab-20260111/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "SAA-C03 入門（swiftwand）",
+      "url": "https://swiftwand.com/aws-solutions-architect-associate-saa-c03-introduction/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "AWS認定の勉強法（Lazy Director）",
+      "url": "https://lazydirector.net/server/aws-qualification-strategy/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "SAA-C03 問題集対策（CloudCamp）",
+      "url": "https://cloud-camp.net/saa-c03/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Ping-tの周回法（Qiita haruler）",
+      "url": "https://qiita.com/haruler/items/6d43c807160fb76233bb",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "誤選択肢まで読む（はてな）",
+      "url": "https://yuki9892.hatenablog.com/entry/2023/03/22/200226",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "ハンズオンが分かれ目（techotakulab）",
+      "url": "https://techotakulab.com/aws-saa-self-study-roadmap-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "オレンジ本1周（Qiita eritty）",
+      "url": "https://qiita.com/eritty/items/2fc6353007f34f24cd89",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "黒本とオレンジ本の使い分け（Qiita）",
+      "url": "https://qiita.com/whatagal/items/b9e36ecfba262c6d5a40",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "試験ドメイン配点（公式ガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html",
+      "kind": "official"
+    }
   ],
   "groups": [
     {

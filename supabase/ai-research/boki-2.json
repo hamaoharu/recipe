@@ -11,7 +11,10 @@
   "difficulty": "中〜高",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["簿記", "資格"],
+  "tags": [
+    "簿記",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 8,
     "expertArticles": 6,
@@ -19,36 +22,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "同じシリーズで商業・工業を揃える", "rate": 91 },
-    { "label": "テキストのあとに問題集を繰り返す", "rate": 86 },
-    { "label": "工業簿記は図で流れを取る", "rate": 82 },
-    { "label": "仕訳を毎日解く", "rate": 77 },
-    { "label": "本試験形式・ネット模試で仕上げる", "rate": 86 }
+    {
+      "label": "同じシリーズで商業・工業を揃える",
+      "rate": 91
+    },
+    {
+      "label": "テキストのあとに問題集を繰り返す",
+      "rate": 86
+    },
+    {
+      "label": "工業簿記は図で流れを取る",
+      "rate": 82
+    },
+    {
+      "label": "仕訳を毎日解く",
+      "rate": 77
+    },
+    {
+      "label": "本試験形式・ネット模試で仕上げる",
+      "rate": 86
+    }
   ],
   "researchSummary": "合格者の多くは、同じシリーズのテキストと問題集を使い切ることを先に決めていました。商業簿記の仕訳と、工業簿記の原価計算の流れ（図）を並行して回し、最後に予想問題やネット試験模試で90分の型を体に入れます。1ヶ月合格や、テキストの乗り換えは再現されにくい傾向でした。3級が怪しい場合は、2級の前に3級の仕訳を短く復習するのが共通です。学習時間は、3級済みで約250〜350時間、3級からやり直すと約400〜500時間です。",
   "sources": [
-    { "title": "日商簿記2級の勉強方法（会宅士ノート）", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" },
-    { "title": "簿記2級の勉強方法（資格軍記）", "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/", "kind": "educationMedia" },
-    { "title": "簿記2級のおすすめ参考書（独学ガイド）", "url": "https://dokugaku-guide.com/bookkeeping2-textbook-recommend/", "kind": "educationMedia" },
-    { "title": "簿記2級のおすすめテキスト（資格軍記）", "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/", "kind": "educationMedia" },
-    { "title": "簿記2級の勉強時間と週別ロードマップ", "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/", "kind": "educationMedia" },
-    { "title": "簿記2級一発合格法（note）", "url": "https://note.com/witty_ixora887/n/n77c67ca8ac90", "kind": "achieverBlogs" },
-    { "title": "簿記2級合格（氷河期脱出計画）", "url": "https://caprricone.hatenablog.com/entry/2026/07/05/144738", "kind": "achieverBlogs" },
-    { "title": "働きながら簿記二級（fflkf）", "url": "https://www.fflkf.com/entry/boki2kyu", "kind": "achieverBlogs" },
-    { "title": "簿記ネット試験体験（LiIfe）", "url": "https://liife-blog.com/bookkeeping-internet-exam-experience/", "kind": "achieverBlogs" },
-    { "title": "スッキリうかる日商簿記2級本試験予想問題集", "url": "https://tacpub.jp/list/detail.php?bc=112065", "kind": "official" },
-    { "title": "商工会議所 簿記検定", "url": "https://www.kentei.ne.jp/", "kind": "official" },
-    { "title": "みんなが欲しかった簿記2級 商業", "url": "https://tacpub.jp/", "kind": "educationMedia" },
-    { "title": "スッキリわかる日商簿記2級", "url": "https://tacpub.jp/", "kind": "educationMedia" },
-    { "title": "パブロフ流でみんな合格 簿記2級", "url": "https://www.shoeisha.co.jp/", "kind": "educationMedia" },
-    { "title": "CPAラーニング 簿記", "url": "https://cpa-learning.com/", "kind": "educationMedia" },
-    { "title": "簿記2級 工業簿記 図 勉強法", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" },
-    { "title": "簿記2級 連結会計 勉強法", "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/", "kind": "educationMedia" },
-    { "title": "日商簿記2級 試験科目", "url": "https://www.kentei.ne.jp/bookkeeping", "kind": "official" },
-    { "title": "簿記2級 仕訳 毎日", "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/", "kind": "educationMedia" },
-    { "title": "簿記2級 予想問題集 3周", "url": "https://www.fflkf.com/entry/boki2kyu", "kind": "achieverBlogs" },
-    { "title": "簿記2級 テキスト3周", "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/", "kind": "educationMedia" },
-    { "title": "簿記2級 商業と工業 同時", "url": "https://kaitakushi.com/boki-2kyu-benkyo/", "kind": "expertArticles" }
+    {
+      "title": "日商簿記2級の勉強方法（会宅士ノート）",
+      "url": "https://kaitakushi.com/boki-2kyu-benkyo/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "簿記2級の勉強方法（資格軍記）",
+      "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級のおすすめ参考書（独学ガイド）",
+      "url": "https://dokugaku-guide.com/bookkeeping2-textbook-recommend/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級のおすすめテキスト（資格軍記）",
+      "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級の勉強時間と週別ロードマップ",
+      "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級一発合格法（note）",
+      "url": "https://note.com/witty_ixora887/n/n77c67ca8ac90",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "簿記2級合格（氷河期脱出計画）",
+      "url": "https://caprricone.hatenablog.com/entry/2026/07/05/144738",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "働きながら簿記二級（fflkf）",
+      "url": "https://www.fflkf.com/entry/boki2kyu",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "簿記ネット試験体験（LiIfe）",
+      "url": "https://liife-blog.com/bookkeeping-internet-exam-experience/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "スッキリうかる日商簿記2級本試験予想問題集",
+      "url": "https://tacpub.jp/list/detail.php?bc=112065",
+      "kind": "official"
+    },
+    {
+      "title": "商工会議所 簿記検定",
+      "url": "https://www.kentei.ne.jp/",
+      "kind": "official"
+    },
+    {
+      "title": "みんなが欲しかった簿記2級 商業",
+      "url": "https://tacpub.jp/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "スッキリわかる日商簿記2級",
+      "url": "https://tacpub.jp/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "パブロフ流でみんな合格 簿記2級",
+      "url": "https://www.shoeisha.co.jp/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "CPAラーニング 簿記",
+      "url": "https://cpa-learning.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級 工業簿記 図 勉強法",
+      "url": "https://kaitakushi.com/boki-2kyu-benkyo/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "簿記2級 連結会計 勉強法",
+      "url": "https://jishusitu.jp/boki2kyu-study-hours-roadmap/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "日商簿記2級 試験科目",
+      "url": "https://www.kentei.ne.jp/bookkeeping",
+      "kind": "official"
+    },
+    {
+      "title": "簿記2級 仕訳 毎日",
+      "url": "https://gunki.sakura.ne.jp/boki-grade2-study-methods/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級 予想問題集 3周",
+      "url": "https://www.fflkf.com/entry/boki2kyu",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "簿記2級 テキスト3周",
+      "url": "https://gunki.sakura.ne.jp/boki-grade2-textbooks/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記2級 商業と工業 同時",
+      "url": "https://kaitakushi.com/boki-2kyu-benkyo/",
+      "kind": "expertArticles"
+    }
   ],
   "groups": [
     {

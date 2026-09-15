@@ -10,8 +10,12 @@
   "estimatedHours": "40〜100時間",
   "difficulty": "低〜中",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["SQL", "データ分析", "データベース"],
+  "confidence": 3,
+  "tags": [
+    "SQL",
+    "データ分析",
+    "データベース"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 3,
     "expertArticles": 6,
@@ -19,36 +23,139 @@
     "educationMedia": 10
   },
   "commonPatterns": [
-    { "label": "読むより先に、書いて実行する", "rate": 95 },
-    { "label": "SELECTとWHEREから入り、JOINを急がない", "rate": 86 },
-    { "label": "GROUP BYで集計できるようにする", "rate": 91 },
-    { "label": "複数表のJOINを、図を描いてから書く", "rate": 86 },
-    { "label": "自分の業務の問いに当てはめる", "rate": 82 }
+    {
+      "label": "読むより先に、書いて実行する",
+      "rate": 95
+    },
+    {
+      "label": "SELECTとWHEREから入り、JOINを急がない",
+      "rate": 86
+    },
+    {
+      "label": "GROUP BYで集計できるようにする",
+      "rate": 91
+    },
+    {
+      "label": "複数表のJOINを、図を描いてから書く",
+      "rate": 86
+    },
+    {
+      "label": "自分の業務の問いに当てはめる",
+      "rate": 82
+    }
   ],
   "researchSummary": "学習者の多くは、環境構築で止まらず、ブラウザか付属環境ですぐSELECTを書いていました。日本語圏で名前が重なった本はスッキリわかるSQL入門です。順序は、絞り込み、並び替え、集計、結合、副問い合わせです。JOINを最初に覚えると、どの表が主か分からなくなります。最後に「今月の売上は」「離脱したユーザーは」など、自分の問いをSQLに落とします。学習時間は約40〜100時間です。",
   "sources": [
-    { "title": "スッキリわかるSQL入門 第4版", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
-    { "title": "スッキリSQL 第4版の改訂点", "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html", "kind": "educationMedia" },
-    { "title": "PostgreSQL チュートリアル", "url": "https://www.postgresql.org/docs/current/tutorial.html", "kind": "official" },
-    { "title": "SQLite ドキュメント", "url": "https://www.sqlite.org/docs.html", "kind": "official" },
-    { "title": "Mode SQL Tutorial", "url": "https://mode.com/sql-tutorial/", "kind": "educationMedia" },
-    { "title": "SQLBolt", "url": "https://sqlbolt.com/", "kind": "educationMedia" },
-    { "title": "SQL入門ガイド 2026（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" },
-    { "title": "社会人のデータ分析ロードマップ", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
-    { "title": "第4版レビュー（k-hp）", "url": "https://k-hp.com/sql102/", "kind": "achieverBlogs" },
-    { "title": "達人出版会 スッキリSQL", "url": "https://tatsu-zine.com/books/sukkiri-sql-4ed", "kind": "educationMedia" },
-    { "title": "書いて実行するのが近道（インプレス）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
-    { "title": "SELECTからJOINへ（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" },
-    { "title": "Excelの次にSQL（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
-    { "title": "集計とグループ化（スッキリ）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
-    { "title": "複数テーブルの結合（スッキリ）", "url": "https://book.impress.co.jp/books/1123101107", "kind": "educationMedia" },
-    { "title": "データ分析入門の付録（スッキリ）", "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html", "kind": "educationMedia" },
-    { "title": "dokoQLで環境を飛ばす（レビュー）", "url": "https://k-hp.com/sql102/", "kind": "achieverBlogs" },
-    { "title": "自分の問いに当てはめる（データAI）", "url": "https://dataaicareer.com/data-ai-roadmap/", "kind": "expertArticles" },
-    { "title": "Modeの実践問題", "url": "https://mode.com/sql-tutorial/", "kind": "educationMedia" },
-    { "title": "SQLBoltの対話演習", "url": "https://sqlbolt.com/", "kind": "educationMedia" },
-    { "title": "PostgreSQL公式チュートリアル", "url": "https://www.postgresql.org/docs/current/tutorial-sql.html", "kind": "official" },
-    { "title": "副問い合わせは結合のあと（プログラミングHUB）", "url": "https://prog-hub.com/articles/sql-nyumon", "kind": "educationMedia" }
+    {
+      "title": "スッキリわかるSQL入門 第4版",
+      "url": "https://book.impress.co.jp/books/1123101107",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "スッキリSQL 第4版の改訂点",
+      "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "PostgreSQL チュートリアル",
+      "url": "https://www.postgresql.org/docs/current/tutorial.html",
+      "kind": "official"
+    },
+    {
+      "title": "SQLite ドキュメント",
+      "url": "https://www.sqlite.org/docs.html",
+      "kind": "official"
+    },
+    {
+      "title": "Mode SQL Tutorial",
+      "url": "https://mode.com/sql-tutorial/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SQLBolt",
+      "url": "https://sqlbolt.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SQL入門ガイド 2026（プログラミングHUB）",
+      "url": "https://prog-hub.com/articles/sql-nyumon",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "社会人のデータ分析ロードマップ",
+      "url": "https://dataaicareer.com/data-ai-roadmap/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "第4版レビュー（k-hp）",
+      "url": "https://k-hp.com/sql102/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "達人出版会 スッキリSQL",
+      "url": "https://tatsu-zine.com/books/sukkiri-sql-4ed",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "書いて実行するのが近道（インプレス）",
+      "url": "https://book.impress.co.jp/books/1123101107",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SELECTからJOINへ（プログラミングHUB）",
+      "url": "https://prog-hub.com/articles/sql-nyumon",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "Excelの次にSQL（データAI）",
+      "url": "https://dataaicareer.com/data-ai-roadmap/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "集計とグループ化（スッキリ）",
+      "url": "https://book.impress.co.jp/books/1123101107",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "複数テーブルの結合（スッキリ）",
+      "url": "https://book.impress.co.jp/books/1123101107",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "データ分析入門の付録（スッキリ）",
+      "url": "https://sukkiri.jp/news/sukkiri_sql4_release.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "dokoQLで環境を飛ばす（レビュー）",
+      "url": "https://k-hp.com/sql102/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "自分の問いに当てはめる（データAI）",
+      "url": "https://dataaicareer.com/data-ai-roadmap/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Modeの実践問題",
+      "url": "https://mode.com/sql-tutorial/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "SQLBoltの対話演習",
+      "url": "https://sqlbolt.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "PostgreSQL公式チュートリアル",
+      "url": "https://www.postgresql.org/docs/current/tutorial-sql.html",
+      "kind": "official"
+    },
+    {
+      "title": "副問い合わせは結合のあと（プログラミングHUB）",
+      "url": "https://prog-hub.com/articles/sql-nyumon",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

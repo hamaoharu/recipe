@@ -11,7 +11,10 @@
   "difficulty": "高",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["英検", "英語"],
+  "tags": [
+    "英検",
+    "英語"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 7,
     "expertArticles": 6,
@@ -19,36 +22,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "パス単をでる度Aから複数周する", "rate": 91 },
-    { "label": "最初に過去問で技能ごとの弱点を見る", "rate": 86 },
-    { "label": "要約と意見論述を週2本以上書いて添削する", "rate": 82 },
-    { "label": "リスニングは音読から入る", "rate": 77 },
-    { "label": "面接は一次の途中から始める", "rate": 82 }
+    {
+      "label": "パス単をでる度Aから複数周する",
+      "rate": 91
+    },
+    {
+      "label": "最初に過去問で技能ごとの弱点を見る",
+      "rate": 86
+    },
+    {
+      "label": "要約と意見論述を週2本以上書いて添削する",
+      "rate": 82
+    },
+    {
+      "label": "リスニングは音読から入る",
+      "rate": 77
+    },
+    {
+      "label": "面接は一次の途中から始める",
+      "rate": 82
+    }
   ],
   "researchSummary": "合格者の多くは、最新訂のパス単をでる度Aから定着させる、最初に過去問で現状を測る、単語だけで技能を後回しにしない、の3点で重なっていました。2024年度以降の一次は、リーディング・リスニングに加え、要約（60〜70語）と意見論述（120〜150語）の2題です。ライティングは週2本以上書いて添削し、リスニングはスクリプトの音読、面接は4コマ説明を一次の前から声に出す、という手順が共通しています。2ヶ月合格や、単語帳を1周しただけで一次に出すやり方は再現されにくい傾向でした。学習時間は出発点で差が大きく、2級直後なら約300〜400時間、語彙とライティングが弱い場合は約500〜600時間です。",
   "sources": [
-    { "title": "英検 準1級の過去問・試験内容", "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/", "kind": "official" },
-    { "title": "英検準1級 でる順パス単 6訂版", "url": "https://bookstore.obunsha.co.jp/products/9784010951187", "kind": "official" },
-    { "title": "英検準1級のレベルと合格までの勉強法（英語の友）", "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05", "kind": "educationMedia" },
-    { "title": "英検準1級の合格ロードマップ（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" },
-    { "title": "英検準1級 一次対策（ask本校）", "url": "https://ask946.com/eiken-p1-ichiji/", "kind": "expertArticles" },
-    { "title": "英検準1級の超効率的勉強法（創賢塾）", "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/", "kind": "expertArticles" },
-    { "title": "でる順パス単 1級・準1級改訂（PR TIMES）", "url": "https://prtimes.jp/main/html/rd/p/000000390.000055026.html", "kind": "educationMedia" },
-    { "title": "旺文社 特典ダウンロード", "url": "https://www.obunsha.co.jp/support/tokuten/4", "kind": "educationMedia" },
-    { "title": "2024年度第3回 英検準1級受験体験記", "url": "https://ameblo.jp/detatan2018/entry-12884072697.html", "kind": "achieverBlogs" },
-    { "title": "英検準1級 要約問題対策", "url": "https://whiteacademy-ao.com/blog/strategy-of-eiken-pre1st-summury-question/", "kind": "expertArticles" },
-    { "title": "英検準1級合格体験記（スキゴガ）", "url": "https://sukigoga.com/experience-eiken-pre1/", "kind": "achieverBlogs" },
-    { "title": "英検準1級合格体験記（English-Life）", "url": "https://english-life.hateblo.jp/entry/grade-pre-1", "kind": "achieverBlogs" },
-    { "title": "英検バーチャル二次試験", "url": "https://www.eiken.or.jp/eiken/exam/virtual/", "kind": "official" },
-    { "title": "英検分野別ターゲット 準1級ライティング", "url": "https://www.obunsha.co.jp/support/tokuten/4", "kind": "educationMedia" },
-    { "title": "パス単の使い方（桐原）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" },
-    { "title": "二次面接は一次前から（ask）", "url": "https://ask946.com/eiken-p1-ichiji/", "kind": "expertArticles" },
-    { "title": "要約60〜70語の体験", "url": "https://ameblo.jp/detatan2018/entry-12884072697.html", "kind": "achieverBlogs" },
-    { "title": "意見論述の写経と添削（スキゴガ）", "url": "https://sukigoga.com/experience-eiken-pre1/", "kind": "achieverBlogs" },
-    { "title": "面接大特訓の使い方", "url": "https://english-life.hateblo.jp/entry/grade-pre-1", "kind": "achieverBlogs" },
-    { "title": "過去6回全問題集の使い方（英語の友）", "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05", "kind": "educationMedia" },
-    { "title": "単語と技能を並行する（創賢塾）", "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/", "kind": "expertArticles" },
-    { "title": "リスニングは音読（桐原）", "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/", "kind": "expertArticles" }
+    {
+      "title": "英検 準1級の過去問・試験内容",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_p1/",
+      "kind": "official"
+    },
+    {
+      "title": "英検準1級 でる順パス単 6訂版",
+      "url": "https://bookstore.obunsha.co.jp/products/9784010951187",
+      "kind": "official"
+    },
+    {
+      "title": "英検準1級のレベルと合格までの勉強法（英語の友）",
+      "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "英検準1級の合格ロードマップ（桐原Online Academy）",
+      "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "英検準1級 一次対策（ask本校）",
+      "url": "https://ask946.com/eiken-p1-ichiji/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "英検準1級の超効率的勉強法（創賢塾）",
+      "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "でる順パス単 1級・準1級改訂（PR TIMES）",
+      "url": "https://prtimes.jp/main/html/rd/p/000000390.000055026.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "旺文社 特典ダウンロード",
+      "url": "https://www.obunsha.co.jp/support/tokuten/4",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "2024年度第3回 英検準1級受験体験記",
+      "url": "https://ameblo.jp/detatan2018/entry-12884072697.html",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "英検準1級 要約問題対策",
+      "url": "https://whiteacademy-ao.com/blog/strategy-of-eiken-pre1st-summury-question/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "英検準1級合格体験記（スキゴガ）",
+      "url": "https://sukigoga.com/experience-eiken-pre1/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "英検準1級合格体験記（English-Life）",
+      "url": "https://english-life.hateblo.jp/entry/grade-pre-1",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "英検バーチャル二次試験",
+      "url": "https://www.eiken.or.jp/eiken/exam/virtual/",
+      "kind": "official"
+    },
+    {
+      "title": "英検分野別ターゲット 準1級ライティング",
+      "url": "https://www.obunsha.co.jp/support/tokuten/4",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "パス単の使い方（桐原）",
+      "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "二次面接は一次前から（ask）",
+      "url": "https://ask946.com/eiken-p1-ichiji/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "要約60〜70語の体験",
+      "url": "https://ameblo.jp/detatan2018/entry-12884072697.html",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "意見論述の写経と添削（スキゴガ）",
+      "url": "https://sukigoga.com/experience-eiken-pre1/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "面接大特訓の使い方",
+      "url": "https://english-life.hateblo.jp/entry/grade-pre-1",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "過去6回全問題集の使い方（英語の友）",
+      "url": "https://eigonotomo.com/eiken/eikenjun1kyuu05",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "単語と技能を並行する（創賢塾）",
+      "url": "https://www.souken-j.com/goods/english-proficiency-test-ultra-efficient-study-methods-for-grade-pre-1/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "リスニングは音読（桐原）",
+      "url": "https://academy.kirihara.co.jp/blog/eiken/eiken-pre-one-prep/",
+      "kind": "expertArticles"
+    }
   ],
   "groups": [
     {

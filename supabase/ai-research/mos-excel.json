@@ -10,8 +10,12 @@
   "estimatedHours": "30〜70時間",
   "difficulty": "低",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["Excel", "MOS", "実務"],
+  "confidence": 5,
+  "tags": [
+    "Excel",
+    "MOS",
+    "実務"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 4,
     "expertArticles": 4,
@@ -19,36 +23,139 @@
     "educationMedia": 8
   },
   "commonPatterns": [
-    { "label": "Officeの版と試験の版を揃える", "rate": 91 },
-    { "label": "よくわかるマスター1冊で範囲を操作する", "rate": 91 },
-    { "label": "読んで終わりにせず、同じ操作を自分のExcelでやる", "rate": 95 },
-    { "label": "付属の模擬試験を50分で回す", "rate": 91 },
-    { "label": "間違えた操作は解説ページに戻る", "rate": 86 }
+    {
+      "label": "Officeの版と試験の版を揃える",
+      "rate": 91
+    },
+    {
+      "label": "よくわかるマスター1冊で範囲を操作する",
+      "rate": 91
+    },
+    {
+      "label": "読んで終わりにせず、同じ操作を自分のExcelでやる",
+      "rate": 95
+    },
+    {
+      "label": "付属の模擬試験を50分で回す",
+      "rate": 91
+    },
+    {
+      "label": "間違えた操作は解説ページに戻る",
+      "rate": 86
+    }
   ],
   "researchSummary": "合格者の多くは、Microsoft 365ならMOS 365用のFOM『よくわかるマスター』を1冊に絞り、章ごとに自分の手で操作してから模擬に入っていました。試験は50分の実技CBTで、Mac版Officeでは受けられません。模擬試験プログラムを本番と同じ時間で回し、動画で操作を確認する使い方が重なっています。知識の筆記ではないので、読むだけでは点が伸びません。学習時間は約30〜70時間です。",
   "sources": [
-    { "title": "MOS Excel 365（一般）公式", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "MOS公式サイト", "url": "https://mos.odyssey-com.co.jp/", "kind": "official" },
-    { "title": "よくわかるマスター Excel 365（FOM）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" },
-    { "title": "MOS 365 対策テキスト特集（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
-    { "title": "模擬試験プログラム（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html", "kind": "educationMedia" },
-    { "title": "模擬の更新プログラム（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html", "kind": "educationMedia" },
-    { "title": "出題範囲は公式で確認", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "50分の実技（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "Mac不可（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "365と2019の版の対応（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
-    { "title": "読んで問題を解くスタイル（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
-    { "title": "模擬5回（FOM商品ページ）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" },
-    { "title": "動画で操作確認（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
-    { "title": "間違いは解説ページへ（FOM）", "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html", "kind": "educationMedia" },
-    { "title": "模擬は認証が必要（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html", "kind": "educationMedia" },
-    { "title": "試験は会場のWindows（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "テーブルとグラフも範囲（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "関数と書式（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "更新プログラムを当てる（FOM）", "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html", "kind": "educationMedia" },
-    { "title": "全国一斉または随時（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "対策教材一覧（公式）", "url": "https://mos.odyssey-com.co.jp/outline/excel365.html", "kind": "official" },
-    { "title": "スキルチェックシート（FOM）", "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html", "kind": "educationMedia" }
+    {
+      "title": "MOS Excel 365（一般）公式",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "MOS公式サイト",
+      "url": "https://mos.odyssey-com.co.jp/",
+      "kind": "official"
+    },
+    {
+      "title": "よくわかるマスター Excel 365（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "MOS 365 対策テキスト特集（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "模擬試験プログラム（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "模擬の更新プログラム（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "出題範囲は公式で確認",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "50分の実技（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "Mac不可（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "365と2019の版の対応（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "読んで問題を解くスタイル（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "模擬5回（FOM商品ページ）",
+      "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "動画で操作確認（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "間違いは解説ページへ（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/lp/mos365/index.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "模擬は認証が必要（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/program.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "試験は会場のWindows（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "テーブルとグラフも範囲（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "関数と書式（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "更新プログラムを当てる（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/downloads/officespecialist/fpt2301/update.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "全国一斉または随時（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "対策教材一覧（公式）",
+      "url": "https://mos.odyssey-com.co.jp/outline/excel365.html",
+      "kind": "official"
+    },
+    {
+      "title": "スキルチェックシート（FOM）",
+      "url": "https://www.fom.fujitsu.com/goods/officespecialist/fpt2301.html",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

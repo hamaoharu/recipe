@@ -11,7 +11,10 @@
   "difficulty": "中",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["TOEIC", "英語"],
+  "tags": [
+    "TOEIC",
+    "英語"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 7,
     "expertArticles": 5,
@@ -19,36 +22,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "銀フレで600点帯の語彙を固める", "rate": 91 },
-    { "label": "文法特急でPart5の型を取る", "rate": 86 },
-    { "label": "Part1・2を先に得点源にする", "rate": 82 },
-    { "label": "公式問題集で通しと復習をする", "rate": 91 },
-    { "label": "教材を増やさない", "rate": 86 }
+    {
+      "label": "銀フレで600点帯の語彙を固める",
+      "rate": 91
+    },
+    {
+      "label": "文法特急でPart5の型を取る",
+      "rate": 86
+    },
+    {
+      "label": "Part1・2を先に得点源にする",
+      "rate": 82
+    },
+    {
+      "label": "公式問題集で通しと復習をする",
+      "rate": 91
+    },
+    {
+      "label": "教材を増やさない",
+      "rate": 86
+    }
   ],
   "researchSummary": "600点到達者の多くは、銀のフレーズで語彙を固め、文法特急でPart5の処理を速くし、Part1・2を先に取りにいってから公式問題集を回していました。900点向けの金フレ全頭出しやでる1000の全問消化は、この帯では必須ではありません。共通していたのは、教材を3〜4冊に抑え、同じ公式音源を繰り返すことです。学習時間は、IIBCの100点あたり約300時間に合わせ、400→600なら約600時間、500前後からなら約300時間が目安です。",
   "sources": [
-    { "title": "銀のフレーズ（朝日新聞出版）", "url": "https://publications.asahi.com/product/19773.html", "kind": "educationMedia" },
-    { "title": "1駅1題 文法特急", "url": "https://publications.asahi.com/product/22743.html", "kind": "educationMedia" },
-    { "title": "IIBC 公式教材・問題集", "url": "https://www.iibc-global.org/toeic/support/prep.html", "kind": "official" },
-    { "title": "IIBC 公式教材の音声", "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html", "kind": "official" },
-    { "title": "IIBC 目標スコアと学習時間", "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html", "kind": "official" },
-    { "title": "IIBC 公式問題集11", "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html", "kind": "official" },
-    { "title": "TOEIC600の勉強法（hitoshi-510）", "url": "https://hitoshi-510.com/toeic-600-study-method/", "kind": "educationMedia" },
-    { "title": "初心者が600点（ishipen）", "url": "https://www.ishipen.com/toeic-600-strategies/", "kind": "educationMedia" },
-    { "title": "文法特急レビュー", "url": "https://home-native.com/grammar-express1/", "kind": "expertArticles" },
-    { "title": "TOEIC初心者でも600点（ごがくらぶ）", "url": "https://noricotton.com/toeic600/", "kind": "achieverBlogs" },
-    { "title": "大学生300→600（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
-    { "title": "金フレの使い方（english-route）", "url": "https://english-route.com/kinhure-tukaikata/", "kind": "expertArticles" },
-    { "title": "文法特急の使い方（english-route）", "url": "https://english-route.com/toeic-bunpoutokkyu/", "kind": "expertArticles" },
-    { "title": "公式問題集の使い方（native-real）", "url": "https://native-real.com/articles/toeic-official-materials-guide/", "kind": "educationMedia" },
-    { "title": "公式問題集の3周復習（桐原）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" },
-    { "title": "Part1・2を先に（ごがくらぶ）", "url": "https://noricotton.com/toeic600/", "kind": "achieverBlogs" },
-    { "title": "銀フレを3周（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
-    { "title": "教材を増やさない（ねこりん）", "url": "https://nekorinenglish.com/daigakusei-toeic/", "kind": "achieverBlogs" },
-    { "title": "公式で現在地（hitoshi-510）", "url": "https://hitoshi-510.com/toeic-600-study-method/", "kind": "educationMedia" },
-    { "title": "550点レベルを先に（文法特急）", "url": "https://publications.asahi.com/product/22743.html", "kind": "educationMedia" },
-    { "title": "スタディサプリENGLISH TOEIC対策", "url": "https://eigosapuri.jp/toeic/", "kind": "educationMedia" },
-    { "title": "公式問題集の復習が本体", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" }
+    {
+      "title": "銀のフレーズ（朝日新聞出版）",
+      "url": "https://publications.asahi.com/product/19773.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "1駅1題 文法特急",
+      "url": "https://publications.asahi.com/product/22743.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "IIBC 公式教材・問題集",
+      "url": "https://www.iibc-global.org/toeic/support/prep.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 公式教材の音声",
+      "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 目標スコアと学習時間",
+      "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 公式問題集11",
+      "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html",
+      "kind": "official"
+    },
+    {
+      "title": "TOEIC600の勉強法（hitoshi-510）",
+      "url": "https://hitoshi-510.com/toeic-600-study-method/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "初心者が600点（ishipen）",
+      "url": "https://www.ishipen.com/toeic-600-strategies/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "文法特急レビュー",
+      "url": "https://home-native.com/grammar-express1/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "TOEIC初心者でも600点（ごがくらぶ）",
+      "url": "https://noricotton.com/toeic600/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "大学生300→600（ねこりん）",
+      "url": "https://nekorinenglish.com/daigakusei-toeic/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "金フレの使い方（english-route）",
+      "url": "https://english-route.com/kinhure-tukaikata/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "文法特急の使い方（english-route）",
+      "url": "https://english-route.com/toeic-bunpoutokkyu/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "公式問題集の使い方（native-real）",
+      "url": "https://native-real.com/articles/toeic-official-materials-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "公式問題集の3周復習（桐原）",
+      "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Part1・2を先に（ごがくらぶ）",
+      "url": "https://noricotton.com/toeic600/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "銀フレを3周（ねこりん）",
+      "url": "https://nekorinenglish.com/daigakusei-toeic/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "教材を増やさない（ねこりん）",
+      "url": "https://nekorinenglish.com/daigakusei-toeic/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "公式で現在地（hitoshi-510）",
+      "url": "https://hitoshi-510.com/toeic-600-study-method/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "550点レベルを先に（文法特急）",
+      "url": "https://publications.asahi.com/product/22743.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "スタディサプリENGLISH TOEIC対策",
+      "url": "https://eigosapuri.jp/toeic/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "公式問題集の復習が本体",
+      "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/",
+      "kind": "expertArticles"
+    }
   ],
   "groups": [
     {

@@ -10,8 +10,12 @@
   "estimatedHours": "50〜100時間",
   "difficulty": "低",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["FP", "資格", "お金"],
+  "confidence": 5,
+  "tags": [
+    "FP",
+    "資格",
+    "お金"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 5,
     "expertArticles": 7,
@@ -19,36 +23,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "教科書と問題集を同じシリーズで揃える", "rate": 91 },
-    { "label": "1セクション読んだらすぐ問題を解く", "rate": 91 },
-    { "label": "実技の実施団体を先に決める", "rate": 86 },
-    { "label": "数字と制度は赤シートで反復する", "rate": 82 },
-    { "label": "CBTの画面操作を一度体験する", "rate": 82 }
+    {
+      "label": "教科書と問題集を同じシリーズで揃える",
+      "rate": 91
+    },
+    {
+      "label": "1セクション読んだらすぐ問題を解く",
+      "rate": 91
+    },
+    {
+      "label": "実技の実施団体を先に決める",
+      "rate": 86
+    },
+    {
+      "label": "数字と制度は赤シートで反復する",
+      "rate": 82
+    },
+    {
+      "label": "CBTの画面操作を一度体験する",
+      "rate": 82
+    }
   ],
   "researchSummary": "合格者の多くは、みんほしなど同じシリーズの教科書と問題集を使い、セクションごとに読んですぐ解いていました。学科は日本FP協会ときんざいで共通、実技は団体で種目が違います。先に受験団体を決め、実技は事例の数字を学科の知識に当てる練習が共通していました。4週間合格は再現されにくい傾向で、学習時間は約50〜100時間です。学科・実技とも6割が合格ラインです。",
   "sources": [
-    { "title": "日本FP協会 2級・3級試験要綱", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
-    { "title": "日本FP協会 試験要綱PDF", "url": "https://www.jafp.or.jp/exam/app/howto/files/outline.pdf?v=202607010900", "kind": "official" },
-    { "title": "きんざい FP 2級/3級 CBT", "url": "https://cbt-s.com/examinee/examination/kinzai_FP", "kind": "official" },
-    { "title": "みんなが欲しかった！FPの教科書3級", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！FPの問題集3級", "url": "https://tacpub.jp/list/detail.php?bc=112085", "kind": "educationMedia" },
-    { "title": "みんほし FPシリーズ案内", "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna", "kind": "educationMedia" },
-    { "title": "FP3級テキストの選び方（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026", "kind": "educationMedia" },
-    { "title": "FP3級 実技の対策（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku", "kind": "educationMedia" },
-    { "title": "初心者が独学合格した勉強法", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
-    { "title": "FP3級 独学一発合格 2026", "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233", "kind": "educationMedia" },
-    { "title": "金融財政事情研究会（きんざい）", "url": "https://www.kinzai.or.jp/fp/", "kind": "official" },
-    { "title": "セクションごとに往復（みんほし案内）", "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna", "kind": "educationMedia" },
-    { "title": "問題集3周（noji）", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
-    { "title": "実技団体を先に決める（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku", "kind": "educationMedia" },
-    { "title": "CBT模擬プログラム（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
-    { "title": "学科36点／実技6割（FP協会）", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
-    { "title": "きんざい実技50点中30点", "url": "https://cbt-s.com/examinee/examination/kinzai_FP", "kind": "official" },
-    { "title": "最新年度版で揃える（ぴよパス）", "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026", "kind": "educationMedia" },
-    { "title": "ライフプランから6分野", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
-    { "title": "赤シートで数字（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112081", "kind": "educationMedia" },
-    { "title": "総合問題で通し（noji）", "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/", "kind": "achieverBlogs" },
-    { "title": "勉強時間50〜80時間", "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233", "kind": "educationMedia" }
+    {
+      "title": "日本FP協会 2級・3級試験要綱",
+      "url": "https://www.jafp.or.jp/exam/outline/",
+      "kind": "official"
+    },
+    {
+      "title": "日本FP協会 試験要綱PDF",
+      "url": "https://www.jafp.or.jp/exam/app/howto/files/outline.pdf?v=202607010900",
+      "kind": "official"
+    },
+    {
+      "title": "きんざい FP 2級/3級 CBT",
+      "url": "https://cbt-s.com/examinee/examination/kinzai_FP",
+      "kind": "official"
+    },
+    {
+      "title": "みんなが欲しかった！FPの教科書3級",
+      "url": "https://tacpub.jp/list/detail.php?bc=112081",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！FPの問題集3級",
+      "url": "https://tacpub.jp/list/detail.php?bc=112085",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんほし FPシリーズ案内",
+      "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FP3級テキストの選び方（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FP3級 実技の対策（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "初心者が独学合格した勉強法",
+      "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "FP3級 独学一発合格 2026",
+      "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "金融財政事情研究会（きんざい）",
+      "url": "https://www.kinzai.or.jp/fp/",
+      "kind": "official"
+    },
+    {
+      "title": "セクションごとに往復（みんほし案内）",
+      "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "問題集3周（noji）",
+      "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "実技団体を先に決める（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-3kyu-jitsugi-taisaku",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "CBT模擬プログラム（TAC）",
+      "url": "https://tacpub.jp/list/detail.php?bc=112081",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "学科36点／実技6割（FP協会）",
+      "url": "https://www.jafp.or.jp/exam/outline/",
+      "kind": "official"
+    },
+    {
+      "title": "きんざい実技50点中30点",
+      "url": "https://cbt-s.com/examinee/examination/kinzai_FP",
+      "kind": "official"
+    },
+    {
+      "title": "最新年度版で揃える（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-3kyu-text-osusume-2026",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "ライフプランから6分野",
+      "url": "https://www.jafp.or.jp/exam/outline/",
+      "kind": "official"
+    },
+    {
+      "title": "赤シートで数字（TAC）",
+      "url": "https://tacpub.jp/list/detail.php?bc=112081",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "総合問題で通し（noji）",
+      "url": "https://noji-studyblog.com/fp3-textbook-and-study-method/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "勉強時間50〜80時間",
+      "url": "https://shikakustudy2026.hatenablog.com/entry/2026/03/25/085233",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

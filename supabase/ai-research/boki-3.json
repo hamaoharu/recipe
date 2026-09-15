@@ -10,8 +10,11 @@
   "estimatedHours": "80〜150時間",
   "difficulty": "低〜中",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["簿記", "資格"],
+  "confidence": 5,
+  "tags": [
+    "簿記",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 6,
     "expertArticles": 6,
@@ -19,36 +22,139 @@
     "educationMedia": 8
   },
   "commonPatterns": [
-    { "label": "テキストは1シリーズに決める", "rate": 91 },
-    { "label": "仕訳を毎日切る", "rate": 91 },
-    { "label": "第1問と第3問を先に固める", "rate": 86 },
-    { "label": "テキストのあとに予想問題を回す", "rate": 86 },
-    { "label": "ネット試験なら模擬プログラムで操作する", "rate": 82 }
+    {
+      "label": "テキストは1シリーズに決める",
+      "rate": 91
+    },
+    {
+      "label": "仕訳を毎日切る",
+      "rate": 91
+    },
+    {
+      "label": "第1問と第3問を先に固める",
+      "rate": 86
+    },
+    {
+      "label": "テキストのあとに予想問題を回す",
+      "rate": 86
+    },
+    {
+      "label": "ネット試験なら模擬プログラムで操作する",
+      "rate": 82
+    }
   ],
   "researchSummary": "合格者の多くは、みんほし・スッキリ・パブロフのいずれか1シリーズを使い切り、仕訳を毎日切ってから予想問題に入っていました。配点は第1問の仕訳45点と第3問の決算35点が軸で、第2問は後回しにする人が多いです。1ヶ月合格やテキストの乗り換えは再現されにくい傾向でした。学習時間は約80〜150時間、資格校では約100時間がよく重なります。",
   "sources": [
-    { "title": "スッキリわかる 日商簿記3級", "url": "https://tacpub.jp/list/detail.php?bc=112061", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！簿記の教科書 3級", "url": "https://tacpub.jp/list/detail.php?bc=112066", "kind": "educationMedia" },
-    { "title": "スッキリうかる日商簿記3級本試験予想問題集", "url": "https://tacpub.jp/list/detail.php?bc=112064", "kind": "educationMedia" },
-    { "title": "パブロフ流 日商簿記3級 テキスト＆問題集", "url": "https://www.shoeisha.co.jp/book/detail/9784798189024", "kind": "educationMedia" },
-    { "title": "パブロフ流 3級 分野別問題＆予想模試", "url": "https://www.shoeisha.co.jp/book/detail/9784798194691", "kind": "educationMedia" },
-    { "title": "商工会議所 簿記検定", "url": "https://www.kentei.ne.jp/", "kind": "official" },
-    { "title": "日商簿記3級 試験案内", "url": "https://www.kentei.ne.jp/bookkeeping", "kind": "official" },
-    { "title": "簿記3級おすすめテキスト比較", "url": "https://gokaku.net/text-5/", "kind": "educationMedia" },
-    { "title": "簿記3級独学テキスト 2026", "url": "https://manabi-terrace.com/boki3-dokugaku-text-osusume-2026/", "kind": "educationMedia" },
-    { "title": "ネット試験一発合格の体験記", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
-    { "title": "知識ゼロから簿記3級", "url": "https://chanx7.com/boki3/", "kind": "achieverBlogs" },
-    { "title": "CPAラーニング 大問ごとの対策", "url": "https://www.cpa-learning.com/column/boki/measures3/", "kind": "expertArticles" },
-    { "title": "資格の大原 3級の学習方法", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
-    { "title": "50代独学のネット試験体験", "url": "https://kurachalle-koharu.com/boki3-50s-experience/", "kind": "achieverBlogs" },
-    { "title": "CPAラーニング 簿記", "url": "https://cpa-learning.com/", "kind": "educationMedia" },
-    { "title": "TAC 書籍連動ダウンロード", "url": "https://bookstore.tac-school.co.jp/pages/download_service", "kind": "educationMedia" },
-    { "title": "仕訳は毎日（体験記）", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
-    { "title": "第2問は後回し（ちゃんくすろぐ）", "url": "https://chanx7.com/boki3/", "kind": "achieverBlogs" },
-    { "title": "第1問45点・第3問35点（大原）", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
-    { "title": "予想問題集は必須（体験記）", "url": "https://lemonzest.jp/blog/life/2633/", "kind": "achieverBlogs" },
-    { "title": "勉強時間約100時間（大原）", "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2", "kind": "expertArticles" },
-    { "title": "ネット試験の模擬プログラム（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112064", "kind": "educationMedia" }
+    {
+      "title": "スッキリわかる 日商簿記3級",
+      "url": "https://tacpub.jp/list/detail.php?bc=112061",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！簿記の教科書 3級",
+      "url": "https://tacpub.jp/list/detail.php?bc=112066",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "スッキリうかる日商簿記3級本試験予想問題集",
+      "url": "https://tacpub.jp/list/detail.php?bc=112064",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "パブロフ流 日商簿記3級 テキスト＆問題集",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798189024",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "パブロフ流 3級 分野別問題＆予想模試",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194691",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "商工会議所 簿記検定",
+      "url": "https://www.kentei.ne.jp/",
+      "kind": "official"
+    },
+    {
+      "title": "日商簿記3級 試験案内",
+      "url": "https://www.kentei.ne.jp/bookkeeping",
+      "kind": "official"
+    },
+    {
+      "title": "簿記3級おすすめテキスト比較",
+      "url": "https://gokaku.net/text-5/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "簿記3級独学テキスト 2026",
+      "url": "https://manabi-terrace.com/boki3-dokugaku-text-osusume-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "ネット試験一発合格の体験記",
+      "url": "https://lemonzest.jp/blog/life/2633/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "知識ゼロから簿記3級",
+      "url": "https://chanx7.com/boki3/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CPAラーニング 大問ごとの対策",
+      "url": "https://www.cpa-learning.com/column/boki/measures3/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "資格の大原 3級の学習方法",
+      "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "50代独学のネット試験体験",
+      "url": "https://kurachalle-koharu.com/boki3-50s-experience/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CPAラーニング 簿記",
+      "url": "https://cpa-learning.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "TAC 書籍連動ダウンロード",
+      "url": "https://bookstore.tac-school.co.jp/pages/download_service",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "仕訳は毎日（体験記）",
+      "url": "https://lemonzest.jp/blog/life/2633/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "第2問は後回し（ちゃんくすろぐ）",
+      "url": "https://chanx7.com/boki3/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "第1問45点・第3問35点（大原）",
+      "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "予想問題集は必須（体験記）",
+      "url": "https://lemonzest.jp/blog/life/2633/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "勉強時間約100時間（大原）",
+      "url": "https://www.o-hara.jp/course/boki_03/bo3_column_2",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "ネット試験の模擬プログラム（TAC）",
+      "url": "https://tacpub.jp/list/detail.php?bc=112064",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

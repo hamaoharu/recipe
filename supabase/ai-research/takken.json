@@ -11,7 +11,10 @@
   "difficulty": "中〜高",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["宅建", "資格"],
+  "tags": [
+    "宅建",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 4,
     "expertArticles": 8,
@@ -19,36 +22,139 @@
     "educationMedia": 8
   },
   "commonPatterns": [
-    { "label": "同じシリーズで教科書と過去問を揃える", "rate": 91 },
-    { "label": "教科書と論点別過去問を往復する", "rate": 91 },
-    { "label": "宅建業法を得点源にする", "rate": 95 },
-    { "label": "権利関係は深追いしない", "rate": 86 },
-    { "label": "最後に年度別過去問と模試で仕上げる", "rate": 86 }
+    {
+      "label": "同じシリーズで教科書と過去問を揃える",
+      "rate": 91
+    },
+    {
+      "label": "教科書と論点別過去問を往復する",
+      "rate": 91
+    },
+    {
+      "label": "宅建業法を得点源にする",
+      "rate": 95
+    },
+    {
+      "label": "権利関係は深追いしない",
+      "rate": 86
+    },
+    {
+      "label": "最後に年度別過去問と模試で仕上げる",
+      "rate": 86
+    }
   ],
   "researchSummary": "独学合格者の多くは、同じシリーズの教科書と過去問で揃えていました。名前が最も重なったのは「みんなが欲しかった！宅建士」です。進め方は、分野ごとに教科書を読んだらすぐ論点別過去問を解く往復です。得点の軸は宅建業法（20問）で、権利関係（民法など14問）は頻出だけを取り深追いしない、法令上の制限は数字と手続きの暗記、最後に12年分などの年度別過去問と直前模試、が共通しています。直前期の新しい教材は、法改正と用語のずれで点が落ちやすい、という注意が重なっていました。合格点は相対評価で年により変動します。学習時間は約200〜300時間、初学者で権利関係が重い場合は約400時間まで上がります。",
   "sources": [
-    { "title": "みんなが欲しかった！宅建士の教科書", "url": "https://tacpub.jp/list/detail.php?bc=111927", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！宅建士の論点別過去問題集", "url": "https://tacpub.jp/list/detail.php?bc=111928", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！宅建士の12年過去問題集", "url": "https://www.amazon.co.jp/dp/4300119309", "kind": "educationMedia" },
-    { "title": "不動産適正取引推進機構", "url": "https://www.retio.or.jp/", "kind": "official" },
-    { "title": "宅建業法の勉強ロードマップ（資格クエスト）", "url": "https://www.shikakuquest.com/takken/gyouhou/", "kind": "expertArticles" },
-    { "title": "独学合格の学習方法（SEOテック）", "url": "https://seotech.jp/takken-self-study-since-august/", "kind": "achieverBlogs" },
-    { "title": "宅建の問題集の選び方（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
-    { "title": "権利関係の勉強法（アガルート）", "url": "https://www.agaroot.jp/takken/column/kenrikankei/", "kind": "expertArticles" },
-    { "title": "科目別勉強法（フォーサイト）", "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/", "kind": "expertArticles" },
-    { "title": "法令上の制限の出題ポイント（資格道場）", "url": "https://shikaku-dojo.lb-product.com/takkenshi/articles/chapter-houritsu", "kind": "educationMedia" },
-    { "title": "法令上の制限（オンスク）", "url": "https://onsuku.jp/blog/takkenshi_gakusyu_004", "kind": "educationMedia" },
-    { "title": "法令上の制限（アガルート）", "url": "https://www.agaroot.jp/takken/column/houreiseigen/", "kind": "expertArticles" },
-    { "title": "法令上の制限の攻略（伊藤塾）", "url": "https://column.itojuku.co.jp/takken/method/houreijounoseigen/", "kind": "expertArticles" },
-    { "title": "法令上の制限の学習時間", "url": "https://shyakariki.com/houreijounoseigen/", "kind": "expertArticles" },
-    { "title": "教科書と論点別のリンク（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=111928", "kind": "educationMedia" },
-    { "title": "業法→権利→法令の順（SEOテック）", "url": "https://seotech.jp/takken-self-study-since-august/", "kind": "achieverBlogs" },
-    { "title": "権利関係は7〜9点目標（アガルート）", "url": "https://www.agaroot.jp/takken/column/kenrikankei/", "kind": "expertArticles" },
-    { "title": "業法で満点を狙う（フォーサイト）", "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/", "kind": "expertArticles" },
-    { "title": "直前期に教材を増やさない", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
-    { "title": "テーマ別の縦解き（資格クエスト）", "url": "https://www.shikakuquest.com/takken/gyouhou/", "kind": "expertArticles" },
-    { "title": "法改正は最新版で（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" },
-    { "title": "年度別過去問は仕上げ（ぴよパス）", "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume", "kind": "educationMedia" }
+    {
+      "title": "みんなが欲しかった！宅建士の教科書",
+      "url": "https://tacpub.jp/list/detail.php?bc=111927",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！宅建士の論点別過去問題集",
+      "url": "https://tacpub.jp/list/detail.php?bc=111928",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！宅建士の12年過去問題集",
+      "url": "https://www.amazon.co.jp/dp/4300119309",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "不動産適正取引推進機構",
+      "url": "https://www.retio.or.jp/",
+      "kind": "official"
+    },
+    {
+      "title": "宅建業法の勉強ロードマップ（資格クエスト）",
+      "url": "https://www.shikakuquest.com/takken/gyouhou/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "独学合格の学習方法（SEOテック）",
+      "url": "https://seotech.jp/takken-self-study-since-august/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "宅建の問題集の選び方（ぴよパス）",
+      "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "権利関係の勉強法（アガルート）",
+      "url": "https://www.agaroot.jp/takken/column/kenrikankei/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "科目別勉強法（フォーサイト）",
+      "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "法令上の制限の出題ポイント（資格道場）",
+      "url": "https://shikaku-dojo.lb-product.com/takkenshi/articles/chapter-houritsu",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "法令上の制限（オンスク）",
+      "url": "https://onsuku.jp/blog/takkenshi_gakusyu_004",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "法令上の制限（アガルート）",
+      "url": "https://www.agaroot.jp/takken/column/houreiseigen/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "法令上の制限の攻略（伊藤塾）",
+      "url": "https://column.itojuku.co.jp/takken/method/houreijounoseigen/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "法令上の制限の学習時間",
+      "url": "https://shyakariki.com/houreijounoseigen/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "教科書と論点別のリンク（TAC）",
+      "url": "https://tacpub.jp/list/detail.php?bc=111928",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "業法→権利→法令の順（SEOテック）",
+      "url": "https://seotech.jp/takken-self-study-since-august/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "権利関係は7〜9点目標（アガルート）",
+      "url": "https://www.agaroot.jp/takken/column/kenrikankei/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "業法で満点を狙う（フォーサイト）",
+      "url": "https://www.foresight.jp/takken/guide-exam/subject-strategy/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "直前期に教材を増やさない",
+      "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "テーマ別の縦解き（資格クエスト）",
+      "url": "https://www.shikakuquest.com/takken/gyouhou/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "法改正は最新版で（ぴよパス）",
+      "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "年度別過去問は仕上げ（ぴよパス）",
+      "url": "https://piyopass.com/blog/takken-shi-mondaishu-osusume",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

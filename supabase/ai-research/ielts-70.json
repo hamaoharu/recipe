@@ -10,8 +10,12 @@
   "estimatedHours": "200〜400時間",
   "difficulty": "高",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["IELTS", "英語", "留学"],
+  "confidence": 3,
+  "tags": [
+    "IELTS",
+    "英語",
+    "留学"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 6,
     "expertArticles": 7,
@@ -19,36 +23,139 @@
     "educationMedia": 4
   },
   "commonPatterns": [
-    { "label": "Cambridge公式問題集で時間を測って現状を見る", "rate": 95 },
-    { "label": "4技能を別々に診断し、WritingとSpeakingを厚くする", "rate": 91 },
-    { "label": "Band descriptorsに沿って答案を見直す", "rate": 86 },
-    { "label": "WritingとSpeakingは第三者のフィードバックを入れる", "rate": 86 },
-    { "label": "丸暗記テンプレートは使わない", "rate": 82 }
+    {
+      "label": "Cambridge公式問題集で時間を測って現状を見る",
+      "rate": 95
+    },
+    {
+      "label": "4技能を別々に診断し、WritingとSpeakingを厚くする",
+      "rate": 91
+    },
+    {
+      "label": "Band descriptorsに沿って答案を見直す",
+      "rate": 86
+    },
+    {
+      "label": "WritingとSpeakingは第三者のフィードバックを入れる",
+      "rate": 86
+    },
+    {
+      "label": "丸暗記テンプレートは使わない",
+      "rate": 82
+    }
   ],
   "researchSummary": "達成者の多くは、Cambridge公式問題集で時間どおりに4技能を測り、総合点ではなく技能ごとの穴から計画を組んでいました。日本人が7.0で止まりやすいのはWritingとSpeakingです。公式問題集は形式と時間配分の軸になり、技能そのものの伸ばし方はBand descriptorsと添削・模擬面接が担います。テンプレート暗記はTask Responseで減点されやすい、という指摘が重なっています。Academicを対象にしています。総合6.0前後からなら約200〜400時間です。5.5から始める場合はさらにかかります。",
   "sources": [
-    { "title": "IELTS 日本公式（試験概要）", "url": "https://ieltsjp.com/japan/about/ielts", "kind": "official" },
-    { "title": "IELTS 公式の教材案内", "url": "https://ieltsjp.com/japan/prepare/books/other-books", "kind": "official" },
-    { "title": "British Council IELTS", "url": "https://www.britishcouncil.jp/exam/ielts", "kind": "official" },
-    { "title": "無料練習テスト（British Council）", "url": "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-practice-tests", "kind": "official" },
-    { "title": "Cambridge English IELTS カタログ", "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts", "kind": "official" },
-    { "title": "IELTS 7.0に必要な英語力（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
-    { "title": "独学半年で4.5→7.0（IELTS7.0独学ブログ）", "url": "https://ielts-score.net/study", "kind": "achieverBlogs" },
-    { "title": "Writing独学で7.0（なないろ）", "url": "https://mari7iro.com/ielts-writing-7-selfstudy/", "kind": "achieverBlogs" },
-    { "title": "教材の選び方（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
-    { "title": "おすすめ教材8冊（Kumikoの英語道）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
-    { "title": "役立った教材まとめ（note）", "url": "https://note.com/wakame_msds/n/na88c45a5457e", "kind": "achieverBlogs" },
-    { "title": "IELTS参考書13選（Best Teacher）", "url": "https://www.best-teacher-inc.com/blog/ielts-textbook", "kind": "educationMedia" },
-    { "title": "Cambridge公式問題集が軸（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
-    { "title": "WritingとSpeakingは本だけでは足りない（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
-    { "title": "Band descriptorsで見直す（なないろ）", "url": "https://mari7iro.com/ielts-writing-7-selfstudy/", "kind": "achieverBlogs" },
-    { "title": "添削が必要（独学ブログ）", "url": "https://ielts-score.net/study", "kind": "achieverBlogs" },
-    { "title": "テンプレート暗記を避ける（Happy English）", "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/", "kind": "expertArticles" },
-    { "title": "日本人はWとSが弱い（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
-    { "title": "Official Cambridge Guide（公式教材案内）", "url": "https://ieltsjp.com/japan/prepare/books/other-books", "kind": "official" },
-    { "title": "意見→理由→具体例（BERKELEY HOUSE）", "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/", "kind": "expertArticles" },
-    { "title": "最新刊のCambridgeから（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" },
-    { "title": "AcademicとGTを取り違えない（Kumiko）", "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/", "kind": "expertArticles" }
+    {
+      "title": "IELTS 日本公式（試験概要）",
+      "url": "https://ieltsjp.com/japan/about/ielts",
+      "kind": "official"
+    },
+    {
+      "title": "IELTS 公式の教材案内",
+      "url": "https://ieltsjp.com/japan/prepare/books/other-books",
+      "kind": "official"
+    },
+    {
+      "title": "British Council IELTS",
+      "url": "https://www.britishcouncil.jp/exam/ielts",
+      "kind": "official"
+    },
+    {
+      "title": "無料練習テスト（British Council）",
+      "url": "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-practice-tests",
+      "kind": "official"
+    },
+    {
+      "title": "Cambridge English IELTS カタログ",
+      "url": "https://www.cambridge.org/jp/cambridgeenglish/catalog/cambridge-english-exams-ielts",
+      "kind": "official"
+    },
+    {
+      "title": "IELTS 7.0に必要な英語力（BERKELEY HOUSE）",
+      "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "独学半年で4.5→7.0（IELTS7.0独学ブログ）",
+      "url": "https://ielts-score.net/study",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "Writing独学で7.0（なないろ）",
+      "url": "https://mari7iro.com/ielts-writing-7-selfstudy/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "教材の選び方（Happy English）",
+      "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "おすすめ教材8冊（Kumikoの英語道）",
+      "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "役立った教材まとめ（note）",
+      "url": "https://note.com/wakame_msds/n/na88c45a5457e",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "IELTS参考書13選（Best Teacher）",
+      "url": "https://www.best-teacher-inc.com/blog/ielts-textbook",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "Cambridge公式問題集が軸（Kumiko）",
+      "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "WritingとSpeakingは本だけでは足りない（Happy English）",
+      "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Band descriptorsで見直す（なないろ）",
+      "url": "https://mari7iro.com/ielts-writing-7-selfstudy/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "添削が必要（独学ブログ）",
+      "url": "https://ielts-score.net/study",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "テンプレート暗記を避ける（Happy English）",
+      "url": "https://www.happyenglishuk.com/how-to-choose-ielts-books-for-your-target-band/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "日本人はWとSが弱い（BERKELEY HOUSE）",
+      "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Official Cambridge Guide（公式教材案内）",
+      "url": "https://ieltsjp.com/japan/prepare/books/other-books",
+      "kind": "official"
+    },
+    {
+      "title": "意見→理由→具体例（BERKELEY HOUSE）",
+      "url": "https://berkeleyhouse.co.jp/blog/ielts/aim-ielts7-0/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "最新刊のCambridgeから（Kumiko）",
+      "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "AcademicとGTを取り違えない（Kumiko）",
+      "url": "https://nakabayashikumiko.com/ielts-textbooks-materials/",
+      "kind": "expertArticles"
+    }
   ],
   "groups": [
     {

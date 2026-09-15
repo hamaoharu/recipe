@@ -10,8 +10,12 @@
   "estimatedHours": "50〜120時間",
   "difficulty": "低〜中",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["セキュリティ", "IT", "資格"],
+  "confidence": 5,
+  "tags": [
+    "セキュリティ",
+    "IT",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 5,
     "expertArticles": 5,
@@ -19,36 +23,139 @@
     "educationMedia": 7
   },
   "commonPatterns": [
-    { "label": "最新シラバスの参考書を軽く1周する", "rate": 82 },
-    { "label": "科目Aは過去問道場を中心に回す", "rate": 95 },
-    { "label": "科目BはIPA公開問題で事例の読み方を取る", "rate": 91 },
-    { "label": "予想問題より過去問と公開問題を優先する", "rate": 77 },
-    { "label": "120分60問の通しを入れる", "rate": 82 }
+    {
+      "label": "最新シラバスの参考書を軽く1周する",
+      "rate": 82
+    },
+    {
+      "label": "科目Aは過去問道場を中心に回す",
+      "rate": 95
+    },
+    {
+      "label": "科目BはIPA公開問題で事例の読み方を取る",
+      "rate": 91
+    },
+    {
+      "label": "予想問題より過去問と公開問題を優先する",
+      "rate": 77
+    },
+    {
+      "label": "120分60問の通しを入れる",
+      "rate": 82
+    }
   ],
   "researchSummary": "合格者の多くは、出るとこだけなど最新対応の参考書をざっと1周したあと、過去問道場で科目Aを回し、科目BはIPAの公開問題と旧午後の事例で読み方を取っていました。試験は科目A48問と科目B12問をあわせて120分、総合600点です。ITパスポート経験者はテキストを短く済ませ、過去問から入る人もいます。道場の予想問題は本番より難しいと感じる声があり、過去問と公開問題を先に仕上げる点が共通しています。学習時間は約50〜120時間です。",
   "sources": [
-    { "title": "IPA 情報セキュリティマネジメント 出題内容", "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html", "kind": "official" },
-    { "title": "令和8年度 公開問題（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html", "kind": "official" },
-    { "title": "令和8年度 科目A・B 公開問題冊子", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_qs.pdf", "kind": "official" },
-    { "title": "令和8年度 公開問題 解答例", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_ans.pdf", "kind": "official" },
-    { "title": "情報セキュリティマネジメント過去問道場", "url": "https://www.sg-siken.com/sgkakomon.php", "kind": "educationMedia" },
-    { "title": "出るとこだけ！SG テキスト 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194431", "kind": "educationMedia" },
-    { "title": "出るとこだけ！SG 予想＋過去問題集 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194455", "kind": "educationMedia" },
-    { "title": "1ヶ月で一発合格（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
-    { "title": "独学の勉強方法（note）", "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd", "kind": "achieverBlogs" },
-    { "title": "過去問道場の使い方（城咲子）", "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku", "kind": "expertArticles" },
-    { "title": "TAC 公開セミナー資料", "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf", "kind": "educationMedia" },
-    { "title": "CBT申込", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/", "kind": "official" },
-    { "title": "科目A48問・科目B12問（TAC）", "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf", "kind": "educationMedia" },
-    { "title": "公開問題は必ずやる（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
-    { "title": "予想問題は後回し（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
-    { "title": "IT経験者は道場から（note）", "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd", "kind": "achieverBlogs" },
-    { "title": "旧午後を選択肢の根拠に読む（城咲子）", "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku", "kind": "expertArticles" },
-    { "title": "科目Bのトラップ対策（翔泳社）", "url": "https://www.seshop.com/product/detail/27219", "kind": "educationMedia" },
-    { "title": "計算問題の対策（翔泳社問題集）", "url": "https://www.shoeisha.co.jp/book/detail/9784798194455", "kind": "educationMedia" },
-    { "title": "総合600点（IPA）", "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html", "kind": "official" },
-    { "title": "テキスト2周＋道場（DevelopersIO）", "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/", "kind": "achieverBlogs" },
-    { "title": "SEshop 出るとこだけテキスト", "url": "https://www.seshop.com/product/detail/27219", "kind": "educationMedia" }
+    {
+      "title": "IPA 情報セキュリティマネジメント 出題内容",
+      "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html",
+      "kind": "official"
+    },
+    {
+      "title": "令和8年度 公開問題（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html",
+      "kind": "official"
+    },
+    {
+      "title": "令和8年度 科目A・B 公開問題冊子",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_qs.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "令和8年度 公開問題 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_sg_ans.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "情報セキュリティマネジメント過去問道場",
+      "url": "https://www.sg-siken.com/sgkakomon.php",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "出るとこだけ！SG テキスト 2026年版",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194431",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "出るとこだけ！SG 予想＋過去問題集 2026年版",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194455",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "1ヶ月で一発合格（DevelopersIO）",
+      "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "独学の勉強方法（note）",
+      "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "過去問道場の使い方（城咲子）",
+      "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "TAC 公開セミナー資料",
+      "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "CBT申込",
+      "url": "https://www3.jitec.ipa.go.jp/JitesCbt/",
+      "kind": "official"
+    },
+    {
+      "title": "科目A48問・科目B12問（TAC）",
+      "url": "https://www.tac-school.co.jp/library/00006dougaChannel/sg_seminar_resume_2607.pdf",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "公開問題は必ずやる（DevelopersIO）",
+      "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "予想問題は後回し（DevelopersIO）",
+      "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "IT経験者は道場から（note）",
+      "url": "https://note.com/aiyuenionigiri/n/nb4f10b5021fd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "旧午後を選択肢の根拠に読む（城咲子）",
+      "url": "https://infomation-sytem-security.hatenablog.com/entry/sg-kakomon-taisaku",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "科目Bのトラップ対策（翔泳社）",
+      "url": "https://www.seshop.com/product/detail/27219",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "計算問題の対策（翔泳社問題集）",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194455",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "総合600点（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/kubun/sg/outline.html",
+      "kind": "official"
+    },
+    {
+      "title": "テキスト2周＋道場（DevelopersIO）",
+      "url": "https://dev.classmethod.jp/articles/sg-exam-passed-in-one-month/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "SEshop 出るとこだけテキスト",
+      "url": "https://www.seshop.com/product/detail/27219",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

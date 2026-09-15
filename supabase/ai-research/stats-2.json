@@ -11,7 +11,11 @@
   "difficulty": "中",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["統計検定", "統計", "データ"],
+  "tags": [
+    "統計検定",
+    "統計",
+    "データ"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 6,
     "expertArticles": 4,
@@ -19,36 +23,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "公式テキストで記述統計から確率分布まで通す", "rate": 86 },
-    { "label": "推定と仮説検定を厚く繰り返す", "rate": 91 },
-    { "label": "公式問題集か過去問を時間どおり解く", "rate": 91 },
-    { "label": "電卓の操作に慣れる", "rate": 82 },
-    { "label": "用語の暗記より、どの手法を選ぶかを取る", "rate": 86 }
+    {
+      "label": "公式テキストで記述統計から確率分布まで通す",
+      "rate": 86
+    },
+    {
+      "label": "推定と仮説検定を厚く繰り返す",
+      "rate": 91
+    },
+    {
+      "label": "公式問題集か過去問を時間どおり解く",
+      "rate": 91
+    },
+    {
+      "label": "電卓の操作に慣れる",
+      "rate": 82
+    },
+    {
+      "label": "用語の暗記より、どの手法を選ぶかを取る",
+      "rate": 86
+    }
   ],
   "researchSummary": "合格者の多くは、日本統計学会の『統計学基礎』で範囲を一通り取り、推定と仮説検定で繰り返し計算していました。試験はCBTで35問前後・90分・60点です。統計WEBは範囲の補助として名前が重なります。CBT対応の公式問題集だけでは量が足りないと感じ、紙の過去問も回す人がいます。正規分布とt分布の使い分け、片側と両側が関門です。学習時間は約80〜160時間です。",
   "sources": [
-    { "title": "統計検定2級 公式", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
-    { "title": "統計検定2級 Odyssey CBT", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
-    { "title": "改訂版 統計学基礎（東京図書）", "url": "https://www.tokyo-tosho.co.jp/02227/", "kind": "official" },
-    { "title": "公式問題集 CBT対応版（実務教育出版）", "url": "https://books.jitsumu.co.jp/book/b614221.html", "kind": "official" },
-    { "title": "対応公式テキスト案内", "url": "https://www.toukei-kentei.jp/preparation/books/", "kind": "official" },
-    { "title": "統計学の時間（統計WEB）", "url": "https://bellcurve.jp/statistics/course/", "kind": "educationMedia" },
-    { "title": "2回受けて合格（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
-    { "title": "2級取得に向けてやったこと（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
-    { "title": "出題範囲は大学基礎（公式）", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
-    { "title": "90分35問60点（Odyssey）", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
-    { "title": "章末問題を繰り返す（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
-    { "title": "仮説検定がイメージしにくい（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
-    { "title": "統計WEBで範囲カバー（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
-    { "title": "CBT版だけでは量が足りない場合（Zenn）", "url": "https://zenn.dev/ncdc/articles/f69a18a673238e", "kind": "achieverBlogs" },
-    { "title": "電卓に慣れる（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
-    { "title": "正規分布とt分布（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" },
-    { "title": "練習問題付き（統計WEB）", "url": "https://bellcurve.jp/statistics/course/", "kind": "educationMedia" },
-    { "title": "区間推定と検定（東京図書）", "url": "https://www.tokyo-tosho.co.jp/02227/", "kind": "educationMedia" },
-    { "title": "模擬テスト（実務教育出版）", "url": "https://books.jitsumu.co.jp/book/b614221.html", "kind": "educationMedia" },
-    { "title": "持ち込み電卓の制限（Odyssey）", "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html", "kind": "official" },
-    { "title": "線形回帰も範囲（公式）", "url": "https://www.toukei-kentei.jp/grade/grade2/", "kind": "official" },
-    { "title": "本質を理解してから速く解く（Zenn）", "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd", "kind": "achieverBlogs" }
+    {
+      "title": "統計検定2級 公式",
+      "url": "https://www.toukei-kentei.jp/grade/grade2/",
+      "kind": "official"
+    },
+    {
+      "title": "統計検定2級 Odyssey CBT",
+      "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html",
+      "kind": "official"
+    },
+    {
+      "title": "改訂版 統計学基礎（東京図書）",
+      "url": "https://www.tokyo-tosho.co.jp/02227/",
+      "kind": "official"
+    },
+    {
+      "title": "公式問題集 CBT対応版（実務教育出版）",
+      "url": "https://books.jitsumu.co.jp/book/b614221.html",
+      "kind": "official"
+    },
+    {
+      "title": "対応公式テキスト案内",
+      "url": "https://www.toukei-kentei.jp/preparation/books/",
+      "kind": "official"
+    },
+    {
+      "title": "統計学の時間（統計WEB）",
+      "url": "https://bellcurve.jp/statistics/course/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "2回受けて合格（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "2級取得に向けてやったこと（Zenn）",
+      "url": "https://zenn.dev/ncdc/articles/f69a18a673238e",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "出題範囲は大学基礎（公式）",
+      "url": "https://www.toukei-kentei.jp/grade/grade2/",
+      "kind": "official"
+    },
+    {
+      "title": "90分35問60点（Odyssey）",
+      "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html",
+      "kind": "official"
+    },
+    {
+      "title": "章末問題を繰り返す（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "仮説検定がイメージしにくい（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "統計WEBで範囲カバー（Zenn）",
+      "url": "https://zenn.dev/ncdc/articles/f69a18a673238e",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CBT版だけでは量が足りない場合（Zenn）",
+      "url": "https://zenn.dev/ncdc/articles/f69a18a673238e",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "電卓に慣れる（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "正規分布とt分布（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "練習問題付き（統計WEB）",
+      "url": "https://bellcurve.jp/statistics/course/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "区間推定と検定（東京図書）",
+      "url": "https://www.tokyo-tosho.co.jp/02227/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "模擬テスト（実務教育出版）",
+      "url": "https://books.jitsumu.co.jp/book/b614221.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "持ち込み電卓の制限（Odyssey）",
+      "url": "https://cbt.odyssey-com.co.jp/toukei-kentei/kgrade2.html",
+      "kind": "official"
+    },
+    {
+      "title": "線形回帰も範囲（公式）",
+      "url": "https://www.toukei-kentei.jp/grade/grade2/",
+      "kind": "official"
+    },
+    {
+      "title": "本質を理解してから速く解く（Zenn）",
+      "url": "https://zenn.dev/masa1991/articles/15b041fdaa0edd",
+      "kind": "achieverBlogs"
+    }
   ],
   "groups": [
     {

@@ -11,7 +11,11 @@
   "difficulty": "中〜高",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["応用情報", "IT", "資格"],
+  "tags": [
+    "応用情報",
+    "IT",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 4,
     "expertArticles": 6,
@@ -19,36 +23,139 @@
     "educationMedia": 7
   },
   "commonPatterns": [
-    { "label": "科目Aは過去問道場を中心に回す", "rate": 91 },
-    { "label": "科目Bの記述を中盤から毎週書く", "rate": 91 },
-    { "label": "科目Bの問1セキュリティは必須として先に取る", "rate": 86 },
-    { "label": "得意分野を5〜6個に絞って選択する", "rate": 82 },
-    { "label": "基本情報合格者はテキスト通読より過去問から入る", "rate": 77 }
+    {
+      "label": "科目Aは過去問道場を中心に回す",
+      "rate": 91
+    },
+    {
+      "label": "科目Bの記述を中盤から毎週書く",
+      "rate": 91
+    },
+    {
+      "label": "科目Bの問1セキュリティは必須として先に取る",
+      "rate": 86
+    },
+    {
+      "label": "得意分野を5〜6個に絞って選択する",
+      "rate": 82
+    },
+    {
+      "label": "基本情報合格者はテキスト通読より過去問から入る",
+      "rate": 77
+    }
   ],
   "researchSummary": "合格者の多くは、科目A（旧午前）は過去問の反復、科目B（旧午後）は答案を自分で書く練習、という分担でした。合否は記述の仕上がりで分かれやすく、学習時間のおよそ6割を科目Bに置く設計が重なっています。問1の情報セキュリティは必須なので、選択分野より先に型を取ります。2026年度はCBTの前期・後期ですが、出題形式と時間は従来どおりです。基本情報合格者なら約200〜300時間、未経験から始めると約400〜500時間まで見ます。このロードマップは前者を対象にしています。",
   "sources": [
-    { "title": "IPA 応用情報技術者試験", "url": "https://www.ipa.go.jp/shiken/kubun/ap.html", "kind": "official" },
-    { "title": "令和8年度の実施予定（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
-    { "title": "令和7年度 問題冊子・解答例（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html", "kind": "official" },
-    { "title": "応用情報技術者過去問道場", "url": "https://www.ap-siken.com/apkakomon.php", "kind": "educationMedia" },
-    { "title": "令和08年 応用情報技術者 合格教本", "url": "https://direct.gihyo.jp/view/item/000000003962", "kind": "educationMedia" },
-    { "title": "情報処理教科書 応用情報 テキスト＆問題集 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194424", "kind": "educationMedia" },
-    { "title": "応用情報の勉強時間（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "TAC 応用情報の勉強方法", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
-    { "title": "応用情報は独学で合格できる？（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
-    { "title": "おすすめ参考書と勉強法（プロエンジニア）", "url": "https://proengineer.internous.co.jp/content/columnfeature/3812", "kind": "expertArticles" },
-    { "title": "午後問1 情報セキュリティ（試験.com）", "url": "https://www.ap-siken.com/kakomon/06_haru/pm01.html", "kind": "educationMedia" },
-    { "title": "基本情報合格者は過去問から（TAC）", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
-    { "title": "午前4割・午後6割（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "科目名称の変更（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
-    { "title": "過去問の再出題（TAC）", "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html", "kind": "educationMedia" },
-    { "title": "午後は答案を書く（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "選択分野を絞る（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
-    { "title": "IPA公式PDFで学ぶ（プロエンジニア）", "url": "https://proengineer.internous.co.jp/content/columnfeature/3812", "kind": "expertArticles" },
-    { "title": "出題形式は変更なし（IPA）", "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html", "kind": "official" },
-    { "title": "合格教本で調べ物（技術評論社）", "url": "https://direct.gihyo.jp/view/item/000000003962", "kind": "educationMedia" },
-    { "title": "直近4回を時間どおり（アルク）", "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/", "kind": "educationMedia" },
-    { "title": "記述は直前詰め込みが効きにくい（ぴよパス）", "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan", "kind": "educationMedia" }
+    {
+      "title": "IPA 応用情報技術者試験",
+      "url": "https://www.ipa.go.jp/shiken/kubun/ap.html",
+      "kind": "official"
+    },
+    {
+      "title": "令和8年度の実施予定（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html",
+      "kind": "official"
+    },
+    {
+      "title": "令和7年度 問題冊子・解答例（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html",
+      "kind": "official"
+    },
+    {
+      "title": "応用情報技術者過去問道場",
+      "url": "https://www.ap-siken.com/apkakomon.php",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "令和08年 応用情報技術者 合格教本",
+      "url": "https://direct.gihyo.jp/view/item/000000003962",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "情報処理教科書 応用情報 テキスト＆問題集 2026年版",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194424",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "応用情報の勉強時間（ぴよパス）",
+      "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "TAC 応用情報の勉強方法",
+      "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "応用情報は独学で合格できる？（アルク）",
+      "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "おすすめ参考書と勉強法（プロエンジニア）",
+      "url": "https://proengineer.internous.co.jp/content/columnfeature/3812",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "午後問1 情報セキュリティ（試験.com）",
+      "url": "https://www.ap-siken.com/kakomon/06_haru/pm01.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "基本情報合格者は過去問から（TAC）",
+      "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "午前4割・午後6割（ぴよパス）",
+      "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "科目名称の変更（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html",
+      "kind": "official"
+    },
+    {
+      "title": "過去問の再出題（TAC）",
+      "url": "https://www.tac-school.co.jp/kouza_joho/joho_ap/ap_study_method.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "午後は答案を書く（ぴよパス）",
+      "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "選択分野を絞る（アルク）",
+      "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "IPA公式PDFで学ぶ（プロエンジニア）",
+      "url": "https://proengineer.internous.co.jp/content/columnfeature/3812",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "出題形式は変更なし（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/2026/ap_koudo_sc_yotei.html",
+      "kind": "official"
+    },
+    {
+      "title": "合格教本で調べ物（技術評論社）",
+      "url": "https://direct.gihyo.jp/view/item/000000003962",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "直近4回を時間どおり（アルク）",
+      "url": "https://www.alc.co.jp/license/ouyou-joho/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "記述は直前詰め込みが効きにくい（ぴよパス）",
+      "url": "https://piyopass.com/blog/ouyou-joho-gijutsusha-benkyou-jikan",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

@@ -10,8 +10,12 @@
   "estimatedHours": "30〜80時間",
   "difficulty": "低",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["AWS", "クラウド", "資格"],
+  "confidence": 5,
+  "tags": [
+    "AWS",
+    "クラウド",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 5,
     "expertArticles": 5,
@@ -19,36 +23,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "公式Essentialsかテキスト1冊で全体像を取る", "rate": 91 },
-    { "label": "無料枠でIAM・S3・請求画面を触る", "rate": 82 },
-    { "label": "Ping-tや公式練習問題を周回する", "rate": 91 },
-    { "label": "似たサービスの違いを対で整理する", "rate": 86 },
-    { "label": "公式試験ガイドで4ドメインを確認する", "rate": 77 }
+    {
+      "label": "公式Essentialsかテキスト1冊で全体像を取る",
+      "rate": 91
+    },
+    {
+      "label": "無料枠でIAM・S3・請求画面を触る",
+      "rate": 82
+    },
+    {
+      "label": "Ping-tや公式練習問題を周回する",
+      "rate": 91
+    },
+    {
+      "label": "似たサービスの違いを対で整理する",
+      "rate": 86
+    },
+    {
+      "label": "公式試験ガイドで4ドメインを確認する",
+      "rate": 77
+    }
   ],
   "researchSummary": "合格者の多くは、Skill BuilderのCloud Practitioner Essentialsか日本語テキスト1冊で全体像を取り、無料枠で画面を触り、問題集を周回する順でした。CLFは設計問題より、サービスが何をするか・いつ選ぶかの広く浅い知識です。落ちる人の多くは用語暗記だけで、EC2とLambda、S3とEBSなどの対比が弱い、という指摘が重なっています。合格ラインは1000点中700点です。IT経験者なら約30〜50時間、未経験なら約50〜80時間です。",
   "sources": [
-    { "title": "AWS Certified Cloud Practitioner 公式", "url": "https://aws.amazon.com/jp/certification/certified-cloud-practitioner/", "kind": "official" },
-    { "title": "CLF-C02 試験ガイド（日本語PDF）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
-    { "title": "AWS 認定試験に向けて準備する", "url": "https://aws.amazon.com/jp/certification/certification-prep/", "kind": "official" },
-    { "title": "AWS 無料利用枠", "url": "https://aws.amazon.com/jp/free/", "kind": "official" },
-    { "title": "Cloud Practitioner トレーニング（AWS）", "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/", "kind": "official" },
-    { "title": "AWS Skill Builder", "url": "https://skillbuilder.aws/", "kind": "official" },
-    { "title": "AWS教科書 クラウドプラクティショナー 第2版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194912", "kind": "educationMedia" },
-    { "title": "Ping-t", "url": "https://mondai.ping-t.com/", "kind": "educationMedia" },
-    { "title": "CLF-C02 受験ガイド（AWS資格の森）", "url": "https://aws-master.com/clf/clf-exam-guide/", "kind": "educationMedia" },
-    { "title": "未経験2週間の合格勉強法", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
-    { "title": "CLF-C02 合格への最短ルート（Montopi）", "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026", "kind": "educationMedia" },
-    { "title": "2026年版 未経験合格ガイド（Speed Study）", "url": "https://www.speed-study.com/aws/blog/aws-clf", "kind": "expertArticles" },
-    { "title": "Essentialsで一周（Speed Study）", "url": "https://www.speed-study.com/aws/blog/aws-clf", "kind": "expertArticles" },
-    { "title": "公式練習問題集20問", "url": "https://aws.amazon.com/jp/certification/certification-prep/", "kind": "official" },
-    { "title": "Ping-tを周回（Sunbridge）", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
-    { "title": "模試85%目安（Sunbridge）", "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/", "kind": "achieverBlogs" },
-    { "title": "サービスの使い分け（AWS資格の森）", "url": "https://aws-master.com/clf/clf-exam-guide/", "kind": "educationMedia" },
-    { "title": "請求・料金ドメイン（試験ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
-    { "title": "ハンズオン付きテキスト（翔泳社）", "url": "https://www.shoeisha.co.jp/book/detail/9784798194912", "kind": "educationMedia" },
-    { "title": "Cloud Quest（AWS）", "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/", "kind": "official" },
-    { "title": "責任共有モデル（試験ガイド）", "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf", "kind": "official" },
-    { "title": "無料アカウントで画面確認（Montopi）", "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026", "kind": "educationMedia" }
+    {
+      "title": "AWS Certified Cloud Practitioner 公式",
+      "url": "https://aws.amazon.com/jp/certification/certified-cloud-practitioner/",
+      "kind": "official"
+    },
+    {
+      "title": "CLF-C02 試験ガイド（日本語PDF）",
+      "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "AWS 認定試験に向けて準備する",
+      "url": "https://aws.amazon.com/jp/certification/certification-prep/",
+      "kind": "official"
+    },
+    {
+      "title": "AWS 無料利用枠",
+      "url": "https://aws.amazon.com/jp/free/",
+      "kind": "official"
+    },
+    {
+      "title": "Cloud Practitioner トレーニング（AWS）",
+      "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/",
+      "kind": "official"
+    },
+    {
+      "title": "AWS Skill Builder",
+      "url": "https://skillbuilder.aws/",
+      "kind": "official"
+    },
+    {
+      "title": "AWS教科書 クラウドプラクティショナー 第2版",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194912",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "Ping-t",
+      "url": "https://mondai.ping-t.com/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "CLF-C02 受験ガイド（AWS資格の森）",
+      "url": "https://aws-master.com/clf/clf-exam-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "未経験2週間の合格勉強法",
+      "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CLF-C02 合格への最短ルート（Montopi）",
+      "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "2026年版 未経験合格ガイド（Speed Study）",
+      "url": "https://www.speed-study.com/aws/blog/aws-clf",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Essentialsで一周（Speed Study）",
+      "url": "https://www.speed-study.com/aws/blog/aws-clf",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "公式練習問題集20問",
+      "url": "https://aws.amazon.com/jp/certification/certification-prep/",
+      "kind": "official"
+    },
+    {
+      "title": "Ping-tを周回（Sunbridge）",
+      "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "模試85%目安（Sunbridge）",
+      "url": "https://www.sunbridge.com/blog/useful/aws_certified_cloud_practitioner/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "サービスの使い分け（AWS資格の森）",
+      "url": "https://aws-master.com/clf/clf-exam-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "請求・料金ドメイン（試験ガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "ハンズオン付きテキスト（翔泳社）",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194912",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "Cloud Quest（AWS）",
+      "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/",
+      "kind": "official"
+    },
+    {
+      "title": "責任共有モデル（試験ガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "無料アカウントで画面確認（Montopi）",
+      "url": "https://montopi.com/articles/aws-clf-c02-study-guide-2026",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

@@ -10,8 +10,12 @@
   "estimatedHours": "200〜400時間",
   "difficulty": "中〜高",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["転職", "Web", "ポートフォリオ"],
+  "confidence": 3,
+  "tags": [
+    "転職",
+    "Web",
+    "ポートフォリオ"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 6,
     "expertArticles": 10,
@@ -19,36 +23,139 @@
     "educationMedia": 3
   },
   "commonPatterns": [
-    { "label": "職種と技術を1系統に絞る", "rate": 86 },
-    { "label": "チュートリアルではなく、自分で要件を決めたアプリを出す", "rate": 91 },
-    { "label": "認証・CRUD・デプロイを1本に入れる", "rate": 86 },
-    { "label": "READMEになぜ作ったかと技術選定を書く", "rate": 91 },
-    { "label": "作品が動いてから応募と面接の練習を始める", "rate": 82 }
+    {
+      "label": "職種と技術を1系統に絞る",
+      "rate": 86
+    },
+    {
+      "label": "チュートリアルではなく、自分で要件を決めたアプリを出す",
+      "rate": 91
+    },
+    {
+      "label": "認証・CRUD・デプロイを1本に入れる",
+      "rate": 86
+    },
+    {
+      "label": "READMEになぜ作ったかと技術選定を書く",
+      "rate": 91
+    },
+    {
+      "label": "作品が動いてから応募と面接の練習を始める",
+      "rate": 82
+    }
   ],
   "researchSummary": "内定者の多くは、技術の幅より1系統を深く見せていました。採用側が見るのは、動くURL、自分で決めた要件、READMEの「なぜ」、コミットの積み方です。スクール課題の複製や、AIで生成しただけのコードは、面接で説明できず落ちやすい、という指摘が重なっています。学習そのものはフロントエンドやサーバーのロードマップに任せ、ここでは成果物と選考の手順に絞ります。作品づくりから内定まで、追加で約200〜400時間見る人が多いです。",
   "sources": [
-    { "title": "GitHub Docs README", "url": "https://docs.github.com/ja/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes", "kind": "official" },
-    { "title": "GitHub プロフィールREADME", "url": "https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme", "kind": "official" },
-    { "title": "Vercel Getting Started", "url": "https://vercel.com/docs/getting-started-with-vercel", "kind": "official" },
-    { "title": "ポートフォリオの評価軸（e-エンジニア）", "url": "https://inno-mark.jp/e-engineer/portfolio-guide/", "kind": "expertArticles" },
-    { "title": "ポートフォリオの作り方（テックゴー）", "url": "https://tech-go.jp/it-engineer/portfolio", "kind": "expertArticles" },
-    { "title": "評価された理由の分解（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
-    { "title": "ポートフォリオ完全ガイド 2026（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
-    { "title": "GitHub転職活用ガイド", "url": "https://all-aspect.jp/articles/github-profile-career-guide", "kind": "expertArticles" },
-    { "title": "綺麗なGitHubリポジトリ（Qiita）", "url": "https://qiita.com/miruky/items/726d9210cc8666866f86", "kind": "achieverBlogs" },
-    { "title": "独学ロードマップ（フリーランスブルー）", "url": "https://freelance-blue.com/article/engineer/engineer-self-study-roadmap/", "kind": "educationMedia" },
-    { "title": "未経験転職ロードマップ（RUNTEQ）", "url": "https://runteq.jp/blog/programming-school/web_engineer/7430/", "kind": "educationMedia" },
-    { "title": "3ヶ月の手順（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/hello-world-3months-roadmap/", "kind": "achieverBlogs" },
-    { "title": "デプロイ必須（e-エンジニア）", "url": "https://inno-mark.jp/e-engineer/portfolio-guide/", "kind": "expertArticles" },
-    { "title": "READMEの5層（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
-    { "title": "スクール課題の複製は弱い（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
-    { "title": "認証CRUDデプロイ（GitHubガイド）", "url": "https://all-aspect.jp/articles/github-profile-career-guide", "kind": "expertArticles" },
-    { "title": "コミット履歴（TechCreate）", "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026", "kind": "expertArticles" },
-    { "title": ".envをコミットしない（Qiita）", "url": "https://qiita.com/miruky/items/726d9210cc8666866f86", "kind": "achieverBlogs" },
-    { "title": "エージェントは少数（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
-    { "title": "面接で詰まった話を3つ（転職辞典）", "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/", "kind": "achieverBlogs" },
-    { "title": "職種を先に決める（テックゴー）", "url": "https://tech-go.jp/it-engineer/portfolio", "kind": "expertArticles" },
-    { "title": "GitHub セキュリティ（シークレット）", "url": "https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository", "kind": "official" }
+    {
+      "title": "GitHub Docs README",
+      "url": "https://docs.github.com/ja/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+      "kind": "official"
+    },
+    {
+      "title": "GitHub プロフィールREADME",
+      "url": "https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme",
+      "kind": "official"
+    },
+    {
+      "title": "Vercel Getting Started",
+      "url": "https://vercel.com/docs/getting-started-with-vercel",
+      "kind": "official"
+    },
+    {
+      "title": "ポートフォリオの評価軸（e-エンジニア）",
+      "url": "https://inno-mark.jp/e-engineer/portfolio-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "ポートフォリオの作り方（テックゴー）",
+      "url": "https://tech-go.jp/it-engineer/portfolio",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "評価された理由の分解（転職辞典）",
+      "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "ポートフォリオ完全ガイド 2026（TechCreate）",
+      "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "GitHub転職活用ガイド",
+      "url": "https://all-aspect.jp/articles/github-profile-career-guide",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "綺麗なGitHubリポジトリ（Qiita）",
+      "url": "https://qiita.com/miruky/items/726d9210cc8666866f86",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "独学ロードマップ（フリーランスブルー）",
+      "url": "https://freelance-blue.com/article/engineer/engineer-self-study-roadmap/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "未経験転職ロードマップ（RUNTEQ）",
+      "url": "https://runteq.jp/blog/programming-school/web_engineer/7430/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "3ヶ月の手順（転職辞典）",
+      "url": "https://tensyoku-jiten.com/programming-school/hello-world-3months-roadmap/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "デプロイ必須（e-エンジニア）",
+      "url": "https://inno-mark.jp/e-engineer/portfolio-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "READMEの5層（転職辞典）",
+      "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "スクール課題の複製は弱い（TechCreate）",
+      "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "認証CRUDデプロイ（GitHubガイド）",
+      "url": "https://all-aspect.jp/articles/github-profile-career-guide",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "コミット履歴（TechCreate）",
+      "url": "https://techcreate.balubo.jp/articles/engineer-portfolio-guide-2026",
+      "kind": "expertArticles"
+    },
+    {
+      "title": ".envをコミットしない（Qiita）",
+      "url": "https://qiita.com/miruky/items/726d9210cc8666866f86",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "エージェントは少数（転職辞典）",
+      "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "面接で詰まった話を3つ（転職辞典）",
+      "url": "https://tensyoku-jiten.com/programming-school/portfolio-3examples-why-evaluated/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "職種を先に決める（テックゴー）",
+      "url": "https://tech-go.jp/it-engineer/portfolio",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "GitHub セキュリティ（シークレット）",
+      "url": "https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+      "kind": "official"
+    }
   ],
   "groups": [
     {

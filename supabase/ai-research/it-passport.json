@@ -10,8 +10,12 @@
   "estimatedHours": "100〜180時間",
   "difficulty": "低〜中",
   "sourceCount": 22,
-  "confidence": 4,
-  "tags": ["ITパスポート", "IT", "資格"],
+  "confidence": 5,
+  "tags": [
+    "ITパスポート",
+    "IT",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 5,
     "expertArticles": 6,
@@ -19,36 +23,139 @@
     "educationMedia": 8
   },
   "commonPatterns": [
-    { "label": "最新シラバスの参考書を軽く1周する", "rate": 86 },
-    { "label": "過去問道場を主戦場にする", "rate": 95 },
-    { "label": "3分野の足切りを意識する", "rate": 91 },
-    { "label": "生成AIなど新用語はテキストで補う", "rate": 82 },
-    { "label": "100問120分の通しを入れる", "rate": 86 }
+    {
+      "label": "最新シラバスの参考書を軽く1周する",
+      "rate": 86
+    },
+    {
+      "label": "過去問道場を主戦場にする",
+      "rate": 95
+    },
+    {
+      "label": "3分野の足切りを意識する",
+      "rate": 91
+    },
+    {
+      "label": "生成AIなど新用語はテキストで補う",
+      "rate": 82
+    },
+    {
+      "label": "100問120分の通しを入れる",
+      "rate": 86
+    }
   ],
   "researchSummary": "合格者の多くは、キタミ式など最新シラバス対応の参考書をざっと1周したあと、ITパスポート過去問道場を分野別から模試へ回していました。合格は総合600点に加え、ストラテジ・マネジメント・テクノロジがそれぞれ300点以上です。どれか1分野を捨てると落ちます。過去問にない新用語（生成AIなど）は最新テキストで補います。学習時間は約100〜180時間です。",
   "sources": [
-    { "title": "ITパスポート過去問道場", "url": "https://www.itpassportsiken.com/ipkakomon.php", "kind": "educationMedia" },
-    { "title": "過去問道場の使い方", "url": "https://www.itpassportsiken.com/doujouManual.html", "kind": "educationMedia" },
-    { "title": "IPA 試験の範囲と採点", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/html/about/range.html", "kind": "official" },
-    { "title": "キタミ式イラストIT塾 ITパスポート 令和08年", "url": "https://gihyo.jp/book/2025/978-4-297-15299-4", "kind": "educationMedia" },
-    { "title": "出るとこだけ！ITパスポート 2026年版", "url": "https://www.shoeisha.co.jp/book/detail/9784798194370", "kind": "educationMedia" },
-    { "title": "ITパスポートの勉強法（ぴよパス）", "url": "https://piyopass.com/blog/it-passport-benkyouhou", "kind": "educationMedia" },
-    { "title": "独学3ステップ（BizIT Frontier）", "url": "https://noribloglab.com/itpass-study-method/", "kind": "achieverBlogs" },
-    { "title": "ITパスポート完全ガイド 2026", "url": "https://manabi-terrace.com/it-passport-guide-2026/", "kind": "educationMedia" },
-    { "title": "シラバス6.5対応の勉強法", "url": "https://shindan-model.com/it-pass-perfect-kotei/", "kind": "expertArticles" },
-    { "title": "シラバス最新と新出用語", "url": "https://sikaku-working.com/itpassport-syllabus-latest/", "kind": "educationMedia" },
-    { "title": "採点基準の解説（gihyo）", "url": "https://itpassport.gihyo.jp/archives/1435", "kind": "expertArticles" },
-    { "title": "合格率と分野別300点", "url": "https://itpassport.gihyo.jp/archives/4279", "kind": "expertArticles" },
-    { "title": "試験概要のギモン", "url": "https://itpassport.gihyo.jp/archives/2919", "kind": "expertArticles" },
-    { "title": "キタミ式で合格（体験）", "url": "https://itpassport.gihyo.jp/archives/1581", "kind": "achieverBlogs" },
-    { "title": "過去問と参考書の往復（体験）", "url": "https://itpassport.gihyo.jp/archives/4883", "kind": "achieverBlogs" },
-    { "title": "CBT申込", "url": "https://www3.jitec.ipa.go.jp/JitesCbt/", "kind": "official" },
-    { "title": "分野別演習（ぴよパス）", "url": "https://piyopass.com/blog/it-passport-benkyouhou", "kind": "educationMedia" },
-    { "title": "参考書は1冊（BizIT）", "url": "https://noribloglab.com/itpass-study-method/", "kind": "achieverBlogs" },
-    { "title": "新出用語はテキストで（資格working）", "url": "https://sikaku-working.com/itpassport-syllabus-latest/", "kind": "educationMedia" },
-    { "title": "120分通し（体験）", "url": "https://itpassport.gihyo.jp/archives/1581", "kind": "achieverBlogs" },
-    { "title": "法務の法規名を正確に（体験）", "url": "https://itpassport.gihyo.jp/archives/4883", "kind": "achieverBlogs" },
-    { "title": "ITパスポート試験.com", "url": "https://www.itpassportsiken.com/", "kind": "educationMedia" }
+    {
+      "title": "ITパスポート過去問道場",
+      "url": "https://www.itpassportsiken.com/ipkakomon.php",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "過去問道場の使い方",
+      "url": "https://www.itpassportsiken.com/doujouManual.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "IPA 試験の範囲と採点",
+      "url": "https://www3.jitec.ipa.go.jp/JitesCbt/html/about/range.html",
+      "kind": "official"
+    },
+    {
+      "title": "キタミ式イラストIT塾 ITパスポート 令和08年",
+      "url": "https://gihyo.jp/book/2025/978-4-297-15299-4",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "出るとこだけ！ITパスポート 2026年版",
+      "url": "https://www.shoeisha.co.jp/book/detail/9784798194370",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "ITパスポートの勉強法（ぴよパス）",
+      "url": "https://piyopass.com/blog/it-passport-benkyouhou",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "独学3ステップ（BizIT Frontier）",
+      "url": "https://noribloglab.com/itpass-study-method/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "ITパスポート完全ガイド 2026",
+      "url": "https://manabi-terrace.com/it-passport-guide-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "シラバス6.5対応の勉強法",
+      "url": "https://shindan-model.com/it-pass-perfect-kotei/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "シラバス最新と新出用語",
+      "url": "https://sikaku-working.com/itpassport-syllabus-latest/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "採点基準の解説（gihyo）",
+      "url": "https://itpassport.gihyo.jp/archives/1435",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "合格率と分野別300点",
+      "url": "https://itpassport.gihyo.jp/archives/4279",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "試験概要のギモン",
+      "url": "https://itpassport.gihyo.jp/archives/2919",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "キタミ式で合格（体験）",
+      "url": "https://itpassport.gihyo.jp/archives/1581",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "過去問と参考書の往復（体験）",
+      "url": "https://itpassport.gihyo.jp/archives/4883",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "CBT申込",
+      "url": "https://www3.jitec.ipa.go.jp/JitesCbt/",
+      "kind": "official"
+    },
+    {
+      "title": "分野別演習（ぴよパス）",
+      "url": "https://piyopass.com/blog/it-passport-benkyouhou",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "参考書は1冊（BizIT）",
+      "url": "https://noribloglab.com/itpass-study-method/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "新出用語はテキストで（資格working）",
+      "url": "https://sikaku-working.com/itpassport-syllabus-latest/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "120分通し（体験）",
+      "url": "https://itpassport.gihyo.jp/archives/1581",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "法務の法規名を正確に（体験）",
+      "url": "https://itpassport.gihyo.jp/archives/4883",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "ITパスポート試験.com",
+      "url": "https://www.itpassportsiken.com/",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

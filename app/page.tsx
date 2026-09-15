@@ -13,6 +13,7 @@ import {
   idsToRecord,
 } from "./lib/likes";
 import { fetchRoadmaps } from "./lib/roadmaps-db";
+import { compareRising } from "./lib/rising";
 import RoadmapCard from "./components/RoadmapCard";
 
 //文字列である"new"か"trend"のどちらかしか入らない型を定義
@@ -78,6 +79,11 @@ function FeedContent() {
   const allTags = useMemo(
     () => [...new Set(allRoadmaps.flatMap((r) => r.tags ?? []))],
     [allRoadmaps]
+  );
+
+  const risingRoadmaps = useMemo(
+    () => [...allRoadmaps].sort(compareRising).slice(0, 4),
+    [allRoadmaps],
   );
 
   const toggleLike = async (e: MouseEvent<HTMLButtonElement>, id: string) => {
@@ -360,24 +366,21 @@ function FeedContent() {
               急上昇
             </p>
             <ul className="space-y-1">
-              {[...allRoadmaps]
-                .sort((a, b) => b.views - a.views)
-                .slice(0, 4)
-                .map((r, i) => (
-                  <li key={r.id}>
-                    <Link
-                      href={`/roadmap/${r.id}`}
-                      className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100"
-                    >
-                      <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900">
-                        {r.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+              {risingRoadmaps.map((r, i) => (
+                <li key={r.id}>
+                  <Link
+                    href={`/roadmap/${r.id}`}
+                    className="group flex items-start gap-2.5 rounded-md px-2 py-2 transition-colors hover:bg-zinc-100"
+                  >
+                    <span className="mt-px shrink-0 font-mono text-[12px] text-zinc-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[13px] leading-snug text-zinc-600 group-hover:text-zinc-900">
+                      {r.title}
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </section>
 

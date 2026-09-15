@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
     apple: "/icons/apple-touch-icon.png",
   },
 };

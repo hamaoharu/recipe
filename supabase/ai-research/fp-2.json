@@ -11,7 +11,11 @@
   "difficulty": "中",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["FP", "資格", "お金"],
+  "tags": [
+    "FP",
+    "資格",
+    "お金"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 5,
     "expertArticles": 6,
@@ -19,36 +23,139 @@
     "educationMedia": 7
   },
   "commonPatterns": [
-    { "label": "教科書と問題集を同じシリーズで揃える", "rate": 91 },
-    { "label": "1セクション読んだらすぐ問題を解く", "rate": 91 },
-    { "label": "実技の実施団体を先に決める", "rate": 86 },
-    { "label": "タックスと相続を厚く、実技を後回しにしない", "rate": 86 },
-    { "label": "CBTの画面操作を一度体験する", "rate": 82 }
+    {
+      "label": "教科書と問題集を同じシリーズで揃える",
+      "rate": 91
+    },
+    {
+      "label": "1セクション読んだらすぐ問題を解く",
+      "rate": 91
+    },
+    {
+      "label": "実技の実施団体を先に決める",
+      "rate": 86
+    },
+    {
+      "label": "タックスと相続を厚く、実技を後回しにしない",
+      "rate": 86
+    },
+    {
+      "label": "CBTの画面操作を一度体験する",
+      "rate": 82
+    }
   ],
   "researchSummary": "合格者の多くは、みんほしなど同じシリーズの教科書と問題集を使い、セクションごとに読んですぐ解いていました。3級より計算と要件の精度が上がり、タックスと相続に時間を厚く取る点が共通しています。実技は学科のあと回しにせず、学習時間のおよそ3割を設例の当てはめに使っていました。学科・実技とも6割がラインです。3級合格直後なら約150〜200時間、3級から間が空いていると約200〜300時間です。",
   "sources": [
-    { "title": "日本FP協会 2級・3級試験要綱", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
-    { "title": "日本FP協会 試験要綱PDF", "url": "https://www.jafp.or.jp/exam/app/howto/files/outline.pdf?v=202607010900", "kind": "official" },
-    { "title": "きんざい FP 2級/3級 CBT", "url": "https://cbt-s.com/examinee/examination/kinzai_FP", "kind": "official" },
-    { "title": "みんなが欲しかった！FPの教科書2級・AFP", "url": "https://tacpub.jp/list/detail.php?bc=112082", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！FPの問題集2級・AFP", "url": "https://tacpub.jp/list/detail.php?bc=112086", "kind": "educationMedia" },
-    { "title": "みんなが欲しかった！FPの予想模試2級・AFP", "url": "https://tacpub.jp/list/detail.php?bc=112089", "kind": "educationMedia" },
-    { "title": "FP2級の勉強時間（ぴよパス）", "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "FP2級のおすすめテキスト（ぴよパス）", "url": "https://piyopass.com/blog/fp-2kyu-sankousho-osusume", "kind": "educationMedia" },
-    { "title": "FPは独学で合格できる？（アルク）", "url": "https://www.alc.co.jp/license/fp/dokugaku/", "kind": "educationMedia" },
-    { "title": "FP3級・2級のおすすめテキスト（モアライセンス）", "url": "https://moalicense.jp/fp/text.htm", "kind": "educationMedia" },
-    { "title": "独学合格者が使った教材", "url": "https://takahisa24.com/kyozai/", "kind": "achieverBlogs" },
-    { "title": "金融財政事情研究会（きんざい）", "url": "https://www.kinzai.or.jp/fp/", "kind": "official" },
-    { "title": "みんほし FPシリーズ案内", "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna", "kind": "educationMedia" },
-    { "title": "実技を後回しにしない（ぴよパス）", "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "問題集中心で回す（合格録）", "url": "https://takahisa24.com/kyozai/", "kind": "achieverBlogs" },
-    { "title": "計算問題の演習量（アルク）", "url": "https://www.alc.co.jp/license/fp/dokugaku/", "kind": "educationMedia" },
-    { "title": "最新年度版で揃える（ぴよパス）", "url": "https://piyopass.com/blog/fp-2kyu-sankousho-osusume", "kind": "educationMedia" },
-    { "title": "学科は共通・実技は団体で違う", "url": "https://www.jafp.or.jp/exam/outline/", "kind": "official" },
-    { "title": "テキスト1冊と問題集1冊（合格録）", "url": "https://takahisa24.com/kyozai/", "kind": "achieverBlogs" },
-    { "title": "電卓で計算する（アルク）", "url": "https://www.alc.co.jp/license/fp/dokugaku/", "kind": "educationMedia" },
-    { "title": "タックスと相続を厚く（ぴよパス）", "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan", "kind": "educationMedia" },
-    { "title": "CBT模擬プログラム（TAC）", "url": "https://tacpub.jp/list/detail.php?bc=112082", "kind": "educationMedia" }
+    {
+      "title": "日本FP協会 2級・3級試験要綱",
+      "url": "https://www.jafp.or.jp/exam/outline/",
+      "kind": "official"
+    },
+    {
+      "title": "日本FP協会 試験要綱PDF",
+      "url": "https://www.jafp.or.jp/exam/app/howto/files/outline.pdf?v=202607010900",
+      "kind": "official"
+    },
+    {
+      "title": "きんざい FP 2級/3級 CBT",
+      "url": "https://cbt-s.com/examinee/examination/kinzai_FP",
+      "kind": "official"
+    },
+    {
+      "title": "みんなが欲しかった！FPの教科書2級・AFP",
+      "url": "https://tacpub.jp/list/detail.php?bc=112082",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！FPの問題集2級・AFP",
+      "url": "https://tacpub.jp/list/detail.php?bc=112086",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "みんなが欲しかった！FPの予想模試2級・AFP",
+      "url": "https://tacpub.jp/list/detail.php?bc=112089",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FP2級の勉強時間（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FP2級のおすすめテキスト（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-2kyu-sankousho-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FPは独学で合格できる？（アルク）",
+      "url": "https://www.alc.co.jp/license/fp/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "FP3級・2級のおすすめテキスト（モアライセンス）",
+      "url": "https://moalicense.jp/fp/text.htm",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "独学合格者が使った教材",
+      "url": "https://takahisa24.com/kyozai/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "金融財政事情研究会（きんざい）",
+      "url": "https://www.kinzai.or.jp/fp/",
+      "kind": "official"
+    },
+    {
+      "title": "みんほし FPシリーズ案内",
+      "url": "https://bookstore.tac-school.co.jp/pages/add/fp_minna",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "実技を後回しにしない（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "問題集中心で回す（合格録）",
+      "url": "https://takahisa24.com/kyozai/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "計算問題の演習量（アルク）",
+      "url": "https://www.alc.co.jp/license/fp/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "最新年度版で揃える（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-2kyu-sankousho-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "学科は共通・実技は団体で違う",
+      "url": "https://www.jafp.or.jp/exam/outline/",
+      "kind": "official"
+    },
+    {
+      "title": "テキスト1冊と問題集1冊（合格録）",
+      "url": "https://takahisa24.com/kyozai/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "電卓で計算する（アルク）",
+      "url": "https://www.alc.co.jp/license/fp/dokugaku/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "タックスと相続を厚く（ぴよパス）",
+      "url": "https://piyopass.com/blog/fp-2kyu-benkyou-jikan",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "CBT模擬プログラム（TAC）",
+      "url": "https://tacpub.jp/list/detail.php?bc=112082",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {

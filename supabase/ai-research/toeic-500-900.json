@@ -11,7 +11,10 @@
   "difficulty": "高",
   "sourceCount": 25,
   "confidence": 4,
-  "tags": ["TOEIC", "英語"],
+  "tags": [
+    "TOEIC",
+    "英語"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 8,
     "expertArticles": 6,
@@ -21,39 +24,154 @@
     "reddit": 1
   },
   "commonPatterns": [
-    { "label": "金フレなどのTOEIC語彙", "rate": 92 },
-    { "label": "公式問題集", "rate": 88 },
-    { "label": "模試の間違い分析", "rate": 83 },
-    { "label": "Part5の文法演習", "rate": 83 },
-    { "label": "公式音源のシャドーイング", "rate": 79 }
+    {
+      "label": "金フレなどのTOEIC語彙",
+      "rate": 92
+    },
+    {
+      "label": "公式問題集",
+      "rate": 88
+    },
+    {
+      "label": "模試の間違い分析",
+      "rate": 83
+    },
+    {
+      "label": "Part5の文法演習",
+      "rate": 83
+    },
+    {
+      "label": "公式音源のシャドーイング",
+      "rate": 79
+    }
   ],
   "researchSummary": "900点到達者の多くは、語彙→文法（Part5）→公式音源のシャドーイング→Part対策→公式問題集の通し演習、の順で進めていました。共通していたのは「教材を増やさず、同じ公式音源と模試を繰り返す」ことです。単語帳を1周で終わらせる、書き取り中心、30日で+400点を狙うやり方は、再現されにくい傾向でした。学習時間の目安は、IIBCの「100点あたり約300時間」（自己学習でも同程度）に合わせ、500→900で約1000〜1300時間です。",
   "sources": [
-    { "title": "金のフレーズの使い方（english-route）", "url": "https://english-route.com/kinhure-tukaikata/", "kind": "expertArticles" },
-    { "title": "TOEIC 900点の単語学習と金フレ（森くんのメメント）", "url": "https://forest-memento.com/toeic-900-words-kinhure-based/", "kind": "achieverBlogs" },
-    { "title": "文法特急の使い方（english-route）", "url": "https://english-route.com/toeic-bunpoutokkyu/", "kind": "expertArticles" },
-    { "title": "TOEIC 900点の勉強法（native-real）", "url": "https://native-real.com/articles/toeic-900-study-plan/", "kind": "educationMedia" },
-    { "title": "TOEIC900の勉強法（StudyChain）", "url": "https://studychain.jp/media/toeic-900-study-highschool/", "kind": "educationMedia" },
-    { "title": "TOEICシャドーイングの手順（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-shadowing-study-guide/", "kind": "expertArticles" },
-    { "title": "Part3・4はシャドーイング（English Lab）", "url": "https://englishlab.jp/2021/10/22/toeic_part3_part4/", "kind": "expertArticles" },
-    { "title": "Part3・4は音読とシャドーイング（TOEICで500点スコアアップ）", "url": "https://toeic-500up.com/2016/12/toeic-part3.html", "kind": "achieverBlogs" },
-    { "title": "公式問題集の使い方（native-real）", "url": "https://native-real.com/articles/toeic-official-materials-guide/", "kind": "educationMedia" },
-    { "title": "公式問題集の3周復習法（桐原Online Academy）", "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/", "kind": "expertArticles" },
-    { "title": "IIBC 公式教材の音声", "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html", "kind": "official" },
-    { "title": "IIBC 公式問題集11", "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html", "kind": "official" },
-    { "title": "IIBC 公式教材・問題集", "url": "https://www.iibc-global.org/toeic/support/prep.html", "kind": "official" },
-    { "title": "IIBC 目標スコアと学習時間", "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html", "kind": "official" },
-    { "title": "Reddit r/japanlife TOEIC advice", "url": "https://www.reddit.com/r/japanlife/comments/33cj2r/need_some_advice_from_english_teachersanyone_who/", "kind": "reddit" },
-    { "title": "金フレの使い方（amirohblog）", "url": "https://amirohblog.com/toeic_kinfure/", "kind": "achieverBlogs" },
-    { "title": "TOEIC体験談（sukigoga）", "url": "https://sukigoga.com/toeic-experience/", "kind": "achieverBlogs" },
-    { "title": "TOEIC800台の勉強記録（moric-blog）", "url": "https://moric-blog.com/toeic-study-800/", "kind": "achieverBlogs" },
-    { "title": "文法特急の使い方（goh-english）", "url": "https://goh-english.com/toeic/toeic-study/grammar-express/", "kind": "expertArticles" },
-    { "title": "文法特急〜900点特急（eigo3hours）", "url": "https://eigo3hours.com/express900/", "kind": "achieverBlogs" },
-    { "title": "スタディサプリENGLISH TOEIC対策", "url": "https://eigosapuri.jp/toeic/", "kind": "educationMedia" },
-    { "title": "TOEIC勉強法（nekopajamas）", "url": "https://www.nekopajamas.net/entry/study-toeic", "kind": "achieverBlogs" },
-    { "title": "TOEIC勉強法（Zenn）", "url": "https://zenn.dev/taku_sid/articles/20250416_toeic_study", "kind": "achieverBlogs" },
-    { "title": "スタディサプリENGLISH（YouTube）", "url": "https://www.youtube.com/@studysapuri", "kind": "youtube" },
-    { "title": "Morite2 English Channel（YouTube）", "url": "https://www.youtube.com/@morite2english", "kind": "youtube" }
+    {
+      "title": "金のフレーズの使い方（english-route）",
+      "url": "https://english-route.com/kinhure-tukaikata/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "TOEIC 900点の単語学習と金フレ（森くんのメメント）",
+      "url": "https://forest-memento.com/toeic-900-words-kinhure-based/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "文法特急の使い方（english-route）",
+      "url": "https://english-route.com/toeic-bunpoutokkyu/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "TOEIC 900点の勉強法（native-real）",
+      "url": "https://native-real.com/articles/toeic-900-study-plan/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "TOEIC900の勉強法（StudyChain）",
+      "url": "https://studychain.jp/media/toeic-900-study-highschool/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "TOEICシャドーイングの手順（桐原Online Academy）",
+      "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-shadowing-study-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Part3・4はシャドーイング（English Lab）",
+      "url": "https://englishlab.jp/2021/10/22/toeic_part3_part4/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "Part3・4は音読とシャドーイング（TOEICで500点スコアアップ）",
+      "url": "https://toeic-500up.com/2016/12/toeic-part3.html",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "公式問題集の使い方（native-real）",
+      "url": "https://native-real.com/articles/toeic-official-materials-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "公式問題集の3周復習法（桐原Online Academy）",
+      "url": "https://academy.kirihara.co.jp/blog/toeic/toeic-official-workbook-study-method/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "IIBC 公式教材の音声",
+      "url": "https://www.iibc-global.org/toeic/support/prep/download_audios.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 公式問題集11",
+      "url": "https://www.iibc-global.org/toeic/support/prep/lr_ud_11/pr.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 公式教材・問題集",
+      "url": "https://www.iibc-global.org/toeic/support/prep.html",
+      "kind": "official"
+    },
+    {
+      "title": "IIBC 目標スコアと学習時間",
+      "url": "https://www.iibc-global.org/toeic/support/study_methods/methods07.html",
+      "kind": "official"
+    },
+    {
+      "title": "Reddit r/japanlife TOEIC advice",
+      "url": "https://www.reddit.com/r/japanlife/comments/33cj2r/need_some_advice_from_english_teachersanyone_who/",
+      "kind": "reddit"
+    },
+    {
+      "title": "金フレの使い方（amirohblog）",
+      "url": "https://amirohblog.com/toeic_kinfure/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "TOEIC体験談（sukigoga）",
+      "url": "https://sukigoga.com/toeic-experience/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "TOEIC800台の勉強記録（moric-blog）",
+      "url": "https://moric-blog.com/toeic-study-800/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "文法特急の使い方（goh-english）",
+      "url": "https://goh-english.com/toeic/toeic-study/grammar-express/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "文法特急〜900点特急（eigo3hours）",
+      "url": "https://eigo3hours.com/express900/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "スタディサプリENGLISH TOEIC対策",
+      "url": "https://eigosapuri.jp/toeic/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "TOEIC勉強法（nekopajamas）",
+      "url": "https://www.nekopajamas.net/entry/study-toeic",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "TOEIC勉強法（Zenn）",
+      "url": "https://zenn.dev/taku_sid/articles/20250416_toeic_study",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "スタディサプリENGLISH（YouTube）",
+      "url": "https://www.youtube.com/@studysapuri",
+      "kind": "youtube"
+    },
+    {
+      "title": "Morite2 English Channel（YouTube）",
+      "url": "https://www.youtube.com/@morite2english",
+      "kind": "youtube"
+    }
   ],
   "groups": [
     {

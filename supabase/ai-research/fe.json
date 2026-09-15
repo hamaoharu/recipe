@@ -11,7 +11,11 @@
   "difficulty": "中",
   "sourceCount": 22,
   "confidence": 4,
-  "tags": ["基本情報", "IT", "資格"],
+  "tags": [
+    "基本情報",
+    "IT",
+    "資格"
+  ],
   "sourceBreakdown": {
     "achieverBlogs": 6,
     "expertArticles": 6,
@@ -19,36 +23,139 @@
     "educationMedia": 6
   },
   "commonPatterns": [
-    { "label": "最新シラバスの参考書を軽く1周する", "rate": 86 },
-    { "label": "科目Aは過去問道場を中心に回す", "rate": 95 },
-    { "label": "科目Bは出るとこだけとIPA公開問題でトレースする", "rate": 91 },
-    { "label": "古い午前・午後本は使わない", "rate": 82 },
-    { "label": "不合格の多くは科目B", "rate": 86 }
+    {
+      "label": "最新シラバスの参考書を軽く1周する",
+      "rate": 86
+    },
+    {
+      "label": "科目Aは過去問道場を中心に回す",
+      "rate": 95
+    },
+    {
+      "label": "科目Bは出るとこだけとIPA公開問題でトレースする",
+      "rate": 91
+    },
+    {
+      "label": "古い午前・午後本は使わない",
+      "rate": 82
+    },
+    {
+      "label": "不合格の多くは科目B",
+      "rate": 86
+    }
   ],
   "researchSummary": "合格者の多くは、最新シラバス対応の参考書をざっと1周したあと、科目Aは過去問道場、科目Bは擬似言語のトレース専用教材とIPAのサンプル／公開問題、の順でした。科目A・科目Bはどちらも1000点満点中600点が基準で、CBTの同日受験です。平成の午前・午後問題集を主教材にしない点が共通しています。科目Aは過去問の反復で点が伸びやすい一方、科目Bは公開問題が少なく、トレース練習を別途積まないと落ちやすい、という指摘が重なっていました。学習時間は約150〜200時間、科目Bが初めてなら約250時間まで見ます。",
   "sources": [
-    { "title": "基本情報技術者過去問道場", "url": "https://www.fe-siken.com/fekakomon.php", "kind": "educationMedia" },
-    { "title": "試験の形式と合格基準（FE.com）", "url": "https://www.fe-siken.com/fekeisiki.html", "kind": "educationMedia" },
-    { "title": "ITパスポート・基本情報 パンフレット（IPA）", "url": "https://www.ipa.go.jp/shiken/about/gmcbt8000000cy3n-att/pamphlet_IP-FE.pdf", "kind": "official" },
-    { "title": "科目B サンプル問題（IPA）", "url": "https://www.ipa.go.jp/shiken/syllabus/ps6vr7000000oett-att/fe_kamoku_b_sample.pdf", "kind": "official" },
-    { "title": "令和8年度 科目B 公開問題（IPA）", "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_b_qs.pdf", "kind": "official" },
-    { "title": "CBT 基本情報技術者", "url": "https://cbt-s.com/examinee/examination/fe", "kind": "official" },
-    { "title": "過去問道場の使い方（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
-    { "title": "過去問の使い方 2026（next-skill-shift）", "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/", "kind": "educationMedia" },
-    { "title": "過去問道場ガイド（CayTech Lab）", "url": "https://caymezon.com/fe-exam-kakomon-dojo-guide/", "kind": "educationMedia" },
-    { "title": "基本情報の勉強方法（Qiita）", "url": "https://qiita.com/yuyadesu/items/c9153c49d5c72247ae2e", "kind": "achieverBlogs" },
-    { "title": "過去問ひたすらやれ（note）", "url": "https://note.com/nowa0402/n/n670630f8bb03", "kind": "achieverBlogs" },
-    { "title": "おすすめテキスト（ぴよパス）", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" },
-    { "title": "おすすめ参考書（BizIT Frontier）", "url": "https://noribloglab.com/fe-books/", "kind": "achieverBlogs" },
-    { "title": "科目Bの対策（Tech Teacher）", "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/", "kind": "expertArticles" },
-    { "title": "出るとこだけ 科目B", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" },
-    { "title": "キタミ式の位置づけ", "url": "https://noribloglab.com/fe-books/", "kind": "achieverBlogs" },
-    { "title": "科目Bは道場だけでは不足（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
-    { "title": "選択肢シャッフル（キホン猫）", "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/", "kind": "expertArticles" },
-    { "title": "IPA公開問題をやる（note）", "url": "https://note.com/nowa0402/n/n670630f8bb03", "kind": "achieverBlogs" },
-    { "title": "科目Aは分野別→模試（next-skill-shift）", "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/", "kind": "educationMedia" },
-    { "title": "擬似言語トレース（Tech Teacher）", "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/", "kind": "expertArticles" },
-    { "title": "シラバス対応の最新版を選ぶ（ぴよパス）", "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume", "kind": "educationMedia" }
+    {
+      "title": "基本情報技術者過去問道場",
+      "url": "https://www.fe-siken.com/fekakomon.php",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "試験の形式と合格基準（FE.com）",
+      "url": "https://www.fe-siken.com/fekeisiki.html",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "ITパスポート・基本情報 パンフレット（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/about/gmcbt8000000cy3n-att/pamphlet_IP-FE.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "科目B サンプル問題（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/syllabus/ps6vr7000000oett-att/fe_kamoku_b_sample.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "令和8年度 科目B 公開問題（IPA）",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/rcu1hd0000012qj6-att/2026r08_fe_kamoku_b_qs.pdf",
+      "kind": "official"
+    },
+    {
+      "title": "CBT 基本情報技術者",
+      "url": "https://cbt-s.com/examinee/examination/fe",
+      "kind": "official"
+    },
+    {
+      "title": "過去問道場の使い方（キホン猫）",
+      "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "過去問の使い方 2026（next-skill-shift）",
+      "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "過去問道場ガイド（CayTech Lab）",
+      "url": "https://caymezon.com/fe-exam-kakomon-dojo-guide/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "基本情報の勉強方法（Qiita）",
+      "url": "https://qiita.com/yuyadesu/items/c9153c49d5c72247ae2e",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "過去問ひたすらやれ（note）",
+      "url": "https://note.com/nowa0402/n/n670630f8bb03",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "おすすめテキスト（ぴよパス）",
+      "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "おすすめ参考書（BizIT Frontier）",
+      "url": "https://noribloglab.com/fe-books/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "科目Bの対策（Tech Teacher）",
+      "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "出るとこだけ 科目B",
+      "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "キタミ式の位置づけ",
+      "url": "https://noribloglab.com/fe-books/",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "科目Bは道場だけでは不足（キホン猫）",
+      "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "選択肢シャッフル（キホン猫）",
+      "url": "https://fe-kihon.com/fe-exam-kakomonjuku-guide/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "IPA公開問題をやる（note）",
+      "url": "https://note.com/nowa0402/n/n670630f8bb03",
+      "kind": "achieverBlogs"
+    },
+    {
+      "title": "科目Aは分野別→模試（next-skill-shift）",
+      "url": "https://next-skill-shift.com/kihon-joho-kakomon-tsukaikata-2026/",
+      "kind": "educationMedia"
+    },
+    {
+      "title": "擬似言語トレース（Tech Teacher）",
+      "url": "https://www.tech-teacher.jp/blog/fe-subject-b-measures/",
+      "kind": "expertArticles"
+    },
+    {
+      "title": "シラバス対応の最新版を選ぶ（ぴよパス）",
+      "url": "https://piyopass.com/blog/kihon-joho-gijutsusha-text-osusume",
+      "kind": "educationMedia"
+    }
   ],
   "groups": [
     {
